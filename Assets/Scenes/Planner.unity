@@ -563,6 +563,50 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1375448101444720922, guid: d2a1e95e8bf6bae4db4c1af602d85101, type: 3}
   m_PrefabInstance: {fileID: 115993251}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &128366670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 128366672}
+  - component: {fileID: 128366671}
+  m_Layer: 0
+  m_Name: Test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &128366671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128366670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17fbe8811f1d4b61b48b1fd3b9dc1b33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &128366672
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128366670}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &147001815
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4531,6 +4575,80 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1375448101444720922, guid: d2a1e95e8bf6bae4db4c1af602d85101, type: 3}
   m_PrefabInstance: {fileID: 1622329168}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1666769407
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1666769409}
+  - component: {fileID: 1666769408}
+  m_Layer: 0
+  m_Name: SaveFile
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1666769408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666769407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea790f55cc20c9c4998dd5be5982ef62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soulStones: 33477
+  soulStonesOnLastVisit: 0
+  ascendantShards: 0
+  skillSlots:
+  - _skillHashId: 50
+  - _skillHashId: -1
+  - _skillHashId: -1
+  - _skillHashId: 2
+  - _skillHashId: -1
+  gameplayTime: 11676
+  bestTime: -73
+  unlockedSkills: 0000000001000000020000000400000003000000450000009d0000004a00000032000000
+  availableSkills: 0000000001000000020000000400000003000000320000009d000000450000004a000000
+  completedOnboardingKeys:
+  - Onboarding Movement
+  - Onboarding Attack
+  - Onboarding Interact
+  - Onboarding Equip Trinket
+  - Onboarding Blessings
+  - Onboarding Low Life
+  - Onboarding First Loop
+  - Onboarding Blessed Gear
+  - Onboarding Skills
+  - Onboarding Soul Stones
+  - Notification Wood
+  - Onboarding Great Bell
+  - Onboarding Equip Relic
+  - Onboarding Conviction
+  lastBlessedShopId: 1
+  saveVersion: 1
+--- !u!4 &1666769409
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666769407}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1669219820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6100,3 +6218,5 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 995548439}
   - {fileID: 651667702}
+  - {fileID: 128366672}
+  - {fileID: 1666769409}
