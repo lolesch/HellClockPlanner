@@ -1,0 +1,211 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aee296b252a48a38a8c32dd9141bcce, type: 3}
+  m_Name: DataContainer
+  m_EditorClassIdentifier: 
+  foldoutImportGUI: 1
+  documentId: 17eNmTa4YziI9Fv3kL4vu1dRqnJSeAk51T-3yxneDSzY
+  selectedTogglesIds:
+  - skills
+  foldoutSerializationGUI: 0
+  serializationOutputPath: ../../Configs
+  serializationFileName: Configs.v0.1
+  serializationFormat: 0
+  content:
+    skills:
+    - name: Attack
+      Id: 0
+      Name: Attack
+      Description: Basic revolver shot. Restores 15% of maximum Mana on hit.
+      ManaCost: 0
+      Cooldown: 0.25
+      BaseDamage: 100
+      GlobalBuff: 0
+    - name: Split Shot
+      Id: 1
+      Name: Split Shot
+      Description: Shoot multiple bullets in a cone on front of you. Especially strong
+        against nearby enemies.
+      ManaCost: 120
+      Cooldown: 0.25
+      BaseDamage: 60
+      GlobalBuff: 0
+    - name: Shadow Dash
+      Id: 2
+      Name: Shadow Dash
+      Description: Dash vey quickly, dealing damage to enemies on your path.
+      ManaCost: 100
+      Cooldown: 3
+      BaseDamage: 80
+      GlobalBuff: 0
+    - name: Repeater
+      Id: 3
+      Name: Repeater
+      Description: By holding the skill button, machinegun-like fire on a single
+        target.
+      ManaCost: 42
+      Cooldown: 0.5
+      BaseDamage: 66
+      GlobalBuff: 0
+    - name: Reflexes
+      Id: 4
+      Name: Reflexes
+      Description: Summons a ring of Spectral Knives around the player that are automatically
+        thriwn ar nearby enemies.
+      ManaCost: 0
+      Cooldown: 8
+      BaseDamage: 75
+      GlobalBuff: 0
+    - name: 9
+      Id: 9
+      Name: Second Wind
+      Description: After taking fatal damage, you don't die and recover a percentage
+        of your life.
+      ManaCost: 0
+      Cooldown: 120
+      BaseDamage: 0
+      GlobalBuff: 0
+    - name: 46
+      Id: 46
+      Name: Prayer Of Health
+      Description: You gain constant Life regeneration. All allies are also affected.
+      ManaCost: 300
+      Cooldown: 25
+      BaseDamage: 0
+      GlobalBuff: 0
+    - name: 49
+      Id: 49
+      Name: Prayer of Vengeance
+      Description: You and all allies in the target area gain increased damage and
+        attack speed.
+      ManaCost: 300
+      Cooldown: 10
+      BaseDamage: 0
+      GlobalBuff: 0
+    - name: Old Bell
+      Id: 50
+      Name: Old Bell
+      Description: The Old Bell comes crashing down on your enemies.
+      ManaCost: 400
+      Cooldown: 0.5
+      BaseDamage: 300
+      GlobalBuff: 0
+    - name: Judgement
+      Id: 67
+      Name: Judgement
+      Description: All enemies in the target area are judged, reducing all their
+        resistances by 40% for 4 seconds.
+      ManaCost: 300
+      Cooldown: 1
+      BaseDamage: 0
+      GlobalBuff: 0
+    - name: Double Knives
+      Id: 69
+      Name: Double Knives
+      Description: Continuously spin two blades around while you move, dealing Physical
+        damage to nearby enemies.
+      ManaCost: 34
+      Cooldown: 0.5
+      BaseDamage: 80
+      GlobalBuff: 0
+    - name: 70
+      Id: 70
+      Name: Passage
+      Description: Cut a passage through space and time, instantly appearing somewhere
+        else.
+      ManaCost: 100
+      Cooldown: 0.75
+      BaseDamage: 0
+      GlobalBuff: 0
+    - name: Lasso
+      Id: 71
+      Name: Lasso
+      Description: Grapples and pulls enemies in an area, stunning them for 2 seconds
+        with a 20% chance to cause Bleeding for 4 seconds. Bosses are not pulled,
+        nor stunned but can still suffer Bleeding.
+      ManaCost: 0
+      Cooldown: 4
+      BaseDamage: 0
+      GlobalBuff: 0
+    - name: 72
+      Id: 72
+      Name: Feitor's Lash
+      Description: Lash at nearby enemies in an arc in front of you.
+      ManaCost: 450
+      Cooldown: 0
+      BaseDamage: 120
+      GlobalBuff: 0
+    - name: Slow Time
+      Id: 74
+      Name: Slow Time
+      Description: All enemies have their movement speed, attack speed and projectile
+        speed reduced.
+      ManaCost: 0
+      Cooldown: 11
+      BaseDamage: 0
+      GlobalBuff: 0
+    - name: Closed Body
+      Id: 157
+      Name: Closed Body
+      Description: Envelops you in a Barrier of Conviction based on your Maximum
+        Mana, While Closed Body is active, your Conviction Decay is reduced by 50%,
+        and every attack received is retaliated with a Physical Damage Explosion.
+      ManaCost: 0
+      Cooldown: 15
+      BaseDamage: 100
+      GlobalBuff: 0
+    - name: Bombardment
+      Id: 201
+      Name: Bombardment
+      Description: Summons a Bombardment over a large area for 8 seconds, dealing
+        AoE Physical Damage on impact.
+      ManaCost: 0
+      Cooldown: 10
+      BaseDamage: 100
+      GlobalBuff: 0
+    - name: Summon the Guard
+      Id: 203
+      Name: Summon the Guard
+      Description: 'Spirits of the Canudos Catholic Guard are summoned to fight by
+        your side. Guard''s Rage: Upon skill activation, all Catholic Guard''s Spirits
+        reveive a 200% boost to attack speed for 4 seconds.'
+      ManaCost: 100
+      Cooldown: 15
+      BaseDamage: 30
+      GlobalBuff: 0
+    - name: Matadeira
+      Id: 209
+      Name: Matadeira
+      Description: Mark an area to be bombarded by a powerful cannon shot. The explosion
+        area is ignited for 3 seconds.
+      ManaCost: 0
+      Cooldown: 5
+      BaseDamage: 120
+      GlobalBuff: 0
+    - name: Holy Rosary
+      Id: 210
+      Name: Holy Rosary
+      Description: Summon beads of the Rosary that orbit in a spiral around you,
+        dealing Lightning damage.
+      ManaCost: 200
+      Cooldown: 0.25
+      BaseDamage: 85
+      GlobalBuff: 0
+    - name: Veil of Quills
+      Id: 211
+      Name: Veil of Quills
+      Description: Unleashes a flurry of spectral quills that seek out nearby enemies,
+        dealing Plague damage.
+      ManaCost: 200
+      Cooldown: 0.25
+      BaseDamage: 70
+      GlobalBuff: 0

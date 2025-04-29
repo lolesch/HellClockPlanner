@@ -4604,36 +4604,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea790f55cc20c9c4998dd5be5982ef62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soulStones: 33477
+  soulStones: 3554
   soulStonesOnLastVisit: 0
   ascendantShards: 0
   skillSlots:
-  - _skillHashId: 50
-  - _skillHashId: -1
-  - _skillHashId: -1
-  - _skillHashId: 2
-  - _skillHashId: -1
-  gameplayTime: 11676
-  bestTime: -73
-  unlockedSkills: 0000000001000000020000000400000003000000450000009d0000004a00000032000000
-  availableSkills: 0000000001000000020000000400000003000000320000009d000000450000004a000000
-  completedOnboardingKeys:
-  - Onboarding Movement
-  - Onboarding Attack
-  - Onboarding Interact
-  - Onboarding Equip Trinket
-  - Onboarding Blessings
-  - Onboarding Low Life
-  - Onboarding First Loop
-  - Onboarding Blessed Gear
-  - Onboarding Skills
-  - Onboarding Soul Stones
-  - Notification Wood
-  - Onboarding Great Bell
-  - Onboarding Equip Relic
-  - Onboarding Conviction
-  lastBlessedShopId: 1
-  saveVersion: 1
+  - name: Attack
+    _skillHashId: 0
+  - name: Split Shot
+    _skillHashId: 1
+  - name: Shadow Dash
+    _skillHashId: 2
+  - name: Repeater
+    _skillHashId: 3
+  - name: Reflexes
+    _skillHashId: 4
+  unlockedSkills: 0000000001000000020000000300000004000000320000004300000045000000470000004a0000009d000000c9000000cb000000d1000000d2000000d3000000
+  availableSkills: 0000000001000000020000000300000004000000320000004300000045000000470000004a0000009d000000c9000000cb000000d1000000d2000000d3000000
 --- !u!4 &1666769409
 Transform:
   m_ObjectHideFlags: 0

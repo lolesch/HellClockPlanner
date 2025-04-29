@@ -7,6 +7,8 @@ namespace Code.Data
     public static class Constants
     {
         private const string FileEnding = "json";
+        public const string DatabaseSkills = "Skills";
+        public const string DatabaseAffixes = "Affixes";
 
         public static string GetFileName( PlayerSaveId id ) => $"{id}.{FileEnding}";
         public static string GetSaveDirectory()
@@ -16,13 +18,8 @@ namespace Code.Data
             subPaths[^1] = "Hell Clock";
             subPaths[^2] = "Rogue Snail";
             
-            //return Path.Combine( subPaths );
-            
-            //var localLow = subPaths[..^2];
             var sb = new StringBuilder();
             sb.AppendJoin( "/", subPaths );
-            //sb.AppendJoin( "/", localLow );
-            //sb.Append( "/Rogue Snail/Hell Clock" );
             
             return sb.ToString();
         }

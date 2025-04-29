@@ -1,3 +1,5 @@
+using System.ComponentModel;
+
 namespace Code.Data.Enums
 {
     public enum SkillHashId
@@ -15,9 +17,11 @@ namespace Code.Data.Enums
         SlowTime = 74,
         ClosedBody = 157,
         Bombardment = 201,
+        [Description("Summon the Guard")]
         SummonTheGuard = 203,
         Matadeira = 209,
         HolyRosary = 210,
+        [Description("Veil of Quills")]
         VeilOfQuills = 211,
     }
 }

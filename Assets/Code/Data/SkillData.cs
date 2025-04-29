@@ -1,51 +1,36 @@
+using System;
 using Code.Data.Enums;
-using Code.Utility.AttributeRefs;
 using Code.Utility.Extensions;
 using UnityEngine;
 
 namespace Code.Data
 {
-    [CreateAssetMenu(fileName = "SkillData", menuName = "ScriptableObjects/SkillData")]
-    public sealed class SkillData : ScriptableObject
+    [Serializable]
+    public sealed class SkillData : ISerializationCallbackReceiver
     {
-        public SkillHashId _skillHashId;
-        [PreviewIcon] public Sprite Icon;
-        public int manaCost;
-        public float cooldown;
-        public SkillTag[] tags;
-        public int BaseDamage;
-        [TextArea(3,5)]public string Description;
-        public int globalBuff;
-        public int[] affectingRelics;
-        //TODO: implement skill effects
-        public string skillEffect;
+        [HideInInspector]public string name;
         
-        public string Name => _skillHashId.ToDescription();
+        public SkillHashId Id;
+        //public Sprite Icon;
+        public string Name;
+        [TextArea(3,5)]public string Description;
+        public int ManaCost;
+        public float Cooldown;
+        public int BaseDamage;
+        public int GlobalBuff;
+        //public SkillTag[] Tags;
+        //public int[] AffectingRelics;
+        //TODO: implement skill effects
+        //public string SkillEffect;
+
+        public void OnBeforeSerialize() => name = Id.ToDescription();
+        public void OnAfterDeserialize() => name = Id.ToDescription();
+        //[ContextMenu("RetrieveIcon")]private void RetrieveIcon() => Icon = Resources.Load<Sprite>( Id.ToString() );
     }
 
     public sealed class Skill
     {
-        public int rank;
+        public int Rank;
         //public bool assigned;
-    }
-
-    public enum SkillTag
-    {
-        FireDamage,
-        LightningDamage,
-        PhysicalDamage,
-        PlagueDamage,
-        
-        SingleTarget,
-        AreaOfEffect,
-        Projectile,
-        
-        Marksman,
-        Melee,
-        
-        Mobility,
-        Spell,
-        Enhancement,
-        Passive,
     }
 }
