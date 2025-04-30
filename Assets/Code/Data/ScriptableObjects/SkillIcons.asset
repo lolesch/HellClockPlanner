@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 986c0cd48a7746be99b2c7d5a930abf1, type: 3}
+  m_Name: SkillIcons
+  m_EditorClassIdentifier: 
+  _skillIcons:
+  - name: Attack
+    <skillHashId>k__BackingField: 0
+    <icon>k__BackingField: {fileID: -7008412969330441016, guid: eeabc3b1af4fb164fae56f774c222257, type: 3}
+  - name: Split Shot
+    <skillHashId>k__BackingField: 1
+    <icon>k__BackingField: {fileID: -3652812577366246196, guid: fe3e73bf35e4f4d4a9c4854a435c24af, type: 3}
+  - name: Shadow Dash
+    <skillHashId>k__BackingField: 2
+    <icon>k__BackingField: {fileID: -6877361198393066398, guid: 9b91cbc524af15648a538fe1dc2f0142, type: 3}
+  - name: Repeater
+    <skillHashId>k__BackingField: 3
+    <icon>k__BackingField: {fileID: -1731964075387253349, guid: 366aa1eca3175b7408a025a722fedc6b, type: 3}
+  - name: Reflexes
+    <skillHashId>k__BackingField: 4
+    <icon>k__BackingField: {fileID: -949724790794713539, guid: 2498ae4f4e5e1f24ba0c0add2bee7947, type: 3}
+  - name: Old Bell
+    <skillHashId>k__BackingField: 50
+    <icon>k__BackingField: {fileID: -798201643570595171, guid: 1e6d9dbd7e1d97049bf62ef11c473b1f, type: 3}
+  - name: Judgement
+    <skillHashId>k__BackingField: 67
+    <icon>k__BackingField: {fileID: 6950174656021418613, guid: 501cbed62e93998439cd44cdc4d2978a, type: 3}
+  - name: Double Knives
+    <skillHashId>k__BackingField: 69
+    <icon>k__BackingField: {fileID: -1533173189890996978, guid: 9a90e2384a958864fbb695e5a7c606cc, type: 3}
+  - name: Lasso
+    <skillHashId>k__BackingField: 71
+    <icon>k__BackingField: {fileID: 2454857817767266486, guid: 554ccd0d3f59ae54bbaeaa9278fdfbb1, type: 3}
+  - name: Slow Time
+    <skillHashId>k__BackingField: 74
+    <icon>k__BackingField: {fileID: -629888055265147102, guid: 62140f2fec22a6d46b0ac58d51ab3ba6, type: 3}
+  - name: Closed Body
+    <skillHashId>k__BackingField: 157
+    <icon>k__BackingField: {fileID: 6987739525892642490, guid: b1c8ac7f264a21f41b8678ca7e34f2d1, type: 3}
+  - name: Bombardment
+    <skillHashId>k__BackingField: 201
+    <icon>k__BackingField: {fileID: 5700486394473602221, guid: 1c1edb266ddff7d49a5d3f1d1bc80c44, type: 3}
+  - name: Summon the Guard
+    <skillHashId>k__BackingField: 203
+    <icon>k__BackingField: {fileID: -7809785511404226330, guid: 43fbb742da66d9b4b82a16b983dee319, type: 3}
+  - name: Matadeira
+    <skillHashId>k__BackingField: 209
+    <icon>k__BackingField: {fileID: -796661832525420238, guid: 46b30d826a1d7564aa1988b9bebe453c, type: 3}
+  - name: Holy Rosary
+    <skillHashId>k__BackingField: 210
+    <icon>k__BackingField: {fileID: 18594889596311770, guid: 07f8d7cfd063c4e458330a2f5c47e296, type: 3}
+  - name: Veil of Quills
+    <skillHashId>k__BackingField: 211
+    <icon>k__BackingField: {fileID: 1509862514709414783, guid: 4778daa39cdcabb41a458c9b2af14d94, type: 3}
+  - name: None
+    <skillHashId>k__BackingField: -1
+    <icon>k__BackingField: {fileID: 0}

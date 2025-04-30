@@ -44,6 +44,10 @@ namespace Code.Runtime.Serialisation
         //[SerializeField] private MaxTierShownForGearSlot maxTierShownForGearSlot;
         //[SerializeField] private SkillUpgradeLevel skillUpgradeLevel;
         //[SerializeField] private int saveVersion;
+
+        public event Action<PlayerSave> OnSaveLoaded;
+        
+        public SkillHashId GetSkillFromSlotIndex( int slotIndex ) => skillSlots[slotIndex]._skillHashId;
         
         [ContextMenu("LoadSlot0")]
         private void LoadSlot0() => LoadJson( Constants.PlayerSaveId.PlayerSave0 );
@@ -52,7 +56,7 @@ namespace Code.Runtime.Serialisation
         [ContextMenu("LoadSlot2")]
         private void LoadSlot2() => LoadJson( Constants.PlayerSaveId.PlayerSave2 );
         
-        private void LoadJson( Constants.PlayerSaveId id )
+        public void LoadJson( Constants.PlayerSaveId id )
         {
             var directory = Constants.GetSaveDirectory();
 
@@ -73,6 +77,8 @@ namespace Code.Runtime.Serialisation
             var jsonFile = new TextAsset( File.ReadAllText( files[0] ) );
             
             JsonUtility.FromJsonOverwrite( jsonFile.text, this );
+            
+            OnSaveLoaded?.Invoke( this );
         }
     }
 }

@@ -9,6 +9,9 @@ namespace Code.Data
         private const string FileEnding = "json";
         public const string DatabaseSkills = "Skills";
         public const string DatabaseAffixes = "Affixes";
+        
+        public const float TooltipDelayAfterInteraction = 2;
+        public const float TooltipDelay = 2;
 
         public static string GetFileName( PlayerSaveId id ) => $"{id}.{FileEnding}";
         public static string GetSaveDirectory()
