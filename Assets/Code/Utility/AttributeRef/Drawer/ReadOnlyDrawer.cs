@@ -1,8 +1,9 @@
+using Code.Utility.AttributeRef.Attributes;
 using UnityEditor;
 using UnityEngine;
 
 #if UNITY_EDITOR
-namespace Code.Utility.AttributeRefs
+namespace Code.Utility.AttributeRef.Drawer
 {
     [CustomPropertyDrawer(typeof(ReadOnlyAttribute))]
     public sealed class ReadOnlyDrawer : PropertyDrawer

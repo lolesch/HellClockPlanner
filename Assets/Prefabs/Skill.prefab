@@ -670,20 +670,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6119770637144778933}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: -658161160174202911, guid: 0497bd02eba342a4f80fcb01cfc6a3f8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -706,7 +706,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSave: {fileID: 0}
-  icons: {fileID: 0}
+  icons: {fileID: 11400000, guid: 856dac39c97ec25408a9617f168c2d5f, type: 2}
+  dropdown: {fileID: 8124019401915616725}
   slotIndex: 0
 --- !u!1 &8175714762062924911
 GameObject:
@@ -837,8 +838,8 @@ MonoBehaviour:
   m_Options:
     m_Options:
     - m_Text: None
-      m_Image: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-      m_Color: {r: 1, g: 1, b: 1, a: 0}
+      m_Image: {fileID: -658161160174202911, guid: 0497bd02eba342a4f80fcb01cfc6a3f8, type: 3}
+      m_Color: {r: 1, g: 1, b: 1, a: 1}
     - m_Text: Attack
       m_Image: {fileID: -7008412969330441016, guid: eeabc3b1af4fb164fae56f774c222257, type: 3}
       m_Color: {r: 1, g: 1, b: 1, a: 1}

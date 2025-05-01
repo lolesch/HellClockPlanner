@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c0cedd0e55ec7ec49af662457d5a5056
+guid: 87d7565f0c2185e45adb6287a8cb2c3c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7205562178109857613
-    second: Skills_hotbar_0
+      213: -444605171111208943
+    second: "Paje\xFA_Icon_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Skills_hotbar_0
+      name: "Paje\xFA_Icon_0"
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 646
-        height: 179
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d4f5a31df9c4ff360800000000000000
-      internalID: 7205562178109857613
+      spriteID: 1185d96d3f174d9f0800000000000000
+      internalID: -444605171111208943
       vertices: []
       indices: 
       edges: []
@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "Paje\xFA_Icon_0": -444605171111208943
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

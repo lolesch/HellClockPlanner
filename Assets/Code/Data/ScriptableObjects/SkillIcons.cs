@@ -4,9 +4,9 @@ using Code.Data.Enums;
 using Code.Utility.Extensions;
 using UnityEngine;
 
-namespace Code.Data
+namespace Code.Data.ScriptableObjects
 {
-    [CreateAssetMenu( fileName = "SkillIcons", menuName = "ScriptableObjects/SkillIcons" )]
+    [CreateAssetMenu( fileName = "SkillIcons", menuName = Const.DataCollections + "SkillIcons" )]
     public sealed class SkillIcons : ScriptableObject
     {
         [SerializeField] private List<SkillIcon> _skillIcons;

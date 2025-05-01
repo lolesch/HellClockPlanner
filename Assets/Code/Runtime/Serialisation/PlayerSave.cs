@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using Code.Data;
 using Code.Data.Enums;
-using Code.Utility.AttributeRefs;
+using Code.Utility.AttributeRef.Attributes;
 using UnityEngine;
 
 namespace Code.Runtime.Serialisation
@@ -46,19 +46,27 @@ namespace Code.Runtime.Serialisation
         //[SerializeField] private int saveVersion;
 
         public event Action<PlayerSave> OnSaveLoaded;
-        
         public SkillHashId GetSkillFromSlotIndex( int slotIndex ) => skillSlots[slotIndex]._skillHashId;
+        public void SetSkillInSlotIndex( int slotIndex, SkillHashId skillHashId )
+        {
+            skillSlots[slotIndex]._skillHashId = skillHashId;
+            OnSaveLoaded?.Invoke( this );
+        }
+
+        private void Start() => OnSaveLoaded?.Invoke( this );
+        
+
         
         [ContextMenu("LoadSlot0")]
-        private void LoadSlot0() => LoadJson( Constants.PlayerSaveId.PlayerSave0 );
+        private void LoadSlot0() => LoadJson( Const.PlayerSaveId.PlayerSave0 );
         [ContextMenu("LoadSlot1")]
-        private void LoadSlot1() => LoadJson( Constants.PlayerSaveId.PlayerSave1 );
+        private void LoadSlot1() => LoadJson( Const.PlayerSaveId.PlayerSave1 );
         [ContextMenu("LoadSlot2")]
-        private void LoadSlot2() => LoadJson( Constants.PlayerSaveId.PlayerSave2 );
+        private void LoadSlot2() => LoadJson( Const.PlayerSaveId.PlayerSave2 );
         
-        public void LoadJson( Constants.PlayerSaveId id )
+        public void LoadJson( Const.PlayerSaveId id )
         {
-            var directory = Constants.GetSaveDirectory();
+            var directory = Const.GetSaveDirectory();
 
             if( !Directory.Exists( directory ) )
             {
@@ -66,11 +74,11 @@ namespace Code.Runtime.Serialisation
                 return;
             }
             
-            var files = Directory.GetFiles(directory, $"*{Constants.GetFileName(id)}");
+            var files = Directory.GetFiles(directory, $"*{Const.GetFileName(id)}");
             
             if ( files.Length == 0 )
             {
-                Debug.Log( $"File {Constants.GetFileName(id)} does not exist" );
+                Debug.Log( $"File {Const.GetFileName(id)} does not exist" );
                 return;
             }
             

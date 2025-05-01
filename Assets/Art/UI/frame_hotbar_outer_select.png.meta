@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      frame_hotbar_outer_select_0: 7485136066685149612
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

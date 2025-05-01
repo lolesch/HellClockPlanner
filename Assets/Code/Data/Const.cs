@@ -4,16 +4,21 @@ using UnityEngine;
     
 namespace Code.Data
 {
-    public static class Constants
+    public static class Const
     {
+        // ScriptableObject hierarchy
+        private const string Root = "SO/";
+        public const string DataCollections = Root + "DataCollections/";
+        
         private const string FileEnding = "json";
         public const string DatabaseSkills = "Skills";
         public const string DatabaseAffixes = "Affixes";
         
-        public const float TooltipDelayAfterInteraction = 2;
-        public const float TooltipDelay = 2;
+        public const float TooltipDelay = .5f;
+        public const float TooltipDelayAfterInteraction = 2f;
 
         public static string GetFileName( PlayerSaveId id ) => $"{id}.{FileEnding}";
+        
         public static string GetSaveDirectory()
         {
             var persistentPath = Application.persistentDataPath;

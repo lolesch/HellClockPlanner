@@ -9,7 +9,7 @@ namespace Code.Runtime.UI
         private void PrinPersistentPath() => Debug.Log( Application.persistentDataPath );
         
         [ContextMenu("PrintSaveDirectory")]
-        private void PrintSaveDirectory() => Debug.Log( Constants.GetSaveDirectory() );
+        private void PrintSaveDirectory() => Debug.Log( Const.GetSaveDirectory() );
         
     }
 }
