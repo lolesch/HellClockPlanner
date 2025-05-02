@@ -1,10 +1,9 @@
 using System;
 using System.Linq;
-using Code.Data;
 using Code.Data.Enums;
 using Code.Data.ScriptableObjects;
 using Code.Runtime.Serialisation;
-using Code.Utility.AttributeRefs;
+using  Code.Utility.AttributeRef.Attributes;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
