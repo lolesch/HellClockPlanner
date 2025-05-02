@@ -1,3 +1,5 @@
+### Setup Git Page
+- [ ] connect the build to the git page
 ### Save File Import
 - [x] add buttons to load your save files from the UI
 ### Skill Slots
