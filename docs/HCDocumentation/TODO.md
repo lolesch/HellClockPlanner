@@ -1,5 +1,7 @@
 ### Setup Git Page
-- [ ] connect the build to the git page
+- [x] connect the build to the git page
+### CharacterData
+- [ ] show character stats
 ### Save File Import
 - [x] add buttons to load your save files from the UI
 ### Skill Slots

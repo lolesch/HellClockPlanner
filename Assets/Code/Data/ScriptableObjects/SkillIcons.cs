@@ -9,18 +9,18 @@ namespace Code.Data.ScriptableObjects
     [CreateAssetMenu( fileName = "SkillIcons", menuName = Const.DataCollections + "SkillIcons" )]
     public sealed class SkillIcons : ScriptableObject
     {
-        [SerializeField] private List<SkillIcon> _skillIcons;
+        [field: SerializeField] public List<SkillIcon> skillIcons { get; private set; }
         
-        public Sprite GetIconFromSkillHashId( SkillHashId skillHashId ) => _skillIcons.Find( x => x.skillHashId == skillHashId ).icon;
+        public Sprite GetIconFromSkillHashId( SkillHashId skillHashId ) => skillIcons.Find( x => x.skillHashId == skillHashId ).icon;
         
         [ContextMenu("ResetList")]
         private void UpdateSkills()
         {
-            _skillIcons??= new List<SkillIcon>();
-            _skillIcons.Clear();
+            skillIcons??= new List<SkillIcon>();
+            skillIcons.Clear();
             var ids = Enum.GetValues( typeof( SkillHashId ) ) as SkillHashId[];
             foreach( var id in ids )
-                _skillIcons.Add( new SkillIcon( id ) );
+                skillIcons.Add( new SkillIcon( id ) );
         }
     }
 

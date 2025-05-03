@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Code.Data;
 using Code.Data.Enums;
 using Code.Utility.AttributeRef.Attributes;
@@ -8,7 +10,7 @@ using UnityEngine;
 namespace Code.Runtime.Serialisation
 {
     [Serializable]
-    public sealed class PlayerSave : MonoBehaviour
+    public sealed class PlayerSave
     {
         //[SerializeField] private int totalAscensions;
         //[SerializeField] private int cumulativeTotalRuns;
@@ -46,47 +48,14 @@ namespace Code.Runtime.Serialisation
         //[SerializeField] private int saveVersion;
 
         public event Action<PlayerSave> OnSaveLoaded;
-        public SkillHashId GetSkillFromSlotIndex( int slotIndex ) => skillSlots[slotIndex]._skillHashId;
-        public void SetSkillInSlotIndex( int slotIndex, SkillHashId skillHashId )
+        public SkillHashId GetSkillIdAtSlotIndex( int slotIndex ) => skillSlots[slotIndex]._skillHashId;
+        public void SetSkillIdAtSlotIndex( int slotIndex, SkillHashId skillHashId )
         {
             skillSlots[slotIndex]._skillHashId = skillHashId;
             OnSaveLoaded?.Invoke( this );
         }
+        public List<SkillHashId> GetAssignedSkillIds() => skillSlots.Where( x => x._skillHashId != SkillHashId.None ).Select( x => x._skillHashId ).ToList();
 
-        private void Start() => OnSaveLoaded?.Invoke( this );
-        
-
-        
-        [ContextMenu("LoadSlot0")]
-        private void LoadSlot0() => LoadJson( Const.PlayerSaveId.PlayerSave0 );
-        [ContextMenu("LoadSlot1")]
-        private void LoadSlot1() => LoadJson( Const.PlayerSaveId.PlayerSave1 );
-        [ContextMenu("LoadSlot2")]
-        private void LoadSlot2() => LoadJson( Const.PlayerSaveId.PlayerSave2 );
-        
-        public void LoadJson( Const.PlayerSaveId id )
-        {
-            var directory = Const.GetSaveDirectory();
-
-            if( !Directory.Exists( directory ) )
-            {
-                Debug.Log( $"{directory} does not exist" );
-                return;
-            }
-            
-            var files = Directory.GetFiles(directory, $"*{Const.GetFileName(id)}");
-            
-            if ( files.Length == 0 )
-            {
-                Debug.Log( $"File {Const.GetFileName(id)} does not exist" );
-                return;
-            }
-            
-            var jsonFile = new TextAsset( File.ReadAllText( files[0] ) );
-            
-            JsonUtility.FromJsonOverwrite( jsonFile.text, this );
-            
-            OnSaveLoaded?.Invoke( this );
-        }
+        public void ForceInvokeOnSaveLoaded() => OnSaveLoaded?.Invoke( this );
     }
 }

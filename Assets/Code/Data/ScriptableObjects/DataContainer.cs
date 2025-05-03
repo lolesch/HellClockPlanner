@@ -16,5 +16,7 @@ namespace Code.Data.ScriptableObjects
     {
         [SpreadsheetPage( Const.DatabaseSkills )] 
         public List<SkillData> skills;
+        [SpreadsheetPage( Const.DatabaseCharacterStats )] 
+        public List<CharacterStatData> characterStats;
     }
 }

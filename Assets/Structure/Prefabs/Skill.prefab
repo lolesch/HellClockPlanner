@@ -676,14 +676,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -658161160174202911, guid: 0497bd02eba342a4f80fcb01cfc6a3f8, type: 3}
+  m_Sprite: {fileID: -8320316567817669703, guid: 247cfee3f24783846ac49d76d7c67e09, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -705,10 +705,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7261be6b9944a308eee37fe5c431267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSave: {fileID: 0}
-  icons: {fileID: 11400000, guid: 856dac39c97ec25408a9617f168c2d5f, type: 2}
-  dropdown: {fileID: 8124019401915616725}
   slotIndex: 0
+  dropdown: {fileID: 8124019401915616725}
 --- !u!1 &8175714762062924911
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,15 +836,15 @@ MonoBehaviour:
   m_Options:
     m_Options:
     - m_Text: None
-      m_Image: {fileID: -658161160174202911, guid: 0497bd02eba342a4f80fcb01cfc6a3f8, type: 3}
+      m_Image: {fileID: -8320316567817669703, guid: 247cfee3f24783846ac49d76d7c67e09, type: 3}
       m_Color: {r: 1, g: 1, b: 1, a: 1}
     - m_Text: Attack
       m_Image: {fileID: -7008412969330441016, guid: eeabc3b1af4fb164fae56f774c222257, type: 3}
       m_Color: {r: 1, g: 1, b: 1, a: 1}
-    - m_Text: SplitShot
+    - m_Text: Split Shot
       m_Image: {fileID: -3652812577366246196, guid: fe3e73bf35e4f4d4a9c4854a435c24af, type: 3}
       m_Color: {r: 1, g: 1, b: 1, a: 1}
-    - m_Text: ShadowDash
+    - m_Text: Shadow Dash
       m_Image: {fileID: -6877361198393066398, guid: 9b91cbc524af15648a538fe1dc2f0142, type: 3}
       m_Color: {r: 1, g: 1, b: 1, a: 1}
     - m_Text: Repeater
@@ -855,37 +853,37 @@ MonoBehaviour:
     - m_Text: Reflexes
       m_Image: {fileID: -949724790794713539, guid: 2498ae4f4e5e1f24ba0c0add2bee7947, type: 3}
       m_Color: {r: 1, g: 1, b: 1, a: 1}
-    - m_Text: OldBell
+    - m_Text: Old Bell
       m_Image: {fileID: -798201643570595171, guid: 1e6d9dbd7e1d97049bf62ef11c473b1f, type: 3}
       m_Color: {r: 1, g: 1, b: 1, a: 1}
     - m_Text: Judgement
       m_Image: {fileID: 6950174656021418613, guid: 501cbed62e93998439cd44cdc4d2978a, type: 3}
       m_Color: {r: 1, g: 1, b: 1, a: 1}
-    - m_Text: DoubleKnives
+    - m_Text: Double Knives
       m_Image: {fileID: -1533173189890996978, guid: 9a90e2384a958864fbb695e5a7c606cc, type: 3}
       m_Color: {r: 1, g: 1, b: 1, a: 1}
     - m_Text: Lasso
       m_Image: {fileID: 2454857817767266486, guid: 554ccd0d3f59ae54bbaeaa9278fdfbb1, type: 3}
       m_Color: {r: 1, g: 1, b: 1, a: 1}
-    - m_Text: SlowTime
+    - m_Text: Slow Time
       m_Image: {fileID: -629888055265147102, guid: 62140f2fec22a6d46b0ac58d51ab3ba6, type: 3}
       m_Color: {r: 1, g: 1, b: 1, a: 1}
-    - m_Text: ClosedBody
+    - m_Text: Closed Body
       m_Image: {fileID: 6987739525892642490, guid: b1c8ac7f264a21f41b8678ca7e34f2d1, type: 3}
       m_Color: {r: 1, g: 1, b: 1, a: 1}
     - m_Text: Bombardment
       m_Image: {fileID: 5700486394473602221, guid: 1c1edb266ddff7d49a5d3f1d1bc80c44, type: 3}
       m_Color: {r: 1, g: 1, b: 1, a: 1}
-    - m_Text: Guard
+    - m_Text: Summon the Guard
       m_Image: {fileID: -7809785511404226330, guid: 43fbb742da66d9b4b82a16b983dee319, type: 3}
       m_Color: {r: 1, g: 1, b: 1, a: 1}
     - m_Text: Matadeira
       m_Image: {fileID: -796661832525420238, guid: 46b30d826a1d7564aa1988b9bebe453c, type: 3}
       m_Color: {r: 1, g: 1, b: 1, a: 1}
-    - m_Text: HolyRosary
+    - m_Text: Holy Rosary
       m_Image: {fileID: 18594889596311770, guid: 07f8d7cfd063c4e458330a2f5c47e296, type: 3}
       m_Color: {r: 1, g: 1, b: 1, a: 1}
-    - m_Text: VeilOfQuills
+    - m_Text: Veil of Quills
       m_Image: {fileID: 1509862514709414783, guid: 4778daa39cdcabb41a458c9b2af14d94, type: 3}
       m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_OnValueChanged:

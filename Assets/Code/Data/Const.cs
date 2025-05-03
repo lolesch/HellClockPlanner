@@ -12,6 +12,7 @@ namespace Code.Data
         
         private const string FileEnding = "json";
         public const string DatabaseSkills = "Skills";
+        public const string DatabaseCharacterStats = "CharacterStats";
         public const string DatabaseAffixes = "Affixes";
         
         public const float TooltipDelay = .5f;

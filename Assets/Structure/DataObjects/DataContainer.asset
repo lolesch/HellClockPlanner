@@ -20,115 +20,79 @@ MonoBehaviour:
   serializationOutputPath: ../../Configs
   serializationFileName: Configs.v0.1
   serializationFormat: 0
-  content:
+  <content>k__BackingField:
     skills:
     - name: Attack
       Id: 0
-      Name: Attack
       Description: Basic revolver shot. Restores 15% of maximum Mana on hit.
       ManaCost: 0
       Cooldown: 0.25
       BaseDamage: 100
       GlobalBuff: 0
+      Icon: {fileID: -7008412969330441016, guid: eeabc3b1af4fb164fae56f774c222257, type: 3}
     - name: Split Shot
       Id: 1
-      Name: Split Shot
       Description: Shoot multiple bullets in a cone on front of you. Especially strong
         against nearby enemies.
       ManaCost: 120
       Cooldown: 0.25
       BaseDamage: 60
       GlobalBuff: 0
+      Icon: {fileID: -3652812577366246196, guid: fe3e73bf35e4f4d4a9c4854a435c24af, type: 3}
     - name: Shadow Dash
       Id: 2
-      Name: Shadow Dash
       Description: Dash vey quickly, dealing damage to enemies on your path.
       ManaCost: 100
       Cooldown: 3
       BaseDamage: 80
       GlobalBuff: 0
+      Icon: {fileID: -6877361198393066398, guid: 9b91cbc524af15648a538fe1dc2f0142, type: 3}
     - name: Repeater
       Id: 3
-      Name: Repeater
       Description: By holding the skill button, machinegun-like fire on a single
         target.
       ManaCost: 42
       Cooldown: 0.5
       BaseDamage: 66
       GlobalBuff: 0
+      Icon: {fileID: -1731964075387253349, guid: 366aa1eca3175b7408a025a722fedc6b, type: 3}
     - name: Reflexes
       Id: 4
-      Name: Reflexes
       Description: Summons a ring of Spectral Knives around the player that are automatically
         thriwn ar nearby enemies.
       ManaCost: 0
       Cooldown: 8
       BaseDamage: 75
       GlobalBuff: 0
-    - name: 9
-      Id: 9
-      Name: Second Wind
-      Description: After taking fatal damage, you don't die and recover a percentage
-        of your life.
-      ManaCost: 0
-      Cooldown: 120
-      BaseDamage: 0
-      GlobalBuff: 0
-    - name: 46
-      Id: 46
-      Name: Prayer Of Health
-      Description: You gain constant Life regeneration. All allies are also affected.
-      ManaCost: 300
-      Cooldown: 25
-      BaseDamage: 0
-      GlobalBuff: 0
-    - name: 49
-      Id: 49
-      Name: Prayer of Vengeance
-      Description: You and all allies in the target area gain increased damage and
-        attack speed.
-      ManaCost: 300
-      Cooldown: 10
-      BaseDamage: 0
-      GlobalBuff: 0
+      Icon: {fileID: -949724790794713539, guid: 2498ae4f4e5e1f24ba0c0add2bee7947, type: 3}
     - name: Old Bell
       Id: 50
-      Name: Old Bell
       Description: The Old Bell comes crashing down on your enemies.
       ManaCost: 400
       Cooldown: 0.5
       BaseDamage: 300
       GlobalBuff: 0
+      Icon: {fileID: -798201643570595171, guid: 1e6d9dbd7e1d97049bf62ef11c473b1f, type: 3}
     - name: Judgement
       Id: 67
-      Name: Judgement
       Description: All enemies in the target area are judged, reducing all their
         resistances by 40% for 4 seconds.
       ManaCost: 300
       Cooldown: 1
       BaseDamage: 0
       GlobalBuff: 0
+      Icon: {fileID: 6950174656021418613, guid: 501cbed62e93998439cd44cdc4d2978a, type: 3}
     - name: Double Knives
       Id: 69
-      Name: Double Knives
       Description: Continuously spin two blades around while you move, dealing Physical
         damage to nearby enemies.
       ManaCost: 34
       Cooldown: 0.5
       BaseDamage: 80
       GlobalBuff: 0
-    - name: 70
-      Id: 70
-      Name: Passage
-      Description: Cut a passage through space and time, instantly appearing somewhere
-        else.
-      ManaCost: 100
-      Cooldown: 0.75
-      BaseDamage: 0
-      GlobalBuff: 0
+      Icon: {fileID: -1533173189890996978, guid: 9a90e2384a958864fbb695e5a7c606cc, type: 3}
     - name: Lasso
       Id: 71
-      Name: Lasso
       Description: Grapples and pulls enemies in an area, stunning them for 2 seconds
         with a 20% chance to cause Bleeding for 4 seconds. Bosses are not pulled,
         nor stunned but can still suffer Bleeding.
@@ -136,26 +100,18 @@ MonoBehaviour:
       Cooldown: 4
       BaseDamage: 0
       GlobalBuff: 0
-    - name: 72
-      Id: 72
-      Name: Feitor's Lash
-      Description: Lash at nearby enemies in an arc in front of you.
-      ManaCost: 450
-      Cooldown: 0
-      BaseDamage: 120
-      GlobalBuff: 0
+      Icon: {fileID: 2454857817767266486, guid: 554ccd0d3f59ae54bbaeaa9278fdfbb1, type: 3}
     - name: Slow Time
       Id: 74
-      Name: Slow Time
       Description: All enemies have their movement speed, attack speed and projectile
         speed reduced.
       ManaCost: 0
       Cooldown: 11
       BaseDamage: 0
       GlobalBuff: 0
+      Icon: {fileID: -629888055265147102, guid: 62140f2fec22a6d46b0ac58d51ab3ba6, type: 3}
     - name: Closed Body
       Id: 157
-      Name: Closed Body
       Description: Envelops you in a Barrier of Conviction based on your Maximum
         Mana, While Closed Body is active, your Conviction Decay is reduced by 50%,
         and every attack received is retaliated with a Physical Damage Explosion.
@@ -163,18 +119,18 @@ MonoBehaviour:
       Cooldown: 15
       BaseDamage: 100
       GlobalBuff: 0
+      Icon: {fileID: 6987739525892642490, guid: b1c8ac7f264a21f41b8678ca7e34f2d1, type: 3}
     - name: Bombardment
       Id: 201
-      Name: Bombardment
       Description: Summons a Bombardment over a large area for 8 seconds, dealing
         AoE Physical Damage on impact.
       ManaCost: 0
       Cooldown: 10
       BaseDamage: 100
       GlobalBuff: 0
+      Icon: {fileID: 5700486394473602221, guid: 1c1edb266ddff7d49a5d3f1d1bc80c44, type: 3}
     - name: Summon the Guard
       Id: 203
-      Name: Summon the Guard
       Description: 'Spirits of the Canudos Catholic Guard are summoned to fight by
         your side. Guard''s Rage: Upon skill activation, all Catholic Guard''s Spirits
         reveive a 200% boost to attack speed for 4 seconds.'
@@ -182,30 +138,32 @@ MonoBehaviour:
       Cooldown: 15
       BaseDamage: 30
       GlobalBuff: 0
+      Icon: {fileID: -7809785511404226330, guid: 43fbb742da66d9b4b82a16b983dee319, type: 3}
     - name: Matadeira
       Id: 209
-      Name: Matadeira
       Description: Mark an area to be bombarded by a powerful cannon shot. The explosion
         area is ignited for 3 seconds.
       ManaCost: 0
       Cooldown: 5
       BaseDamage: 120
       GlobalBuff: 0
+      Icon: {fileID: -796661832525420238, guid: 46b30d826a1d7564aa1988b9bebe453c, type: 3}
     - name: Holy Rosary
       Id: 210
-      Name: Holy Rosary
       Description: Summon beads of the Rosary that orbit in a spiral around you,
         dealing Lightning damage.
       ManaCost: 200
       Cooldown: 0.25
       BaseDamage: 85
       GlobalBuff: 0
+      Icon: {fileID: 18594889596311770, guid: 07f8d7cfd063c4e458330a2f5c47e296, type: 3}
     - name: Veil of Quills
       Id: 211
-      Name: Veil of Quills
       Description: Unleashes a flurry of spectral quills that seek out nearby enemies,
         dealing Plague damage.
       ManaCost: 200
       Cooldown: 0.25
       BaseDamage: 70
       GlobalBuff: 0
+      Icon: {fileID: 1509862514709414783, guid: 4778daa39cdcabb41a458c9b2af14d94, type: 3}
+    CharacterStats: []

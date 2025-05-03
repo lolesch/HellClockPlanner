@@ -8,24 +8,22 @@ namespace Code.Data
     [Serializable]
     public sealed class SkillData : ISerializationCallbackReceiver
     {
-        [HideInInspector]public string name;
+        [HideInInspector] public string name;
         
         public SkillHashId Id;
-        //public Sprite Icon;
-        public string Name;
-        [TextArea(3,5)]public string Description;
-        public int ManaCost;
-        public float Cooldown;
-        public int BaseDamage;
-        public int GlobalBuff;
-        //public SkillTag[] Tags;
-        //public int[] AffectingRelics;
-        //TODO: implement skill effects
-        //public string SkillEffect;
+        //[TextArea(3,5)] public string Description;
+        //public int ManaCost;
+        //public float Cooldown;
+        //public int BaseDamage;
+        //public CharacterStatId GlobalBuff;
+        public Sprite Icon;
 
+        //[SerializeField] private SkillTag[] Tags;
+        //[SerializeField] private int[] AffectingRelics;
+        //TODO: implement skill effects
+        //[SerializeField] private string SkillEffect;
         public void OnBeforeSerialize() => name = Id.ToDescription();
         public void OnAfterDeserialize() => name = Id.ToDescription();
-        //[ContextMenu("RetrieveIcon")]private void RetrieveIcon() => Icon = Resources.Load<Sprite>( Id.ToString() );
     }
 
     public sealed class Skill

@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 986c0cd48a7746be99b2c7d5a930abf1, type: 3}
   m_Name: SkillIcons
   m_EditorClassIdentifier: 
-  _skillIcons:
+  <skillIcons>k__BackingField:
+  - name: None
+    <skillHashId>k__BackingField: -1
+    <icon>k__BackingField: {fileID: -8320316567817669703, guid: 247cfee3f24783846ac49d76d7c67e09, type: 3}
   - name: Attack
     <skillHashId>k__BackingField: 0
     <icon>k__BackingField: {fileID: -7008412969330441016, guid: eeabc3b1af4fb164fae56f774c222257, type: 3}
@@ -61,6 +64,3 @@ MonoBehaviour:
   - name: Veil of Quills
     <skillHashId>k__BackingField: 211
     <icon>k__BackingField: {fileID: 1509862514709414783, guid: 4778daa39cdcabb41a458c9b2af14d94, type: 3}
-  - name: None
-    <skillHashId>k__BackingField: -1
-    <icon>k__BackingField: {fileID: 0}
