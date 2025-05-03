@@ -15,8 +15,9 @@ namespace Code.Data.ScriptableObjects
     public sealed class SpreadsheetContent
     {
         [SpreadsheetPage( Const.DatabaseSkills )] 
-        public List<SkillData> skills;
+        public List<SkillImportData> skills;
+        
         [SpreadsheetPage( Const.DatabaseCharacterStats )] 
-        public List<CharacterStatData> characterStats;
+        public List<CharacterStatImportData> characterStats;
     }
 }

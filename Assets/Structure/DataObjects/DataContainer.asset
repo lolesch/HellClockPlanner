@@ -15,7 +15,7 @@ MonoBehaviour:
   foldoutImportGUI: 1
   documentId: 17eNmTa4YziI9Fv3kL4vu1dRqnJSeAk51T-3yxneDSzY
   selectedTogglesIds:
-  - skills
+  - characterStats
   foldoutSerializationGUI: 0
   serializationOutputPath: ../../Configs
   serializationFileName: Configs.v0.1
@@ -24,146 +24,246 @@ MonoBehaviour:
     skills:
     - name: Attack
       Id: 0
-      Description: Basic revolver shot. Restores 15% of maximum Mana on hit.
-      ManaCost: 0
-      Cooldown: 0.25
-      BaseDamage: 100
-      GlobalBuff: 0
-      Icon: {fileID: -7008412969330441016, guid: eeabc3b1af4fb164fae56f774c222257, type: 3}
-    - name: Split Shot
+    - name: SplitShot
       Id: 1
-      Description: Shoot multiple bullets in a cone on front of you. Especially strong
-        against nearby enemies.
-      ManaCost: 120
-      Cooldown: 0.25
-      BaseDamage: 60
-      GlobalBuff: 0
-      Icon: {fileID: -3652812577366246196, guid: fe3e73bf35e4f4d4a9c4854a435c24af, type: 3}
-    - name: Shadow Dash
+    - name: ShadowDash
       Id: 2
-      Description: Dash vey quickly, dealing damage to enemies on your path.
-      ManaCost: 100
-      Cooldown: 3
-      BaseDamage: 80
-      GlobalBuff: 0
-      Icon: {fileID: -6877361198393066398, guid: 9b91cbc524af15648a538fe1dc2f0142, type: 3}
     - name: Repeater
       Id: 3
-      Description: By holding the skill button, machinegun-like fire on a single
-        target.
-      ManaCost: 42
-      Cooldown: 0.5
-      BaseDamage: 66
-      GlobalBuff: 0
-      Icon: {fileID: -1731964075387253349, guid: 366aa1eca3175b7408a025a722fedc6b, type: 3}
     - name: Reflexes
       Id: 4
-      Description: Summons a ring of Spectral Knives around the player that are automatically
-        thriwn ar nearby enemies.
-      ManaCost: 0
-      Cooldown: 8
-      BaseDamage: 75
-      GlobalBuff: 0
-      Icon: {fileID: -949724790794713539, guid: 2498ae4f4e5e1f24ba0c0add2bee7947, type: 3}
-    - name: Old Bell
+    - name: OldBell
       Id: 50
-      Description: The Old Bell comes crashing down on your enemies.
-      ManaCost: 400
-      Cooldown: 0.5
-      BaseDamage: 300
-      GlobalBuff: 0
-      Icon: {fileID: -798201643570595171, guid: 1e6d9dbd7e1d97049bf62ef11c473b1f, type: 3}
     - name: Judgement
       Id: 67
-      Description: All enemies in the target area are judged, reducing all their
-        resistances by 40% for 4 seconds.
-      ManaCost: 300
-      Cooldown: 1
-      BaseDamage: 0
-      GlobalBuff: 0
-      Icon: {fileID: 6950174656021418613, guid: 501cbed62e93998439cd44cdc4d2978a, type: 3}
-    - name: Double Knives
+    - name: DoubleKnives
       Id: 69
-      Description: Continuously spin two blades around while you move, dealing Physical
-        damage to nearby enemies.
-      ManaCost: 34
-      Cooldown: 0.5
-      BaseDamage: 80
-      GlobalBuff: 0
-      Icon: {fileID: -1533173189890996978, guid: 9a90e2384a958864fbb695e5a7c606cc, type: 3}
     - name: Lasso
       Id: 71
-      Description: Grapples and pulls enemies in an area, stunning them for 2 seconds
-        with a 20% chance to cause Bleeding for 4 seconds. Bosses are not pulled,
-        nor stunned but can still suffer Bleeding.
-      ManaCost: 0
-      Cooldown: 4
-      BaseDamage: 0
-      GlobalBuff: 0
-      Icon: {fileID: 2454857817767266486, guid: 554ccd0d3f59ae54bbaeaa9278fdfbb1, type: 3}
-    - name: Slow Time
+    - name: SlowTime
       Id: 74
-      Description: All enemies have their movement speed, attack speed and projectile
-        speed reduced.
-      ManaCost: 0
-      Cooldown: 11
-      BaseDamage: 0
-      GlobalBuff: 0
-      Icon: {fileID: -629888055265147102, guid: 62140f2fec22a6d46b0ac58d51ab3ba6, type: 3}
-    - name: Closed Body
+    - name: ClosedBody
       Id: 157
-      Description: Envelops you in a Barrier of Conviction based on your Maximum
-        Mana, While Closed Body is active, your Conviction Decay is reduced by 50%,
-        and every attack received is retaliated with a Physical Damage Explosion.
-      ManaCost: 0
-      Cooldown: 15
-      BaseDamage: 100
-      GlobalBuff: 0
-      Icon: {fileID: 6987739525892642490, guid: b1c8ac7f264a21f41b8678ca7e34f2d1, type: 3}
     - name: Bombardment
       Id: 201
-      Description: Summons a Bombardment over a large area for 8 seconds, dealing
-        AoE Physical Damage on impact.
-      ManaCost: 0
-      Cooldown: 10
-      BaseDamage: 100
-      GlobalBuff: 0
-      Icon: {fileID: 5700486394473602221, guid: 1c1edb266ddff7d49a5d3f1d1bc80c44, type: 3}
-    - name: Summon the Guard
+    - name: SummonTheGuard
       Id: 203
-      Description: 'Spirits of the Canudos Catholic Guard are summoned to fight by
-        your side. Guard''s Rage: Upon skill activation, all Catholic Guard''s Spirits
-        reveive a 200% boost to attack speed for 4 seconds.'
-      ManaCost: 100
-      Cooldown: 15
-      BaseDamage: 30
-      GlobalBuff: 0
-      Icon: {fileID: -7809785511404226330, guid: 43fbb742da66d9b4b82a16b983dee319, type: 3}
     - name: Matadeira
       Id: 209
-      Description: Mark an area to be bombarded by a powerful cannon shot. The explosion
-        area is ignited for 3 seconds.
-      ManaCost: 0
-      Cooldown: 5
-      BaseDamage: 120
-      GlobalBuff: 0
-      Icon: {fileID: -796661832525420238, guid: 46b30d826a1d7564aa1988b9bebe453c, type: 3}
-    - name: Holy Rosary
+    - name: HolyRosary
       Id: 210
-      Description: Summon beads of the Rosary that orbit in a spiral around you,
-        dealing Lightning damage.
-      ManaCost: 200
-      Cooldown: 0.25
-      BaseDamage: 85
-      GlobalBuff: 0
-      Icon: {fileID: 18594889596311770, guid: 07f8d7cfd063c4e458330a2f5c47e296, type: 3}
-    - name: Veil of Quills
+    - name: VeilOfQuills
       Id: 211
-      Description: Unleashes a flurry of spectral quills that seek out nearby enemies,
-        dealing Plague damage.
-      ManaCost: 200
-      Cooldown: 0.25
-      BaseDamage: 70
-      GlobalBuff: 0
-      Icon: {fileID: 1509862514709414783, guid: 4778daa39cdcabb41a458c9b2af14d94, type: 3}
-    CharacterStats: []
+    characterStats:
+    - name: BaseDamage
+      Id: 1
+      BaseValue: 175
+      modType: 1
+    - name: Damage
+      Id: 2
+      BaseValue: 100
+      modType: 2
+    - name: FireDamage
+      Id: 3
+      BaseValue: 100
+      modType: 2
+    - name: AddedFireDamage
+      Id: 4
+      BaseValue: 0
+      modType: 1
+    - name: ChanceToIgnite
+      Id: 5
+      BaseValue: 100
+      modType: 2
+    - name: IgnitedStatusIntensity
+      Id: 6
+      BaseValue: 100
+      modType: 2
+    - name: LightningDamage
+      Id: 7
+      BaseValue: 100
+      modType: 2
+    - name: AddedLightningDamage
+      Id: 8
+      BaseValue: 0
+      modType: 1
+    - name: ChanceToShock
+      Id: 9
+      BaseValue: 100
+      modType: 2
+    - name: ShockedStatusIntensity
+      Id: 10
+      BaseValue: 100
+      modType: 2
+    - name: PhysicalDamage
+      Id: 11
+      BaseValue: 100
+      modType: 2
+    - name: AddedPhysicalDamage
+      Id: 12
+      BaseValue: 0
+      modType: 1
+    - name: ChanceToBleed
+      Id: 13
+      BaseValue: 100
+      modType: 2
+    - name: BleedingStatusIntensity
+      Id: 14
+      BaseValue: 100
+      modType: 2
+    - name: PlagueDamage
+      Id: 15
+      BaseValue: 100
+      modType: 2
+    - name: AddedPlagueDamage
+      Id: 16
+      BaseValue: 0
+      modType: 1
+    - name: ChanceToBlight
+      Id: 17
+      BaseValue: 100
+      modType: 2
+    - name: BlightedStatusIntensity
+      Id: 18
+      BaseValue: 100
+      modType: 2
+    - name: CriticalHitChance
+      Id: 19
+      BaseValue: 5
+      modType: 2
+    - name: CriticalHitChanceMultiplier
+      Id: 20
+      BaseValue: 0
+      modType: 2
+    - name: CriticalHitDamage
+      Id: 21
+      BaseValue: 150
+      modType: 2
+    - name: CriticalHitDamageMultiplier
+      Id: 22
+      BaseValue: 0
+      modType: 2
+    - name: MoveSpeed
+      Id: 23
+      BaseValue: 100
+      modType: 2
+    - name: AttackSpeed
+      Id: 24
+      BaseValue: 100
+      modType: 2
+    - name: CooldownSpeed
+      Id: 25
+      BaseValue: 100
+      modType: 2
+    - name: SkillManaCost
+      Id: 26
+      BaseValue: 100
+      modType: 2
+    - name: ExperienceGain
+      Id: 27
+      BaseValue: 100
+      modType: 2
+    - name: GoldGain
+      Id: 28
+      BaseValue: 100
+      modType: 2
+    - name: SoulstoneGain
+      Id: 29
+      BaseValue: 100
+      modType: 2
+    - name: ItemFind
+      Id: 30
+      BaseValue: 0
+      modType: 2
+    - name: BonusGearDropChance
+      Id: 31
+      BaseValue: 0
+      modType: 2
+    - name: BonusRelicDropChance
+      Id: 32
+      BaseValue: 0
+      modType: 2
+    - name: BonusTrinketDropChance
+      Id: 33
+      BaseValue: 0
+      modType: 2
+    - name: ConvictionDecayResistance
+      Id: 34
+      BaseValue: 0
+      modType: 2
+    - name: ConvictionDecayThreshold
+      Id: 35
+      BaseValue: 0
+      modType: 1
+    - name: ConvictionFromManaSpent
+      Id: 36
+      BaseValue: 0
+      modType: 2
+    - name: ConvictionGain
+      Id: 37
+      BaseValue: 100
+      modType: 2
+    - name: ConvictionGeneration
+      Id: 38
+      BaseValue: 0
+      modType: 2
+    - name: ElementalResistance
+      Id: 39
+      BaseValue: 0
+      modType: 2
+    - name: FireResistance
+      Id: 40
+      BaseValue: 0
+      modType: 2
+    - name: LightningResistance
+      Id: 41
+      BaseValue: 0
+      modType: 2
+    - name: PhysicalResistance
+      Id: 42
+      BaseValue: 0
+      modType: 2
+    - name: PlagueResistance
+      Id: 43
+      BaseValue: 0
+      modType: 2
+    - name: Life
+      Id: 44
+      BaseValue: 600
+      modType: 1
+    - name: LifePercent
+      Id: 45
+      BaseValue: 0
+      modType: 2
+    - name: LifeOnKill
+      Id: 46
+      BaseValue: 0
+      modType: 1
+    - name: LifeRegeneration
+      Id: 47
+      BaseValue: 0
+      modType: 2
+    - name: Mana
+      Id: 48
+      BaseValue: 600
+      modType: 1
+    - name: ManaPercent
+      Id: 49
+      BaseValue: 0
+      modType: 2
+    - name: ManaOnKill
+      Id: 50
+      BaseValue: 0
+      modType: 1
+    - name: ManaRegeneration
+      Id: 51
+      BaseValue: 10
+      modType: 2
+    - name: PotionCapacity
+      Id: 52
+      BaseValue: 3
+      modType: 1
+    - name: PotionEfficiency
+      Id: 53
+      BaseValue: 100
+      modType: 2

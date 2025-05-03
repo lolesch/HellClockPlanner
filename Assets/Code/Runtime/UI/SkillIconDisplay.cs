@@ -18,7 +18,7 @@ namespace Code.Runtime.UI
         [SerializeField] private TMP_Dropdown dropdown;
         private Image _icon;
             
-        private void OnValidate()
+        private void Start()
         {
             _icon = GetComponent<Image>();
             slotIndex = transform.parent.GetSiblingIndex();
@@ -28,17 +28,17 @@ namespace Code.Runtime.UI
 
         private void OnEnable()
         {
-            DataProvider.Instance.playerSave.OnSaveLoaded += OnSaveLoaded;
+            DataProvider.Instance.playerSave.OnSkillSlotChanged += OnSkillSlotChanged;
             dropdown.onValueChanged.AddListener( delegate { DropdownValueChanged( dropdown ); } );
         }
 
         private void OnDisable()
         {
-            DataProvider.Instance.playerSave.OnSaveLoaded -= OnSaveLoaded;
+            DataProvider.Instance.playerSave.OnSkillSlotChanged -= OnSkillSlotChanged;
             dropdown.onValueChanged.RemoveListener(delegate { DropdownValueChanged(dropdown); });
         }
 
-        private void OnSaveLoaded( PlayerSave save )
+        private void OnSkillSlotChanged( PlayerSave save )
         {
             var skill = save.GetSkillIdAtSlotIndex( slotIndex );
             var sprite = DataProvider.Instance.skillIcons.GetIconFromSkillHashId( skill );

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.IO;
 using System.Linq;
 using Code.Data;
@@ -13,28 +14,30 @@ namespace Code.Runtime.Provider
     {
         [field: SerializeField] public DataContainer database { get; private set; }
         [field: SerializeField] public SkillIcons skillIcons { get; private set; }
-        [field: SerializeField] public PlayerSave playerSave { get; private set; }
+        [field: SerializeField] public PlayerSave playerSave { get; private set; } = new PlayerSave();
 
         private void OnValidate()
         {
             database = EnumerableExtensions.GetScriptableObjectsOfType<DataContainer>().First();
             skillIcons = EnumerableExtensions.GetScriptableObjectsOfType<SkillIcons>().First();
 
-            SetSkillIcons();
+            //SetSkillIcons();
         }
 
-        private void Awake()
+        private void Start()
         {
-            SetSkillIcons();
+            Debug.Assert(database != null);
+            Debug.Assert(skillIcons != null);
+            //SetSkillIcons();
         }
 
-        [ContextMenu("SetSkillIcons")]
-        private void SetSkillIcons()
-        {
-            foreach( var skillData in database.content.skills )
-                if(skillData.Icon == null)
-                    skillData.Icon = skillIcons.GetIconFromSkillHashId( skillData.Id );
-        }
+        //[ContextMenu("SetSkillIcons")]
+        //private void SetSkillIcons()
+        //{
+        //    foreach( var skillData in database.content.skills )
+        //        if( skillData.Icon == null )
+        //            skillData.Icon = skillIcons.GetIconFromSkillHashId( skillData.Id );
+        //}
         [ContextMenu("LoadSlot0")]
         private void LoadSlot0() => LoadJson( Const.PlayerSaveId.PlayerSave0 );
         [ContextMenu("LoadSlot1")]
@@ -66,9 +69,8 @@ namespace Code.Runtime.Provider
             //playerSave = JsonUtility.FromJson<PlayerSave>( jsonFile.text );
             
             //OnSaveLoaded?.Invoke( playerSave );
-            playerSave.ForceInvokeOnSaveLoaded();
+            var skillId = playerSave.GetSkillIdAtSlotIndex(0);
+            playerSave.SetSkillIdAtSlotIndex(0, skillId);;
         }
-
-        private void Start() => playerSave.ForceInvokeOnSaveLoaded();
     }
 }

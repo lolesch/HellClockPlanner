@@ -47,15 +47,13 @@ namespace Code.Runtime.Serialisation
         //[SerializeField] private SkillUpgradeLevel skillUpgradeLevel;
         //[SerializeField] private int saveVersion;
 
-        public event Action<PlayerSave> OnSaveLoaded;
+        public event Action<PlayerSave> OnSkillSlotChanged;
         public SkillHashId GetSkillIdAtSlotIndex( int slotIndex ) => skillSlots[slotIndex]._skillHashId;
         public void SetSkillIdAtSlotIndex( int slotIndex, SkillHashId skillHashId )
         {
             skillSlots[slotIndex]._skillHashId = skillHashId;
-            OnSaveLoaded?.Invoke( this );
+            OnSkillSlotChanged?.Invoke( this );
         }
         public List<SkillHashId> GetAssignedSkillIds() => skillSlots.Where( x => x._skillHashId != SkillHashId.None ).Select( x => x._skillHashId ).ToList();
-
-        public void ForceInvokeOnSaveLoaded() => OnSaveLoaded?.Invoke( this );
     }
 }
