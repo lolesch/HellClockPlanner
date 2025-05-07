@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 240695ad1180e774ca0d09da0aeb37cd
+guid: ccbc6ef1721815b40882224633f75007
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8860926383757949379
-    second: Proficiency_Icons_0
+      213: 9215121760949756735
+    second: Shrine and relic buffs_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Proficiency_Icons_0
+      name: Shrine and relic buffs_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 391
+        height: 264
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3c977cc499558fa70800000000000000
-      internalID: 8860926383757949379
+      spriteID: f33e163fa60b2ef70800000000000000
+      internalID: 9215121760949756735
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Proficiency_Icons_0: 8860926383757949379
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

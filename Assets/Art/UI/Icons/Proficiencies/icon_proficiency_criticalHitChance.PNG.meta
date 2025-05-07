@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e3696d2df8971d946babffa7833ecb36
+guid: acba1b5942ac3da49b4f2eabaec2f1c1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4535886631998127533
-    second: Foundations_0
+      213: -8333743995534904006
+    second: icon_proficiency_criticalHitChance_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Foundations_0
+      name: icon_proficiency_criticalHitChance_0
       rect:
         serializedVersion: 2
-        x: 18
-        y: 18
-        width: 92
-        height: 92
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dadf0b11cd4b2fe30800000000000000
-      internalID: 4535886631998127533
+      spriteID: a35f8197df7985c80800000000000000
+      internalID: -8333743995534904006
       vertices: []
       indices: 
       edges: []
