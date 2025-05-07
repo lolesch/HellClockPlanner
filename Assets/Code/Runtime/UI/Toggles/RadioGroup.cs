@@ -7,23 +7,23 @@ namespace Code.Runtime.UI.Toggles
 {
     public class RadioGroup : MonoBehaviour
     {
-        [field: SerializeField, ReadOnly] public AbstractToggle ActivatedToggle { get; private set; }
-        [field: SerializeField] public bool AllowSwitchOff { get; private set; } = false;
+        [field: SerializeField, ReadOnly] public AbstractToggle activatedToggle { get; private set; }
+        [field: SerializeField] public bool allowSwitchOff { get; private set; } = false;
 
         public event Action OnGroupChanged;
 
-        private readonly List<AbstractToggle> radioToggles = new();
+        private readonly List<AbstractToggle> _radioToggles = new();
 
-        public void Activate(AbstractToggle activatedToggle)
+        public void Activate( AbstractToggle newToggle )
         {
-            if (activatedToggle == null || ActivatedToggle == activatedToggle)
+            if (newToggle == null || activatedToggle == newToggle)
                 return;
 
-            ActivatedToggle = activatedToggle;
+            activatedToggle = newToggle;
 
-            foreach (var toggle in radioToggles)
+            foreach (var toggle in _radioToggles)
             {
-                if (toggle != ActivatedToggle /*&& toggle.IsOn*/)
+                if (toggle != activatedToggle /*&& toggle.IsOn*/)
                     toggle.SetToggle(false);
             }
 
@@ -32,20 +32,20 @@ namespace Code.Runtime.UI.Toggles
 
         public void Register(AbstractToggle item)
         {
-            if (radioToggles.Contains(item))
+            if (_radioToggles.Contains(item))
                 return;
 
-            radioToggles.Add(item);
+            _radioToggles.Add(item);
 
             OnGroupChanged?.Invoke();
         }
 
         public void Unregister(AbstractToggle item)
         {
-            if (!radioToggles.Contains(item))
+            if (!_radioToggles.Contains(item))
                 return;
 
-            _ = radioToggles.Remove(item);
+            _ = _radioToggles.Remove(item);
 
             OnGroupChanged?.Invoke();
         }

@@ -15,45 +15,96 @@ MonoBehaviour:
   foldoutImportGUI: 1
   documentId: 17eNmTa4YziI9Fv3kL4vu1dRqnJSeAk51T-3yxneDSzY
   selectedTogglesIds:
+  - skillProficiencies
+  - proficiencies
   - characterStats
+  - skills
   foldoutSerializationGUI: 0
   serializationOutputPath: ../../Configs
   serializationFileName: Configs.v0.1
   serializationFormat: 0
-  <content>k__BackingField:
+  <tables>k__BackingField:
     skills:
     - name: Attack
       Id: 0
+      ManaCost: 0
+      Cooldown: 0.25
+      BaseDamage: 100
     - name: SplitShot
       Id: 1
+      ManaCost: 120
+      Cooldown: 0.25
+      BaseDamage: 60
     - name: ShadowDash
       Id: 2
+      ManaCost: 100
+      Cooldown: 3
+      BaseDamage: 80
     - name: Repeater
       Id: 3
+      ManaCost: 42
+      Cooldown: 0.5
+      BaseDamage: 66
     - name: Reflexes
       Id: 4
+      ManaCost: 0
+      Cooldown: 8
+      BaseDamage: 75
     - name: OldBell
       Id: 50
+      ManaCost: 400
+      Cooldown: 0.5
+      BaseDamage: 300
     - name: Judgement
       Id: 67
+      ManaCost: 300
+      Cooldown: 1
+      BaseDamage: 0
     - name: DoubleKnives
       Id: 69
+      ManaCost: 34
+      Cooldown: 0.5
+      BaseDamage: 80
     - name: Lasso
       Id: 71
+      ManaCost: 0
+      Cooldown: 4
+      BaseDamage: 0
     - name: SlowTime
       Id: 74
+      ManaCost: 0
+      Cooldown: 11
+      BaseDamage: 0
     - name: ClosedBody
       Id: 157
+      ManaCost: 0
+      Cooldown: 15
+      BaseDamage: 100
     - name: Bombardment
       Id: 201
+      ManaCost: 0
+      Cooldown: 10
+      BaseDamage: 100
     - name: SummonTheGuard
       Id: 203
+      ManaCost: 100
+      Cooldown: 15
+      BaseDamage: 30
     - name: Matadeira
       Id: 209
+      ManaCost: 0
+      Cooldown: 5
+      BaseDamage: 120
     - name: HolyRosary
       Id: 210
+      ManaCost: 200
+      Cooldown: 0.25
+      BaseDamage: 85
     - name: VeilOfQuills
       Id: 211
+      ManaCost: 200
+      Cooldown: 0.25
+      BaseDamage: 70
     characterStats:
     - name: BaseDamage
       Id: 1
@@ -63,207 +114,292 @@ MonoBehaviour:
       Id: 2
       BaseValue: 100
       modType: 2
-    - name: FireDamage
+    - name: ElementalDamage
       Id: 3
+      BaseValue: 0
+      modType: 2
+    - name: FireDamage
+      Id: 4
       BaseValue: 100
       modType: 2
     - name: AddedFireDamage
-      Id: 4
+      Id: 5
       BaseValue: 0
       modType: 1
     - name: ChanceToIgnite
-      Id: 5
-      BaseValue: 100
-      modType: 2
-    - name: IgnitedStatusIntensity
       Id: 6
       BaseValue: 100
       modType: 2
-    - name: LightningDamage
+    - name: IgnitedStatusIntensity
       Id: 7
       BaseValue: 100
       modType: 2
-    - name: AddedLightningDamage
+    - name: LightningDamage
       Id: 8
+      BaseValue: 100
+      modType: 2
+    - name: AddedLightningDamage
+      Id: 9
       BaseValue: 0
       modType: 1
     - name: ChanceToShock
-      Id: 9
-      BaseValue: 100
-      modType: 2
-    - name: ShockedStatusIntensity
       Id: 10
       BaseValue: 100
       modType: 2
-    - name: PhysicalDamage
+    - name: ShockedStatusIntensity
       Id: 11
       BaseValue: 100
       modType: 2
-    - name: AddedPhysicalDamage
+    - name: PhysicalDamage
       Id: 12
+      BaseValue: 100
+      modType: 2
+    - name: AddedPhysicalDamage
+      Id: 13
       BaseValue: 0
       modType: 1
     - name: ChanceToBleed
-      Id: 13
-      BaseValue: 100
-      modType: 2
-    - name: BleedingStatusIntensity
       Id: 14
       BaseValue: 100
       modType: 2
-    - name: PlagueDamage
+    - name: BleedingStatusIntensity
       Id: 15
       BaseValue: 100
       modType: 2
-    - name: AddedPlagueDamage
+    - name: PlagueDamage
       Id: 16
+      BaseValue: 100
+      modType: 2
+    - name: AddedPlagueDamage
+      Id: 17
       BaseValue: 0
       modType: 1
     - name: ChanceToBlight
-      Id: 17
-      BaseValue: 100
-      modType: 2
-    - name: BlightedStatusIntensity
       Id: 18
       BaseValue: 100
       modType: 2
-    - name: CriticalHitChance
+    - name: BlightedStatusIntensity
       Id: 19
-      BaseValue: 5
+      BaseValue: 100
       modType: 2
-    - name: CriticalHitChanceMultiplier
+    - name: CriticalHitChance
       Id: 20
+      BaseValue: 5
+      modType: 1
+    - name: CriticalHitChanceMultiplier
+      Id: 21
       BaseValue: 0
       modType: 2
     - name: CriticalHitDamage
-      Id: 21
+      Id: 22
       BaseValue: 150
       modType: 2
     - name: CriticalHitDamageMultiplier
-      Id: 22
+      Id: 23
       BaseValue: 0
       modType: 2
     - name: MoveSpeed
-      Id: 23
-      BaseValue: 100
-      modType: 2
-    - name: AttackSpeed
       Id: 24
       BaseValue: 100
       modType: 2
-    - name: CooldownSpeed
+    - name: AttackSpeed
       Id: 25
       BaseValue: 100
       modType: 2
-    - name: SkillManaCost
+    - name: CooldownSpeed
       Id: 26
       BaseValue: 100
       modType: 2
-    - name: ExperienceGain
+    - name: SkillManaCost
       Id: 27
       BaseValue: 100
       modType: 2
-    - name: GoldGain
+    - name: ExperienceGain
       Id: 28
       BaseValue: 100
       modType: 2
-    - name: SoulstoneGain
+    - name: GoldGain
       Id: 29
       BaseValue: 100
       modType: 2
-    - name: ItemFind
+    - name: SoulStoneGain
       Id: 30
-      BaseValue: 0
+      BaseValue: 100
       modType: 2
-    - name: BonusGearDropChance
+    - name: ItemFind
       Id: 31
       BaseValue: 0
       modType: 2
-    - name: BonusRelicDropChance
+    - name: BonusGearDropChance
       Id: 32
       BaseValue: 0
       modType: 2
-    - name: BonusTrinketDropChance
+    - name: BonusRelicDropChance
       Id: 33
       BaseValue: 0
       modType: 2
-    - name: ConvictionDecayResistance
+    - name: BonusTrinketDropChance
       Id: 34
       BaseValue: 0
       modType: 2
-    - name: ConvictionDecayThreshold
+    - name: ConvictionDecayResistance
       Id: 35
+      BaseValue: 0
+      modType: 2
+    - name: ConvictionDecayThreshold
+      Id: 36
       BaseValue: 0
       modType: 1
     - name: ConvictionFromManaSpent
-      Id: 36
+      Id: 37
       BaseValue: 0
       modType: 2
     - name: ConvictionGain
-      Id: 37
+      Id: 38
       BaseValue: 100
       modType: 2
     - name: ConvictionGeneration
-      Id: 38
-      BaseValue: 0
-      modType: 2
-    - name: ElementalResistance
       Id: 39
       BaseValue: 0
       modType: 2
-    - name: FireResistance
+    - name: ElementalResistance
       Id: 40
       BaseValue: 0
       modType: 2
-    - name: LightningResistance
+    - name: FireResistance
       Id: 41
       BaseValue: 0
       modType: 2
-    - name: PhysicalResistance
+    - name: LightningResistance
       Id: 42
       BaseValue: 0
       modType: 2
-    - name: PlagueResistance
+    - name: PhysicalResistance
       Id: 43
       BaseValue: 0
       modType: 2
-    - name: Life
+    - name: PlagueResistance
       Id: 44
+      BaseValue: 0
+      modType: 2
+    - name: Life
+      Id: 45
       BaseValue: 600
       modType: 1
     - name: LifePercent
-      Id: 45
+      Id: 46
       BaseValue: 0
       modType: 2
     - name: LifeOnKill
-      Id: 46
+      Id: 47
       BaseValue: 0
       modType: 1
     - name: LifeRegeneration
-      Id: 47
+      Id: 48
       BaseValue: 0
       modType: 2
     - name: Mana
-      Id: 48
+      Id: 49
       BaseValue: 600
       modType: 1
     - name: ManaPercent
-      Id: 49
+      Id: 50
       BaseValue: 0
       modType: 2
     - name: ManaOnKill
-      Id: 50
+      Id: 51
       BaseValue: 0
       modType: 1
     - name: ManaRegeneration
-      Id: 51
+      Id: 52
       BaseValue: 10
       modType: 2
     - name: PotionCapacity
-      Id: 52
+      Id: 53
       BaseValue: 3
       modType: 1
     - name: PotionEfficiency
-      Id: 53
+      Id: 54
       BaseValue: 100
       modType: 2
+    proficiencies:
+    - name: SplitShot
+      Id: 1
+      proficiency: 3
+      Name: Deadly Aim
+      Common: 0
+      Magic: 5
+      Rare: 8
+      Epic: 0
+    - name: SplitShot
+      Id: 1
+      proficiency: 1
+      Name: Heavy Shot
+      Common: 20
+      Magic: 30
+      Rare: 40
+      Epic: 50
+    - name: SplitShot
+      Id: 1
+      proficiency: 2
+      Name: Efficient Reload
+      Common: 0
+      Magic: 0
+      Rare: -10
+      Epic: -20
+    - name: SplitShot
+      Id: 1
+      proficiency: 4
+      Name: Multi-shot
+      Common: 0
+      Magic: 0
+      Rare: 0
+      Epic: 1
+    - name: SplitShot
+      Id: 1
+      proficiency: 5
+      Name: Quick Trigger
+      Common: 8
+      Magic: 12
+      Rare: 16
+      Epic: 20
+    - name: Reflexes
+      Id: 4
+      proficiency: 6
+      Name: Heightened Senses
+      Common: 0
+      Magic: 20
+      Rare: 30
+      Epic: 0
+    - name: Reflexes
+      Id: 4
+      proficiency: 1
+      Name: Sharp Strike
+      Common: 20
+      Magic: 30
+      Rare: 40
+      Epic: 0
+    - name: Reflexes
+      Id: 4
+      proficiency: 7
+      Name: Enduring Reflexes
+      Common: 0
+      Magic: 20
+      Rare: 30
+      Epic: 0
+    - name: Reflexes
+      Id: 4
+      proficiency: 8
+      Name: Swift Caster
+      Common: -15
+      Magic: -20
+      Rare: 0
+      Epic: 0
+    - name: Reflexes
+      Id: 4
+      proficiency: 9
+      Name: Blade Horde
+      Common: 0
+      Magic: 0
+      Rare: 1
+      Epic: 2

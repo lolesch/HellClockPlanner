@@ -1,10 +1,9 @@
 using System;
-using System.Collections;
-using System.IO;
+using System.Collections.Generic;
 using System.Linq;
 using Code.Data;
+using Code.Data.Enums;
 using Code.Data.ScriptableObjects;
-using Code.Runtime.Serialisation;
 using Code.Utility.Extensions;
 using UnityEngine;
 
@@ -12,65 +11,71 @@ namespace Code.Runtime.Provider
 {
     public sealed class DataProvider : AbstractProvider<DataProvider>
     {
-        [field: SerializeField] public DataContainer database { get; private set; }
-        [field: SerializeField] public SkillIcons skillIcons { get; private set; }
-        [field: SerializeField] public PlayerSave playerSave { get; private set; } = new PlayerSave();
+        [field: SerializeField] private DataContainer database;
+        [field: SerializeField] private SkillIcons skillIcons;
+        [field: SerializeField] private ProficiencyIcons proficiencyIcons;
+        [field: SerializeField] private SkillProficiency[] proficiencies;
+
+        public List<SkillIcon> skillIconList => skillIcons.icons;
+        public List<ProficiencyIcon> proficiencyIconList => proficiencyIcons.icons;
+        public Sprite GetIconFromSkillId( SkillId skillId ) => skillIcons.GetIconFromSkillId( skillId );
+
+        public Sprite GetIconFromProficiencyId( ProficiencyId skillId ) =>
+            proficiencyIcons.GetIconFromProficiencyId( skillId );
 
         private void OnValidate()
         {
             database = EnumerableExtensions.GetScriptableObjectsOfType<DataContainer>().First();
             skillIcons = EnumerableExtensions.GetScriptableObjectsOfType<SkillIcons>().First();
-
-            //SetSkillIcons();
         }
 
         private void Start()
         {
-            Debug.Assert(database != null);
-            Debug.Assert(skillIcons != null);
-            //SetSkillIcons();
+            if( !database )
+                Debug.LogError( "No database found!" );
+
+            if( !skillIcons )
+                Debug.LogError( "No skillIcons found!" );
+
+            CreateAllProficienciesFromImportData();
         }
 
-        //[ContextMenu("SetSkillIcons")]
-        //private void SetSkillIcons()
-        //{
-        //    foreach( var skillData in database.content.skills )
-        //        if( skillData.Icon == null )
-        //            skillData.Icon = skillIcons.GetIconFromSkillHashId( skillData.Id );
-        //}
-        [ContextMenu("LoadSlot0")]
-        private void LoadSlot0() => LoadJson( Const.PlayerSaveId.PlayerSave0 );
-        [ContextMenu("LoadSlot1")]
-        private void LoadSlot1() => LoadJson( Const.PlayerSaveId.PlayerSave1 );
-        [ContextMenu("LoadSlot2")]
-        private void LoadSlot2() => LoadJson( Const.PlayerSaveId.PlayerSave2 );
-        
-        public void LoadJson( Const.PlayerSaveId id )
+        [ContextMenu("CreateAllProficienciesFromImportData")]
+        private void CreateAllProficienciesFromImportData()
         {
-            var directory = Const.GetSaveDirectory();
-
-            if( !Directory.Exists( directory ) )
+            var newList = new List<SkillProficiency>();
+            
+            foreach( var data in  database.tables.proficiencies )
             {
-                Debug.Log( $"{directory} does not exist" );
-                return;
+                if( data.Common != 0 )
+                    newList.Add( CreateProficiencyForRarity( data, RarityId.Common ) );
+                if( data.Magic != 0 )
+                    newList.Add( CreateProficiencyForRarity( data, RarityId.Magic ) );
+                if( data.Rare != 0 )
+                    newList.Add( CreateProficiencyForRarity( data, RarityId.Rare ) );
+                if( data.Epic != 0 )
+                    newList.Add( CreateProficiencyForRarity( data, RarityId.Epic ) );
             }
-            
-            var files = Directory.GetFiles(directory, $"*{Const.GetFileName(id)}");
-            
-            if ( files.Length == 0 )
-            {
-                Debug.Log( $"File {Const.GetFileName(id)} does not exist" );
-                return;
-            }
-            
-            var jsonFile = new TextAsset( File.ReadAllText( files[0] ) );
-            
-            JsonUtility.FromJsonOverwrite( jsonFile.text, playerSave );
-            //playerSave = JsonUtility.FromJson<PlayerSave>( jsonFile.text );
-            
-            //OnSaveLoaded?.Invoke( playerSave );
-            var skillId = playerSave.GetSkillIdAtSlotIndex(0);
-            playerSave.SetSkillIdAtSlotIndex(0, skillId);;
+            proficiencies = newList.ToArray();
         }
+        
+        private SkillProficiency CreateProficiencyForRarity( ProficiencyImportData data, RarityId rarity )
+        {
+            return new SkillProficiency
+            {
+                id = data.Id,
+                proficiency = data.proficiency,
+                value = data.GetValue( rarity ),
+                rarity = rarity,
+                name = data.Name.Colored( Const.GetRarityColor( rarity ) ),
+                icon = GetIconFromProficiencyId( data.proficiency ),
+            };
+        }
+
+        private IEnumerable<SkillProficiency> GetProficiencies( SkillId id )
+            => proficiencies.Where( x => x.id == id );
+
+        public IEnumerable<SkillProficiency> GetDropdownProficiencies( SkillId id, RarityId rarity ) 
+            => GetProficiencies( id ).Where( x => x.rarity == rarity );
     }
 }

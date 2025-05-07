@@ -6,13 +6,18 @@ using UnityEngine;
 namespace Code.Data
 {
     [Serializable]
-    public sealed class SkillSlotData : ISerializationCallbackReceiver
+    public struct SkillSlotData
     {
         [HideInInspector] public string name;
 
-        public SkillHashId _skillHashId;
-        //public readonly int _slotIndex;
-        public void OnBeforeSerialize() => name = $"{_skillHashId.ToDescription()}";
-        public void OnAfterDeserialize() => name = $"{_skillHashId.ToDescription()}";
+        public SkillId _skillHashId;// { get; private set; }
+        public int _slotIndex;// { get; private set; }
+
+        public SkillSlotData( int slotIndex, SkillId skillHashId )
+        {
+            this._slotIndex = slotIndex;
+            this._skillHashId = skillHashId;
+            name = $"[{slotIndex}] {skillHashId.ToDescription()}";
+        }
     }
 }

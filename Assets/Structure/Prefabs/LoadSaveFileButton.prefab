@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8246521473658626150}
   - component: {fileID: 4424792196580770623}
   - component: {fileID: 6065641564583028910}
+  - component: {fileID: 3531780280098065199}
   m_Layer: 5
   m_Name: LoadSaveFileButton
   m_TagString: Untagged
@@ -160,9 +161,21 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 8832340572735669327}
-  tooltipText: Set the tooltip text in the inspector
-  playerSave: {fileID: 0}
+  tooltipHolder: {fileID: 3531780280098065199}
   playerSaveId: 0
+--- !u!114 &3531780280098065199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7680755217419280223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2390c880d6b46eb98599c3fb135e4bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipText: Set the tooltip text in the inspector
 --- !u!1001 &2407670475208327426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -197,7 +210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2679946887800194899, guid: 41166417e612f944da14cfcb455b3133, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 77.31
       objectReference: {fileID: 0}
     - target: {fileID: 2679946887800194899, guid: 41166417e612f944da14cfcb455b3133, type: 3}
       propertyPath: m_SizeDelta.y
@@ -237,7 +250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2679946887800194899, guid: 41166417e612f944da14cfcb455b3133, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -8
+      value: -21.41
       objectReference: {fileID: 0}
     - target: {fileID: 2679946887800194899, guid: 41166417e612f944da14cfcb455b3133, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

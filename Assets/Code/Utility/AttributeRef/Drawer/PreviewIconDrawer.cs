@@ -8,12 +8,11 @@ namespace Code.Utility.AttributeRef.Drawer
     [CustomPropertyDrawer(typeof(PreviewIconAttribute))]
     public sealed class PreviewIconDrawer : PropertyDrawer
     {
-        private const float _textureSize = 64;
-
-        public override float GetPropertyHeight(SerializedProperty property, GUIContent label) => property.objectReferenceValue != null ? _textureSize : base.GetPropertyHeight(property, label);
+        public override float GetPropertyHeight(SerializedProperty property, GUIContent label) => property.objectReferenceValue != null ? ( (PreviewIconAttribute) attribute ).TextureSize :  base.GetPropertyHeight(property, label);
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
+            PreviewIconAttribute precIcon = (PreviewIconAttribute) attribute;
             position = EditorGUI.IndentedRect(position);
 
             _ = EditorGUI.BeginProperty(position, label, property);
@@ -24,7 +23,7 @@ namespace Code.Utility.AttributeRef.Drawer
 
             GUI.Label(labelRect, property.displayName);
 
-            var spriteRect = new Rect(labelRect.x + EditorGUIUtility.labelWidth, position.y, _textureSize, _textureSize);
+            var spriteRect = new Rect(labelRect.x + EditorGUIUtility.labelWidth, position.y, precIcon.TextureSize, precIcon.TextureSize);
 
             if (property.objectReferenceValue != null)
             {

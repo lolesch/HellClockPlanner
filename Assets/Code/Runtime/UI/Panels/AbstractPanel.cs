@@ -5,23 +5,20 @@ using UnityEngine.UI;
 namespace Code.Runtime.UI.Panels
 {
     /// <summary>
-    /// Panels provide appearence options such as fading in and out, scaling and movement.
+    /// Panels provide appearance options such as fading in and out, scaling and movement.
     /// A panel should always stay enabled, only its canvasGroup alpha is set to 0.
     /// Therefore, use <see cref="BeforeAppear"/> instead of <see cref="OnEnable()"/> to refresh panel data.
     /// </summary>
     [RequireComponent(typeof(CanvasGroup), typeof(GraphicRaycaster), typeof(RectTransform))]
     public abstract class AbstractPanel : MonoBehaviour
     {
-        #region COMPONENT REFERENCES
-        protected CanvasGroup canvasGroup = null;
-        public CanvasGroup CanvasGroup => canvasGroup == null ? canvasGroup = GetComponent<CanvasGroup>() : canvasGroup;
+        public CanvasGroup canvasGroup = null;
 
-        private RectTransform rectTransform;
-        public RectTransform RectTransform => rectTransform == null ? rectTransform = GetComponent<RectTransform>() : rectTransform;
-        #endregion COMPONENT REFERENCES
+        private RectTransform _rectTransform;
+        public RectTransform rectTransform => transform as RectTransform;
 
-        public bool IsActive => CanvasGroup.alpha == 1;
-        [field: SerializeField, Range(0, 1)] public float FadeDuration { get; private set; } = .2f;
+        public bool isActive => Mathf.Approximately( canvasGroup.alpha, 1 );
+        [field: SerializeField, Range(0, 1)] public float fadeDuration { get; private set; } = .2f;
 
         protected virtual void Awake()
         {
@@ -34,7 +31,7 @@ namespace Code.Runtime.UI.Panels
         protected virtual void OnDisable() => KillTweens();
 
         [ContextMenu("FadeIn")]
-        public void FadeIn() => FadeIn(FadeDuration);
+        public void FadeIn() => FadeIn(fadeDuration);
         public void FadeIn(float fadeInDuration)
         {
             KillTweens();
@@ -43,14 +40,14 @@ namespace Code.Runtime.UI.Panels
 
             if (fadeInDuration <= 0)
             {
-                CanvasGroup.alpha = 1;
+                canvasGroup.alpha = 1;
 
                 OnAppear();
 
                 return;
             }
 
-            _ = CanvasGroup.DOFade(1, fadeInDuration).SetEase(Ease.InOutQuad).OnComplete(() => OnAppear());
+            _ = canvasGroup.DOFade(1, fadeInDuration).SetEase(Ease.InOutQuad).OnComplete(() => OnAppear());
         }
 
         public Sequence FadeInAfterDelay(float fadeInDelay = 0)
@@ -75,34 +72,34 @@ namespace Code.Runtime.UI.Panels
         /// <summary>
         /// Called after the CanvasGroup completed fading in.
         /// </summary>
-        protected virtual void OnAppear() => CanvasGroup.blocksRaycasts = true;
+        protected virtual void OnAppear() => canvasGroup.blocksRaycasts = true;
 
         [ContextMenu("FadeOut")]
-        public void FadeOut() => FadeOut(FadeDuration);
+        public void FadeOut() => FadeOut(fadeDuration);
         public void FadeOut(float fadeOutDuration)
         {
             KillTweens();
 
             // BeforeDisappear()
 
-            CanvasGroup.blocksRaycasts = false;
+            canvasGroup.blocksRaycasts = false;
 
             if (fadeOutDuration <= 0)
             {
-                CanvasGroup.alpha = 0;
+                canvasGroup.alpha = 0;
 
                 // OnDisappear();
 
                 return;
             }
 
-            _ = CanvasGroup.DOFade(0, fadeOutDuration).SetEase(Ease.InQuad); //.OnComplete(() => OnDisappear());
+            _ = canvasGroup.DOFade(0, fadeOutDuration).SetEase(Ease.InQuad); //.OnComplete(() => OnDisappear());
         }
 
         [ContextMenu("Toggle Visibility")]
         public void Toggle()
         {
-            if (CanvasGroup.alpha < 1)
+            if (canvasGroup.alpha < 1)
                 FadeIn();
             else
                 FadeOut();
@@ -110,11 +107,11 @@ namespace Code.Runtime.UI.Panels
 
         private void KillTweens()
         {
-            if (CanvasGroup == null)
+            if (canvasGroup == null)
                 return;
 
-            if (DOTween.IsTweening(CanvasGroup))
-                _ = DOTween.Kill(CanvasGroup);
+            if (DOTween.IsTweening(canvasGroup))
+                _ = DOTween.Kill(canvasGroup);
         }
     }
 }

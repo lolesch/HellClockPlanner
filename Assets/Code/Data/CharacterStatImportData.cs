@@ -1,21 +1,22 @@
 using System;
 using Code.Data.Enums;
+using Code.Utility.AttributeRef.Attributes;
 using Code.Utility.Extensions;
 using UnityEngine;
 
 namespace Code.Data
 {
     [Serializable]
-    public sealed class CharacterStatImportData : ISerializationCallbackReceiver
+    public struct CharacterStatImportData : ISerializationCallbackReceiver
     {
         [HideInInspector] public string name;
         
-        public CharacterStatId Id;
-        public float BaseValue;
+        [ReadOnly] public CharacterStatId Id;
+        [ReadOnly] public float BaseValue;
         
         private string ModType;
         // TODO: replace with statistics.modType once implemented
-        [SerializeField] private StatModType modType;
+        [SerializeField][ReadOnly] private StatModType modType;
 
         public void OnBeforeSerialize()
         {

@@ -12,6 +12,7 @@
 - [ ] dragAndDrop -> swap skills
 
 ### Skill Proficiencies
-- [ ] show available slots
+- [x] show available slots
+- [ ] dorpdown with skill-dependent proficiencies
 - [ ] onHover -> show proficiency details popup
 - [ ] onClick -> show available proficiencies to select from

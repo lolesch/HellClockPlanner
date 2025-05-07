@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using Code.Data;
 using Code.Utility.AttributeRef.Attributes;
 using DG.Tweening;
@@ -10,29 +9,23 @@ using UnityEngine.UI;
 
 namespace Code.Runtime.UI.Toggles
 {
+    [RequireComponent(typeof(TooltipHolder))]
     public abstract class AbstractToggle : Selectable, IPointerClickHandler
     {
-        [SerializeField] protected string tooltipForNotInteractable = $"Set the tooltip text in the inspector";
-        [SerializeField] protected string tooltipForOn = $"Set the tooltip text in the inspector";
-        [SerializeField] protected string tooltipForOff = $"Set the tooltip text in the inspector";
+        [SerializeField] private TooltipHolder tooltipHolder;
 
-        public static event Action OnShowTooltip;
-        public static event Action OnHideTooltip;
-
-        private Coroutine showTooltip;
-
-        [field: SerializeField] public bool IsOn { get; private set; } = false;
+        [field: SerializeField] public bool isOn { get; private set; } = false;
 
         [SerializeField, ReadOnly] protected RadioGroup radioGroup = null;
         public RadioGroup RadioGroup => radioGroup == null ? radioGroup = GetComponentInParent<RadioGroup>() : radioGroup;
 
-        [SerializeField, ReadOnly] protected TextMeshProUGUI displayText = null;
-        public TextMeshProUGUI DisplayText => displayText == null ? displayText = GetComponentInChildren<TextMeshProUGUI>() : displayText;
+        [SerializeField] protected TextMeshProUGUI displayText = null;
+        
         [SerializeField] private string toggledOffText;
         [SerializeField] private string toggledOnText;
 
-        [SerializeField, ReadOnly] protected Image icon = null;
-        public Image Icon => icon == null ? icon = GetComponentsInChildren<Image>()[1] : icon;
+        [SerializeField] protected Image icon = null;
+        
         [SerializeField, PreviewIcon] private Sprite toggledOffSprite;
         [SerializeField, PreviewIcon] private Sprite toggledOnSprite;
 
@@ -44,7 +37,7 @@ namespace Code.Runtime.UI.Toggles
             if (RadioGroup != null && RadioGroup.transform != transform.parent)
                 radioGroup = null;
 
-            if (IsOn && RadioGroup)
+            if (isOn && RadioGroup)
                 RadioGroup.Activate(this);
         }
 #endif // if UNTIY_EDITOR
@@ -73,33 +66,33 @@ namespace Code.Runtime.UI.Toggles
             base.Start();
             //hideTooltip = new HideTooltipCommand();
 
-            SetToggle(IsOn);
+            SetToggle(isOn);
         }
 
         internal void SetToggle(bool isOn)
         {
-            IsOn = isOn;
-            OnToggle?.Invoke(IsOn);
+            this.isOn = isOn;
+            OnToggle?.Invoke(this.isOn);
 
-            if (Icon != null)
+            if (icon != null)
             {
                 if (toggledOffSprite != null && toggledOnSprite != null)
-                    Icon.sprite = IsOn ? toggledOnSprite : toggledOffSprite;
+                    icon.sprite = this.isOn ? toggledOnSprite : toggledOffSprite;
             }
 
-            if (DisplayText != null)
+            if (displayText != null)
             {
                 if (toggledOffText != string.Empty && toggledOnText != string.Empty)
-                    DisplayText.text = IsOn ? toggledOnText : toggledOffText;
+                    displayText.text = this.isOn ? toggledOnText : toggledOffText;
             }
 
-            if (IsOn && RadioGroup)
+            if (this.isOn && RadioGroup)
                 RadioGroup.Activate(this);
 
-            if (!IsOn)
+            if (!this.isOn)
                 DoStateTransition(SelectionState.Normal, false);
 
-            PlayToggleSound(IsOn);
+            PlayToggleSound(this.isOn);
 
             Toggle(isOn);
         }
@@ -109,60 +102,31 @@ namespace Code.Runtime.UI.Toggles
             base.OnDeselect(eventData);
 
             if (interactable)
-                DoStateTransition(IsOn ? SelectionState.Selected : SelectionState.Normal, false);
+                DoStateTransition(isOn ? SelectionState.Selected : SelectionState.Normal, false);
         }
 
         protected abstract void Toggle(bool isOn);
-
-        private void HideTooltip()
-        {
-            if (showTooltip != null)
-                StopCoroutine(showTooltip);
-
-            OnHideTooltip?.Invoke();
-        }
-
-        private void ShowTooltip(float delay, string text) => showTooltip = StartCoroutine(DelayedShowTooltip(delay, text));
-
-        private IEnumerator DelayedShowTooltip(float delay, string text)
-        {
-            yield return new WaitForSeconds(delay);
-
-            OnShowTooltip?.Invoke();
-        }
 
         public virtual void OnPointerClick(PointerEventData eventData)
         {
             if (!interactable)
                 return;
 
-            if (RadioGroup && !RadioGroup.AllowSwitchOff && IsOn)
+            if (RadioGroup && !RadioGroup.allowSwitchOff && isOn)
                 return;
 
             if (eventData.button == PointerEventData.InputButton.Left)
-                SetToggle(!IsOn);
+                SetToggle(!isOn);
 
-            HideTooltip();
+            tooltipHolder.HideTooltip();
 
-            if (IsOn)
-                ShowTooltip(Const.TooltipDelayAfterInteraction, tooltipForOn);
-            else
-                ShowTooltip(Const.TooltipDelayAfterInteraction, tooltipForOff);
+            tooltipHolder.ShowTooltip(Const.TooltipDelayAfterInteraction);
         }
         public override void OnPointerEnter(PointerEventData eventData)
         {
             base.OnPointerEnter(eventData);
 
-            if (!interactable)
-            {
-                ShowTooltip(Const.TooltipDelay, tooltipForNotInteractable);
-                return;
-            }
-
-            if (IsOn)
-                ShowTooltip(Const.TooltipDelay, tooltipForOn);
-            else
-                ShowTooltip(Const.TooltipDelay, tooltipForOff);
+            tooltipHolder.ShowTooltip(Const.TooltipDelay);
         }
 
         public override void OnPointerExit(PointerEventData eventData)
@@ -170,9 +134,9 @@ namespace Code.Runtime.UI.Toggles
             base.OnPointerExit(eventData);
 
             if (interactable)
-                DoStateTransition(IsOn ? SelectionState.Selected : SelectionState.Normal, false);
+                DoStateTransition(isOn ? SelectionState.Selected : SelectionState.Normal, false);
 
-            HideTooltip();
+            tooltipHolder.HideTooltip();
         }
 
         public virtual void PlayToggleSound(bool isOn) { } // => AudioProvider.Instance.PlayButtonClick();
