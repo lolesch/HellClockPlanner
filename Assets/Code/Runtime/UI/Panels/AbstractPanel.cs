@@ -12,7 +12,8 @@ namespace Code.Runtime.UI.Panels
     [RequireComponent(typeof(CanvasGroup), typeof(GraphicRaycaster), typeof(RectTransform))]
     public abstract class AbstractPanel : MonoBehaviour
     {
-        public CanvasGroup canvasGroup = null;
+        private CanvasGroup _canvasGroup = null;
+        public CanvasGroup canvasGroup => _canvasGroup ??= GetComponent<CanvasGroup>();
 
         private RectTransform _rectTransform;
         public RectTransform rectTransform => transform as RectTransform;

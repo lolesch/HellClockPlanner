@@ -4,7 +4,7 @@ using Code.Runtime.Provider;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Code.Runtime.UI
+namespace Code.Runtime.UI.Displays
 {
     public sealed class SkillIconDisplay : MonoBehaviour
     {

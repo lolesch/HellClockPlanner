@@ -2,6 +2,7 @@ using System;
 using Code.Data.Enums;
 using Code.Utility.AttributeRef.Attributes;
 using Code.Utility.Extensions;
+using Code.Utility.Tools.Statistics;
 using UnityEngine;
 
 namespace Code.Data
@@ -15,29 +16,20 @@ namespace Code.Data
         [ReadOnly] public float BaseValue;
         
         private string ModType;
-        // TODO: replace with statistics.modType once implemented
-        [SerializeField][ReadOnly] private StatModType modType;
+        [SerializeField][ReadOnly] public ModifierType modType;
 
         public void OnBeforeSerialize()
         {
             name = Id.ToString();
-            if( modType == StatModType.None)
-                modType = (StatModType) ModType.ToEnum<StatModType>();
+            if( modType == 0)
+                modType = (ModifierType) ModType.ToEnum<ModifierType>();
         }
 
         public void OnAfterDeserialize()
         {
             name = Id.ToString();
-            if( modType == StatModType.None)
-                modType = (StatModType) ModType.ToEnum<StatModType>();
-        }
-        
-        // TODO: replace with statistics.modType once implemented
-        private enum StatModType
-        {
-            None,
-            FlatAdd,
-            PercentAdd
+            if( modType == 0)
+                modType = (ModifierType) ModType.ToEnum<ModifierType>();
         }
     }
 }

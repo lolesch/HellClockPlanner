@@ -59,6 +59,8 @@ namespace Code.Runtime.Provider
             proficiencies = newList.ToArray();
         }
         
+        public List<CharacterStatImportData> GetBaseStats() => database.tables.characterStats;
+        
         private SkillProficiency CreateProficiencyForRarity( ProficiencyImportData data, RarityId rarity )
         {
             return new SkillProficiency

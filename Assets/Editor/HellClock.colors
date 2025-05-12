@@ -16,8 +16,10 @@ MonoBehaviour:
   - m_Name: 
     m_Color: {r: 0.42352945, g: 0.21960786, b: 0.13333334, a: 1}
   - m_Name: 
-    m_Color: {r: 0.86274517, g: 0.80392164, b: 0.6784314, a: 1}
+    m_Color: {r: 0.54509807, g: 0.427451, b: 0.30588236, a: 1}
   - m_Name: 
+    m_Color: {r: 0.86274517, g: 0.80392164, b: 0.6784314, a: 1}
+  - m_Name: light gray
     m_Color: {r: 0.5647059, g: 0.50980395, b: 0.4901961, a: 1}
   - m_Name: 
     m_Color: {r: 0.3372549, g: 0.2784314, b: 0.2509804, a: 1}
@@ -28,16 +30,20 @@ MonoBehaviour:
   - m_Name: 
     m_Color: {r: 0.08235294, g: 0.06666667, b: 0.0627451, a: 1}
   - m_Name: 
+    m_Color: {r: 0.0627451, g: 0.054901965, b: 0.050980397, a: 1}
+  - m_Name: 
     m_Color: {r: 0.06666667, g: 0.050980397, b: 0.050980397, a: 1}
   - m_Name: 
     m_Color: {r: 0.050980397, g: 0.050980397, b: 0.050980397, a: 1}
-  - m_Name: 
+  - m_Name: black
     m_Color: {r: 0, g: 0, b: 0, a: 1}
-  - m_Name: 
+  - m_Name: rarity common
     m_Color: {r: 0.34901962, g: 0.3254902, b: 0.3254902, a: 1}
-  - m_Name: 
+  - m_Name: rarity magic
     m_Color: {r: 0.2901961, g: 0.4901961, b: 1, a: 1}
-  - m_Name: 
+  - m_Name: rarity rare
     m_Color: {r: 0.89019614, g: 0.7490196, b: 0.32156864, a: 1}
-  - m_Name: 
+  - m_Name: rarity epic
     m_Color: {r: 1, g: 0.3254902, b: 0.19215688, a: 1}
+  - m_Name: 
+    m_Color: {r: 0.1764706, g: 0, b: 0, a: 1}

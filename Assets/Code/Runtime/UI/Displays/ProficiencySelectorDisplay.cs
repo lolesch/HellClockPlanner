@@ -7,7 +7,7 @@ using Code.Utility.Extensions;
 using TMPro;
 using UnityEngine;
 
-namespace Code.Runtime.UI
+namespace Code.Runtime.UI.Displays
 {
     public sealed class ProficiencySelectorDisplay : MonoBehaviour
     {

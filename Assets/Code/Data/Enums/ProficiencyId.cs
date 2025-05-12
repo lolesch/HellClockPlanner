@@ -18,5 +18,6 @@ namespace Code.Data.Enums
         IncreasedDuration,
         KnifeGenerationTime,
         MaxKnives,
+        KnifeBounceAmount,
     }
 }

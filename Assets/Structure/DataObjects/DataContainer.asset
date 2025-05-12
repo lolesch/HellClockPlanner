@@ -109,219 +109,219 @@ MonoBehaviour:
     - name: BaseDamage
       Id: 1
       BaseValue: 175
-      modType: 1
+      modType: 100
     - name: Damage
       Id: 2
       BaseValue: 100
-      modType: 2
+      modType: 200
     - name: ElementalDamage
       Id: 3
       BaseValue: 0
-      modType: 2
+      modType: 200
     - name: FireDamage
       Id: 4
       BaseValue: 100
-      modType: 2
+      modType: 200
     - name: AddedFireDamage
       Id: 5
       BaseValue: 0
-      modType: 1
+      modType: 100
     - name: ChanceToIgnite
       Id: 6
       BaseValue: 100
-      modType: 2
+      modType: 200
     - name: IgnitedStatusIntensity
       Id: 7
       BaseValue: 100
-      modType: 2
+      modType: 200
     - name: LightningDamage
       Id: 8
       BaseValue: 100
-      modType: 2
+      modType: 200
     - name: AddedLightningDamage
       Id: 9
       BaseValue: 0
-      modType: 1
+      modType: 100
     - name: ChanceToShock
       Id: 10
       BaseValue: 100
-      modType: 2
+      modType: 200
     - name: ShockedStatusIntensity
       Id: 11
       BaseValue: 100
-      modType: 2
+      modType: 200
     - name: PhysicalDamage
       Id: 12
       BaseValue: 100
-      modType: 2
+      modType: 200
     - name: AddedPhysicalDamage
       Id: 13
       BaseValue: 0
-      modType: 1
+      modType: 100
     - name: ChanceToBleed
       Id: 14
       BaseValue: 100
-      modType: 2
+      modType: 200
     - name: BleedingStatusIntensity
       Id: 15
       BaseValue: 100
-      modType: 2
+      modType: 200
     - name: PlagueDamage
       Id: 16
       BaseValue: 100
-      modType: 2
+      modType: 200
     - name: AddedPlagueDamage
       Id: 17
       BaseValue: 0
-      modType: 1
+      modType: 100
     - name: ChanceToBlight
       Id: 18
       BaseValue: 100
-      modType: 2
+      modType: 200
     - name: BlightedStatusIntensity
       Id: 19
       BaseValue: 100
-      modType: 2
+      modType: 200
     - name: CriticalHitChance
       Id: 20
       BaseValue: 5
-      modType: 1
+      modType: 100
     - name: CriticalHitChanceMultiplier
       Id: 21
       BaseValue: 0
-      modType: 2
+      modType: 200
     - name: CriticalHitDamage
       Id: 22
       BaseValue: 150
-      modType: 2
+      modType: 200
     - name: CriticalHitDamageMultiplier
       Id: 23
       BaseValue: 0
-      modType: 2
+      modType: 200
     - name: MoveSpeed
       Id: 24
       BaseValue: 100
-      modType: 2
+      modType: 200
     - name: AttackSpeed
       Id: 25
       BaseValue: 100
-      modType: 2
+      modType: 200
     - name: CooldownSpeed
       Id: 26
       BaseValue: 100
-      modType: 2
+      modType: 200
     - name: SkillManaCost
       Id: 27
       BaseValue: 100
-      modType: 2
+      modType: 200
     - name: ExperienceGain
       Id: 28
       BaseValue: 100
-      modType: 2
+      modType: 200
     - name: GoldGain
       Id: 29
       BaseValue: 100
-      modType: 2
+      modType: 200
     - name: SoulStoneGain
       Id: 30
       BaseValue: 100
-      modType: 2
+      modType: 200
     - name: ItemFind
       Id: 31
       BaseValue: 0
-      modType: 2
+      modType: 200
     - name: BonusGearDropChance
       Id: 32
       BaseValue: 0
-      modType: 2
+      modType: 200
     - name: BonusRelicDropChance
       Id: 33
       BaseValue: 0
-      modType: 2
+      modType: 200
     - name: BonusTrinketDropChance
       Id: 34
       BaseValue: 0
-      modType: 2
+      modType: 200
     - name: ConvictionDecayResistance
       Id: 35
       BaseValue: 0
-      modType: 2
+      modType: 200
     - name: ConvictionDecayThreshold
       Id: 36
       BaseValue: 0
-      modType: 1
+      modType: 100
     - name: ConvictionFromManaSpent
       Id: 37
       BaseValue: 0
-      modType: 2
+      modType: 200
     - name: ConvictionGain
       Id: 38
       BaseValue: 100
-      modType: 2
+      modType: 200
     - name: ConvictionGeneration
       Id: 39
       BaseValue: 0
-      modType: 2
+      modType: 200
     - name: ElementalResistance
       Id: 40
       BaseValue: 0
-      modType: 2
+      modType: 200
     - name: FireResistance
       Id: 41
       BaseValue: 0
-      modType: 2
+      modType: 200
     - name: LightningResistance
       Id: 42
       BaseValue: 0
-      modType: 2
+      modType: 200
     - name: PhysicalResistance
       Id: 43
       BaseValue: 0
-      modType: 2
+      modType: 200
     - name: PlagueResistance
       Id: 44
       BaseValue: 0
-      modType: 2
+      modType: 200
     - name: Life
       Id: 45
       BaseValue: 600
-      modType: 1
+      modType: 100
     - name: LifePercent
       Id: 46
       BaseValue: 0
-      modType: 2
+      modType: 200
     - name: LifeOnKill
       Id: 47
       BaseValue: 0
-      modType: 1
+      modType: 100
     - name: LifeRegeneration
       Id: 48
       BaseValue: 0
-      modType: 2
+      modType: 200
     - name: Mana
       Id: 49
       BaseValue: 600
-      modType: 1
+      modType: 100
     - name: ManaPercent
       Id: 50
       BaseValue: 0
-      modType: 2
+      modType: 200
     - name: ManaOnKill
       Id: 51
       BaseValue: 0
-      modType: 1
+      modType: 100
     - name: ManaRegeneration
       Id: 52
       BaseValue: 10
-      modType: 2
+      modType: 200
     - name: PotionCapacity
       Id: 53
       BaseValue: 3
-      modType: 1
+      modType: 100
     - name: PotionEfficiency
       Id: 54
       BaseValue: 100
-      modType: 2
+      modType: 200
     proficiencies:
     - name: SplitShot
       Id: 1
@@ -370,7 +370,7 @@ MonoBehaviour:
       Common: 0
       Magic: 20
       Rare: 30
-      Epic: 0
+      Epic: 40
     - name: Reflexes
       Id: 4
       proficiency: 1
@@ -399,6 +399,14 @@ MonoBehaviour:
       Id: 4
       proficiency: 9
       Name: Blade Horde
+      Common: 0
+      Magic: 0
+      Rare: 1
+      Epic: 2
+    - name: Reflexes
+      Id: 4
+      proficiency: 10
+      Name: External Blade Echo
       Common: 0
       Magic: 0
       Rare: 1

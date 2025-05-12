@@ -63,7 +63,7 @@ namespace Code.Utility.Extensions
                 if ( ToDescription( (T) val ) == enumDescription )
                     return (T) val;
 
-            throw new ArgumentException( "ToEnum<T>(): Invalid description for enum " + nameof(T), "enumDescription" );
+            throw new ArgumentException( "ToEnum<T>(): Invalid description for enum " + typeof(T).Name, "enumDescription" );
         }
     }
 }
