@@ -1,6 +1,6 @@
 namespace Code.Data.Enums
 {
-    public enum SkillTagId
+    public enum SkillTagId : byte
     {
         FireDamage,
         LightningDamage,

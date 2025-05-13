@@ -69,7 +69,6 @@ GameObject:
   - component: {fileID: 1608237153674528203}
   - component: {fileID: 35274105294606352}
   - component: {fileID: 4070664408137330068}
-  - component: {fileID: 5668506909693576398}
   m_Layer: 5
   m_Name: StatDisplay
   m_TagString: Untagged
@@ -127,8 +126,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -658161160174202911, guid: 0497bd02eba342a4f80fcb01cfc6a3f8, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 6264865328193953926, guid: 44e1cf9a85c204b469bff7d03a66c459, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -177,22 +176,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
---- !u!114 &5668506909693576398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1297718648586165422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10cbad6b3f254abbb0e7a97e4cb88180, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statName: {fileID: 8321351350108796709}
-  statValue: {fileID: 1365829752899896700}
-  hoverImage: {fileID: 1608237153674528203}
-  highlightedColor: {r: 0.1764706, g: 0, b: 0, a: 1}
 --- !u!1 &7517133886288647967
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,6 +188,7 @@ GameObject:
   - component: {fileID: 6320456756008878504}
   - component: {fileID: 8321351350108796709}
   - component: {fileID: 6893778911377519160}
+  - component: {fileID: 194433110879792614}
   m_Layer: 5
   m_Name: StatName
   m_TagString: Untagged
@@ -344,6 +328,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 2
+--- !u!114 &194433110879792614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7517133886288647967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2390c880d6b46eb98599c3fb135e4bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipText: Set the tooltip text in the inspector
 --- !u!1 &8169360231027765106
 GameObject:
   m_ObjectHideFlags: 0

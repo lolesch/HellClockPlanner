@@ -106,222 +106,168 @@ MonoBehaviour:
       Cooldown: 0.25
       BaseDamage: 70
     characterStats:
-    - name: BaseDamage
+    - name: BaseDamage - 175
       Id: 1
       BaseValue: 175
-      modType: 100
-    - name: Damage
+    - name: Damage - 1
       Id: 2
-      BaseValue: 100
-      modType: 200
-    - name: ElementalDamage
+      BaseValue: 1
+    - name: ElementalDamage - 0
       Id: 3
       BaseValue: 0
-      modType: 200
-    - name: FireDamage
+    - name: FireDamage - 1
       Id: 4
-      BaseValue: 100
-      modType: 200
-    - name: AddedFireDamage
+      BaseValue: 1
+    - name: AddedFireDamage - 0
       Id: 5
       BaseValue: 0
-      modType: 100
-    - name: ChanceToIgnite
+    - name: ChanceToIgnite - 1
       Id: 6
-      BaseValue: 100
-      modType: 200
-    - name: IgnitedStatusIntensity
+      BaseValue: 1
+    - name: IgnitedStatusIntensity - 1
       Id: 7
-      BaseValue: 100
-      modType: 200
-    - name: LightningDamage
+      BaseValue: 1
+    - name: LightningDamage - 1
       Id: 8
-      BaseValue: 100
-      modType: 200
-    - name: AddedLightningDamage
+      BaseValue: 1
+    - name: AddedLightningDamage - 0
       Id: 9
       BaseValue: 0
-      modType: 100
-    - name: ChanceToShock
+    - name: ChanceToShock - 1
       Id: 10
-      BaseValue: 100
-      modType: 200
-    - name: ShockedStatusIntensity
+      BaseValue: 1
+    - name: ShockedStatusIntensity - 1
       Id: 11
-      BaseValue: 100
-      modType: 200
-    - name: PhysicalDamage
+      BaseValue: 1
+    - name: PhysicalDamage - 1
       Id: 12
-      BaseValue: 100
-      modType: 200
-    - name: AddedPhysicalDamage
+      BaseValue: 1
+    - name: AddedPhysicalDamage - 0
       Id: 13
       BaseValue: 0
-      modType: 100
-    - name: ChanceToBleed
+    - name: ChanceToBleed - 1
       Id: 14
-      BaseValue: 100
-      modType: 200
-    - name: BleedingStatusIntensity
+      BaseValue: 1
+    - name: BleedingStatusIntensity - 1
       Id: 15
-      BaseValue: 100
-      modType: 200
-    - name: PlagueDamage
+      BaseValue: 1
+    - name: PlagueDamage - 1
       Id: 16
-      BaseValue: 100
-      modType: 200
-    - name: AddedPlagueDamage
+      BaseValue: 1
+    - name: AddedPlagueDamage - 0
       Id: 17
       BaseValue: 0
-      modType: 100
-    - name: ChanceToBlight
+    - name: ChanceToBlight - 1
       Id: 18
-      BaseValue: 100
-      modType: 200
-    - name: BlightedStatusIntensity
+      BaseValue: 1
+    - name: BlightedStatusIntensity - 1
       Id: 19
-      BaseValue: 100
-      modType: 200
-    - name: CriticalHitChance
+      BaseValue: 1
+    - name: CriticalHitChance - 5
       Id: 20
       BaseValue: 5
-      modType: 100
-    - name: CriticalHitChanceMultiplier
+    - name: CriticalHitChanceMultiplier - 0
       Id: 21
       BaseValue: 0
-      modType: 200
-    - name: CriticalHitDamage
+    - name: CriticalHitDamage - 2
       Id: 22
-      BaseValue: 150
-      modType: 200
-    - name: CriticalHitDamageMultiplier
+      BaseValue: 2
+    - name: CriticalHitDamageMultiplier - 0
       Id: 23
       BaseValue: 0
-      modType: 200
-    - name: MoveSpeed
+    - name: MoveSpeed - 1
       Id: 24
-      BaseValue: 100
-      modType: 200
-    - name: AttackSpeed
+      BaseValue: 1
+    - name: AttackSpeed - 1
       Id: 25
-      BaseValue: 100
-      modType: 200
-    - name: CooldownSpeed
+      BaseValue: 1
+    - name: CooldownSpeed - 1
       Id: 26
-      BaseValue: 100
-      modType: 200
-    - name: SkillManaCost
+      BaseValue: 1
+    - name: SkillManaCost - 1
       Id: 27
-      BaseValue: 100
-      modType: 200
-    - name: ExperienceGain
+      BaseValue: 1
+    - name: ExperienceGain - 1
       Id: 28
-      BaseValue: 100
-      modType: 200
-    - name: GoldGain
+      BaseValue: 1
+    - name: GoldGain - 1
       Id: 29
-      BaseValue: 100
-      modType: 200
-    - name: SoulStoneGain
+      BaseValue: 1
+    - name: SoulStoneGain - 1
       Id: 30
-      BaseValue: 100
-      modType: 200
-    - name: ItemFind
+      BaseValue: 1
+    - name: ItemFind - 0
       Id: 31
       BaseValue: 0
-      modType: 200
-    - name: BonusGearDropChance
+    - name: BonusGearDropChance - 0
       Id: 32
       BaseValue: 0
-      modType: 200
-    - name: BonusRelicDropChance
+    - name: BonusRelicDropChance - 0
       Id: 33
       BaseValue: 0
-      modType: 200
-    - name: BonusTrinketDropChance
+    - name: BonusTrinketDropChance - 0
       Id: 34
       BaseValue: 0
-      modType: 200
-    - name: ConvictionDecayResistance
+    - name: ConvictionDecayResistance - 0
       Id: 35
       BaseValue: 0
-      modType: 200
-    - name: ConvictionDecayThreshold
+    - name: ConvictionDecayThreshold - 0
       Id: 36
       BaseValue: 0
-      modType: 100
-    - name: ConvictionFromManaSpent
+    - name: ConvictionFromManaSpent - 0
       Id: 37
       BaseValue: 0
-      modType: 200
-    - name: ConvictionGain
+    - name: ConvictionGain - 1
       Id: 38
-      BaseValue: 100
-      modType: 200
-    - name: ConvictionGeneration
+      BaseValue: 1
+    - name: ConvictionGeneration - 0
       Id: 39
       BaseValue: 0
-      modType: 200
-    - name: ElementalResistance
+    - name: ElementalResistance - 0
       Id: 40
       BaseValue: 0
-      modType: 200
-    - name: FireResistance
+    - name: FireResistance - 0
       Id: 41
       BaseValue: 0
-      modType: 200
-    - name: LightningResistance
+    - name: LightningResistance - 0
       Id: 42
       BaseValue: 0
-      modType: 200
-    - name: PhysicalResistance
+    - name: PhysicalResistance - 0
       Id: 43
       BaseValue: 0
-      modType: 200
-    - name: PlagueResistance
+    - name: PlagueResistance - 0
       Id: 44
       BaseValue: 0
-      modType: 200
-    - name: Life
+    - name: Life - 600
       Id: 45
       BaseValue: 600
-      modType: 100
-    - name: LifePercent
+    - name: LifePercent - 0
       Id: 46
       BaseValue: 0
-      modType: 200
-    - name: LifeOnKill
+    - name: LifeOnKill - 0
       Id: 47
       BaseValue: 0
-      modType: 100
-    - name: LifeRegeneration
+    - name: LifeRegeneration - 0
       Id: 48
       BaseValue: 0
-      modType: 200
-    - name: Mana
+    - name: Mana - 600
       Id: 49
       BaseValue: 600
-      modType: 100
-    - name: ManaPercent
+    - name: ManaPercent - 0
       Id: 50
       BaseValue: 0
-      modType: 200
-    - name: ManaOnKill
+    - name: ManaOnKill - 0
       Id: 51
       BaseValue: 0
-      modType: 100
-    - name: ManaRegeneration
+    - name: ManaRegeneration - 0
       Id: 52
-      BaseValue: 10
-      modType: 200
-    - name: PotionCapacity
+      BaseValue: 0
+    - name: PotionCapacity - 3
       Id: 53
       BaseValue: 3
-      modType: 100
-    - name: PotionEfficiency
+    - name: PotionEfficiency - 1
       Id: 54
-      BaseValue: 100
-      modType: 200
+      BaseValue: 1
     proficiencies:
     - name: SplitShot
       Id: 1

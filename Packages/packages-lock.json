@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.kamgam.editor.gittool": {
+      "version": "https://github.com/kamgam/UnityEditorGitTool.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "38968313901ee7f4a42111509c0a47e07c108f07"
+    },
     "com.norska-lib.spreadsheets": {
       "version": "https://github.com/NorskaGames/NorskaLib.Spreadsheets.git",
       "depth": 0,

@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.kamgam.editor.gittool": "https://github.com/kamgam/UnityEditorGitTool.git",
     "com.norska-lib.spreadsheets": "https://github.com/NorskaGames/NorskaLib.Spreadsheets.git",
     "com.unity.feature.2d": "2.0.1",
     "com.unity.ide.rider": "3.0.36",

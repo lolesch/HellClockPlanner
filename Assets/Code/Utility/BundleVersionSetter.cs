@@ -1,10 +1,10 @@
 using System;
-using System.Globalization;
 using Code.Utility.Extensions;
 using UnityEditor;
 using UnityEditor.Build;
 using UnityEditor.Build.Reporting;
 using UnityEngine;
+using System.ComponentModel;
 
 namespace Code.Utility
 {
@@ -13,10 +13,16 @@ namespace Code.Utility
         private enum ReleaseType
         {
             None = 0,
-            PreAlpha = 1, // Prototype
+            
+            [Description("pa")]
+            PreAlpha = 1,
+            [Description("a")]
             Alpha = 2,
+            [Description("b")]
             Beta = 3,
+            [Description("rc")]
             ReleaseCandidate = 4,
+            [Description("r")]
             Release = 5, // Gold
         }
 
@@ -58,14 +64,21 @@ namespace Code.Utility
                 Enum.TryParse(parts[4], out release);
         }
 
-        public static string GetVersion()
+        public static string GetDisplayString()
         {
             SplitBundleVersion(out var major, out var minor, out var patch, out var releaseType, out var timeStamp);
             
-            var versionNumber = $"{major:0}.{minor:0}.{patch:0}_{timeStamp}";
+            var versionNumber = $"v{major:0}.{minor:0}.{patch:0}";
 
             if( releaseType is not ReleaseType.None and < ReleaseType.Release )
-                versionNumber = $"{versionNumber}_{releaseType}";
+            {
+                var commitHash = string.Empty;
+                var gitHash = Resources.Load<TextAsset>("GitHash");
+                if (gitHash != null)
+                    commitHash = gitHash.text;
+                
+                versionNumber = $"{versionNumber}_{commitHash}_{releaseType.ToDescription()}";
+            }
             
             return versionNumber;
         }
@@ -101,10 +114,10 @@ namespace Code.Utility
             }
             
             timeStamp = DateTime.UtcNow.ToString("yyMMddHHmm"); 
-            uint.TryParse( timeStamp, out var number );
-            var hexString = number.ToString( "x" );
+            //uint.TryParse( timeStamp, out var number );
+            //var hexString = number.ToString( "x" );
             
-            var versionNumber = $"{major:0}.{minor:0}.{patch:0}_{hexString}";
+            var versionNumber = $"{major:0}.{minor:0}.{patch:0}_{timeStamp}";//_{hexString}";
 
             if (releaseType is not ReleaseType.None and < ReleaseType.Release)
                 versionNumber = $"{versionNumber}_{releaseType}";
@@ -117,19 +130,19 @@ namespace Code.Utility
             return versionNumber;
         }
 
-        [MenuItem("VersionNumber/Increase Patch Number", false, 800)]
+        [MenuItem("Tools/VersionNumber/Increase Patch Number", false, 800)]
         private static string IncreasePatchNumber() => IncrementBundleVersion( IncrementType.Patch);
 
-        [MenuItem("VersionNumber/Increase Minor Number", false, 801)]
+        [MenuItem("Tools/VersionNumber/Increase Minor Number", false, 801)]
         private static string IncreaseMinorNumber() => IncrementBundleVersion( IncrementType.Minor);
 
-        [MenuItem("VersionNumber/Increase Major Number", false, 802)]
+        [MenuItem("Tools/VersionNumber/Increase Major Number", false, 802)]
         private static string IncreaseMajorNumber() => IncrementBundleVersion( IncrementType.Major);
 
-        [MenuItem("VersionNumber/Increase ReleaseType", false, 803)]
+        [MenuItem("Tools/VersionNumber/Increase ReleaseType", false, 803)]
         private static string IncreaseReleaseType() => IncrementBundleVersion( IncrementType.ReleaseType);
 
-        [MenuItem("VersionNumber/Update TimeStamp", false, 804)]
+        [MenuItem("Tools/VersionNumber/Update TimeStamp", false, 804)]
         private static string UpdateTimeStamp() => IncrementBundleVersion( IncrementType.TimeStamp);
     }
 }

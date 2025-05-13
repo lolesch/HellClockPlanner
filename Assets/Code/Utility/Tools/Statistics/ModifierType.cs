@@ -13,8 +13,8 @@ namespace Code.Utility.Tools.Statistics
         // - PercentMult => multiplicative
 
         /// Values are the order the modifiers are applied
-        [Tooltip( "Sets the stat to a fixed value" )]
-        Overwrite = -1,
+        //[Tooltip( "Sets the stat to a fixed value" )]
+        //Overwrite = -1,
 
         [Tooltip( "Adds a flat value to the stat" )]
         [Description( "Flat Add" )]
@@ -24,7 +24,7 @@ namespace Code.Utility.Tools.Statistics
         [Description( "Percent Add" )]
         PercentAdd = 200,
 
-        [Tooltip( "Multiplies the total by a percentage" )]
-        PercentMult = 300,
+        //[Tooltip( "Multiplies the total by a percentage" )]
+        //PercentMult = 300,
     }
 }

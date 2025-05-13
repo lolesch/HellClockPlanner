@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Code.Utility.AttributeRef.Attributes;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Code.Utility.Tools.Statistics
@@ -14,7 +15,8 @@ namespace Code.Utility.Tools.Statistics
         [SerializeField] private readonly List<Modifier> _modifiers;
 
         public event Action<float> OnTotalChanged;
-        
+        public MutableFloatData GetTerms() => ApplyModifiers( out _ );
+
         public MutableFloat( float baseValue )
         {
             _baseValue = baseValue;
@@ -38,28 +40,23 @@ namespace Code.Utility.Tools.Statistics
             OnTotalChanged?.Invoke( _totalValue );
         }
 
-        private void ApplyModifiers( out float newTotal )
+        private MutableFloatData ApplyModifiers( out float newTotal )
         {
+            var baseValue = _baseValue;
+            var flatAddModValue = 0f;
+            var percentAddModValue = 0f;
+            
             newTotal = _baseValue;
             if( !_modifiers.Any() )
-                return;
+                return new MutableFloatData( newTotal, baseValue, flatAddModValue, 1 + percentAddModValue );
 
-            var overwriteMods = _modifiers.Where( x => x.Type == ModifierType.Overwrite )
-                .OrderByDescending( x => x );
-            if( overwriteMods.Any() )
-            {
-                newTotal = overwriteMods.FirstOrDefault();
-                return;
-            }
-
-            var flatAddModValue = _modifiers.Where( x => x.Type == ModifierType.FlatAdd ).Sum( x => x );
+            flatAddModValue = _modifiers.Where( x => x.Type == ModifierType.FlatAdd ).Sum( x => x );
             newTotal += flatAddModValue;
 
-            var percentAddModValue = _modifiers.Where( x => x.Type == ModifierType.PercentAdd ).Sum( x => x / 100f );
+            percentAddModValue = _modifiers.Where( x => x.Type == ModifierType.PercentAdd ).Sum( x => x / 100f );
             newTotal *= 1 + percentAddModValue;
-
-            var percentMultMods = _modifiers.Where( x => x.Type == ModifierType.PercentMult );
-            newTotal = percentMultMods.Aggregate( newTotal, ( current, mod ) => current * ( 1 + mod / 100f ) );
+            
+            return new MutableFloatData( newTotal, baseValue, flatAddModValue, 1 + percentAddModValue );
         }
 
         public void AddModifier( Modifier modifier )
@@ -85,6 +82,25 @@ namespace Code.Utility.Tools.Statistics
 
         public string ToString(string format) => _totalValue.ToString( format );
         public string ToString(string format, IFormatProvider provider) => _totalValue.ToString( format, provider );
+        
+        public struct MutableFloatData
+        {
+            public readonly float totalValue { get; }
+            public readonly float baseValue { get; }
+            public readonly float flatAdd { get; }
+            public readonly float percentAdd { get; }
+            
+            public bool wasModified => !Mathf.Approximately( totalValue, baseValue );
+
+            public MutableFloatData( float totalValue, float baseValue, float flatAdd, float percentAdd )
+            {
+                this.baseValue = baseValue;
+                this.flatAdd = flatAdd;
+                this.percentAdd = percentAdd;
+                
+                this.totalValue = totalValue;
+            }
+        }
     }
 
     internal interface IMutable<out T>
@@ -95,5 +111,7 @@ namespace Code.Utility.Tools.Statistics
         void AddModifier( Modifier modifier );
         bool TryRemoveModifier( Modifier modifier );
         event Action<T> OnTotalChanged;
+        
+        MutableFloat.MutableFloatData GetTerms();
     }
 }

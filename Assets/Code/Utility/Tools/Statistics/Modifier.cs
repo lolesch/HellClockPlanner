@@ -32,10 +32,10 @@ namespace Code.Utility.Tools.Statistics
             // - PercentAdd  => more/less
             // - PercentMult => multiplicative
             
-            ModifierType.Overwrite => $"= {_value:-0.###;0.###}",           //  = 123   | = -123   |  = 0
+            //ModifierType.Overwrite => $"= {_value:-0.###;0.###}",           //  = 123   | = -123   |  = 0
             ModifierType.FlatAdd => $"{_value:+0.###;-0.###;0.###}",        //   +123   |   -123   |    0
             ModifierType.PercentAdd => $"{_value:+0.###;-0.###;0.###} %",   //   +123 % |   -123 % |    0 %
-            ModifierType.PercentMult => $"* {_value:-0.###;0.###} %",       //  * 123 % | * -123 % |  * 0 %
+            //ModifierType.PercentMult => $"* {_value:-0.###;0.###} %",       //  * 123 % | * -123 % |  * 0 %
 
             var _ => $"?? {_value:+ 0.###;- 0.###;0.###}",
         };

@@ -1,7 +1,9 @@
 using System;
+using System.Linq;
 using Code.Data;
 using Code.Data.Enums;
 using Code.Runtime.Provider;
+using Code.Runtime.Statistics;
 using Code.Runtime.UI.Displays;
 
 namespace Code.Runtime
@@ -10,25 +12,31 @@ namespace Code.Runtime
     {
         //private PlayerSaveData _config;
 
-        public readonly CharacterStat[] Stats;
-        public readonly SkillSlotData[] SkillSlots;
+        private CharacterStat[] _stats;
+        
+        public readonly SkillSlotData[] SkillSlots = 
+        {
+            new ( 0, SkillId.None ),
+            new ( 1, SkillId.None ),
+            new ( 2, SkillId.None ),
+            new ( 3, SkillId.None ),
+            new ( 4, SkillId.None ),
+        };
 
         public event Action<SkillSlotData[]> OnSkillSlotsChanged;
 
-        public Player()
+        public CharacterStat GetStat( CharacterStatId statId ) => GetStats().First( x => x.Stat == statId );
+        public CharacterStat[] GetStats()
         {
-            var baseStats = DataProvider.Instance.GetBaseStats();
-            Stats = new CharacterStat[baseStats.Count];
-            for( var i = 0; i < baseStats.Count; i++ )
-                Stats[i] = new CharacterStat( baseStats[i] );
+            if( _stats != null ) 
+                return _stats;
             
-            SkillSlots = new SkillSlotData[] {
-                new ( 0, SkillId.None ),
-                new ( 1, SkillId.None ),
-                new ( 2, SkillId.None ),
-                new ( 3, SkillId.None ),
-                new ( 4, SkillId.None ),
-            };
+            var baseStats = DataProvider.Instance.GetBaseStats();
+            _stats = new CharacterStat[baseStats.Count];
+            for( var i = 0; i < baseStats.Count; i++ )
+                _stats[i] = new CharacterStat( baseStats[i] );
+            
+            return _stats;
         }
 
         public void UpdateData( PlayerSaveData _config )

@@ -1,6 +1,6 @@
 namespace Code.Data.Enums
 {
-    public enum ProficiencyId
+    public enum ProficiencyId : byte
     {
         None = 0,
         

@@ -12,6 +12,6 @@ namespace Code.Runtime.UI.Displays
         private void Start() => SetVersionText();
         
         [ContextMenu( "RefreshVersionText" )]
-        private void SetVersionText() => versionText.text = $"v{BundleVersionSetter.GetVersion()}";
+        private void SetVersionText() => versionText.text = BundleVersionSetter.GetDisplayString();
     }
 }

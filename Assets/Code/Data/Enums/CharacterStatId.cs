@@ -3,7 +3,7 @@ using JetBrains.Annotations;
 
 namespace Code.Data.Enums
 {
-    public enum CharacterStatId
+    public enum CharacterStatId : byte
     {
         None = 0,
         
@@ -23,7 +23,9 @@ namespace Code.Data.Enums
         ChanceToShock = 10,
         ShockedStatusIntensity = 11,
         
+        [Description("Phys.Damage")]
         PhysicalDamage = 12,
+        [Description("Added Phys.Damage")]
         AddedPhysicalDamage = 13,
         [Description("Chance to apply Bleed on Physical Damage")]
         ChanceToBleed = 14,
