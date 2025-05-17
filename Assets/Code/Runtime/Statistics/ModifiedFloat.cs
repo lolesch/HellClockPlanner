@@ -72,7 +72,7 @@ namespace Code.Runtime.Statistics
             return _valueType switch
             {
                 ValueType.Flat => $"{_totalValue:0.##}",
-                ValueType.Percent => $"{_totalValue:P#}",
+                ValueType.Percent => $"{_totalValue:P0}",
                 _ => throw new ArgumentOutOfRangeException()
             };
         }
