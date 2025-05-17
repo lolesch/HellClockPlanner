@@ -1,28 +1,26 @@
 ﻿using System;
+using Code.Data.Enums;
 using Code.Utility.Tools.Statistics;
 using UnityEngine;
 
 namespace Code.Runtime.Statistics
 {
     [Serializable]
-    internal struct StatModifier : IComparable<StatModifier>, IStatModifier
+    public struct StatModifier : IStatModifier
     {
-        [field: SerializeField] public StatType Stat { get; private set; }
-        [field: SerializeField] public Modifier Modifier { get; private set; }
+        [field: SerializeField] public CharacterStatId stat { get; private set; }
+        [field: SerializeField] public Modifier modifier { get; private set; }
 
-        public StatModifier( StatType stat, Modifier modifier )
+        public StatModifier( CharacterStatId stat, Modifier modifier )
         {
-            Stat = stat;
-            Modifier = modifier;
+            this.stat = stat;
+            this.modifier = modifier;
         }
-
-        public int CompareTo( StatModifier other ) => Stat.CompareTo( other.Stat );
-        // then by modifier
     }
 
     internal interface IStatModifier
     {
-        StatType Stat { get; }
-        Modifier Modifier { get; }
+        CharacterStatId stat { get; }
+        Modifier modifier { get; }
     }
 }

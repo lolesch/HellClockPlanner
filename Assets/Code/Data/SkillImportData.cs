@@ -10,13 +10,13 @@ namespace Code.Data
     {
         [HideInInspector] public string name;
         
-        [ReadOnly] public SkillId Id;
-        //[TextArea(3,5)] public string Description;
-        [ReadOnly] public int ManaCost;
-        [ReadOnly] public float Cooldown;
-        [ReadOnly] public int BaseDamage;
+        [ReadOnly] public SkillId id;
+        [ReadOnly] [TextArea(3,5)] public string description;
+        [ReadOnly] public int manaCost;
+        [ReadOnly] public float cooldown;
+        [ReadOnly] public int baseDamage;
 
-        public void OnBeforeSerialize() => name = Id.ToString();
-        public void OnAfterDeserialize() => name = Id.ToString();
+        public void OnBeforeSerialize() => name = id.ToString();
+        public void OnAfterDeserialize() => name = id.ToString();
     }
 }

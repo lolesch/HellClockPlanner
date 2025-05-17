@@ -13,6 +13,11 @@ namespace Code.Runtime
         //private PlayerSaveData _config;
 
         private CharacterStat[] _stats;
+        private readonly Skill[] _skills = new Skill[5];
+        
+        // GEAR
+        //private readonly Trinket[,] _trinkets = new Trinket[3,4];
+        //private readonly Equipment[] _equipment = new Equipment[8];
         
         public readonly SkillSlotData[] SkillSlots = 
         {
@@ -38,6 +43,14 @@ namespace Code.Runtime
             
             return _stats;
         }
+        
+        public Skill[] GetSkills()
+        {
+            if( _skills != null )
+                return _skills;
+            
+            return _skills;
+        }
 
         public void UpdateData( PlayerSaveData _config )
         {
@@ -48,16 +61,23 @@ namespace Code.Runtime
             OnSkillSlotsChanged?.Invoke( SkillSlots );
         }
 
-        public void SetSkillIdAtSlotIndex( int slotIndex, SkillId skillId )
+        public void SetSkillIdAtSlotIndex( int slotIndex, SkillId id )
         {
-            SkillSlots[slotIndex] = new SkillSlotData( slotIndex, skillId );
+            // remove globalBuff mods from current skill
+            //_skills[slotIndex].RemoveProficiencies();
+            
+            var config = DataProvider.Instance.GetSkills().First( x => x.id == id );
+            var globalBuffs = DataProvider.Instance.GetGlobalBuffs().Where( x => x.id == id ).ToList();
+            _skills[slotIndex] = new Skill( config, globalBuffs );
+            
+            SkillSlots[slotIndex] = new SkillSlotData( slotIndex, id );
             OnSkillSlotsChanged?.Invoke( SkillSlots );
         }
 
         public void SetProficiencyAtSlotIndex( int slotIndex, ProficiencyId proficiencyId )
         {
-            //Skills[slotIndex].AddProficiency( proficiencyId );
-            // apply global buff <- this should happen in the skill
+            var proficiency = DataProvider.Instance.GetSkillProficiency( proficiencyId );
+            _skills[slotIndex].AddProficiency( proficiency );
         }
     }
 }

@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System;
 using Code.Utility.Extensions;
 using UnityEditor;
@@ -37,7 +38,7 @@ namespace Code.Utility
 
         public int callbackOrder => 0;
 
-        public void OnPreprocessBuild(BuildReport report) => IncreasePatchNumber();
+        public void OnPreprocessBuild(BuildReport report) => UpdateTimeStamp();
 
         private static void SplitBundleVersion(out int major, out int minor, out int patch, out ReleaseType release, out string timeStamp)
         {
@@ -146,3 +147,4 @@ namespace Code.Utility
         private static string UpdateTimeStamp() => IncrementBundleVersion( IncrementType.TimeStamp);
     }
 }
+#endif

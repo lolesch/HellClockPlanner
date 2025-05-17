@@ -4,6 +4,7 @@ using Code.Data.ScriptableObjects;
 using Code.Utility.AttributeRef.Attributes;
 using Code.Utility.Extensions;
 using UnityEngine;
+using static System.String;
 
 namespace Code.Data
 {
@@ -12,37 +13,31 @@ namespace Code.Data
     {
         [HideInInspector] public string name;
         
-        private string SkillAffix;
-        [ReadOnly] public SkillId Id;
+        private string _skillAffix; // replace with enum once we know the pool
+        [ReadOnly] public SkillId id;
         [ReadOnly] public ProficiencyId proficiency;
-        [ReadOnly] public string Name;
-        [ReadOnly] public float Common;
-        [ReadOnly] public float Magic;
-        [ReadOnly] public float Rare;
-        [ReadOnly] public float Epic;
+        [ReadOnly] public string title;
+        [ReadOnly] public float common;
+        [ReadOnly] public float magic;
+        [ReadOnly] public float rare;
+        [ReadOnly] public float epic;
         
         public void OnBeforeSerialize()
         {
-            name = Id.ToString();
+            name = id.ToString();
             
-            if( proficiency == ProficiencyId.None)
-                proficiency = (ProficiencyId) SkillAffix.ToEnum<ProficiencyId>();
+            if( proficiency == ProficiencyId.None && _skillAffix != Empty )
+                proficiency = (ProficiencyId) _skillAffix.ToEnum<ProficiencyId>();
         }
 
-        public void OnAfterDeserialize()
-        {
-            name = Id.ToString();
-            
-            if( proficiency == ProficiencyId.None)
-                proficiency = (ProficiencyId) SkillAffix.ToEnum<ProficiencyId>();
-        }
+        public void OnAfterDeserialize() {}
         
         public float GetValue( RarityId rarity ) => rarity switch
         {
-            RarityId.Common => Common,
-            RarityId.Magic => Magic,
-            RarityId.Rare => Rare,
-            RarityId.Epic => Epic,
+            RarityId.Common => common,
+            RarityId.Magic => magic,
+            RarityId.Rare => rare,
+            RarityId.Epic => epic,
             _ => throw new ArgumentOutOfRangeException( nameof( rarity ), rarity, null )
         };
     }

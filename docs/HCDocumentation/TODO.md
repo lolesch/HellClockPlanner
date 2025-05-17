@@ -1,3 +1,12 @@
+### Trinkets
+- [ ] panel to show trinkets
+	- [ ] dropdown to select rarity and tier
+	- [ ] slider to select minMaxRoll
+
+### Equipment
+- [ ] panel to show equipment
+	- [ ] dropdown to select tier
+	- [ ] slider to select minMaxRoll
 
 ### CharacterData
 - [x] show character stats
@@ -14,5 +23,36 @@
 - [ ] onHover -> show proficiency details popup
 - [x] onClick -> show proficiencies dropdown
 	- [x] make it skill-dependent
-	- [ ] apply global buff
+	- [x] apply global buff
 	- [ ] concat relic dependent proficiencies
+
+### Game Systems
+- character stats
+##### Meta Progression
+-  gear
+	- [ ] stat modifier
+- great bell
+	- [ ] stat modifier
+	- [ ] passive skills
+	- [ ] etc.
+- relics
+	- [ ] stat modifier
+	- [ ] skill modifier / proc
+<!--
+- skill unlocking
+- soul stones 
+-->
+##### Run Progression
+- trinkets
+	- [ ] stat modifier
+- skills
+	-  global buff
+		- [ ] stat modifier
+	- skill proficiencies
+		- [ ] skill modifier
+- foundations
+	- [ ] stat modifier
+	- [ ] proc
+- shrines
+	- [ ] stat modifier
+<!-- - gold -->

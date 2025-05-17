@@ -16,16 +16,16 @@ namespace Code.Runtime.UI.Displays
             base.Start();
         }
         
-        protected override string GetTotalString() => $"{addedStat.totalValue * percentStat.totalValue:0.###}"
-            .Colored( addedStat.isModified || percentStat.isModified ? statModifiedColor : statBaseColor );
+        protected override string GetTotalString() => $"{addedStat.Value * percentStat.Value:0.###}"
+            .Colored( addedStat.Value.isModified || percentStat.Value.isModified ? statModifiedColor : statBaseColor );
         
         protected override string GetDetailedString()
         {
-            var flatString = $"{addedStat.totalValue:0.##}"
-                                 .Colored( addedStat.isModified ? statModifiedColor : statBaseColor ) + 
+            var flatString = $"{addedStat.Value:0.##}"
+                                 .Colored( addedStat.Value.isModified ? statModifiedColor : statBaseColor ) + 
                              $" {AddedStatId.ToDescription()}";
-            var percentString = $"{percentStat.totalValue:P0}"
-                                    .Colored( percentStat.isModified ? statModifiedColor : statBaseColor ) +
+            var percentString = $"{percentStat.Value:P0}"
+                                    .Colored( percentStat.Value.isModified ? statModifiedColor : statBaseColor ) +
                                 $" {PercentStatId.ToDescription()}";
             var totalString = GetTotalString();
             

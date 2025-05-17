@@ -1,6 +1,8 @@
+using System;
 using Code.Data;
 using Code.Runtime.Statistics;
 using Code.Utility.Extensions;
+using Code.Utility.Tools.Statistics;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -15,7 +17,7 @@ namespace Code.Runtime.UI.Displays
         protected CharacterStat percentStat;
         
         [SerializeField] private TextMeshProUGUI statName;
-        [SerializeField] private TextMeshProUGUI statValue;
+        [SerializeField] protected TextMeshProUGUI statValue;
         [SerializeField] private Image hoverImage;
         [SerializeField] private Color highlightedColor;
         
@@ -40,8 +42,17 @@ namespace Code.Runtime.UI.Displays
         {
             statName.text = stat.ToDescription();
             statValue.text = GetTotalString();
+        
+            addedStat.Value.OnTotalChanged += _ => statValue.text = GetTotalString();
+            percentStat.Value.OnTotalChanged += _ => statValue.text = GetTotalString();
         }
 
+        //private void OnDisable()
+        //{
+        //    addedStat.OnTotalChanged -= () => statValue.text = GetTotalString();
+        //    percentStat.OnTotalChanged -= () => statValue.text = GetTotalString();
+        //}
+//
         protected abstract string GetTotalString();
         protected abstract string GetDetailedString();
     }

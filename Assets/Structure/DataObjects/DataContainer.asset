@@ -16,8 +16,9 @@ MonoBehaviour:
   documentId: 17eNmTa4YziI9Fv3kL4vu1dRqnJSeAk51T-3yxneDSzY
   selectedTogglesIds:
   - skillProficiencies
-  - proficiencies
   - characterStats
+  - globalBuffs
+  - proficiencies
   - skills
   foldoutSerializationGUI: 0
   serializationOutputPath: ../../Configs
@@ -26,334 +27,541 @@ MonoBehaviour:
   <tables>k__BackingField:
     skills:
     - name: Attack
-      Id: 0
-      ManaCost: 0
-      Cooldown: 0.25
-      BaseDamage: 100
+      id: 0
+      description: Basic revolver shot. Restores 15% of maximum Mana on hit.
+      manaCost: 0
+      cooldown: 0.25
+      baseDamage: 100
     - name: SplitShot
-      Id: 1
-      ManaCost: 120
-      Cooldown: 0.25
-      BaseDamage: 60
+      id: 1
+      description: Shoot multiple bullets in a cone on front of you. Especially strong
+        against nearby enemies.
+      manaCost: 120
+      cooldown: 0.25
+      baseDamage: 60
     - name: ShadowDash
-      Id: 2
-      ManaCost: 100
-      Cooldown: 3
-      BaseDamage: 80
+      id: 2
+      description: Dash vey quickly, dealing damage to enemies on your path.
+      manaCost: 100
+      cooldown: 3
+      baseDamage: 80
     - name: Repeater
-      Id: 3
-      ManaCost: 42
-      Cooldown: 0.5
-      BaseDamage: 66
+      id: 3
+      description: By holding the skill button, machinegun-like fire on a single
+        target.
+      manaCost: 42
+      cooldown: 0.5
+      baseDamage: 66
     - name: Reflexes
-      Id: 4
-      ManaCost: 0
-      Cooldown: 8
-      BaseDamage: 75
+      id: 4
+      description: Summons a ring of Spectral Knives around the player that are automatically
+        thriwn ar nearby enemies.
+      manaCost: 0
+      cooldown: 8
+      baseDamage: 75
     - name: OldBell
-      Id: 50
-      ManaCost: 400
-      Cooldown: 0.5
-      BaseDamage: 300
+      id: 50
+      description: The Old Bell comes crashing down on your enemies.
+      manaCost: 400
+      cooldown: 0.5
+      baseDamage: 300
     - name: Judgement
-      Id: 67
-      ManaCost: 300
-      Cooldown: 1
-      BaseDamage: 0
+      id: 67
+      description: All enemies in the target area are judged, reducing all their
+        resistances by 40% for 4 seconds.
+      manaCost: 300
+      cooldown: 1
+      baseDamage: 0
     - name: DoubleKnives
-      Id: 69
-      ManaCost: 34
-      Cooldown: 0.5
-      BaseDamage: 80
+      id: 69
+      description: Continuously spin two blades around while you move, dealing Physical
+        damage to nearby enemies.
+      manaCost: 34
+      cooldown: 0.5
+      baseDamage: 80
     - name: Lasso
-      Id: 71
-      ManaCost: 0
-      Cooldown: 4
-      BaseDamage: 0
+      id: 71
+      description: Grapples and pulls enemies in an area, stunning them for 2 seconds
+        with a 20% chance to cause Bleeding for 4 seconds. Bosses are not pulled,
+        nor stunned but can still suffer Bleeding.
+      manaCost: 0
+      cooldown: 4
+      baseDamage: 0
     - name: SlowTime
-      Id: 74
-      ManaCost: 0
-      Cooldown: 11
-      BaseDamage: 0
+      id: 74
+      description: All enemies have their movement speed, attack speed and projectile
+        speed reduced.
+      manaCost: 0
+      cooldown: 11
+      baseDamage: 0
     - name: ClosedBody
-      Id: 157
-      ManaCost: 0
-      Cooldown: 15
-      BaseDamage: 100
+      id: 157
+      description: Envelops you in a Barrier of Conviction based on your Maximum
+        Mana, While Closed Body is active, your Conviction Decay is reduced by 50%,
+        and every attack received is retaliated with a Physical Damage Explosion.
+      manaCost: 0
+      cooldown: 15
+      baseDamage: 100
     - name: Bombardment
-      Id: 201
-      ManaCost: 0
-      Cooldown: 10
-      BaseDamage: 100
+      id: 201
+      description: Summons a Bombardment over a large area for 8 seconds, dealing
+        AoE Physical Damage on impact.
+      manaCost: 0
+      cooldown: 10
+      baseDamage: 100
     - name: SummonTheGuard
-      Id: 203
-      ManaCost: 100
-      Cooldown: 15
-      BaseDamage: 30
+      id: 203
+      description: 'Spirits of the Canudos Catholic Guard are summoned to fight by
+        your side. Guard''s Rage: Upon skill activation, all Catholic Guard''s Spirits
+        reveive a 200% boost to attack speed for 4 seconds.'
+      manaCost: 100
+      cooldown: 15
+      baseDamage: 30
     - name: Matadeira
-      Id: 209
-      ManaCost: 0
-      Cooldown: 5
-      BaseDamage: 120
+      id: 209
+      description: Mark an area to be bombarded by a powerful cannon shot. The explosion
+        area is ignited for 3 seconds.
+      manaCost: 0
+      cooldown: 5
+      baseDamage: 120
     - name: HolyRosary
-      Id: 210
-      ManaCost: 200
-      Cooldown: 0.25
-      BaseDamage: 85
+      id: 210
+      description: Summon beads of the Rosary that orbit in a spiral around you,
+        dealing Lightning damage.
+      manaCost: 200
+      cooldown: 0.25
+      baseDamage: 85
     - name: VeilOfQuills
-      Id: 211
-      ManaCost: 200
-      Cooldown: 0.25
-      BaseDamage: 70
+      id: 211
+      description: Unleashes a flurry of spectral quills that seek out nearby enemies,
+        dealing Plague damage.
+      manaCost: 200
+      cooldown: 0.25
+      baseDamage: 70
     characterStats:
     - name: BaseDamage - 175
-      Id: 1
-      BaseValue: 175
-    - name: Damage - 1
-      Id: 2
-      BaseValue: 1
-    - name: ElementalDamage - 0
-      Id: 3
-      BaseValue: 0
-    - name: FireDamage - 1
-      Id: 4
-      BaseValue: 1
+      id: 1
+      baseValue: 175
+      valueType: 0
+    - name: Damage - 100 %
+      id: 2
+      baseValue: 1
+      valueType: 1
+    - name: ElementalDamage - 0 %
+      id: 3
+      baseValue: 0
+      valueType: 1
+    - name: FireDamage - 100 %
+      id: 4
+      baseValue: 1
+      valueType: 1
     - name: AddedFireDamage - 0
-      Id: 5
-      BaseValue: 0
-    - name: ChanceToIgnite - 1
-      Id: 6
-      BaseValue: 1
-    - name: IgnitedStatusIntensity - 1
-      Id: 7
-      BaseValue: 1
-    - name: LightningDamage - 1
-      Id: 8
-      BaseValue: 1
+      id: 5
+      baseValue: 0
+      valueType: 0
+    - name: ChanceToIgnite - 100 %
+      id: 6
+      baseValue: 1
+      valueType: 1
+    - name: IgnitedStatusIntensity - 100 %
+      id: 7
+      baseValue: 1
+      valueType: 1
+    - name: LightningDamage - 100 %
+      id: 8
+      baseValue: 1
+      valueType: 1
     - name: AddedLightningDamage - 0
-      Id: 9
-      BaseValue: 0
-    - name: ChanceToShock - 1
-      Id: 10
-      BaseValue: 1
-    - name: ShockedStatusIntensity - 1
-      Id: 11
-      BaseValue: 1
-    - name: PhysicalDamage - 1
-      Id: 12
-      BaseValue: 1
+      id: 9
+      baseValue: 0
+      valueType: 0
+    - name: ChanceToShock - 100 %
+      id: 10
+      baseValue: 1
+      valueType: 1
+    - name: ShockedStatusIntensity - 100 %
+      id: 11
+      baseValue: 1
+      valueType: 1
+    - name: PhysicalDamage - 100 %
+      id: 12
+      baseValue: 1
+      valueType: 1
     - name: AddedPhysicalDamage - 0
-      Id: 13
-      BaseValue: 0
-    - name: ChanceToBleed - 1
-      Id: 14
-      BaseValue: 1
-    - name: BleedingStatusIntensity - 1
-      Id: 15
-      BaseValue: 1
-    - name: PlagueDamage - 1
-      Id: 16
-      BaseValue: 1
+      id: 13
+      baseValue: 0
+      valueType: 0
+    - name: ChanceToBleed - 100 %
+      id: 14
+      baseValue: 1
+      valueType: 1
+    - name: BleedingStatusIntensity - 100 %
+      id: 15
+      baseValue: 1
+      valueType: 1
+    - name: PlagueDamage - 100 %
+      id: 16
+      baseValue: 1
+      valueType: 1
     - name: AddedPlagueDamage - 0
-      Id: 17
-      BaseValue: 0
-    - name: ChanceToBlight - 1
-      Id: 18
-      BaseValue: 1
-    - name: BlightedStatusIntensity - 1
-      Id: 19
-      BaseValue: 1
+      id: 17
+      baseValue: 0
+      valueType: 0
+    - name: ChanceToBlight - 100 %
+      id: 18
+      baseValue: 1
+      valueType: 1
+    - name: BlightedStatusIntensity - 100 %
+      id: 19
+      baseValue: 1
+      valueType: 1
     - name: CriticalHitChance - 5
-      Id: 20
-      BaseValue: 5
-    - name: CriticalHitChanceMultiplier - 0
-      Id: 21
-      BaseValue: 0
-    - name: CriticalHitDamage - 2
-      Id: 22
-      BaseValue: 2
-    - name: CriticalHitDamageMultiplier - 0
-      Id: 23
-      BaseValue: 0
-    - name: MoveSpeed - 1
-      Id: 24
-      BaseValue: 1
-    - name: AttackSpeed - 1
-      Id: 25
-      BaseValue: 1
-    - name: CooldownSpeed - 1
-      Id: 26
-      BaseValue: 1
-    - name: SkillManaCost - 1
-      Id: 27
-      BaseValue: 1
-    - name: ExperienceGain - 1
-      Id: 28
-      BaseValue: 1
-    - name: GoldGain - 1
-      Id: 29
-      BaseValue: 1
-    - name: SoulStoneGain - 1
-      Id: 30
-      BaseValue: 1
-    - name: ItemFind - 0
-      Id: 31
-      BaseValue: 0
-    - name: BonusGearDropChance - 0
-      Id: 32
-      BaseValue: 0
-    - name: BonusRelicDropChance - 0
-      Id: 33
-      BaseValue: 0
-    - name: BonusTrinketDropChance - 0
-      Id: 34
-      BaseValue: 0
-    - name: ConvictionDecayResistance - 0
-      Id: 35
-      BaseValue: 0
+      id: 20
+      baseValue: 5
+      valueType: 0
+    - name: CriticalHitChanceMultiplier - 0 %
+      id: 21
+      baseValue: 0
+      valueType: 1
+    - name: CriticalHitDamage - 200 %
+      id: 22
+      baseValue: 2
+      valueType: 1
+    - name: CriticalHitDamageMultiplier - 0 %
+      id: 23
+      baseValue: 0
+      valueType: 1
+    - name: MoveSpeed - 100 %
+      id: 24
+      baseValue: 1
+      valueType: 1
+    - name: AttackSpeed - 100 %
+      id: 25
+      baseValue: 1
+      valueType: 1
+    - name: CooldownSpeed - 100 %
+      id: 26
+      baseValue: 1
+      valueType: 1
+    - name: SkillManaCost - 100 %
+      id: 27
+      baseValue: 1
+      valueType: 1
+    - name: ExperienceGain - 100 %
+      id: 28
+      baseValue: 1
+      valueType: 1
+    - name: GoldGain - 100 %
+      id: 29
+      baseValue: 1
+      valueType: 1
+    - name: SoulStoneGain - 100 %
+      id: 30
+      baseValue: 1
+      valueType: 1
+    - name: ItemFind - 0 %
+      id: 31
+      baseValue: 0
+      valueType: 1
+    - name: BonusGearDropChance - 0 %
+      id: 32
+      baseValue: 0
+      valueType: 1
+    - name: BonusRelicDropChance - 0 %
+      id: 33
+      baseValue: 0
+      valueType: 1
+    - name: BonusTrinketDropChance - 0 %
+      id: 34
+      baseValue: 0
+      valueType: 1
+    - name: ConvictionDecayResistance - 0 %
+      id: 35
+      baseValue: 0
+      valueType: 1
     - name: ConvictionDecayThreshold - 0
-      Id: 36
-      BaseValue: 0
-    - name: ConvictionFromManaSpent - 0
-      Id: 37
-      BaseValue: 0
-    - name: ConvictionGain - 1
-      Id: 38
-      BaseValue: 1
-    - name: ConvictionGeneration - 0
-      Id: 39
-      BaseValue: 0
-    - name: ElementalResistance - 0
-      Id: 40
-      BaseValue: 0
-    - name: FireResistance - 0
-      Id: 41
-      BaseValue: 0
-    - name: LightningResistance - 0
-      Id: 42
-      BaseValue: 0
-    - name: PhysicalResistance - 0
-      Id: 43
-      BaseValue: 0
-    - name: PlagueResistance - 0
-      Id: 44
-      BaseValue: 0
+      id: 36
+      baseValue: 0
+      valueType: 0
+    - name: ConvictionFromManaSpent - 0 %
+      id: 37
+      baseValue: 0
+      valueType: 1
+    - name: ConvictionGain - 100 %
+      id: 38
+      baseValue: 1
+      valueType: 1
+    - name: ConvictionGeneration - 0 %
+      id: 39
+      baseValue: 0
+      valueType: 1
+    - name: ElementalResistance - 0 %
+      id: 40
+      baseValue: 0
+      valueType: 1
+    - name: FireResistance - 0 %
+      id: 41
+      baseValue: 0
+      valueType: 1
+    - name: LightningResistance - 0 %
+      id: 42
+      baseValue: 0
+      valueType: 1
+    - name: PhysicalResistance - 0 %
+      id: 43
+      baseValue: 0
+      valueType: 1
+    - name: PlagueResistance - 0 %
+      id: 44
+      baseValue: 0
+      valueType: 1
     - name: Life - 600
-      Id: 45
-      BaseValue: 600
-    - name: LifePercent - 0
-      Id: 46
-      BaseValue: 0
+      id: 45
+      baseValue: 600
+      valueType: 0
+    - name: LifePercent - 0 %
+      id: 46
+      baseValue: 0
+      valueType: 1
     - name: LifeOnKill - 0
-      Id: 47
-      BaseValue: 0
-    - name: LifeRegeneration - 0
-      Id: 48
-      BaseValue: 0
+      id: 47
+      baseValue: 0
+      valueType: 0
+    - name: LifeRegeneration - 0 %
+      id: 48
+      baseValue: 0
+      valueType: 1
     - name: Mana - 600
-      Id: 49
-      BaseValue: 600
-    - name: ManaPercent - 0
-      Id: 50
-      BaseValue: 0
+      id: 49
+      baseValue: 600
+      valueType: 0
+    - name: ManaPercent - 0 %
+      id: 50
+      baseValue: 0
+      valueType: 1
     - name: ManaOnKill - 0
-      Id: 51
-      BaseValue: 0
-    - name: ManaRegeneration - 0
-      Id: 52
-      BaseValue: 0
+      id: 51
+      baseValue: 0
+      valueType: 0
+    - name: ManaRegeneration - 0 %
+      id: 52
+      baseValue: 0
+      valueType: 1
     - name: PotionCapacity - 3
-      Id: 53
-      BaseValue: 3
-    - name: PotionEfficiency - 1
-      Id: 54
-      BaseValue: 1
+      id: 53
+      baseValue: 3
+      valueType: 0
+    - name: PotionEfficiency - 100 %
+      id: 54
+      baseValue: 1
+      valueType: 1
+    - name: Evasion - 100 %
+      id: 55
+      baseValue: 1
+      valueType: 1
+    - name: AilmentDuration - 1
+      id: 56
+      baseValue: 1
+      valueType: 0
+    - name: SkillAreaOfEffect - 1
+      id: 57
+      baseValue: 1
+      valueType: 0
+    - name: WitherBuildupRate - 1
+      id: 58
+      baseValue: 1
+      valueType: 0
+    - name: StunBuildupRate - 1
+      id: 59
+      baseValue: 1
+      valueType: 0
+    - name: CrowdControlResistance - 0
+      id: 60
+      baseValue: 0
+      valueType: 0
     proficiencies:
     - name: SplitShot
-      Id: 1
+      id: 1
       proficiency: 3
-      Name: Deadly Aim
-      Common: 0
-      Magic: 5
-      Rare: 8
-      Epic: 0
+      title: Deadly Aim
+      common: 0
+      magic: 5
+      rare: 8
+      epic: 10
     - name: SplitShot
-      Id: 1
+      id: 1
       proficiency: 1
-      Name: Heavy Shot
-      Common: 20
-      Magic: 30
-      Rare: 40
-      Epic: 50
+      title: Heavy Shot
+      common: 20
+      magic: 30
+      rare: 40
+      epic: 50
     - name: SplitShot
-      Id: 1
+      id: 1
       proficiency: 2
-      Name: Efficient Reload
-      Common: 0
-      Magic: 0
-      Rare: -10
-      Epic: -20
+      title: Efficient Reload
+      common: 0
+      magic: 0
+      rare: -10
+      epic: -20
     - name: SplitShot
-      Id: 1
+      id: 1
       proficiency: 4
-      Name: Multi-shot
-      Common: 0
-      Magic: 0
-      Rare: 0
-      Epic: 1
+      title: Multi-shot
+      common: 0
+      magic: 0
+      rare: 0
+      epic: 1
     - name: SplitShot
-      Id: 1
+      id: 1
       proficiency: 5
-      Name: Quick Trigger
-      Common: 8
-      Magic: 12
-      Rare: 16
-      Epic: 20
+      title: Quick Trigger
+      common: 8
+      magic: 12
+      rare: 16
+      epic: 20
+    - name: SplitShot
+      id: 1
+      proficiency: 0
+      title: Heavy Shot
+      common: 0
+      magic: 15
+      rare: 0
+      epic: 0
     - name: Reflexes
-      Id: 4
+      id: 4
       proficiency: 6
-      Name: Heightened Senses
-      Common: 0
-      Magic: 20
-      Rare: 30
-      Epic: 40
+      title: Heightened Senses
+      common: 0
+      magic: 20
+      rare: 30
+      epic: 40
     - name: Reflexes
-      Id: 4
+      id: 4
       proficiency: 1
-      Name: Sharp Strike
-      Common: 20
-      Magic: 30
-      Rare: 40
-      Epic: 0
+      title: Sharp Strike
+      common: 20
+      magic: 30
+      rare: 40
+      epic: 0
     - name: Reflexes
-      Id: 4
+      id: 4
       proficiency: 7
-      Name: Enduring Reflexes
-      Common: 0
-      Magic: 20
-      Rare: 30
-      Epic: 0
+      title: Enduring Reflexes
+      common: 0
+      magic: 20
+      rare: 30
+      epic: 40
     - name: Reflexes
-      Id: 4
+      id: 4
       proficiency: 8
-      Name: Swift Caster
-      Common: -15
-      Magic: -20
-      Rare: 0
-      Epic: 0
+      title: Swift Caster
+      common: -15
+      magic: -20
+      rare: 0
+      epic: 0
     - name: Reflexes
-      Id: 4
+      id: 4
       proficiency: 9
-      Name: Blade Horde
-      Common: 0
-      Magic: 0
-      Rare: 1
-      Epic: 2
+      title: Blade Horde
+      common: 0
+      magic: 0
+      rare: 1
+      epic: 2
     - name: Reflexes
-      Id: 4
+      id: 4
       proficiency: 10
-      Name: External Blade Echo
-      Common: 0
-      Magic: 0
-      Rare: 1
-      Epic: 2
+      title: External Blade Echo
+      common: 0
+      magic: 0
+      rare: 1
+      epic: 2
+    - name: Reflexes
+      id: 4
+      proficiency: 0
+      title: Sharp Strike
+      common: 0
+      magic: 15
+      rare: 0
+      epic: 0
+    - name: Reflexes
+      id: 4
+      proficiency: 0
+      title: Sharp Strike
+      common: 0
+      magic: 15
+      rare: 0
+      epic: 0
+    globalBuffs:
+    - name: Attack - 0.02 CriticalHitChanceMultiplier
+      id: 0
+      globalBuff: 21
+      amountPerRank: 0.02
+    - name: SplitShot - 0.02 CriticalHitDamageMultiplier
+      id: 1
+      globalBuff: 23
+      amountPerRank: 0.02
+    - name: ShadowDash - -0.025 SkillManaCost
+      id: 2
+      globalBuff: 27
+      amountPerRank: -0.025
+    - name: Repeater - 0.005 CriticalHitChanceMultiplier
+      id: 3
+      globalBuff: 21
+      amountPerRank: 0.005
+    - name: Reflexes - 0.015 Damage
+      id: 4
+      globalBuff: 2
+      amountPerRank: 0.015
+    - name: OldBell - 0.01 LifePercent
+      id: 50
+      globalBuff: 46
+      amountPerRank: 0.01
+    - name: OldBell - 0.01 ManaPercent
+      id: 50
+      globalBuff: 50
+      amountPerRank: 0.01
+    - name: Judgement - 0.02 AilmentDuration
+      id: 67
+      globalBuff: 56
+      amountPerRank: 0.02
+    - name: DoubleKnives - 0.005 AttackSpeed
+      id: 69
+      globalBuff: 25
+      amountPerRank: 0.005
+    - name: Lasso - 0.015 Damage
+      id: 71
+      globalBuff: 2
+      amountPerRank: 0.015
+    - name: SlowTime - 0.008 Evasion
+      id: 74
+      globalBuff: 55
+      amountPerRank: 0.008
+    - name: ClosedBody - 0.005 PhysicalResistance
+      id: 157
+      globalBuff: 43
+      amountPerRank: 0.005
+    - name: Bombardment - 0.02 SkillAreaOfEffect
+      id: 201
+      globalBuff: 57
+      amountPerRank: 0.02
+    - name: SummonTheGuard - 0.01 CooldownSpeed
+      id: 203
+      globalBuff: 26
+      amountPerRank: 0.01
+    - name: Matadeira - 0.02 SkillAreaOfEffect
+      id: 209
+      globalBuff: 57
+      amountPerRank: 0.02
+    - name: HolyRosary - 0.02 CriticalHitDamageMultiplier
+      id: 210
+      globalBuff: 23
+      amountPerRank: 0.02
+    - name: VeilOfQuills - 0.015 WitherBuildupRate
+      id: 211
+      globalBuff: 58
+      amountPerRank: 0.015
+    - name: VeilOfQuills - 0.015 StunBuildupRate
+      id: 211
+      globalBuff: 59
+      amountPerRank: 0.015

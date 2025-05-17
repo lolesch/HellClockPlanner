@@ -69,6 +69,7 @@ GameObject:
   - component: {fileID: 1608237153674528203}
   - component: {fileID: 35274105294606352}
   - component: {fileID: 4070664408137330068}
+  - component: {fileID: 5547278296513716522}
   m_Layer: 5
   m_Name: StatDisplay
   m_TagString: Untagged
@@ -176,6 +177,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!114 &5547278296513716522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297718648586165422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff79daace1904ae4abf80d97e1818436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statId: 0
+  statName: {fileID: 8321351350108796709}
+  statValue: {fileID: 1365829752899896700}
+  hoverImage: {fileID: 1608237153674528203}
+  highlightedColor: {r: 0.1764706, g: 0, b: 0, a: 1}
 --- !u!1 &7517133886288647967
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,8 +288,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -440,7 +458,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 32
   m_HorizontalAlignment: 4
   m_VerticalAlignment: 1024
   m_textAlignment: 65535

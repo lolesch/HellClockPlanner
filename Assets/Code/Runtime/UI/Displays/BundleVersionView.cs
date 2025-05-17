@@ -8,10 +8,11 @@ namespace Code.Runtime.UI.Displays
     internal sealed class BundleVersionView : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI versionText;
-
-        private void Start() => SetVersionText();
+#if UNITY_EDITOR
+        private void OnValidate() => SetVersionText();
         
         [ContextMenu( "RefreshVersionText" )]
         private void SetVersionText() => versionText.text = BundleVersionSetter.GetDisplayString();
+#endif
     }
 }

@@ -10,14 +10,15 @@ namespace Code.Data
     {
         [HideInInspector] public string name;
 
-        public SkillId _skillHashId;// { get; private set; }
-        public int _slotIndex;// { get; private set; }
+        public SkillId _skillHashId; // do not rename "_skillHashId" for json importer to work
+        public int _slotIndex; // do not rename "_slotIndex" for json importer to work
 
         public SkillSlotData( int slotIndex, SkillId skillHashId )
         {
-            this._slotIndex = slotIndex;
-            this._skillHashId = skillHashId;
             name = $"[{slotIndex}] {skillHashId.ToDescription()}";
+            
+            _slotIndex = slotIndex;
+            _skillHashId = skillHashId;
         }
     }
 }

@@ -22,5 +22,8 @@ namespace Code.Data.ScriptableObjects
     
         [SpreadsheetPage( Const.DatabaseProficiencies )] 
         public List<ProficiencyImportData> proficiencies;
+    
+        [SpreadsheetPage( Const.DatabaseGlobalBuffs )] 
+        public List<GlobalBuffImportData> globalBuffs;
     }
 }

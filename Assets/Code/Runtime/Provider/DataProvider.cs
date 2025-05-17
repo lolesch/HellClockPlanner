@@ -47,37 +47,43 @@ namespace Code.Runtime.Provider
             
             foreach( var data in  database.tables.proficiencies )
             {
-                if( data.Common != 0 )
+                if( data.common != 0 )
                     newList.Add( CreateProficiencyForRarity( data, RarityId.Common ) );
-                if( data.Magic != 0 )
+                if( data.magic != 0 )
                     newList.Add( CreateProficiencyForRarity( data, RarityId.Magic ) );
-                if( data.Rare != 0 )
+                if( data.rare != 0 )
                     newList.Add( CreateProficiencyForRarity( data, RarityId.Rare ) );
-                if( data.Epic != 0 )
+                if( data.epic != 0 )
                     newList.Add( CreateProficiencyForRarity( data, RarityId.Epic ) );
             }
             proficiencies = newList.ToArray();
         }
         
+        public List<SkillImportData> GetSkills() => database.tables.skills;
         public List<CharacterStatImportData> GetBaseStats() => database.tables.characterStats;
+        public List<ProficiencyImportData> GetProficiencies() => database.tables.proficiencies;
+        public List<GlobalBuffImportData> GetGlobalBuffs() => database.tables.globalBuffs;
         
         private SkillProficiency CreateProficiencyForRarity( ProficiencyImportData data, RarityId rarity )
         {
             return new SkillProficiency
             {
-                id = data.Id,
+                id = data.id,
                 proficiency = data.proficiency,
                 value = data.GetValue( rarity ),
                 rarity = rarity,
-                name = data.Name.Colored( Const.GetRarityColor( rarity ) ),
+                name = data.title.Colored( Const.GetRarityColor( rarity ) ),
                 icon = GetIconFromProficiencyId( data.proficiency ),
             };
         }
 
-        private IEnumerable<SkillProficiency> GetProficiencies( SkillId id )
+        private IEnumerable<SkillProficiency> GetSkillProficiencies( SkillId id )
             => proficiencies.Where( x => x.id == id );
 
         public IEnumerable<SkillProficiency> GetDropdownProficiencies( SkillId id, RarityId rarity ) 
-            => GetProficiencies( id ).Where( x => x.rarity == rarity );
+            => GetSkillProficiencies( id ).Where( x => x.rarity == rarity );
+        
+        public SkillProficiency GetSkillProficiency( ProficiencyId id ) 
+            => proficiencies.First( x => x.proficiency == id );
     }
 }

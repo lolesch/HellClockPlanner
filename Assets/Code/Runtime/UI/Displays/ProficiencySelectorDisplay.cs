@@ -29,6 +29,7 @@ namespace Code.Runtime.UI.Displays
 
         private void SetDropdownOptions( SkillSlotData[] skillSlots )
         {
+            // remove previous global buff mods
             foreach( var slot in skillSlots )
                 if( slot._slotIndex == slotIndex )
                 {

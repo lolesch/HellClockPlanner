@@ -38,8 +38,10 @@ namespace Code.Data.Enums
         BlightedStatusIntensity = 19,
         
         CriticalHitChance = 20,
+        //[Description("Critical Hit Chance %")]
         CriticalHitChanceMultiplier = 21,
         CriticalHitDamage = 22,
+        //[Description("Critical Hit Damage %")]
         CriticalHitDamageMultiplier = 23,
         
         [Description("Movement Speed")]
@@ -57,8 +59,11 @@ namespace Code.Data.Enums
         BonusRelicDropChance = 33,
         BonusTrinketDropChance = 34,
         
+        [Description("Conv. Decay Resistance")]
         ConvictionDecayResistance = 35,
+        [Description("Conv. Decay Threshold")]
         ConvictionDecayThreshold = 36,
+        [Description("Conv. From Mana Spent")]
         ConvictionFromManaSpent = 37,
         ConvictionGain = 38,
         ConvictionGeneration = 39,
@@ -81,5 +86,12 @@ namespace Code.Data.Enums
         
         PotionCapacity = 53,
         PotionEfficiency = 54,
+        
+        Evasion = 55,
+        AilmentDuration = 56,
+        SkillAreaOfEffect = 57,
+        WitherBuildupRate = 58,
+        StunBuildupRate = 59,
+        CrowdControlResistance = 60,
     }
 }

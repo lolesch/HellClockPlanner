@@ -4,6 +4,7 @@ using Code.Utility.AttributeRef.Attributes;
 using Code.Utility.Extensions;
 using Code.Utility.Tools.Statistics;
 using UnityEngine;
+using ValueType = Code.Data.Enums.ValueType;
 
 namespace Code.Data
 {
@@ -11,12 +12,28 @@ namespace Code.Data
     public struct CharacterStatImportData : ISerializationCallbackReceiver
     {
         [HideInInspector] public string name;
-        
-        [ReadOnly] public CharacterStatId Id;
-        [ReadOnly] public float BaseValue;
 
-        public void OnBeforeSerialize() => name = $"{Id} - {BaseValue}";
+        [ReadOnly] public CharacterStatId id;
+        [ReadOnly] public float baseValue;
+        [ReadOnly] public ValueType valueType;
 
-        public void OnAfterDeserialize() {}
+        public void OnBeforeSerialize()
+        {
+            name = $"{id} - {GetValueString()}";
+        }
+
+        public void OnAfterDeserialize()
+        {
+        }
+
+        private string GetValueString()
+        {
+            return valueType switch
+            {
+                ValueType.Flat => $"{baseValue:0.##}",
+                ValueType.Percent => $"{baseValue:P0}",
+                _ => throw new ArgumentOutOfRangeException()
+            };
+        }
     }
 }
