@@ -21,25 +21,28 @@ MonoBehaviour:
     <icon>k__BackingField: {fileID: -5631111160169572603, guid: dfff6b1552a96a848a3c1088b6d20f4f, type: 3}
   - name: Mana Cost
     <proficiencyId>k__BackingField: 2
-    <icon>k__BackingField: {fileID: 0}
+    <icon>k__BackingField: {fileID: -2395653308123581402, guid: 40247e416390e91429d65149277d234b, type: 3}
   - name: Critical Hit Chance
     <proficiencyId>k__BackingField: 3
-    <icon>k__BackingField: {fileID: 0}
+    <icon>k__BackingField: {fileID: -8333743995534904006, guid: acba1b5942ac3da49b4f2eabaec2f1c1, type: 3}
   - name: Projectile Amount
     <proficiencyId>k__BackingField: 4
-    <icon>k__BackingField: {fileID: 0}
+    <icon>k__BackingField: {fileID: 6077308720662455747, guid: c4ba40c8b45be6f4fadf911f8752b601, type: 3}
   - name: Skill Speed
     <proficiencyId>k__BackingField: 5
     <icon>k__BackingField: {fileID: -1064299142429738930, guid: 285125a929f3ea743b26227dfdc4b197, type: 3}
   - name: Area Of Effect
     <proficiencyId>k__BackingField: 6
-    <icon>k__BackingField: {fileID: 0}
+    <icon>k__BackingField: {fileID: -4133220655315136267, guid: 5767e00b744d0bd4abc5f389309766a9, type: 3}
   - name: Increased Duration
     <proficiencyId>k__BackingField: 7
-    <icon>k__BackingField: {fileID: 0}
+    <icon>k__BackingField: {fileID: -4363326110224739238, guid: c5657b6cbf05c0b4f8a2c7f993a68726, type: 3}
   - name: Knife Generation Time
     <proficiencyId>k__BackingField: 8
-    <icon>k__BackingField: {fileID: 0}
+    <icon>k__BackingField: {fileID: -6134182235830120359, guid: 3c4251931d6b7c04a8d566a097c7a263, type: 3}
   - name: Max Knives
     <proficiencyId>k__BackingField: 9
-    <icon>k__BackingField: {fileID: 0}
+    <icon>k__BackingField: {fileID: 6077308720662455747, guid: c4ba40c8b45be6f4fadf911f8752b601, type: 3}
+  - name: Knife Bounce Amount
+    <proficiencyId>k__BackingField: 10
+    <icon>k__BackingField: {fileID: 6077308720662455747, guid: c4ba40c8b45be6f4fadf911f8752b601, type: 3}

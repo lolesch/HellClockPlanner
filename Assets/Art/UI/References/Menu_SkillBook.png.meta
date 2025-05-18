@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 454a55409ef10d846b4b1b9f2128d286
+guid: 48ecd12ea219ec740b2d55403c61fa88
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5412074723897465286
-    second: Button_selection_0
-  - first:
-      213: -861097545248109937
-    second: Button_selection_1
-  - first:
-      213: -3073678270532328233
-    second: Button_selection_2
+      213: -9107507145183663224
+    second: Menu_SkillBook_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -119,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Button_selection_0
+      name: Menu_SkillBook_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 13
-        width: 128
-        height: 14
+        y: 0
+        width: 1920
+        height: 1080
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6c957c7794d8b1b40800000000000000
-      internalID: 5412074723897465286
+      spriteID: 88beefd4182ab9180800000000000000
+      internalID: -9107507145183663224
       vertices: []
       indices: 
       edges: []
@@ -144,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 63338b5593bf8af47bc908831d5030b7
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -153,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Button_selection_0: 5412074723897465286
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

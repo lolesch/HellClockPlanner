@@ -16,29 +16,29 @@ namespace Code.Runtime.UI.Toggles
 
         [field: SerializeField] public bool isOn { get; private set; } = false;
 
-        [SerializeField, ReadOnly] protected RadioGroup radioGroup = null;
-        public RadioGroup RadioGroup => radioGroup == null ? radioGroup = GetComponentInParent<RadioGroup>() : radioGroup;
+        [SerializeField, ReadOnly] private RadioGroup _radioGroup = null;
+        public RadioGroup radioGroup => _radioGroup ??= GetComponentInParent<RadioGroup>();
 
-        [SerializeField] protected TextMeshProUGUI displayText = null;
+        //[SerializeField] protected TextMeshProUGUI displayText = null;
         
-        [SerializeField] private string toggledOffText;
-        [SerializeField] private string toggledOnText;
+        //[SerializeField] private string toggledOffText;
+        //[SerializeField] private string toggledOnText;
 
-        [SerializeField] protected Image icon = null;
+        //[SerializeField] protected Image icon = null;
         
-        [SerializeField, PreviewIcon] private Sprite toggledOffSprite;
-        [SerializeField, PreviewIcon] private Sprite toggledOnSprite;
+        //[SerializeField, PreviewIcon] private Sprite toggledOffSprite;
+        //[SerializeField, PreviewIcon] private Sprite toggledOnSprite;
 
         public event Action<bool> OnToggle;
 
 #if UNITY_EDITOR
         protected override void OnValidate()
         {
-            if (RadioGroup != null && RadioGroup.transform != transform.parent)
-                radioGroup = null;
+            if (radioGroup != null && radioGroup.transform != transform.parent)
+                _radioGroup = null;
 
-            if (isOn && RadioGroup)
-                RadioGroup.Activate(this);
+            if (isOn && radioGroup)
+                radioGroup.Activate(this);
         }
 #endif // if UNTIY_EDITOR
 
@@ -46,8 +46,8 @@ namespace Code.Runtime.UI.Toggles
         {
             base.OnDisable();
 
-            if (RadioGroup)
-                RadioGroup.Unregister(this);
+            if (radioGroup)
+                radioGroup.Unregister(this);
 
             if (targetGraphic && DOTween.IsTweening(targetGraphic.transform))
                 _ = DOTween.Kill(targetGraphic.transform);
@@ -57,8 +57,8 @@ namespace Code.Runtime.UI.Toggles
         {
             base.OnEnable();
 
-            if (RadioGroup && interactable)
-                RadioGroup.Register(this);
+            if (radioGroup && interactable)
+                radioGroup.Register(this);
         }
 
         protected override void Start()
@@ -69,32 +69,32 @@ namespace Code.Runtime.UI.Toggles
             SetToggle(isOn);
         }
 
-        internal void SetToggle(bool isOn)
+        internal void SetToggle(bool on)
         {
-            this.isOn = isOn;
+            this.isOn = on;
             OnToggle?.Invoke(this.isOn);
 
-            if (icon != null)
-            {
-                if (toggledOffSprite != null && toggledOnSprite != null)
-                    icon.sprite = this.isOn ? toggledOnSprite : toggledOffSprite;
-            }
+            //if (icon != null)
+            //{
+            //    if (toggledOffSprite != null && toggledOnSprite != null)
+            //        icon.sprite = this.isOn ? toggledOnSprite : toggledOffSprite;
+            //}
 
-            if (displayText != null)
-            {
-                if (toggledOffText != string.Empty && toggledOnText != string.Empty)
-                    displayText.text = this.isOn ? toggledOnText : toggledOffText;
-            }
+            //if (displayText != null)
+            //{
+            //    if (toggledOffText != string.Empty && toggledOnText != string.Empty)
+            //        displayText.text = this.isOn ? toggledOnText : toggledOffText;
+            //}
 
-            if (this.isOn && RadioGroup)
-                RadioGroup.Activate(this);
+            if (this.isOn && radioGroup)
+                radioGroup.Activate(this);
 
             if (!this.isOn)
                 DoStateTransition(SelectionState.Normal, false);
 
-            PlayToggleSound(this.isOn);
+            //PlayToggleSound(this.isOn);
 
-            Toggle(isOn);
+            Toggle(on);
         }
 
         public override void OnDeselect(BaseEventData eventData)
@@ -105,14 +105,14 @@ namespace Code.Runtime.UI.Toggles
                 DoStateTransition(isOn ? SelectionState.Selected : SelectionState.Normal, false);
         }
 
-        protected abstract void Toggle(bool isOn);
+        protected abstract void Toggle(bool on);
 
         public virtual void OnPointerClick(PointerEventData eventData)
         {
             if (!interactable)
                 return;
 
-            if (RadioGroup && !RadioGroup.allowSwitchOff && isOn)
+            if (radioGroup && !radioGroup.allowSwitchOff && isOn)
                 return;
 
             if (eventData.button == PointerEventData.InputButton.Left)
@@ -139,6 +139,6 @@ namespace Code.Runtime.UI.Toggles
             tooltipHolder.HideTooltip();
         }
 
-        public virtual void PlayToggleSound(bool isOn) { } // => AudioProvider.Instance.PlayButtonClick();
+        //public virtual void PlayToggleSound(bool on) { } // => AudioProvider.Instance.PlayButtonClick();
     }
 }

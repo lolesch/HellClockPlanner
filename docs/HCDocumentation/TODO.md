@@ -1,3 +1,10 @@
+
+CONTINUE HERE:
+- [ ] skill details display
+- [ ] item selection
+	- [ ] random trinket generation
+	- [ ] rarity distribution
+
 ### Trinkets
 - [ ] panel to show trinkets
 	- [ ] dropdown to select rarity and tier
