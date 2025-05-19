@@ -1,5 +1,4 @@
 using Code.Data;
-using Code.Data.Enums;
 using Code.Runtime.Provider;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,7 +21,7 @@ namespace Code.Runtime.UI.Displays
                     var sprite = DataProvider.Instance.GetIconFromSkillId( slot._skillHashId );
                     icon.sprite = sprite;
                     icon.enabled = sprite != null;
-                    icon.color = slot._skillHashId == SkillId.None ? Color.clear : Color.white;
+                    //icon.color = slot._skillHashId == SkillId.None ? Color.clear : Color.white;
                 }
         }
     }

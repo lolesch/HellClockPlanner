@@ -144,8 +144,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Title
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 88b6dd6d8d891da4a8165c7c717a19e8, type: 2}
-  m_sharedMaterial: {fileID: -4523790674863202085, guid: 88b6dd6d8d891da4a8165c7c717a19e8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 32e8ae22438368e45b0bc8cad0faea4e, type: 2}
+  m_sharedMaterial: {fileID: 2920837245903436509, guid: 32e8ae22438368e45b0bc8cad0faea4e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -169,8 +169,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -238,7 +238,6 @@ GameObject:
   - component: {fileID: 173717207993272344}
   - component: {fileID: 2301334437544972272}
   - component: {fileID: 1173425559156317517}
-  - component: {fileID: 3995881284159962953}
   - component: {fileID: 2665324516125848395}
   m_Layer: 5
   m_Name: ContentToggle
@@ -306,19 +305,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3995881284159962953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8491103913516732886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2390c880d6b46eb98599c3fb135e4bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tooltipText: Set the tooltip text in the inspector
 --- !u!114 &2665324516125848395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,7 +346,6 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 865072721705129625}
-  tooltipHolder: {fileID: 3995881284159962953}
   <isOn>k__BackingField: 0
   _radioGroup: {fileID: 0}
   _content: {fileID: 0}

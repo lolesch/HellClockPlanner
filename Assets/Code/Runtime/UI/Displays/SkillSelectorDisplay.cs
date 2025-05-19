@@ -24,12 +24,17 @@ namespace Code.Runtime.UI.Displays
                 .First( x => x.ToDescription() == change.options[change.value].text );
             
             GameState.Player.SetSkillIdAtSlotIndex( slotIndex, skillId );
+            //SetDropdownOptions();
         }
         
         private void SetDropdownOptions()
         {
-            dropdown.options = DataProvider.Instance.skillIconList
-                .Select( x => new TMP_Dropdown.OptionData( x.skillId.ToDescription(), x.icon, Color.white ) ).ToList();
+            dropdown.ClearOptions();
+            dropdown.options.Add(DataProvider.Instance.GetDefaultDropdownOption());
+            dropdown.AddOptions( DataProvider.Instance.GetSkills()
+                .Select( x => new TMP_Dropdown.OptionData( x.id.ToDescription(), x.icon, Color.white ) ).ToList() );
+
+            dropdown.value = dropdown.options.FindIndex( x => x.text == GameState.Player.SkillSlots[slotIndex]._skillHashId.ToDescription() );
         }
     }
 }

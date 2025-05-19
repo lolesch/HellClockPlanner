@@ -1,17 +1,20 @@
 
 CONTINUE HERE:
 - [ ] skill details display
-- [ ] item selection
+	- [ ] proficiencies apply skill modifier
+- [ ] Gear / Trinket dropdowns
 	- [ ] random trinket generation
 	- [ ] rarity distribution
+- [ ] foundations
+- [ ] shrines
 
 ### Trinkets
-- [ ] panel to show trinkets
+- [x] panel to show trinkets
 	- [ ] dropdown to select rarity and tier
 	- [ ] slider to select minMaxRoll
 
 ### Equipment
-- [ ] panel to show equipment
+- [x] panel to show equipment
 	- [ ] dropdown to select tier
 	- [ ] slider to select minMaxRoll
 
@@ -25,16 +28,18 @@ CONTINUE HERE:
 	- [x] onSelect -> update saveFile with new skill
 - [ ] dragAndDrop -> swap skills
 
-### Skill Proficiencies
+### Proficiencies
 - [x] show available slots
-- [ ] onHover -> show proficiency details popup
+- [x] onHover -> show proficiency details popup
 - [x] onClick -> show proficiencies dropdown
 	- [x] make it skill-dependent
 	- [x] apply global buff
+	- [ ] apply skill modifier
 	- [ ] concat relic dependent proficiencies
+		- implement relics
+		- split proficiencyImportData so that the default dropdown list excludes relic proficiencies.
+		- add relic proficiencies if the relic is present/equipped
 
-### Game Systems
-- character stats
 ##### Meta Progression
 -  gear
 	- [ ] stat modifier
@@ -54,8 +59,8 @@ CONTINUE HERE:
 	- [ ] stat modifier
 - skills
 	-  global buff
-		- [ ] stat modifier
-	- skill proficiencies
+		- [x] stat modifier
+	- proficiencies
 		- [ ] skill modifier
 - foundations
 	- [ ] stat modifier

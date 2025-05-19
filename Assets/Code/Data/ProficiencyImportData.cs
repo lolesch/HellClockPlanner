@@ -1,6 +1,7 @@
 using System;
 using Code.Data.Enums;
 using Code.Data.ScriptableObjects;
+using Code.Runtime.Provider;
 using Code.Utility.AttributeRef.Attributes;
 using Code.Utility.Extensions;
 using UnityEngine;
@@ -21,6 +22,7 @@ namespace Code.Data
         [ReadOnly] public float magic;
         [ReadOnly] public float rare;
         [ReadOnly] public float epic;
+        [ReadOnly] public ModType modType;
         
         public void OnBeforeSerialize()
         {
@@ -43,13 +45,34 @@ namespace Code.Data
     }
     
     [Serializable]
-    public struct SkillProficiency
+    public struct SkillProficiency : IEquatable<SkillProficiency>
     {
         [HideInInspector] public string name;
         [ReadOnly] public SkillId id;
-        [ReadOnly] public ProficiencyId proficiency;
+        [ReadOnly] public ProficiencyId proficiencyId;
         [ReadOnly] public float value;
+        [ReadOnly] public ModType modType;
         [ReadOnly] public RarityId rarity;
         [ReadOnly, PreviewIcon(32)] public Sprite icon;
+        
+        public string ToTooltipString()
+        {
+            string valueString = modType switch
+            {
+                ModType.Flat => $"{value:0.##}",
+                ModType.Percent => $"{value * 100:0.##}%",
+                _ => value.ToString()
+            };
+            
+            string valueSign = value >= 0 ? "+" : "-";
+
+            return $"{proficiencyId.ToDescription()} {valueSign}{valueString.Colored( Color.green)}";
+        }
+
+        public bool Equals( SkillProficiency other ) => id == other.id && proficiencyId == other.proficiencyId && value.Equals( other.value ) && rarity == other.rarity;
+
+        public override bool Equals( object obj ) => obj is SkillProficiency other && Equals( other );
+
+        public override int GetHashCode() => HashCode.Combine( (int) id, (int) proficiencyId, value, (int) rarity );
     }
 }

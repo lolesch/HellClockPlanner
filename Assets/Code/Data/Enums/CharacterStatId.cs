@@ -38,10 +38,8 @@ namespace Code.Data.Enums
         BlightedStatusIntensity = 19,
         
         CriticalHitChance = 20,
-        //[Description("Critical Hit Chance %")]
         CriticalHitChanceMultiplier = 21,
         CriticalHitDamage = 22,
-        //[Description("Critical Hit Damage %")]
         CriticalHitDamageMultiplier = 23,
         
         [Description("Movement Speed")]

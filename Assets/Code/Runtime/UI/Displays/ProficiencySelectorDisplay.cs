@@ -12,6 +12,7 @@ namespace Code.Runtime.UI.Displays
     public sealed class ProficiencySelectorDisplay : MonoBehaviour
     {
         [SerializeField] private TMP_Dropdown dropdown;
+        [SerializeField] private TooltipHolder tooltipHolder;
         [SerializeField] private int slotIndex;
         [SerializeField] private RarityId rarity;
 
@@ -29,27 +30,44 @@ namespace Code.Runtime.UI.Displays
 
         private void SetDropdownOptions( SkillSlotData[] skillSlots )
         {
-            // remove previous global buff mods
             foreach( var slot in skillSlots )
                 if( slot._slotIndex == slotIndex )
                 {
                     var skillDependentProficiencies =
-                        DataProvider.Instance.GetDropdownProficiencies( slot._skillHashId, rarity );
+                        DataProvider.Instance.GetSkillProficiencies( slot._skillHashId, rarity );
                     
-                    dropdown.options = DataProvider.Instance.proficiencyIconList
-                        .Where( x => x.proficiencyId == ProficiencyId.None || skillDependentProficiencies.Select( y => y.proficiency ).Contains( x.proficiencyId ) )
+                    dropdown.ClearOptions();
+                    dropdown.options.Add(DataProvider.Instance.GetDefaultDropdownOption());
+                    dropdown.AddOptions(  skillDependentProficiencies
                         .Select( x => new TMP_Dropdown.OptionData( x.proficiencyId.ToDescription(), x.icon, Color.white ) )
-                        .ToList();
+                        .ToList() );
                 }
+            dropdown.value = 0;
         }
 
         private void OnProficiencyChanged( TMP_Dropdown change )
         {
-            var proficiencyId = ( Enum.GetValues( typeof( ProficiencyId ) ) as ProficiencyId[] )!
-                .First( x => x.ToDescription() == change.options[change.value].text );
+            var skillId = GameState.Player.SkillSlots[slotIndex]._skillHashId;
+                
+            var proficiency = DataProvider.Instance.GetSkillProficiencies( skillId, rarity ).ToArray()[change.value -1];
             
-            GameState.Player.SetProficiencyAtSlotIndex( slotIndex, proficiencyId );
-        } 
+            // TODO: do not apply global proficiency, if this dropdown already has one
+            // just refresh the tooltip
+            GameState.Player.SetProficiencyAtSlotIndex( slotIndex, proficiency );
         
+            SetTooltip( proficiency );
+        }
+        
+        public void SetTooltip( SkillProficiency proficiency )
+        {
+            string valueString = proficiency.modType switch
+            {
+                ModType.Flat => $"{proficiency.value:+0.##;-0.##}",
+                ModType.Percent => $"{proficiency.value * 100:+0.##;-0.##}%",
+                _ => proficiency.value.ToString()
+            };
+
+            tooltipHolder.SetTooltipText( $"{proficiency.proficiencyId.ToDescription()} {valueString.Colored( Color.green)}" );
+        } 
     }
 }

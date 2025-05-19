@@ -1,7 +1,6 @@
 using System;
 using Code.Data;
 using Code.Data.Enums;
-using ValueType = Code.Data.Enums.ValueType;
 
 namespace Code.Runtime.Statistics
 {
@@ -14,12 +13,14 @@ namespace Code.Runtime.Statistics
         public CharacterStat( CharacterStatImportData config )
         {
             Stat = config.id;
-            Value = new ModifiedFloat( config.baseValue, config.valueType );
+            Value = new ModifiedFloat( config.baseValue, config.modType );
         }
 
         public void AddModifier( Modifier modifier ) => Value.AddModifier( modifier );
 
         public bool TryRemoveModifier( Modifier modifier ) => Value.TryRemoveModifier( modifier );
+        
+        public bool TryRemoveAllModifiersBySource( IModifierSource source ) => Value.TryRemoveAllModifiersBySource( source );
     }
     
     [Serializable]

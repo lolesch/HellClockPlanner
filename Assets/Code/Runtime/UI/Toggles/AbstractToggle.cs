@@ -9,11 +9,8 @@ using UnityEngine.UI;
 
 namespace Code.Runtime.UI.Toggles
 {
-    [RequireComponent(typeof(TooltipHolder))]
     public abstract class AbstractToggle : Selectable, IPointerClickHandler
     {
-        [SerializeField] private TooltipHolder tooltipHolder;
-
         [field: SerializeField] public bool isOn { get; private set; } = false;
 
         [SerializeField, ReadOnly] private RadioGroup _radioGroup = null;
@@ -117,16 +114,6 @@ namespace Code.Runtime.UI.Toggles
 
             if (eventData.button == PointerEventData.InputButton.Left)
                 SetToggle(!isOn);
-
-            tooltipHolder.HideTooltip();
-
-            tooltipHolder.ShowTooltip(Const.TooltipDelayAfterInteraction);
-        }
-        public override void OnPointerEnter(PointerEventData eventData)
-        {
-            base.OnPointerEnter(eventData);
-
-            tooltipHolder.ShowTooltip(Const.TooltipDelay);
         }
 
         public override void OnPointerExit(PointerEventData eventData)
@@ -135,8 +122,6 @@ namespace Code.Runtime.UI.Toggles
 
             if (interactable)
                 DoStateTransition(isOn ? SelectionState.Selected : SelectionState.Normal, false);
-
-            tooltipHolder.HideTooltip();
         }
 
         //public virtual void PlayToggleSound(bool on) { } // => AudioProvider.Instance.PlayButtonClick();

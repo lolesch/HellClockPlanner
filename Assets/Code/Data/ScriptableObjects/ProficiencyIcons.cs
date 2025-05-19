@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Code.Data.Enums;
 using Code.Utility.Extensions;
 using UnityEngine;
@@ -18,10 +19,13 @@ namespace Code.Data.ScriptableObjects
         private void UpdateSkills()
         {
             icons ??= new List<ProficiencyIcon>();
-            icons.Clear();
+            //icons.Clear();
             var ids = Enum.GetValues( typeof( ProficiencyId ) ) as ProficiencyId[];
-            foreach( var id in ids )
+            var missing = ids.Where( x => icons.All( y => y.proficiencyId != x ) ).ToArray();
+            foreach( var id in missing )
                 icons.Add( new ProficiencyIcon( id ) );
+            
+            icons = icons.OrderBy( x => x.proficiencyId ).ToList();
         }
     }
 

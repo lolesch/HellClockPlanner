@@ -1,15 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Code.Data.Enums;
 using UnityEngine;
-using ValueType = Code.Data.Enums.ValueType;
 
 namespace Code.Runtime.Statistics
 {
     public sealed class ModifiedFloat : IFormattable
     {
         private readonly float _baseValue;
-        private readonly ValueType _valueType;
+        private readonly ModType _modType;
         private readonly List<Modifier> _modifiers;
         
         private float _totalValue;
@@ -18,10 +18,10 @@ namespace Code.Runtime.Statistics
         
         public event Action<float> OnTotalChanged;
         
-        public ModifiedFloat( float baseValue, ValueType valueType )
+        public ModifiedFloat( float baseValue, ModType modType )
         {
             _baseValue = baseValue;
-            _valueType = valueType;
+            _modType = modType;
             _modifiers = new List<Modifier>();
             OnTotalChanged = null;
             
@@ -69,14 +69,21 @@ namespace Code.Runtime.Statistics
 
         public override string ToString()
         {
-            return _valueType switch
+            return _modType switch
             {
-                ValueType.Flat => $"{_totalValue:0.##}",
-                ValueType.Percent => $"{_totalValue:P0}",
-                _ => throw new ArgumentOutOfRangeException()
+                ModType.Flat => $"{_totalValue:0.##}",
+                ModType.Percent => $"{_totalValue * 100:0.##}%",
+                _ => _totalValue.ToString(),
             };
         }
 
         public string ToString(string format, IFormatProvider provider) => _totalValue.ToString( format, provider );
+
+        public bool TryRemoveAllModifiersBySource( object source )
+        {
+            var removed = _modifiers.RemoveAll( x => x.Source == source );
+            CalculateTotalValue();
+            return removed > 0;
+        }
     }
 }

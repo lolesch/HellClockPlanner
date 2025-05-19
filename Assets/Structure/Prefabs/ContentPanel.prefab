@@ -700,6 +700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <fadeDuration>k__BackingField: 0.2
+  startVisible: 0
 --- !u!1 &8096654052129221320
 GameObject:
   m_ObjectHideFlags: 0

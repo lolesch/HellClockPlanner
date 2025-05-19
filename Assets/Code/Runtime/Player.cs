@@ -43,14 +43,6 @@ namespace Code.Runtime
             
             return _stats;
         }
-        
-        public Skill[] GetSkills()
-        {
-            if( _skills != null )
-                return _skills;
-            
-            return _skills;
-        }
 
         public void UpdateData( PlayerSaveData _config )
         {
@@ -63,10 +55,9 @@ namespace Code.Runtime
 
         public void SetSkillIdAtSlotIndex( int slotIndex, SkillId id )
         {
-            // remove globalBuff mods from current skill
-            //_skills[slotIndex].RemoveProficiencies();
+            _skills[slotIndex]?.RevertGlobalBuffs();
             
-            var config = DataProvider.Instance.GetSkills().First( x => x.id == id );
+            var config = DataProvider.Instance.GetSkills().FirstOrDefault( x => x.id == id );
             var globalBuffs = DataProvider.Instance.GetGlobalBuffs().Where( x => x.id == id ).ToList();
             _skills[slotIndex] = new Skill( config, globalBuffs );
             
@@ -74,10 +65,7 @@ namespace Code.Runtime
             OnSkillSlotsChanged?.Invoke( SkillSlots );
         }
 
-        public void SetProficiencyAtSlotIndex( int slotIndex, ProficiencyId proficiencyId )
-        {
-            var proficiency = DataProvider.Instance.GetSkillProficiency( proficiencyId );
+        public void SetProficiencyAtSlotIndex( int slotIndex, SkillProficiency proficiency ) =>
             _skills[slotIndex].AddProficiency( proficiency );
-        }
     }
 }

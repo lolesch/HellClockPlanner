@@ -16,9 +16,9 @@ MonoBehaviour:
   documentId: 17eNmTa4YziI9Fv3kL4vu1dRqnJSeAk51T-3yxneDSzY
   selectedTogglesIds:
   - skillProficiencies
+  - proficiencies
   - characterStats
   - globalBuffs
-  - proficiencies
   - skills
   foldoutSerializationGUI: 0
   serializationOutputPath: ../../Configs
@@ -139,271 +139,274 @@ MonoBehaviour:
       cooldown: 0.25
       baseDamage: 70
     characterStats:
-    - name: BaseDamage - 175
+    - name: BaseDamage - 100
       id: 1
-      baseValue: 175
-      valueType: 0
-    - name: Damage - 100 %
+      baseValue: 100
+      modType: 0
+    - name: Damage - 100%
       id: 2
       baseValue: 1
-      valueType: 1
-    - name: ElementalDamage - 0 %
+      modType: 1
+    - name: ElementalDamage - 0%
       id: 3
       baseValue: 0
-      valueType: 1
-    - name: FireDamage - 100 %
+      modType: 1
+    - name: FireDamage - 100%
       id: 4
       baseValue: 1
-      valueType: 1
+      modType: 1
     - name: AddedFireDamage - 0
       id: 5
       baseValue: 0
-      valueType: 0
-    - name: ChanceToIgnite - 100 %
+      modType: 0
+    - name: ChanceToIgnite - 100%
       id: 6
       baseValue: 1
-      valueType: 1
-    - name: IgnitedStatusIntensity - 100 %
+      modType: 1
+    - name: IgnitedStatusIntensity - 100%
       id: 7
       baseValue: 1
-      valueType: 1
-    - name: LightningDamage - 100 %
+      modType: 1
+    - name: LightningDamage - 100%
       id: 8
       baseValue: 1
-      valueType: 1
+      modType: 1
     - name: AddedLightningDamage - 0
       id: 9
       baseValue: 0
-      valueType: 0
-    - name: ChanceToShock - 100 %
+      modType: 0
+    - name: ChanceToShock - 100%
       id: 10
       baseValue: 1
-      valueType: 1
-    - name: ShockedStatusIntensity - 100 %
+      modType: 1
+    - name: ShockedStatusIntensity - 100%
       id: 11
       baseValue: 1
-      valueType: 1
-    - name: PhysicalDamage - 100 %
+      modType: 1
+    - name: PhysicalDamage - 100%
       id: 12
       baseValue: 1
-      valueType: 1
+      modType: 1
     - name: AddedPhysicalDamage - 0
       id: 13
       baseValue: 0
-      valueType: 0
-    - name: ChanceToBleed - 100 %
+      modType: 0
+    - name: ChanceToBleed - 100%
       id: 14
       baseValue: 1
-      valueType: 1
-    - name: BleedingStatusIntensity - 100 %
+      modType: 1
+    - name: BleedingStatusIntensity - 100%
       id: 15
       baseValue: 1
-      valueType: 1
-    - name: PlagueDamage - 100 %
+      modType: 1
+    - name: PlagueDamage - 100%
       id: 16
       baseValue: 1
-      valueType: 1
+      modType: 1
     - name: AddedPlagueDamage - 0
       id: 17
       baseValue: 0
-      valueType: 0
-    - name: ChanceToBlight - 100 %
+      modType: 0
+    - name: ChanceToBlight - 100%
       id: 18
       baseValue: 1
-      valueType: 1
-    - name: BlightedStatusIntensity - 100 %
+      modType: 1
+    - name: BlightedStatusIntensity - 100%
       id: 19
       baseValue: 1
-      valueType: 1
-    - name: CriticalHitChance - 5
+      modType: 1
+    - name: CriticalHitChance - 5%
       id: 20
-      baseValue: 5
-      valueType: 0
-    - name: CriticalHitChanceMultiplier - 0 %
+      baseValue: 0.05
+      modType: 1
+    - name: CriticalHitChanceMultiplier - 0%
       id: 21
       baseValue: 0
-      valueType: 1
-    - name: CriticalHitDamage - 200 %
+      modType: 1
+    - name: CriticalHitDamage - 150%
       id: 22
-      baseValue: 2
-      valueType: 1
-    - name: CriticalHitDamageMultiplier - 0 %
+      baseValue: 1.5
+      modType: 1
+    - name: CriticalHitDamageMultiplier - 0%
       id: 23
       baseValue: 0
-      valueType: 1
-    - name: MoveSpeed - 100 %
+      modType: 1
+    - name: MoveSpeed - 100%
       id: 24
       baseValue: 1
-      valueType: 1
-    - name: AttackSpeed - 100 %
+      modType: 1
+    - name: AttackSpeed - 100%
       id: 25
       baseValue: 1
-      valueType: 1
-    - name: CooldownSpeed - 100 %
+      modType: 1
+    - name: CooldownSpeed - 100%
       id: 26
       baseValue: 1
-      valueType: 1
-    - name: SkillManaCost - 100 %
+      modType: 1
+    - name: SkillManaCost - 100%
       id: 27
       baseValue: 1
-      valueType: 1
-    - name: ExperienceGain - 100 %
+      modType: 1
+    - name: ExperienceGain - 100%
       id: 28
       baseValue: 1
-      valueType: 1
-    - name: GoldGain - 100 %
+      modType: 1
+    - name: GoldGain - 100%
       id: 29
       baseValue: 1
-      valueType: 1
-    - name: SoulStoneGain - 100 %
+      modType: 1
+    - name: SoulStoneGain - 100%
       id: 30
       baseValue: 1
-      valueType: 1
-    - name: ItemFind - 0 %
+      modType: 1
+    - name: ItemFind - 0%
       id: 31
       baseValue: 0
-      valueType: 1
-    - name: BonusGearDropChance - 0 %
+      modType: 1
+    - name: BonusGearDropChance - 0%
       id: 32
       baseValue: 0
-      valueType: 1
-    - name: BonusRelicDropChance - 0 %
+      modType: 1
+    - name: BonusRelicDropChance - 0%
       id: 33
       baseValue: 0
-      valueType: 1
-    - name: BonusTrinketDropChance - 0 %
+      modType: 1
+    - name: BonusTrinketDropChance - 0%
       id: 34
       baseValue: 0
-      valueType: 1
-    - name: ConvictionDecayResistance - 0 %
+      modType: 1
+    - name: ConvictionDecayResistance - 0%
       id: 35
       baseValue: 0
-      valueType: 1
+      modType: 1
     - name: ConvictionDecayThreshold - 0
       id: 36
       baseValue: 0
-      valueType: 0
-    - name: ConvictionFromManaSpent - 0 %
+      modType: 0
+    - name: ConvictionFromManaSpent - 0%
       id: 37
       baseValue: 0
-      valueType: 1
-    - name: ConvictionGain - 100 %
+      modType: 1
+    - name: ConvictionGain - 100%
       id: 38
       baseValue: 1
-      valueType: 1
-    - name: ConvictionGeneration - 0 %
+      modType: 1
+    - name: ConvictionGeneration - 0%
       id: 39
       baseValue: 0
-      valueType: 1
-    - name: ElementalResistance - 0 %
+      modType: 1
+    - name: ElementalResistance - 0%
       id: 40
       baseValue: 0
-      valueType: 1
-    - name: FireResistance - 0 %
+      modType: 1
+    - name: FireResistance - 0%
       id: 41
       baseValue: 0
-      valueType: 1
-    - name: LightningResistance - 0 %
+      modType: 1
+    - name: LightningResistance - 0%
       id: 42
       baseValue: 0
-      valueType: 1
-    - name: PhysicalResistance - 0 %
+      modType: 1
+    - name: PhysicalResistance - 0%
       id: 43
       baseValue: 0
-      valueType: 1
-    - name: PlagueResistance - 0 %
+      modType: 1
+    - name: PlagueResistance - 0%
       id: 44
       baseValue: 0
-      valueType: 1
+      modType: 1
     - name: Life - 600
       id: 45
       baseValue: 600
-      valueType: 0
-    - name: LifePercent - 0 %
+      modType: 0
+    - name: LifePercent - 0%
       id: 46
       baseValue: 0
-      valueType: 1
+      modType: 1
     - name: LifeOnKill - 0
       id: 47
       baseValue: 0
-      valueType: 0
-    - name: LifeRegeneration - 0 %
+      modType: 0
+    - name: LifeRegeneration - 0%
       id: 48
       baseValue: 0
-      valueType: 1
+      modType: 1
     - name: Mana - 600
       id: 49
       baseValue: 600
-      valueType: 0
-    - name: ManaPercent - 0 %
+      modType: 0
+    - name: ManaPercent - 0%
       id: 50
       baseValue: 0
-      valueType: 1
+      modType: 1
     - name: ManaOnKill - 0
       id: 51
       baseValue: 0
-      valueType: 0
-    - name: ManaRegeneration - 0 %
+      modType: 0
+    - name: ManaRegeneration - 0%
       id: 52
       baseValue: 0
-      valueType: 1
+      modType: 1
     - name: PotionCapacity - 3
       id: 53
       baseValue: 3
-      valueType: 0
-    - name: PotionEfficiency - 100 %
+      modType: 0
+    - name: PotionEfficiency - 100%
       id: 54
       baseValue: 1
-      valueType: 1
-    - name: Evasion - 100 %
+      modType: 1
+    - name: Evasion - 100%
       id: 55
       baseValue: 1
-      valueType: 1
+      modType: 1
     - name: AilmentDuration - 1
       id: 56
       baseValue: 1
-      valueType: 0
+      modType: 0
     - name: SkillAreaOfEffect - 1
       id: 57
       baseValue: 1
-      valueType: 0
+      modType: 0
     - name: WitherBuildupRate - 1
       id: 58
       baseValue: 1
-      valueType: 0
+      modType: 0
     - name: StunBuildupRate - 1
       id: 59
       baseValue: 1
-      valueType: 0
+      modType: 0
     - name: CrowdControlResistance - 0
       id: 60
       baseValue: 0
-      valueType: 0
+      modType: 0
     proficiencies:
     - name: SplitShot
       id: 1
       proficiency: 3
       title: Deadly Aim
       common: 0
-      magic: 5
-      rare: 8
-      epic: 10
+      magic: 0.05
+      rare: 0.08
+      epic: 0.1
+      modType: 1
     - name: SplitShot
       id: 1
       proficiency: 1
       title: Heavy Shot
-      common: 20
-      magic: 30
-      rare: 40
-      epic: 50
+      common: 0.2
+      magic: 0.3
+      rare: 0.4
+      epic: 0.5
+      modType: 1
     - name: SplitShot
       id: 1
       proficiency: 2
       title: Efficient Reload
       common: 0
       magic: 0
-      rare: -10
-      epic: -20
+      rare: -0.1
+      epic: -0.2
+      modType: 1
     - name: SplitShot
       id: 1
       proficiency: 4
@@ -412,54 +415,61 @@ MonoBehaviour:
       magic: 0
       rare: 0
       epic: 1
+      modType: 0
     - name: SplitShot
       id: 1
       proficiency: 5
       title: Quick Trigger
-      common: 8
-      magic: 12
-      rare: 16
-      epic: 20
+      common: 0.08
+      magic: 0.12
+      rare: 0.16
+      epic: 0.2
+      modType: 1
     - name: SplitShot
       id: 1
       proficiency: 0
       title: Heavy Shot
       common: 0
-      magic: 15
+      magic: 0.15
       rare: 0
       epic: 0
+      modType: 1
     - name: Reflexes
       id: 4
       proficiency: 6
       title: Heightened Senses
       common: 0
-      magic: 20
-      rare: 30
-      epic: 40
+      magic: 0.2
+      rare: 0.3
+      epic: 0.4
+      modType: 1
     - name: Reflexes
       id: 4
       proficiency: 1
       title: Sharp Strike
-      common: 20
-      magic: 30
-      rare: 40
+      common: 0.2
+      magic: 0.3
+      rare: 0.4
       epic: 0
+      modType: 1
     - name: Reflexes
       id: 4
       proficiency: 7
       title: Enduring Reflexes
       common: 0
-      magic: 20
-      rare: 30
-      epic: 40
+      magic: 0.2
+      rare: 0.3
+      epic: 0.4
+      modType: 1
     - name: Reflexes
       id: 4
       proficiency: 8
       title: Swift Caster
-      common: -15
-      magic: -20
+      common: -0.15
+      magic: -0.2
       rare: 0
       epic: 0
+      modType: 1
     - name: Reflexes
       id: 4
       proficiency: 9
@@ -468,6 +478,7 @@ MonoBehaviour:
       magic: 0
       rare: 1
       epic: 2
+      modType: 0
     - name: Reflexes
       id: 4
       proficiency: 10
@@ -476,38 +487,41 @@ MonoBehaviour:
       magic: 0
       rare: 1
       epic: 2
+      modType: 0
     - name: Reflexes
       id: 4
       proficiency: 0
       title: Sharp Strike
       common: 0
-      magic: 15
+      magic: 0.15
       rare: 0
       epic: 0
+      modType: 1
     - name: Reflexes
       id: 4
       proficiency: 0
       title: Sharp Strike
       common: 0
-      magic: 15
+      magic: 0.15
       rare: 0
       epic: 0
+      modType: 1
     globalBuffs:
-    - name: Attack - 0.02 CriticalHitChanceMultiplier
+    - name: Attack - 0.02 CriticalHitChance
       id: 0
-      globalBuff: 21
+      globalBuff: 20
       amountPerRank: 0.02
-    - name: SplitShot - 0.02 CriticalHitDamageMultiplier
+    - name: SplitShot - 0.02 CriticalHitDamage
       id: 1
-      globalBuff: 23
+      globalBuff: 22
       amountPerRank: 0.02
     - name: ShadowDash - -0.025 SkillManaCost
       id: 2
       globalBuff: 27
       amountPerRank: -0.025
-    - name: Repeater - 0.005 CriticalHitChanceMultiplier
+    - name: Repeater - 0.005 CriticalHitChance
       id: 3
-      globalBuff: 21
+      globalBuff: 20
       amountPerRank: 0.005
     - name: Reflexes - 0.015 Damage
       id: 4
@@ -553,9 +567,9 @@ MonoBehaviour:
       id: 209
       globalBuff: 57
       amountPerRank: 0.02
-    - name: HolyRosary - 0.02 CriticalHitDamageMultiplier
+    - name: HolyRosary - 0.02 CriticalHitDamage
       id: 210
-      globalBuff: 23
+      globalBuff: 22
       amountPerRank: 0.02
     - name: VeilOfQuills - 0.015 WitherBuildupRate
       id: 211

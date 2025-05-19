@@ -1,6 +1,5 @@
 using System;
 using Code.Data.Enums;
-using Code.Runtime.Provider;
 using Code.Runtime.Statistics;
 using Code.Utility.Extensions;
 using UnityEngine;
@@ -8,13 +7,13 @@ using Random = UnityEngine.Random;
 
 namespace Code.Runtime
 {
-    public abstract class Item
+    public abstract class Item : IModifierSource
     {
         [SerializeField] protected RarityId Rarity;
         [SerializeField] protected int Tier;
         [field: SerializeField] protected float randomRoll { get; } = Random.value;
         [SerializeField] protected Vector2 _range;
-        [SerializeField] protected StatModifier StatMod;
+        [SerializeField] protected StatModifier[] StatMods;
 
         // TODO: implement distribution
         protected RarityId GetRandomRarity() => (RarityId) Random.Range(0, Enum.GetValues( typeof(RarityId) ).Length);
@@ -59,6 +58,10 @@ namespace Code.Runtime
             var mod = new Modifier( mappedRoll, this );
             //StatMod = new StatModifier( stat, mod );
         }
+    }
+
+    public sealed class Relic : Item
+    {
         
     }
 }

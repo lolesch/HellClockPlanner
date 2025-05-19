@@ -3,19 +3,22 @@ using UnityEngine;
 
 namespace Code.Runtime.Statistics
 {
+    [Serializable]
     public struct Modifier : IEquatable<Modifier>
     {
-        [SerializeField] private float _value;
-        [SerializeField] private object _source;
+        [field: SerializeField] public float value { get; private set; }
+        public readonly IModifierSource Source;
 
-        public Modifier( float value, object source )
+        public Modifier( float value, IModifierSource source )
         {
-            _value = value;
-            _source = source;
+            this.value = value;
+            this.Source = source;
         }
         
-        public static implicit operator float( Modifier mod ) => mod._value;
+        public static implicit operator float( Modifier mod ) => mod.value;
 
-        public bool Equals( Modifier other ) => _value == other._value && _source == other._source;
+        public bool Equals( Modifier other ) => value == other.value && Source == other.Source;
     }
+    
+    public interface IModifierSource { }
 }

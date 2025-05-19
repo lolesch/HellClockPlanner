@@ -4,7 +4,6 @@ using Code.Utility.AttributeRef.Attributes;
 using Code.Utility.Extensions;
 using Code.Utility.Tools.Statistics;
 using UnityEngine;
-using ValueType = Code.Data.Enums.ValueType;
 
 namespace Code.Data
 {
@@ -15,7 +14,7 @@ namespace Code.Data
 
         [ReadOnly] public CharacterStatId id;
         [ReadOnly] public float baseValue;
-        [ReadOnly] public ValueType valueType;
+        [ReadOnly] public ModType modType;
 
         public void OnBeforeSerialize()
         {
@@ -28,11 +27,11 @@ namespace Code.Data
 
         private string GetValueString()
         {
-            return valueType switch
+            return modType switch
             {
-                ValueType.Flat => $"{baseValue:0.##}",
-                ValueType.Percent => $"{baseValue:P0}",
-                _ => throw new ArgumentOutOfRangeException()
+                ModType.Flat => $"{baseValue:0.##}",
+                ModType.Percent => $"{baseValue * 100:0.##}%",
+                _ => baseValue.ToString(),
             };
         }
     }
