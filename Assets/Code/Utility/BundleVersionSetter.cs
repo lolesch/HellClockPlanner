@@ -72,16 +72,14 @@ namespace Code.Utility
             var versionNumber = $"v{major:0}.{minor:0}.{patch:0}";
 
             if( releaseType is not ReleaseType.None and < ReleaseType.Release )
-            {
-                var commitHash = string.Empty;
-                var gitHash = Resources.Load<TextAsset>("GitHash");
-                if (gitHash != null)
-                    commitHash = gitHash.text;
-                
-                versionNumber = $"{versionNumber}_{commitHash}_{releaseType.ToDescription()}";
-            }
+                versionNumber = $"{versionNumber}_{releaseType.ToDescription()}";
             
-            return versionNumber;
+            var commitHash = string.Empty;
+            var gitHash = Resources.Load<TextAsset>("GitHash"); 
+            if (gitHash != null) 
+                commitHash = gitHash.text;
+            
+            return $"{versionNumber}_{commitHash}";
         }
 
         private static string IncrementBundleVersion( IncrementType increment )
@@ -106,8 +104,6 @@ namespace Code.Utility
                     break;
                 case IncrementType.ReleaseType:
                     releaseType++;
-                    major = 0;
-                    minor = 0;
                     patch = 0;
                     break;
                 default:
