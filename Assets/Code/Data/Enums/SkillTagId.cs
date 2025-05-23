@@ -2,6 +2,8 @@ namespace Code.Data.Enums
 {
     public enum SkillTagId : byte
     {
+        None = 0,
+        
         FireDamage,
         LightningDamage,
         PhysicalDamage,
@@ -15,8 +17,10 @@ namespace Code.Data.Enums
         Melee,
         
         Mobility,
-        Spell,
         Enhancement,
+        Spell,
+        Summon,
+        
         Passive,
     }
 }

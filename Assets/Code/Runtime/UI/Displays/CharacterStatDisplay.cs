@@ -26,18 +26,11 @@ namespace Code.Runtime.UI.Displays
             _stat = GameState.Player.GetStat( statId );
             
             statName.text = statId.ToDescription();
-            statValue.text = GetTotalString();
-        
-            _stat.Value.OnTotalChanged += _ => statValue.text = GetTotalString();
+            SetValueText();
+
+            _stat.Value.OnTotalChanged += _ => SetValueText();
         }
         
-        private string GetTotalString()
-        {
-            var text = _stat.Value.ToString();
-            
-            if( _stat.Value.isModified )
-                text = text.Colored( Color.green );
-            return text;
-        }
+        private void SetValueText() => statValue.text = _stat.Value.ToString();
     }
 }

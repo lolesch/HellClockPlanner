@@ -12,25 +12,19 @@ namespace Code.Data
     {
         [HideInInspector] public string name;
 
-        [ReadOnly] public CharacterStatId id;
+        [ReadOnly] public CharacterStatId characterStatId;
         [ReadOnly] public float baseValue;
         [ReadOnly] public ModType modType;
 
-        public void OnBeforeSerialize()
-        {
-            name = $"{id} - {GetValueString()}";
-        }
-
-        public void OnAfterDeserialize()
-        {
-        }
+        public void OnBeforeSerialize() => name = $"{characterStatId.ToDescription()} - {GetValueString()}";
+        public void OnAfterDeserialize() {}
 
         private string GetValueString()
         {
             return modType switch
             {
                 ModType.Flat => $"{baseValue:0.##}",
-                ModType.Percent => $"{baseValue * 100:0.##}%",
+                ModType.Percent => $"{baseValue:0.##}%",
                 _ => baseValue.ToString(),
             };
         }

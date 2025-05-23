@@ -12,18 +12,18 @@ namespace Code.Runtime.Provider
 {
     public sealed class DataProvider : AbstractProvider<DataProvider>
     {
-        [field: SerializeField] private DataContainer database;
-        [field: SerializeField] private SkillIcons skillIcons;
-        [field: SerializeField] private ProficiencyIcons proficiencyIcons;
-        [field: SerializeField] private SkillProficiency[] proficiencies;
-        [field: SerializeField] private TMP_Dropdown.OptionData defaultOption;
+        [SerializeField] private DataContainer database;
+        [SerializeField] private SkillIcons skillIcons;
+        [SerializeField] private SkillStatIcons skillStatIcons;
+        [SerializeField] private Proficiency[] proficiencies;
+        public TMP_Dropdown.OptionData defaultOption;
 
         //public List<SkillIcon> skillIconList => skillIcons.icons;
         //public List<ProficiencyIcon> proficiencyIconList => proficiencyIcons.icons;
         public Sprite GetIconFromSkillId( SkillId skillId ) => skillIcons.GetIconFromSkillId( skillId );
 
-        public Sprite GetIconFromProficiencyId( ProficiencyId skillId ) =>
-            proficiencyIcons.GetIconFromProficiencyId( skillId );
+        public Sprite GetIconFromSkillStatId( SkillStatId skillStatId ) =>
+            skillStatIcons.GetIconFromSkillStatId( skillStatId );
 
         private void OnValidate()
         {
@@ -45,7 +45,7 @@ namespace Code.Runtime.Provider
         [ContextMenu("CreateAllProficienciesFromImportData")]
         private void CreateAllProficienciesFromImportData()
         {
-            var newList = new List<SkillProficiency>();
+            var newList = new List<Proficiency>();
             
             foreach( var data in  database.tables.proficiencies )
             {
@@ -59,37 +59,53 @@ namespace Code.Runtime.Provider
                     newList.Add( CreateProficiencyForRarity( data, RarityId.Epic ) );
             }
             
-            proficiencies = newList.OrderBy( x => x.id ).ThenBy( x=> x.proficiencyId ).ToArray();
+            proficiencies = newList.OrderBy( x => x.skillId ).ThenBy( x=> x.skillStatId ).ToArray();
         }
         
-        public List<SkillImportData> GetSkills() => database.tables.skills;
-        public List<CharacterStatImportData> GetBaseStats() => database.tables.characterStats;
-        public List<ProficiencyImportData> GetProficiencies() => database.tables.proficiencies;
-        public List<GlobalBuffImportData> GetGlobalBuffs() => database.tables.globalBuffs;
+        public List<CharacterStatImportData> GetBaseStatImports() => database.tables.characterStats;
+        public List<SkillImportData> GetSkillImports() => database.tables.skills;
+        public List<SkillTagImportData> GetSkillTagImports() => database.tables.skillTags;
+        public List<GlobalBuffImportData> GetGlobalBuffImports() => database.tables.globalBuffs;
+        public List<ProficiencyImportData> GetProficiencyImports() => database.tables.proficiencies;
         
-        private SkillProficiency CreateProficiencyForRarity( ProficiencyImportData data, RarityId rarity )
+        public List<SkillTagId> GetSkillTagsForSkill( SkillId skillId ) => GetSkillTagImports().Where( x => x.skillId == skillId ).Select( x => x.skillTagId ).ToList();
+        
+        //public List<SkillImportData> GetUnassignedSkills()
+        //{
+        //    var skillIds = GameState.Player.SkillSlots.Select( x => x._skillHashId );
+        //    return GetSkillImports().Where( x => !skillIds.Contains( x.skillId ) ).ToList();
+        //}
+
+        //public List<SkillImportData> GetAssignedSkills()
+        //{
+        //    var skillIds = GameState.Player.SkillSlots.Select( x => x._skillHashId );
+        //    return GetSkillImports().Where( x => skillIds.Contains( x.skillId ) ).ToList();
+        //}
+        
+        private Proficiency CreateProficiencyForRarity( ProficiencyImportData data, RarityId rarity )
         {
-            return new SkillProficiency
+            return new Proficiency
             {
-                id = data.id,
-                proficiencyId = data.proficiency,
+                skillId = data.skillId,
+                skillStatId = data.skillStatId,
+                modDescription = data.modDescription == string.Empty ? data.skillStatId.ToDescription() : data.modDescription,
                 value = data.GetValue( rarity ),
                 rarity = rarity,
-                name = data.title.Colored( Const.GetRarityColor( rarity ) ),
-                icon = GetIconFromProficiencyId( data.proficiency ),
+                name = data.proficiencyName.Colored( Const.GetRarityColor( rarity ) ),
+                icon = GetIconFromSkillStatId( data.skillStatId ),
                 modType = data.modType,
             };
         }
 
-        private IEnumerable<SkillProficiency> GetSkillProficiencies( SkillId id )
-            => proficiencies.Where( x => x.id == id );
+        private IEnumerable<Proficiency> GetSkillProficiencies( SkillId id )
+            => proficiencies.Where( x => x.skillId == id );
 
-        public IEnumerable<SkillProficiency> GetSkillProficiencies( SkillId id, RarityId rarity ) 
+        public IEnumerable<Proficiency> GetSkillProficiencies( SkillId id, RarityId rarity ) 
             => GetSkillProficiencies( id ).Where( x => x.rarity == rarity )
-                .OrderBy( x => x.proficiencyId);
+                .OrderBy( x => x.skillStatId);
         
-        public SkillProficiency GetSkillProficiency( ProficiencyId id ) 
-            => proficiencies.First( x => x.proficiencyId == id );
+        public Proficiency GetSkillProficiency( SkillStatId id ) 
+            => proficiencies.First( x => x.skillStatId == id );
 
         public TMP_Dropdown.OptionData GetDefaultDropdownOption() => defaultOption; 
     }

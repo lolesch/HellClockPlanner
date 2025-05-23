@@ -54,7 +54,7 @@ MonoBehaviour:
   m_PreferredWidth: -1
   m_PreferredHeight: -1
   m_FlexibleWidth: 500
-  m_FlexibleHeight: 1
+  m_FlexibleHeight: -1
   m_LayoutPriority: 1
 --- !u!1 &1297718648586165422
 GameObject:
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 4070664408137330068}
   - component: {fileID: 5547278296513716522}
   m_Layer: 5
-  m_Name: StatDisplay
+  m_Name: CharacterStatDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

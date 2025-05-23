@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Code.Data.Enums;
+using Code.Utility.Extensions;
 using UnityEngine;
 
 namespace Code.Runtime.Statistics
@@ -9,10 +10,11 @@ namespace Code.Runtime.Statistics
     public sealed class ModifiedFloat : IFormattable
     {
         private readonly float _baseValue;
-        private readonly ModType _modType;
+        public readonly ModType ModType;
         private readonly List<Modifier> _modifiers;
         
         private float _totalValue;
+        private float totalPercent => _totalValue * 0.01f;
         
         public bool isModified => _modifiers.Any();
         
@@ -21,15 +23,23 @@ namespace Code.Runtime.Statistics
         public ModifiedFloat( float baseValue, ModType modType )
         {
             _baseValue = baseValue;
-            _modType = modType;
+            ModType = modType;
             _modifiers = new List<Modifier>();
             OnTotalChanged = null;
             
             _totalValue = _baseValue;
         } 
         
-        public static implicit operator float( ModifiedFloat value ) => value._totalValue;
-        
+        public static implicit operator float( ModifiedFloat value )
+        {
+            return value.ModType switch
+            {
+                ModType.Flat => value._totalValue,
+                ModType.Percent => value.totalPercent,
+                _ => value._totalValue,
+            };
+        }
+
         private void CalculateTotalValue()
         {
             var newTotal = _baseValue;
@@ -46,7 +56,8 @@ namespace Code.Runtime.Statistics
                 return;
 
             _totalValue = newTotal;
-            OnTotalChanged?.Invoke( _totalValue );
+            
+            OnTotalChanged?.Invoke( this );
         }
 
         public void AddModifier( Modifier modifier )
@@ -69,12 +80,14 @@ namespace Code.Runtime.Statistics
 
         public override string ToString()
         {
-            return _modType switch
+            var valueString = ModType switch
             {
                 ModType.Flat => $"{_totalValue:0.##}",
-                ModType.Percent => $"{_totalValue * 100:0.##}%",
-                _ => _totalValue.ToString(),
+                ModType.Percent => $"{totalPercent:0.##}%",
+                _ => $"{_totalValue}",
             };
+            
+            return isModified ? valueString.Colored( Color.green ) : valueString;
         }
 
         public string ToString(string format, IFormatProvider provider) => _totalValue.ToString( format, provider );

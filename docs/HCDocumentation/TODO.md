@@ -23,10 +23,10 @@ CONTINUE HERE:
 	- [ ] stat cap ( max res = 75% )
 ### Skill Slots
 - [x] listen for save file load and display the loaded skills
-- [ ] onHover -> show skill details popup
+- [ ] ~~onHover -> show skill details popup
 - [x] onClick -> show skill dropdown to select from
 	- [x] onSelect -> update saveFile with new skill
-- [ ] dragAndDrop -> swap skills
+- [ ] ~~dragAndDrop -> swap skills
 
 ### Proficiencies
 - [x] show available slots

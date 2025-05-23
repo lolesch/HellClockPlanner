@@ -14,23 +14,17 @@ namespace Code.Data
     {
         [HideInInspector] public string name;
         
-        private string _skillAffix; // replace with enum once we know the pool
-        [ReadOnly] public SkillId id;
-        [ReadOnly] public ProficiencyId proficiency;
-        [ReadOnly] public string title;
+        [ReadOnly] public SkillId skillId;
+        [ReadOnly] public SkillStatId skillStatId;
+        [ReadOnly] public string modDescription;
+        [ReadOnly] public ModType modType;
+        [ReadOnly] public string proficiencyName;
         [ReadOnly] public float common;
         [ReadOnly] public float magic;
         [ReadOnly] public float rare;
         [ReadOnly] public float epic;
-        [ReadOnly] public ModType modType;
         
-        public void OnBeforeSerialize()
-        {
-            name = id.ToString();
-            
-            if( proficiency == ProficiencyId.None && _skillAffix != Empty )
-                proficiency = (ProficiencyId) _skillAffix.ToEnum<ProficiencyId>();
-        }
+        public void OnBeforeSerialize() => name = $"{skillId.ToDescription()} -> {skillStatId.ToDescription()}";
 
         public void OnAfterDeserialize() {}
         
@@ -45,11 +39,12 @@ namespace Code.Data
     }
     
     [Serializable]
-    public struct SkillProficiency : IEquatable<SkillProficiency>
+    public struct Proficiency : IEquatable<Proficiency>
     {
         [HideInInspector] public string name;
-        [ReadOnly] public SkillId id;
-        [ReadOnly] public ProficiencyId proficiencyId;
+        [ReadOnly] public SkillId skillId;
+        [ReadOnly] public string modDescription;
+        [ReadOnly] public SkillStatId skillStatId;
         [ReadOnly] public float value;
         [ReadOnly] public ModType modType;
         [ReadOnly] public RarityId rarity;
@@ -59,20 +54,18 @@ namespace Code.Data
         {
             string valueString = modType switch
             {
-                ModType.Flat => $"{value:0.##}",
-                ModType.Percent => $"{value * 100:0.##}%",
+                ModType.Flat => $"{value:+0.##;-0.##}",
+                ModType.Percent => $"{value:+0.##;-0.##}%",
                 _ => value.ToString()
             };
-            
-            string valueSign = value >= 0 ? "+" : "-";
 
-            return $"{proficiencyId.ToDescription()} {valueSign}{valueString.Colored( Color.green)}";
+            return $"{modDescription.ToDescription()} {valueString.Colored( Color.green)}";
         }
 
-        public bool Equals( SkillProficiency other ) => id == other.id && proficiencyId == other.proficiencyId && value.Equals( other.value ) && rarity == other.rarity;
+        public bool Equals( Proficiency other ) => skillId == other.skillId && modDescription == other.modDescription && value.Equals( other.value ) && rarity == other.rarity;
 
-        public override bool Equals( object obj ) => obj is SkillProficiency other && Equals( other );
+        public override bool Equals( object obj ) => obj is Proficiency other && Equals( other );
 
-        public override int GetHashCode() => HashCode.Combine( (int) id, (int) proficiencyId, value, (int) rarity );
+        public override int GetHashCode() => HashCode.Combine( (int) skillId, (int) skillStatId, value, (int) rarity );
     }
 }
