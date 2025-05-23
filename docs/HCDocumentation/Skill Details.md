@@ -1,18 +1,18 @@
 ### Import Data
-- [ ] name/id
-- [ ] description
-- [ ] mana cost
-- [ ] cooldown
-- [ ] base damage%
-- [ ] icon
-- [ ] tags list
-- [ ] global buffs list
+- [x] name/id
+- [x] description
+- [x] mana cost
+- [x] cooldown
+- [x] base damage%
+- [x] icon
+- [x] tags list
+- [x] global buffs list
 - [ ] maximum skill level
-- [ ] current skill level
+- [x] current skill level
 
 ### Derived
 -  ~~assignment
-- [ ] rank
+- [x] rank
 - [ ] affected relics list
 - [ ] proficiencies
 

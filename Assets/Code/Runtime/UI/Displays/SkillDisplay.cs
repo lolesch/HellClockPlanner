@@ -1,4 +1,3 @@
-using System;
 using Code.Data;
 using Code.Data.Enums;
 using Code.Runtime.Provider;
@@ -11,17 +10,17 @@ namespace Code.Runtime.UI.Displays
 {
     public sealed class SkillDisplay : MonoBehaviour
     {
-        [SerializeField] private int slotIndex;
-        [SerializeField] private Image icon;
         [SerializeField] private SkillLevelDisplay skillLevelDisplay;
         [SerializeField] private SkillDescriptionDisplay skillDescriptionDisplay;
         [SerializeField] private SkillTagDisplay skillTagPrefab;
         [SerializeField] private TextMeshProUGUI skillName;
         [SerializeField] private TextMeshProUGUI skillRank;
         private Skill _skill;
+        private ISlotIndexProvider _slot;
 
         private void Start()
         {
+            _slot ??= GetComponentInParent<ISlotIndexProvider>( true );
             _ = PoolProvider.Instance.InitializePool( skillTagPrefab, true, 4 );
             RefreshSkillDisplay();
         }
@@ -36,7 +35,7 @@ namespace Code.Runtime.UI.Displays
             
             //if( skillSlots[slotIndex]._skillHashId != SkillId.None )
             //_skill = GameState.Player.GetSkill( skillSlots[slotIndex]._skillHashId );
-            _skill = GameState.Player.GetSkillAtSlotIndex( slotIndex );
+            _skill = GameState.Player.GetSkillAtSlotIndex( _slot.Index );
 
             if( _skill != null )
                 _skill.OnProficienciesChanged += RefreshSkillDisplay;
@@ -59,12 +58,12 @@ namespace Code.Runtime.UI.Displays
             if( !showDetails )
             {
                 skillName.text = "No Skill Assigned";   
-                icon.sprite = DataProvider.Instance.GetIconFromSkillId( SkillId.None );
+                //icon.sprite = DataProvider.Instance.GetIconFromSkillId( SkillId.None );
                 
                 return;
             }
             
-            icon.sprite = _skill.icon;
+            //icon.sprite = _skill.icon;
             skillLevelDisplay.SetSkill( _skill );
             skillDescriptionDisplay.SetSkill( _skill );
             skillName.text = _skill.skillId.ToDescription();

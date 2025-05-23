@@ -16,7 +16,7 @@ namespace Code.Runtime
     {
         private SkillStat[] _stats;
         private readonly SkillImportData _config;
-        private readonly List<Proficiency> _proficiencies;
+        private readonly Dictionary<int, Proficiency> _proficiencies;
         public readonly List<GlobalBuffImportData> GlobalBuffs;
         
         public readonly List<SkillTagId> Tags;
@@ -28,7 +28,7 @@ namespace Code.Runtime
         public int manaCost => _config.manaCost; // TODO: get level dependent value
         public float cooldown => _config.cooldown; // TODO: get level dependent value
         public int baseDamage => _config.baseDamage; // TODO: get level dependent value
-        public int rank => _proficiencies.Count( x => x.skillStatId != SkillStatId.None ); // (+1?)
+        public int rank => _proficiencies.Where( x => x.Value.skillStatId != SkillStatId.None ).Sum( x => (int)x.Value.rarity ); // (+1?)
 
         //public bool isAssigned => GameState.Player.SkillSlots.Select( x => x._skillHashId ).Contains( _config.id );
         
@@ -41,7 +41,7 @@ namespace Code.Runtime
             _config = config;
             GlobalBuffs = globalBuffs;
             MaxLevel = 4; // TODO: get from config.maxLevel;
-            _proficiencies = new List<Proficiency>();
+            _proficiencies = new Dictionary<int, Proficiency>();
             Tags = DataProvider.Instance.GetSkillTagsForSkill( _config.skillId );
         }
         
@@ -68,26 +68,36 @@ namespace Code.Runtime
             return _stats;
         }
 
-        public void AddProficiency( Proficiency proficiency )
+        public void AddProficiency( Proficiency proficiency, int proficiencySlotIndex )
         {
-            // TODO: add slot lookup -> replace proficiencies in the corresponding dropdown slot
-            // else add to list
-            _proficiencies.Add( proficiency );
-            GetStat( proficiency.skillStatId ).AddModifier( new Modifier( proficiency.value, this ) );
+            if( _proficiencies.TryGetValue( proficiencySlotIndex , out var existing ) )
+            {
+                GetStat( existing.skillStatId ).TryRemoveModifier( new Modifier( existing.value, this ) );
+                _proficiencies[proficiencySlotIndex] = proficiency;
+            }
+            else
+            {
+                _proficiencies.Add( proficiencySlotIndex, proficiency );
             
-            foreach( var buff in GlobalBuffs )
-                GameState.Player.GetStat( buff.characterStatId ).AddModifier( new Modifier( buff.amountPerRank, this ) );
+                foreach( var buff in GlobalBuffs )
+                   GameState.Player.GetStat( buff.characterStatId ).AddModifier( new Modifier( buff.amountPerRank, this ) );
+            }
+            
+            GetStat( proficiency.skillStatId ).AddModifier( new Modifier( proficiency.value, this ) );
             
             OnProficienciesChanged?.Invoke();
         }
 
-        public void RemoveProficiency( Proficiency proficiency )
+        public void RemoveProficiency( Proficiency proficiency, int proficiencySlotIndex )
         {
-            _proficiencies.Remove( proficiency );
+            _proficiencies.Remove( proficiencySlotIndex );
             GetStat( proficiency.skillStatId ).TryRemoveModifier( new Modifier( proficiency.value, this ) );
 
+            // TODO: remove only once -> not all!
             GlobalBuffs.ForEach( x => GameState.Player.GetStat( x.characterStatId )
                 .TryRemoveAllModifiersBySource( this ) );
+            
+            OnProficienciesChanged?.Invoke();
         }
 
         public void RevertGlobalBuffs() => GlobalBuffs.ForEach( x =>

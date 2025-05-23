@@ -13,8 +13,11 @@ namespace Code.Runtime.UI.Displays
     {
         [SerializeField] private TMP_Dropdown dropdown;
         [SerializeField] private TooltipHolder tooltipHolder;
-        [SerializeField] private int slotIndex;
+        [SerializeField] private int proficiencySlotIndex;
         [SerializeField] private RarityId rarity;
+        private ISlotIndexProvider _slot;
+
+        private void Start() => _slot ??= GetComponentInParent<ISlotIndexProvider>( true );
 
         private void OnEnable()
         {
@@ -31,7 +34,7 @@ namespace Code.Runtime.UI.Displays
         private void SetDropdownOptions( SkillSlotData[] skillSlots )
         {
             foreach( var slot in skillSlots )
-                if( slot._slotIndex == slotIndex )
+                if( slot._slotIndex == _slot.Index )
                 {
                     var skillDependentProficiencies =
                         DataProvider.Instance.GetSkillProficiencies( slot._skillHashId, rarity );
@@ -47,13 +50,14 @@ namespace Code.Runtime.UI.Displays
 
         private void OnProficiencyChanged( TMP_Dropdown change )
         {
-            var skillId = GameState.Player.SkillSlots[slotIndex]._skillHashId;
+            var skillId = GameState.Player.SkillSlots[_slot.Index]._skillHashId;
+            var optionIndex = change.value - 1;
                 
-            var proficiency = DataProvider.Instance.GetSkillProficiencies( skillId, rarity ).ToArray()[change.value -1];
+            var proficiency = new Proficiency();
+            if( 0 < optionIndex ) 
+                proficiency = DataProvider.Instance.GetSkillProficiencies( skillId, rarity ).ToArray()[optionIndex];
             
-            // TODO: do not apply global proficiency, if this dropdown already has one
-            // just refresh the tooltip
-            GameState.Player.SetProficiencyAtSlotIndex( slotIndex, proficiency );
+            GameState.Player.SetProficiencyAtSlotIndex( _slot.Index, proficiency, proficiencySlotIndex );
         
             SetTooltip( proficiency );
         }

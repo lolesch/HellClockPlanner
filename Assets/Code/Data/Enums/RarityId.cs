@@ -2,9 +2,10 @@ namespace Code.Data.Enums
 {
     public enum RarityId : byte
     {
-        Common = 0,
-        Magic = 1,
-        Rare = 2,
-        Epic = 3,
+        None = 0,
+        Common = 1,
+        Magic = 2,
+        Rare = 3,
+        Epic = 4,
     }
 }

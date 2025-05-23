@@ -1,12 +1,18 @@
 
 CONTINUE HERE:
-- [ ] skill details display
-	- [ ] proficiencies apply skill modifier
+- [x] skill details display
+	- [x] proficiencies apply skill modifier
+	- [ ] show proficiencies in the "affected by" area???
+- [ ] Rank is rarity dependent
 - [ ] Gear / Trinket dropdowns
 	- [ ] random trinket generation
 	- [ ] rarity distribution
 - [ ] foundations
 - [ ] shrines
+- [ ] create a hashNumber that restores the current build
+	- [ ] update hash while building
+	- [ ] copy/paste into input field
+	- [ ] restore the pasted hash
 
 ### Trinkets
 - [x] panel to show trinkets
@@ -39,6 +45,7 @@ CONTINUE HERE:
 		- implement relics
 		- split proficiencyImportData so that the default dropdown list excludes relic proficiencies.
 		- add relic proficiencies if the relic is present/equipped
+			- [ ] change proficiency icon to show the relic
 
 ##### Meta Progression
 -  gear
@@ -61,7 +68,7 @@ CONTINUE HERE:
 	-  global buff
 		- [x] stat modifier
 	- proficiencies
-		- [ ] skill modifier
+		- [x] skill modifier
 - foundations
 	- [ ] stat modifier
 	- [ ] proc

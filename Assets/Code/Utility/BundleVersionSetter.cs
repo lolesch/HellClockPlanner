@@ -38,7 +38,7 @@ namespace Code.Utility
 
         public int callbackOrder => 0;
 
-        public void OnPreprocessBuild(BuildReport report) => UpdateTimeStamp();
+        public void OnPreprocessBuild(BuildReport report) => IncreasePatchNumber();
 
         private static void SplitBundleVersion(out int major, out int minor, out int patch, out ReleaseType release, out string timeStamp)
         {

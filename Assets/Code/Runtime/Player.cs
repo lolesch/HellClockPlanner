@@ -65,8 +65,8 @@ namespace Code.Runtime
             OnSkillSlotsChanged?.Invoke( SkillSlots );
         }
 
-        public void SetProficiencyAtSlotIndex( int slotIndex, Proficiency proficiency ) =>
-            _skills[slotIndex].AddProficiency( proficiency );
+        public void SetProficiencyAtSlotIndex( int slotIndex, Proficiency proficiency, int proficiencySlotIndex ) =>
+            _skills[slotIndex].AddProficiency( proficiency, proficiencySlotIndex );
 
         public Skill GetSkillFromSkillId( SkillId currentSkillId ) => _skills.FirstOrDefault( x => x.skillId == currentSkillId );
         public Skill GetSkillAtSlotIndex( int slotIndex ) => _skills[slotIndex];
