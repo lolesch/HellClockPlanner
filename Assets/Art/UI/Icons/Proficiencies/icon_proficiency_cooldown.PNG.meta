@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      icon_proficiency_cooldown_0: 1774923721087487189
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
