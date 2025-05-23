@@ -1,4 +1,5 @@
 using System;
+using Code.Utility.Tools.Statistics;
 using UnityEngine;
 
 namespace Code.Runtime.Statistics
@@ -6,18 +7,18 @@ namespace Code.Runtime.Statistics
     [Serializable]
     public struct Modifier : IEquatable<Modifier>
     {
-        [field: SerializeField] public float value { get; private set; }
+        private readonly float _value;
         public readonly IModifierSource Source;
 
         public Modifier( float value, IModifierSource source )
         {
-            this.value = value;
-            this.Source = source;
+            _value = value;
+            Source = source;
         }
         
-        public static implicit operator float( Modifier mod ) => mod.value;
+        public static implicit operator float( Modifier mod ) => mod._value;
 
-        public bool Equals( Modifier other ) => value == other.value && Source == other.Source;
+        public bool Equals( Modifier other ) => Mathf.Approximately( _value, other._value ) && Source == other.Source;
     }
     
     public interface IModifierSource { }

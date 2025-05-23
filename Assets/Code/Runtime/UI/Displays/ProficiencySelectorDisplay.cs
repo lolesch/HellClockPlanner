@@ -37,9 +37,9 @@ namespace Code.Runtime.UI.Displays
                         DataProvider.Instance.GetSkillProficiencies( slot._skillHashId, rarity );
                     
                     dropdown.ClearOptions();
-                    dropdown.options.Add(DataProvider.Instance.GetDefaultDropdownOption());
+                    dropdown.options.Add(DataProvider.Instance.defaultOption);
                     dropdown.AddOptions(  skillDependentProficiencies
-                        .Select( x => new TMP_Dropdown.OptionData( x.proficiencyId.ToDescription(), x.icon, Color.white ) )
+                        .Select( x => new TMP_Dropdown.OptionData( x.modDescription, x.icon, Color.white ) )
                         .ToList() );
                 }
             dropdown.value = 0;
@@ -58,16 +58,16 @@ namespace Code.Runtime.UI.Displays
             SetTooltip( proficiency );
         }
         
-        public void SetTooltip( SkillProficiency proficiency )
+        public void SetTooltip( Proficiency proficiency )
         {
             string valueString = proficiency.modType switch
             {
                 ModType.Flat => $"{proficiency.value:+0.##;-0.##}",
-                ModType.Percent => $"{proficiency.value * 100:+0.##;-0.##}%",
+                ModType.Percent => $"{proficiency.value:+0.##;-0.##}%",
                 _ => proficiency.value.ToString()
             };
 
-            tooltipHolder.SetTooltipText( $"{proficiency.proficiencyId.ToDescription()} {valueString.Colored( Color.green)}" );
+            tooltipHolder.SetTooltipText( $"{proficiency.modDescription} {valueString.Colored( Color.green)}" );
         } 
     }
 }

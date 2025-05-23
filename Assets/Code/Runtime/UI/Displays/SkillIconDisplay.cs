@@ -15,14 +15,10 @@ namespace Code.Runtime.UI.Displays
 
         private void OnSkillSlotsChanged( SkillSlotData[] skillSlots )
         {
-            foreach( var slot in skillSlots )
-                if( slot._slotIndex == slotIndex )
-                {
-                    var sprite = DataProvider.Instance.GetIconFromSkillId( slot._skillHashId );
-                    icon.sprite = sprite;
-                    icon.enabled = sprite != null;
-                    //icon.color = slot._skillHashId == SkillId.None ? Color.clear : Color.white;
-                }
+            var sprite = DataProvider.Instance.GetIconFromSkillId( skillSlots[slotIndex]._skillHashId );
+            
+            icon.sprite = sprite;
+            icon.enabled = sprite != null;
         }
     }
 }

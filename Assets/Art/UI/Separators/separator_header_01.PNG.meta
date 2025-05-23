@@ -129,12 +129,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 4
-        width: 193
-        height: 14
+        y: 0
+        width: 310
+        height: 28
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 144, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -146,99 +146,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: separator_header_01_1
-      rect:
-        serializedVersion: 2
-        x: 193
-        y: 4
-        width: 28
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7dfe1c29a09542700800000000000000
-      internalID: 514634159373807575
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: separator_header_01_2
-      rect:
-        serializedVersion: 2
-        x: 212
-        y: 0
-        width: 68
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ab132653e0e057620800000000000000
-      internalID: 2771136599904367034
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: separator_header_01_3
-      rect:
-        serializedVersion: 2
-        x: 257
-        y: 15
-        width: 35
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e5a927d47bb802770800000000000000
-      internalID: 8584014509162797662
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: separator_header_01_4
-      rect:
-        serializedVersion: 2
-        x: 283
-        y: 0
-        width: 27
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5a4e6e5504951fe60800000000000000
-      internalID: 7994268946413315237
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 860506a1d235a4a4ca1a4c88dbd67b9a
     internalID: 0
     vertices: []
     indices: 
@@ -247,7 +159,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      separator_header_01_0: 2143118521831049477
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -16,566 +16,853 @@ MonoBehaviour:
   documentId: 17eNmTa4YziI9Fv3kL4vu1dRqnJSeAk51T-3yxneDSzY
   selectedTogglesIds:
   - skillProficiencies
+  - statusEffects
   - proficiencies
-  - characterStats
-  - globalBuffs
-  - skills
   foldoutSerializationGUI: 0
   serializationOutputPath: ../../Configs
   serializationFileName: Configs.v0.1
   serializationFormat: 0
   <tables>k__BackingField:
-    skills:
-    - name: Attack
-      id: 0
-      description: Basic revolver shot. Restores 15% of maximum Mana on hit.
-      manaCost: 0
-      cooldown: 0.25
-      baseDamage: 100
-    - name: SplitShot
-      id: 1
-      description: Shoot multiple bullets in a cone on front of you. Especially strong
-        against nearby enemies.
-      manaCost: 120
-      cooldown: 0.25
-      baseDamage: 60
-    - name: ShadowDash
-      id: 2
-      description: Dash vey quickly, dealing damage to enemies on your path.
-      manaCost: 100
-      cooldown: 3
-      baseDamage: 80
-    - name: Repeater
-      id: 3
-      description: By holding the skill button, machinegun-like fire on a single
-        target.
-      manaCost: 42
-      cooldown: 0.5
-      baseDamage: 66
-    - name: Reflexes
-      id: 4
-      description: Summons a ring of Spectral Knives around the player that are automatically
-        thriwn ar nearby enemies.
-      manaCost: 0
-      cooldown: 8
-      baseDamage: 75
-    - name: OldBell
-      id: 50
-      description: The Old Bell comes crashing down on your enemies.
-      manaCost: 400
-      cooldown: 0.5
-      baseDamage: 300
-    - name: Judgement
-      id: 67
-      description: All enemies in the target area are judged, reducing all their
-        resistances by 40% for 4 seconds.
-      manaCost: 300
-      cooldown: 1
-      baseDamage: 0
-    - name: DoubleKnives
-      id: 69
-      description: Continuously spin two blades around while you move, dealing Physical
-        damage to nearby enemies.
-      manaCost: 34
-      cooldown: 0.5
-      baseDamage: 80
-    - name: Lasso
-      id: 71
-      description: Grapples and pulls enemies in an area, stunning them for 2 seconds
-        with a 20% chance to cause Bleeding for 4 seconds. Bosses are not pulled,
-        nor stunned but can still suffer Bleeding.
-      manaCost: 0
-      cooldown: 4
-      baseDamage: 0
-    - name: SlowTime
-      id: 74
-      description: All enemies have their movement speed, attack speed and projectile
-        speed reduced.
-      manaCost: 0
-      cooldown: 11
-      baseDamage: 0
-    - name: ClosedBody
-      id: 157
-      description: Envelops you in a Barrier of Conviction based on your Maximum
-        Mana, While Closed Body is active, your Conviction Decay is reduced by 50%,
-        and every attack received is retaliated with a Physical Damage Explosion.
-      manaCost: 0
-      cooldown: 15
-      baseDamage: 100
-    - name: Bombardment
-      id: 201
-      description: Summons a Bombardment over a large area for 8 seconds, dealing
-        AoE Physical Damage on impact.
-      manaCost: 0
-      cooldown: 10
-      baseDamage: 100
-    - name: SummonTheGuard
-      id: 203
-      description: 'Spirits of the Canudos Catholic Guard are summoned to fight by
-        your side. Guard''s Rage: Upon skill activation, all Catholic Guard''s Spirits
-        reveive a 200% boost to attack speed for 4 seconds.'
-      manaCost: 100
-      cooldown: 15
-      baseDamage: 30
-    - name: Matadeira
-      id: 209
-      description: Mark an area to be bombarded by a powerful cannon shot. The explosion
-        area is ignited for 3 seconds.
-      manaCost: 0
-      cooldown: 5
-      baseDamage: 120
-    - name: HolyRosary
-      id: 210
-      description: Summon beads of the Rosary that orbit in a spiral around you,
-        dealing Lightning damage.
-      manaCost: 200
-      cooldown: 0.25
-      baseDamage: 85
-    - name: VeilOfQuills
-      id: 211
-      description: Unleashes a flurry of spectral quills that seek out nearby enemies,
-        dealing Plague damage.
-      manaCost: 200
-      cooldown: 0.25
-      baseDamage: 70
     characterStats:
-    - name: BaseDamage - 100
-      id: 1
+    - name: Base Damage - 100
+      characterStatId: 1
       baseValue: 100
       modType: 0
     - name: Damage - 100%
-      id: 2
-      baseValue: 1
+      characterStatId: 2
+      baseValue: 100
       modType: 1
-    - name: ElementalDamage - 0%
-      id: 3
+    - name: Elemental Damage - 0%
+      characterStatId: 3
       baseValue: 0
       modType: 1
-    - name: FireDamage - 100%
-      id: 4
-      baseValue: 1
+    - name: Fire Damage - 100%
+      characterStatId: 4
+      baseValue: 100
       modType: 1
-    - name: AddedFireDamage - 0
-      id: 5
-      baseValue: 0
-      modType: 0
-    - name: ChanceToIgnite - 100%
-      id: 6
-      baseValue: 1
-      modType: 1
-    - name: IgnitedStatusIntensity - 100%
-      id: 7
-      baseValue: 1
-      modType: 1
-    - name: LightningDamage - 100%
-      id: 8
-      baseValue: 1
-      modType: 1
-    - name: AddedLightningDamage - 0
-      id: 9
+    - name: Added Fire Damage - 0
+      characterStatId: 5
       baseValue: 0
       modType: 0
-    - name: ChanceToShock - 100%
-      id: 10
-      baseValue: 1
+    - name: None - 0%
+      characterStatId: 0
+      baseValue: 0
       modType: 1
-    - name: ShockedStatusIntensity - 100%
-      id: 11
-      baseValue: 1
+    - name: Ignited Status Intensity - 100%
+      characterStatId: 7
+      baseValue: 100
       modType: 1
-    - name: PhysicalDamage - 100%
-      id: 12
-      baseValue: 1
+    - name: Lightning Damage - 100%
+      characterStatId: 8
+      baseValue: 100
       modType: 1
-    - name: AddedPhysicalDamage - 0
-      id: 13
+    - name: Added Lightning Damage - 0
+      characterStatId: 9
       baseValue: 0
       modType: 0
-    - name: ChanceToBleed - 100%
-      id: 14
-      baseValue: 1
+    - name: None - 0%
+      characterStatId: 0
+      baseValue: 0
       modType: 1
-    - name: BleedingStatusIntensity - 100%
-      id: 15
-      baseValue: 1
+    - name: Shocked Status Intensity - 100%
+      characterStatId: 11
+      baseValue: 100
       modType: 1
-    - name: PlagueDamage - 100%
-      id: 16
-      baseValue: 1
+    - name: Phys.Damage - 100%
+      characterStatId: 12
+      baseValue: 100
       modType: 1
-    - name: AddedPlagueDamage - 0
-      id: 17
+    - name: Added Phys.Damage - 0
+      characterStatId: 13
       baseValue: 0
       modType: 0
-    - name: ChanceToBlight - 100%
-      id: 18
-      baseValue: 1
-      modType: 1
-    - name: BlightedStatusIntensity - 100%
-      id: 19
-      baseValue: 1
-      modType: 1
-    - name: CriticalHitChance - 5%
-      id: 20
-      baseValue: 0.05
-      modType: 1
-    - name: CriticalHitChanceMultiplier - 0%
-      id: 21
+    - name: None - 0%
+      characterStatId: 0
       baseValue: 0
       modType: 1
-    - name: CriticalHitDamage - 150%
-      id: 22
-      baseValue: 1.5
+    - name: Bleeding Status Intensity - 100%
+      characterStatId: 15
+      baseValue: 100
       modType: 1
-    - name: CriticalHitDamageMultiplier - 0%
-      id: 23
-      baseValue: 0
+    - name: Plague Damage - 100%
+      characterStatId: 16
+      baseValue: 100
       modType: 1
-    - name: MoveSpeed - 100%
-      id: 24
-      baseValue: 1
-      modType: 1
-    - name: AttackSpeed - 100%
-      id: 25
-      baseValue: 1
-      modType: 1
-    - name: CooldownSpeed - 100%
-      id: 26
-      baseValue: 1
-      modType: 1
-    - name: SkillManaCost - 100%
-      id: 27
-      baseValue: 1
-      modType: 1
-    - name: ExperienceGain - 100%
-      id: 28
-      baseValue: 1
-      modType: 1
-    - name: GoldGain - 100%
-      id: 29
-      baseValue: 1
-      modType: 1
-    - name: SoulStoneGain - 100%
-      id: 30
-      baseValue: 1
-      modType: 1
-    - name: ItemFind - 0%
-      id: 31
-      baseValue: 0
-      modType: 1
-    - name: BonusGearDropChance - 0%
-      id: 32
-      baseValue: 0
-      modType: 1
-    - name: BonusRelicDropChance - 0%
-      id: 33
-      baseValue: 0
-      modType: 1
-    - name: BonusTrinketDropChance - 0%
-      id: 34
-      baseValue: 0
-      modType: 1
-    - name: ConvictionDecayResistance - 0%
-      id: 35
-      baseValue: 0
-      modType: 1
-    - name: ConvictionDecayThreshold - 0
-      id: 36
+    - name: Added Plague Damage - 0
+      characterStatId: 17
       baseValue: 0
       modType: 0
-    - name: ConvictionFromManaSpent - 0%
-      id: 37
+    - name: None - 0%
+      characterStatId: 0
       baseValue: 0
       modType: 1
-    - name: ConvictionGain - 100%
-      id: 38
-      baseValue: 1
+    - name: Blighted Status Intensity - 100%
+      characterStatId: 19
+      baseValue: 100
       modType: 1
-    - name: ConvictionGeneration - 0%
-      id: 39
+    - name: Critical Hit Chance - 5%
+      characterStatId: 20
+      baseValue: 5
+      modType: 1
+    - name: Critical Hit Chance Multiplier - 0%
+      characterStatId: 21
       baseValue: 0
       modType: 1
-    - name: ElementalResistance - 0%
-      id: 40
+    - name: Critical Hit Damage - 150%
+      characterStatId: 22
+      baseValue: 150
+      modType: 1
+    - name: Critical Hit Damage Multiplier - 0%
+      characterStatId: 23
       baseValue: 0
       modType: 1
-    - name: FireResistance - 0%
-      id: 41
+    - name: Move Speed - 100%
+      characterStatId: 24
+      baseValue: 100
+      modType: 1
+    - name: Attack Speed - 100%
+      characterStatId: 25
+      baseValue: 100
+      modType: 1
+    - name: Cooldown Speed - 100%
+      characterStatId: 26
+      baseValue: 100
+      modType: 1
+    - name: Skill Mana Cost - 100%
+      characterStatId: 27
+      baseValue: 100
+      modType: 1
+    - name: Experience Gain - 100%
+      characterStatId: 28
+      baseValue: 100
+      modType: 1
+    - name: Gold Gain - 100%
+      characterStatId: 29
+      baseValue: 100
+      modType: 1
+    - name: Soul Stone Gain - 100%
+      characterStatId: 30
+      baseValue: 100
+      modType: 1
+    - name: Item Find - 100%
+      characterStatId: 31
+      baseValue: 100
+      modType: 1
+    - name: Bonus Gear Drop Chance - 0%
+      characterStatId: 32
       baseValue: 0
       modType: 1
-    - name: LightningResistance - 0%
-      id: 42
+    - name: Bonus Relic Drop Chance - 0%
+      characterStatId: 33
       baseValue: 0
       modType: 1
-    - name: PhysicalResistance - 0%
-      id: 43
+    - name: Bonus Trinket Drop Chance - 0%
+      characterStatId: 34
       baseValue: 0
       modType: 1
-    - name: PlagueResistance - 0%
-      id: 44
+    - name: Conv. Decay Resistance - 0%
+      characterStatId: 35
+      baseValue: 0
+      modType: 1
+    - name: Conv. Decay Threshold - 0
+      characterStatId: 36
+      baseValue: 0
+      modType: 0
+    - name: Conv. From Mana Spent - 0%
+      characterStatId: 37
+      baseValue: 0
+      modType: 1
+    - name: Conviction Gain - 100%
+      characterStatId: 38
+      baseValue: 100
+      modType: 1
+    - name: Conviction Generation - 0%
+      characterStatId: 39
+      baseValue: 0
+      modType: 1
+    - name: Elemental Resistance - 0%
+      characterStatId: 40
+      baseValue: 0
+      modType: 1
+    - name: Fire Resistance - 0%
+      characterStatId: 41
+      baseValue: 0
+      modType: 1
+    - name: Lightning Resistance - 0%
+      characterStatId: 42
+      baseValue: 0
+      modType: 1
+    - name: Physical Resistance - 0%
+      characterStatId: 43
+      baseValue: 0
+      modType: 1
+    - name: Plague Resistance - 0%
+      characterStatId: 44
       baseValue: 0
       modType: 1
     - name: Life - 600
-      id: 45
+      characterStatId: 45
       baseValue: 600
       modType: 0
-    - name: LifePercent - 0%
-      id: 46
+    - name: Life Percent - 0%
+      characterStatId: 46
       baseValue: 0
       modType: 1
-    - name: LifeOnKill - 0
-      id: 47
+    - name: Life On Kill - 0
+      characterStatId: 47
       baseValue: 0
       modType: 0
-    - name: LifeRegeneration - 0%
-      id: 48
+    - name: Life Regeneration - 0%
+      characterStatId: 48
       baseValue: 0
       modType: 1
     - name: Mana - 600
-      id: 49
+      characterStatId: 49
       baseValue: 600
       modType: 0
-    - name: ManaPercent - 0%
-      id: 50
+    - name: Mana Percent - 0%
+      characterStatId: 50
       baseValue: 0
       modType: 1
-    - name: ManaOnKill - 0
-      id: 51
+    - name: Mana On Kill - 0
+      characterStatId: 51
       baseValue: 0
       modType: 0
-    - name: ManaRegeneration - 0%
-      id: 52
-      baseValue: 0
+    - name: Mana Regeneration - 10%
+      characterStatId: 52
+      baseValue: 10
       modType: 1
-    - name: PotionCapacity - 3
-      id: 53
+    - name: Potion Capacity - 3
+      characterStatId: 53
       baseValue: 3
       modType: 0
-    - name: PotionEfficiency - 100%
-      id: 54
-      baseValue: 1
+    - name: Potion Efficiency - 100%
+      characterStatId: 54
+      baseValue: 100
       modType: 1
     - name: Evasion - 100%
-      id: 55
-      baseValue: 1
+      characterStatId: 55
+      baseValue: 100
       modType: 1
-    - name: AilmentDuration - 1
-      id: 56
-      baseValue: 1
+    - name: Ailment Duration - 100
+      characterStatId: 56
+      baseValue: 100
       modType: 0
-    - name: SkillAreaOfEffect - 1
-      id: 57
-      baseValue: 1
+    - name: Skill Area Of Effect - 100
+      characterStatId: 57
+      baseValue: 100
       modType: 0
-    - name: WitherBuildupRate - 1
-      id: 58
-      baseValue: 1
+    - name: Wither Buildup Rate - 100
+      characterStatId: 58
+      baseValue: 100
       modType: 0
-    - name: StunBuildupRate - 1
-      id: 59
-      baseValue: 1
+    - name: Stun Buildup Rate - 100
+      characterStatId: 59
+      baseValue: 100
       modType: 0
-    - name: CrowdControlResistance - 0
-      id: 60
-      baseValue: 0
+    - name: Crowd Control Resistance - 100
+      characterStatId: 60
+      baseValue: 100
       modType: 0
+    skills:
+    - name: Attack
+      skillId: 1
+      description: Basic revolver shot. Restores 15% of maximum Mana on hit.
+      baseDamage: 100
+      manaCost: 0
+      cooldown: 0.25
+      projectiles: 1
+      maxLevel: 0
+    - name: Split Shot
+      skillId: 2
+      description: Shoot multiple bullets in a cone on front of you. Especially strong
+        against nearby enemies.
+      baseDamage: 60
+      manaCost: 120
+      cooldown: 0.25
+      projectiles: 3
+      maxLevel: 0
+    - name: Shadow Dash
+      skillId: 3
+      description: Dash vey quickly, dealing damage to enemies on your path.
+      baseDamage: 80
+      manaCost: 100
+      cooldown: 3
+      projectiles: 1
+      maxLevel: 0
+    - name: Repeater
+      skillId: 4
+      description: By holding the skill button, machinegun-like fire on a single
+        target.
+      baseDamage: 66
+      manaCost: 42
+      cooldown: 0.5
+      projectiles: 1
+      maxLevel: 0
+    - name: Reflexes
+      skillId: 5
+      description: Summons a ring of Spectral Knives around the player that are automatically
+        thrown at nearby enemies.
+      baseDamage: 75
+      manaCost: 0
+      cooldown: 8
+      projectiles: 0
+      maxLevel: 0
+    - name: Old Bell
+      skillId: 6
+      description: The Old Bell comes crashing down on your enemies.
+      baseDamage: 300
+      manaCost: 400
+      cooldown: 0.5
+      projectiles: 1
+      maxLevel: 0
+    - name: Judgement
+      skillId: 7
+      description: All enemies in the target area are judged, reducing all their
+        resistances by 40% for 4 seconds.
+      baseDamage: 0
+      manaCost: 300
+      cooldown: 1
+      projectiles: 1
+      maxLevel: 0
+    - name: Double Knives
+      skillId: 8
+      description: Continuously spin two blades around while you move, dealing Physical
+        damage to nearby enemies.
+      baseDamage: 80
+      manaCost: 34
+      cooldown: 0.5
+      projectiles: 1
+      maxLevel: 0
+    - name: Lasso
+      skillId: 9
+      description: Grapples and pulls enemies in an area, stunning them for 2 seconds
+        with a 20% chance to cause Bleeding for 4 seconds. Bosses are not pulled,
+        nor stunned but can still suffer Bleeding.
+      baseDamage: 0
+      manaCost: 0
+      cooldown: 4
+      projectiles: 1
+      maxLevel: 0
+    - name: Slow Time
+      skillId: 10
+      description: All enemies have their movement speed, attack speed and projectile
+        speed reduced.
+      baseDamage: 0
+      manaCost: 0
+      cooldown: 11
+      projectiles: 1
+      maxLevel: 0
+    - name: Closed Body
+      skillId: 11
+      description: Envelops you in a Barrier of Conviction based on your Maximum
+        Mana, While Closed Body is active, your Conviction Decay is reduced by 50%,
+        and every attack received is retaliated with a Physical Damage Explosion.
+      baseDamage: 100
+      manaCost: 0
+      cooldown: 15
+      projectiles: 1
+      maxLevel: 0
+    - name: Bombardment
+      skillId: 12
+      description: Summons a Bombardment over a large area for 8 seconds, dealing
+        AoE Physical Damage on impact.
+      baseDamage: 100
+      manaCost: 0
+      cooldown: 10
+      projectiles: 0
+      maxLevel: 0
+    - name: Summon the Guard
+      skillId: 13
+      description: 'Spirits of the Canudos Catholic Guard are summoned to fight by
+        your side. Guard''s Rage: Upon skill activation, all Catholic Guard''s Spirits
+        reveive a 200% boost to attack speed for 4 seconds.'
+      baseDamage: 30
+      manaCost: 100
+      cooldown: 15
+      projectiles: 0
+      maxLevel: 0
+    - name: Matadeira
+      skillId: 14
+      description: Mark an area to be bombarded by a powerful cannon shot. The explosion
+        area is ignited for 3 seconds.
+      baseDamage: 120
+      manaCost: 0
+      cooldown: 5
+      projectiles: 1
+      maxLevel: 0
+    - name: Holy Rosary
+      skillId: 15
+      description: Summon beads of the Rosary that orbit in a spiral around you,
+        dealing Lightning damage.
+      baseDamage: 85
+      manaCost: 200
+      cooldown: 0.25
+      projectiles: 1
+      maxLevel: 0
+    - name: Veil of Quills
+      skillId: 16
+      description: Unleashes a flurry of spectral quills that seek out nearby enemies,
+        dealing Plague damage.
+      baseDamage: 70
+      manaCost: 200
+      cooldown: 0.25
+      projectiles: 0
+      maxLevel: 0
+    skillTags:
+    - name: Attack - Marksman
+      skillId: 1
+      skillTagId: 8
+    - name: Attack - Projectile
+      skillId: 1
+      skillTagId: 7
+    - name: Attack - Single Target
+      skillId: 1
+      skillTagId: 5
+    - name: Attack - Physical Damage
+      skillId: 1
+      skillTagId: 3
+    - name: Split Shot - Marksman
+      skillId: 2
+      skillTagId: 8
+    - name: Split Shot - Projectile
+      skillId: 2
+      skillTagId: 7
+    - name: Split Shot - Fire Damage
+      skillId: 2
+      skillTagId: 1
+    - name: Shadow Dash - Mobility
+      skillId: 3
+      skillTagId: 10
+    - name: Shadow Dash - Physical Damage
+      skillId: 3
+      skillTagId: 3
+    - name: Repeater - Marksman
+      skillId: 4
+      skillTagId: 8
+    - name: Repeater - Projectile
+      skillId: 4
+      skillTagId: 7
+    - name: Repeater - Physical Damage
+      skillId: 4
+      skillTagId: 3
+    - name: Reflexes - Projectile
+      skillId: 5
+      skillTagId: 7
+    - name: Reflexes - Physical Damage
+      skillId: 5
+      skillTagId: 3
+    - name: Old Bell - Area Of Effect
+      skillId: 6
+      skillTagId: 6
+    - name: Old Bell - Spell
+      skillId: 6
+      skillTagId: 12
+    - name: Old Bell - Plague Damage
+      skillId: 6
+      skillTagId: 4
+    - name: Judgement - Area Of Effect
+      skillId: 7
+      skillTagId: 6
+    - name: Judgement - None
+      skillId: 7
+      skillTagId: 0
+    - name: Double Knives - Melee
+      skillId: 8
+      skillTagId: 9
+    - name: Double Knives - Physical Damage
+      skillId: 8
+      skillTagId: 3
+    - name: Lasso - Area Of Effect
+      skillId: 9
+      skillTagId: 6
+    - name: Lasso - Melee
+      skillId: 9
+      skillTagId: 9
+    - name: Slow Time - Area Of Effect
+      skillId: 10
+      skillTagId: 6
+    - name: Slow Time - Spell
+      skillId: 10
+      skillTagId: 12
+    - name: Closed Body - Area Of Effect
+      skillId: 11
+      skillTagId: 6
+    - name: Closed Body - None
+      skillId: 11
+      skillTagId: 0
+    - name: Closed Body - Physical Damage
+      skillId: 11
+      skillTagId: 3
+    - name: Bombardment - Area Of Effect
+      skillId: 12
+      skillTagId: 6
+    - name: Bombardment - Spell
+      skillId: 12
+      skillTagId: 12
+    - name: Bombardment - Physical Damage
+      skillId: 12
+      skillTagId: 3
+    - name: Summon the Guard - Projectile
+      skillId: 13
+      skillTagId: 7
+    - name: Summon the Guard - Summon
+      skillId: 13
+      skillTagId: 13
+    - name: Summon the Guard - Physical Damage
+      skillId: 13
+      skillTagId: 3
+    - name: Matadeira - Area Of Effect
+      skillId: 14
+      skillTagId: 6
+    - name: Matadeira - Marksman
+      skillId: 14
+      skillTagId: 8
+    - name: Matadeira - Fire Damage
+      skillId: 14
+      skillTagId: 1
+    - name: Holy Rosary - Projectile
+      skillId: 15
+      skillTagId: 7
+    - name: Holy Rosary - Spell
+      skillId: 15
+      skillTagId: 12
+    - name: Holy Rosary - Lightning Damage
+      skillId: 15
+      skillTagId: 2
+    - name: Veil of Quills - Projectile
+      skillId: 16
+      skillTagId: 7
+    - name: Veil of Quills - Spell
+      skillId: 16
+      skillTagId: 12
+    - name: Veil of Quills - Plague Damage
+      skillId: 16
+      skillTagId: 4
+    - name: Veil of Quills - None
+      skillId: 16
+      skillTagId: 0
+    globalBuffs:
+    - name: Attack -> 2 Critical Hit Chance
+      skillId: 1
+      characterStatId: 20
+      amountPerRank: 2
+    - name: Split Shot -> 2 Critical Hit Damage
+      skillId: 2
+      characterStatId: 22
+      amountPerRank: 2
+    - name: Shadow Dash -> -2.5 Skill Mana Cost
+      skillId: 3
+      characterStatId: 27
+      amountPerRank: -2.5
+    - name: Repeater -> 0.5 Critical Hit Chance
+      skillId: 4
+      characterStatId: 20
+      amountPerRank: 0.5
+    - name: Reflexes -> 1.5 Damage
+      skillId: 5
+      characterStatId: 2
+      amountPerRank: 1.5
+    - name: Old Bell -> 1 Life Percent
+      skillId: 6
+      characterStatId: 46
+      amountPerRank: 1
+    - name: Old Bell -> 1 Mana Percent
+      skillId: 6
+      characterStatId: 50
+      amountPerRank: 1
+    - name: Judgement -> 2 Ailment Duration
+      skillId: 7
+      characterStatId: 56
+      amountPerRank: 2
+    - name: Double Knives -> 0.5 Attack Speed
+      skillId: 8
+      characterStatId: 25
+      amountPerRank: 0.5
+    - name: Lasso -> 1.5 Damage
+      skillId: 9
+      characterStatId: 2
+      amountPerRank: 1.5
+    - name: Slow Time -> 0.75 Evasion
+      skillId: 10
+      characterStatId: 55
+      amountPerRank: 0.75
+    - name: Closed Body -> 0.5 Physical Resistance
+      skillId: 11
+      characterStatId: 43
+      amountPerRank: 0.5
+    - name: Bombardment -> 2 Skill Area Of Effect
+      skillId: 12
+      characterStatId: 57
+      amountPerRank: 2
+    - name: Summon the Guard -> 1 Cooldown Speed
+      skillId: 13
+      characterStatId: 26
+      amountPerRank: 1
+    - name: Matadeira -> 2 Skill Area Of Effect
+      skillId: 14
+      characterStatId: 57
+      amountPerRank: 2
+    - name: Holy Rosary -> 2 Critical Hit Damage
+      skillId: 15
+      characterStatId: 22
+      amountPerRank: 2
+    - name: Veil of Quills -> 1.5 Wither Buildup Rate
+      skillId: 16
+      characterStatId: 58
+      amountPerRank: 1.5
+    - name: Veil of Quills -> 1.5 Stun Buildup Rate
+      skillId: 16
+      characterStatId: 59
+      amountPerRank: 1.5
     proficiencies:
-    - name: SplitShot
-      id: 1
-      proficiency: 3
-      title: Deadly Aim
-      common: 0
-      magic: 0.05
-      rare: 0.08
-      epic: 0.1
-      modType: 1
-    - name: SplitShot
-      id: 1
-      proficiency: 1
-      title: Heavy Shot
-      common: 0.2
-      magic: 0.3
-      rare: 0.4
-      epic: 0.5
-      modType: 1
-    - name: SplitShot
-      id: 1
-      proficiency: 2
-      title: Efficient Reload
-      common: 0
-      magic: 0
-      rare: -0.1
-      epic: -0.2
-      modType: 1
-    - name: SplitShot
-      id: 1
-      proficiency: 4
-      title: Multi-shot
+    - name: Split Shot -> Projectile Amount
+      skillId: 2
+      skillStatId: 9
+      modDescription: 
+      modType: 0
+      proficiencyName: Multi-shot
       common: 0
       magic: 0
       rare: 0
       epic: 1
+    - name: Split Shot -> Critical Hit Chance
+      skillId: 2
+      skillStatId: 2
+      modDescription: 
+      modType: 1
+      proficiencyName: Deadly Aim
+      common: 0
+      magic: 5
+      rare: 8
+      epic: 10
+    - name: Split Shot -> Damage
+      skillId: 2
+      skillStatId: 1
+      modDescription: 
+      modType: 1
+      proficiencyName: Heavy Shot
+      common: 20
+      magic: 30
+      rare: 40
+      epic: 50
+    - name: Split Shot -> Mana Cost
+      skillId: 2
+      skillStatId: 4
+      modDescription: 
+      modType: 1
+      proficiencyName: Efficient Reload
+      common: 0
+      magic: 0
+      rare: -10
+      epic: -20
+    - name: Split Shot -> Skill Speed
+      skillId: 2
+      skillStatId: 6
+      modDescription: 
       modType: 0
-    - name: SplitShot
-      id: 1
-      proficiency: 5
-      title: Quick Trigger
-      common: 0.08
-      magic: 0.12
-      rare: 0.16
-      epic: 0.2
+      proficiencyName: Quick Trigger
+      common: 8
+      magic: 12
+      rare: 16
+      epic: 20
+    - name: Split Shot -> None
+      skillId: 2
+      skillStatId: 0
+      modDescription: 
       modType: 1
-    - name: SplitShot
-      id: 1
-      proficiency: 0
-      title: Heavy Shot
+      proficiencyName: Heavy Shot
       common: 0
-      magic: 0.15
+      magic: 15
       rare: 0
       epic: 0
-      modType: 1
-    - name: Reflexes
-      id: 4
-      proficiency: 6
-      title: Heightened Senses
-      common: 0
-      magic: 0.2
-      rare: 0.3
-      epic: 0.4
-      modType: 1
-    - name: Reflexes
-      id: 4
-      proficiency: 1
-      title: Sharp Strike
-      common: 0.2
-      magic: 0.3
-      rare: 0.4
-      epic: 0
-      modType: 1
-    - name: Reflexes
-      id: 4
-      proficiency: 7
-      title: Enduring Reflexes
-      common: 0
-      magic: 0.2
-      rare: 0.3
-      epic: 0.4
-      modType: 1
-    - name: Reflexes
-      id: 4
-      proficiency: 8
-      title: Swift Caster
-      common: -0.15
-      magic: -0.2
-      rare: 0
-      epic: 0
-      modType: 1
-    - name: Reflexes
-      id: 4
-      proficiency: 9
-      title: Blade Horde
+    - name: Reflexes -> Projectile Amount
+      skillId: 5
+      skillStatId: 9
+      modDescription: MaxKnives
+      modType: 0
+      proficiencyName: Blade Horde
       common: 0
       magic: 0
       rare: 1
       epic: 2
+    - name: Reflexes -> Projectile Bounces
+      skillId: 5
+      skillStatId: 10
+      modDescription: KnifeBounceAmount
       modType: 0
-    - name: Reflexes
-      id: 4
-      proficiency: 10
-      title: External Blade Echo
+      proficiencyName: External Blade Echo
       common: 0
       magic: 0
       rare: 1
       epic: 2
+    - name: Reflexes -> Area of Effect
+      skillId: 5
+      skillStatId: 7
+      modDescription: 
+      modType: 1
+      proficiencyName: Heightened Senses
+      common: 0
+      magic: 20
+      rare: 30
+      epic: 40
+    - name: Reflexes -> Damage
+      skillId: 5
+      skillStatId: 1
+      modDescription: 
+      modType: 1
+      proficiencyName: Sharp Strike
+      common: 20
+      magic: 30
+      rare: 40
+      epic: 0
+    - name: Reflexes -> None
+      skillId: 5
+      skillStatId: 0
+      modDescription: 
+      modType: 1
+      proficiencyName: Enduring Reflexes
+      common: 0
+      magic: 20
+      rare: 30
+      epic: 40
+    - name: Reflexes -> Cooldown
+      skillId: 5
+      skillStatId: 5
+      modDescription: KnifeGenerationTime
+      modType: 1
+      proficiencyName: Swift Caster
+      common: -15
+      magic: -20
+      rare: 0
+      epic: 0
+    - name: Reflexes -> None
+      skillId: 5
+      skillStatId: 0
+      modDescription: 
+      modType: 1
+      proficiencyName: Sharp Strike
+      common: 0
+      magic: 15
+      rare: 0
+      epic: 0
+    - name: Reflexes -> None
+      skillId: 5
+      skillStatId: 0
+      modDescription: 
+      modType: 1
+      proficiencyName: Sharp Strike
+      common: 0
+      magic: 15
+      rare: 0
+      epic: 0
+    - name: None -> None
+      skillId: 0
+      skillStatId: 0
+      modDescription: 
+      modType: 1
+      proficiencyName: 
+      common: 7
+      magic: 0
+      rare: 0
+      epic: 0
+    - name: None -> None
+      skillId: 0
+      skillStatId: 0
+      modDescription: 
+      modType: 1
+      proficiencyName: 
+      common: 4
+      magic: 0
+      rare: 0
+      epic: 0
+    - name: None -> None
+      skillId: 0
+      skillStatId: 0
+      modDescription: 
+      modType: 1
+      proficiencyName: 
+      common: 0
+      magic: 15
+      rare: 0
+      epic: 0
+    - name: Double Knives -> Mana Cost
+      skillId: 8
+      skillStatId: 4
+      modDescription: 
+      modType: 1
+      proficiencyName: Efficient Flow
+      common: 0
+      magic: -10
+      rare: -15
+      epic: -20
+    - name: Double Knives -> Area of Effect
+      skillId: 8
+      skillStatId: 7
+      modDescription: 
+      modType: 1
+      proficiencyName: Vast Whirlwind
+      common: 0
+      magic: 20
+      rare: 30
+      epic: 40
+    - name: Double Knives -> Damage
+      skillId: 8
+      skillStatId: 1
+      modDescription: 
+      modType: 1
+      proficiencyName: Power of the Gate
+      common: 20
+      magic: 30
+      rare: 40
+      epic: 50
+    - name: Double Knives -> Skill Speed
+      skillId: 8
+      skillStatId: 6
+      modDescription: 
       modType: 0
-    - name: Reflexes
-      id: 4
-      proficiency: 0
-      title: Sharp Strike
-      common: 0
-      magic: 0.15
-      rare: 0
-      epic: 0
+      proficiencyName: Frenzied Dance
+      common: 8
+      magic: 12
+      rare: 16
+      epic: 20
+    - name: Old Bell -> Damage
+      skillId: 6
+      skillStatId: 1
+      modDescription: 
       modType: 1
-    - name: Reflexes
-      id: 4
-      proficiency: 0
-      title: Sharp Strike
-      common: 0
-      magic: 0.15
-      rare: 0
-      epic: 0
+      proficiencyName: Relentless Collapse
+      common: 20
+      magic: 30
+      rare: 40
+      epic: 50
+    - name: Old Bell -> Area of Effect
+      skillId: 6
+      skillStatId: 7
+      modDescription: 
       modType: 1
-    globalBuffs:
-    - name: Attack - 0.02 CriticalHitChance
-      id: 0
-      globalBuff: 20
-      amountPerRank: 0.02
-    - name: SplitShot - 0.02 CriticalHitDamage
-      id: 1
-      globalBuff: 22
-      amountPerRank: 0.02
-    - name: ShadowDash - -0.025 SkillManaCost
-      id: 2
-      globalBuff: 27
-      amountPerRank: -0.025
-    - name: Repeater - 0.005 CriticalHitChance
-      id: 3
-      globalBuff: 20
-      amountPerRank: 0.005
-    - name: Reflexes - 0.015 Damage
-      id: 4
-      globalBuff: 2
-      amountPerRank: 0.015
-    - name: OldBell - 0.01 LifePercent
-      id: 50
-      globalBuff: 46
-      amountPerRank: 0.01
-    - name: OldBell - 0.01 ManaPercent
-      id: 50
-      globalBuff: 50
-      amountPerRank: 0.01
-    - name: Judgement - 0.02 AilmentDuration
-      id: 67
-      globalBuff: 56
-      amountPerRank: 0.02
-    - name: DoubleKnives - 0.005 AttackSpeed
-      id: 69
-      globalBuff: 25
-      amountPerRank: 0.005
-    - name: Lasso - 0.015 Damage
-      id: 71
-      globalBuff: 2
-      amountPerRank: 0.015
-    - name: SlowTime - 0.008 Evasion
-      id: 74
-      globalBuff: 55
-      amountPerRank: 0.008
-    - name: ClosedBody - 0.005 PhysicalResistance
-      id: 157
-      globalBuff: 43
-      amountPerRank: 0.005
-    - name: Bombardment - 0.02 SkillAreaOfEffect
-      id: 201
-      globalBuff: 57
-      amountPerRank: 0.02
-    - name: SummonTheGuard - 0.01 CooldownSpeed
-      id: 203
-      globalBuff: 26
-      amountPerRank: 0.01
-    - name: Matadeira - 0.02 SkillAreaOfEffect
-      id: 209
-      globalBuff: 57
-      amountPerRank: 0.02
-    - name: HolyRosary - 0.02 CriticalHitDamage
-      id: 210
-      globalBuff: 22
-      amountPerRank: 0.02
-    - name: VeilOfQuills - 0.015 WitherBuildupRate
-      id: 211
-      globalBuff: 58
-      amountPerRank: 0.015
-    - name: VeilOfQuills - 0.015 StunBuildupRate
-      id: 211
-      globalBuff: 59
-      amountPerRank: 0.015
+      proficiencyName: Amplified Reverberation
+      common: 0
+      magic: 20
+      rare: 30
+      epic: 40
+    - name: Old Bell -> Mana Cost
+      skillId: 6
+      skillStatId: 4
+      modDescription: 
+      modType: 1
+      proficiencyName: Efficient Reverberation
+      common: 0
+      magic: -10
+      rare: -15
+      epic: -20
+    - name: Old Bell -> Critical Hit Damage
+      skillId: 6
+      skillStatId: 3
+      modDescription: 
+      modType: 1
+      proficiencyName: Soul Shatter
+      common: 30
+      magic: 40
+      rare: 50
+      epic: 100

@@ -8,8 +8,8 @@ namespace Code.Data.Enums
         Damage,
         
         //SplitShot
-        ManaCost,
         CriticalHitChance,
+        ManaCost,
         ProjectileAmount,
         SkillSpeed,
 

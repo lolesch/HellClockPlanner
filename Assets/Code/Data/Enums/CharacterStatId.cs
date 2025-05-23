@@ -42,8 +42,8 @@ namespace Code.Data.Enums
         CriticalHitDamage = 22,
         CriticalHitDamageMultiplier = 23,
         
-        [Description("Movement Speed")]
-        MoveSpeed = 24,
+        [Description("Move Speed")]
+        MovementSpeed = 24,
         AttackSpeed = 25,
         CooldownSpeed = 26,
         SkillManaCost = 27,

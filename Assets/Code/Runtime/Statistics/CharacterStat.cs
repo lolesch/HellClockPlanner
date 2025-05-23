@@ -12,7 +12,7 @@ namespace Code.Runtime.Statistics
             
         public CharacterStat( CharacterStatImportData config )
         {
-            Stat = config.id;
+            Stat = config.characterStatId;
             Value = new ModifiedFloat( config.baseValue, config.modType );
         }
 

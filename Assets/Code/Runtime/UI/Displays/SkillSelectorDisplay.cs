@@ -15,8 +15,9 @@ namespace Code.Runtime.UI.Displays
 
         private void Start() => SetDropdownOptions();
 
-        private void OnEnable() => dropdown.onValueChanged.AddListener( delegate { OnSkillChanged( dropdown ); });
-        private void OnDisable() => dropdown.onValueChanged.RemoveListener(delegate { OnSkillChanged(dropdown); });
+        private void OnEnable() => dropdown.onValueChanged.AddListener( delegate { OnSkillChanged( dropdown ); } );
+
+        private void OnDisable() => dropdown.onValueChanged.RemoveListener( delegate { OnSkillChanged( dropdown ); } );
 
         private void OnSkillChanged( TMP_Dropdown change )
         {
@@ -24,17 +25,14 @@ namespace Code.Runtime.UI.Displays
                 .First( x => x.ToDescription() == change.options[change.value].text );
             
             GameState.Player.SetSkillIdAtSlotIndex( slotIndex, skillId );
-            //SetDropdownOptions();
         }
         
         private void SetDropdownOptions()
         {
             dropdown.ClearOptions();
-            dropdown.options.Add(DataProvider.Instance.GetDefaultDropdownOption());
-            dropdown.AddOptions( DataProvider.Instance.GetSkills()
-                .Select( x => new TMP_Dropdown.OptionData( x.id.ToDescription(), x.icon, Color.white ) ).ToList() );
-
-            dropdown.value = dropdown.options.FindIndex( x => x.text == GameState.Player.SkillSlots[slotIndex]._skillHashId.ToDescription() );
+            dropdown.options.Add( DataProvider.Instance.defaultOption );
+            dropdown.AddOptions( DataProvider.Instance.GetSkillImports()
+                .Select( x => new TMP_Dropdown.OptionData( x.skillId.ToDescription(), x.icon, Color.white ) ).ToList() );
         }
     }
 }

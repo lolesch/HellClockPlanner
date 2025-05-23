@@ -36,7 +36,7 @@ namespace Code.Runtime
             if( _stats != null ) 
                 return _stats;
             
-            var baseStats = DataProvider.Instance.GetBaseStats();
+            var baseStats = DataProvider.Instance.GetBaseStatImports();
             _stats = new CharacterStat[baseStats.Count];
             for( var i = 0; i < baseStats.Count; i++ )
                 _stats[i] = new CharacterStat( baseStats[i] );
@@ -57,15 +57,18 @@ namespace Code.Runtime
         {
             _skills[slotIndex]?.RevertGlobalBuffs();
             
-            var config = DataProvider.Instance.GetSkills().FirstOrDefault( x => x.id == id );
-            var globalBuffs = DataProvider.Instance.GetGlobalBuffs().Where( x => x.id == id ).ToList();
+            var config = DataProvider.Instance.GetSkillImports().FirstOrDefault( x => x.skillId == id );
+            var globalBuffs = DataProvider.Instance.GetGlobalBuffImports().Where( x => x.skillId == id ).ToList();
             _skills[slotIndex] = new Skill( config, globalBuffs );
             
             SkillSlots[slotIndex] = new SkillSlotData( slotIndex, id );
             OnSkillSlotsChanged?.Invoke( SkillSlots );
         }
 
-        public void SetProficiencyAtSlotIndex( int slotIndex, SkillProficiency proficiency ) =>
+        public void SetProficiencyAtSlotIndex( int slotIndex, Proficiency proficiency ) =>
             _skills[slotIndex].AddProficiency( proficiency );
+
+        public Skill GetSkillFromSkillId( SkillId currentSkillId ) => _skills.FirstOrDefault( x => x.skillId == currentSkillId );
+        public Skill GetSkillAtSlotIndex( int slotIndex ) => _skills[slotIndex];
     }
 }
