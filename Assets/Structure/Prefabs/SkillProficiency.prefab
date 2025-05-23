@@ -89,7 +89,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 8383529444435432}
-  slotIndex: 0
 --- !u!1 &2119889952608831660
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,6 +806,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4975610503504281656}
+  - component: {fileID: 6766828621986854570}
   m_Layer: 5
   m_Name: SkillProficiency
   m_TagString: Untagged
@@ -836,6 +836,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 304, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6766828621986854570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7907194959348693740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deeef064c9064597bf6e16793226b459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Index>k__BackingField: 0
 --- !u!1 &8419097983194079878
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,7 +1096,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7997890217058991403, guid: c3704dcb4d4260a47aa21fe6b77309e5, type: 3}
       propertyPath: rarity
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7997890217058991403, guid: c3704dcb4d4260a47aa21fe6b77309e5, type: 3}
+      propertyPath: proficiencySlotIndex
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1193,6 +1210,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7997890217058991403, guid: c3704dcb4d4260a47aa21fe6b77309e5, type: 3}
       propertyPath: rarity
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7997890217058991403, guid: c3704dcb4d4260a47aa21fe6b77309e5, type: 3}
+      propertyPath: proficiencySlotIndex
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1299,7 +1320,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7997890217058991403, guid: c3704dcb4d4260a47aa21fe6b77309e5, type: 3}
       propertyPath: rarity
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7997890217058991403, guid: c3704dcb4d4260a47aa21fe6b77309e5, type: 3}
+      propertyPath: proficiencySlotIndex
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1401,7 +1426,7 @@ PrefabInstance:
       objectReference: {fileID: -3377535375580749918, guid: 8aaed5ebfe676894c8c555c60d34c44a, type: 3}
     - target: {fileID: 7997890217058991403, guid: c3704dcb4d4260a47aa21fe6b77309e5, type: 3}
       propertyPath: rarity
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1511,7 +1536,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7997890217058991403, guid: c3704dcb4d4260a47aa21fe6b77309e5, type: 3}
       propertyPath: rarity
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7997890217058991403, guid: c3704dcb4d4260a47aa21fe6b77309e5, type: 3}
+      propertyPath: proficiencySlotIndex
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1621,7 +1650,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7997890217058991403, guid: c3704dcb4d4260a47aa21fe6b77309e5, type: 3}
       propertyPath: rarity
-      value: 2
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7997890217058991403, guid: c3704dcb4d4260a47aa21fe6b77309e5, type: 3}
+      propertyPath: proficiencySlotIndex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1731,7 +1764,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7997890217058991403, guid: c3704dcb4d4260a47aa21fe6b77309e5, type: 3}
       propertyPath: rarity
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7997890217058991403, guid: c3704dcb4d4260a47aa21fe6b77309e5, type: 3}
+      propertyPath: proficiencySlotIndex
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1841,7 +1878,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7997890217058991403, guid: c3704dcb4d4260a47aa21fe6b77309e5, type: 3}
       propertyPath: rarity
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7997890217058991403, guid: c3704dcb4d4260a47aa21fe6b77309e5, type: 3}
+      propertyPath: proficiencySlotIndex
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1947,7 +1988,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7997890217058991403, guid: c3704dcb4d4260a47aa21fe6b77309e5, type: 3}
       propertyPath: rarity
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7997890217058991403, guid: c3704dcb4d4260a47aa21fe6b77309e5, type: 3}
+      propertyPath: proficiencySlotIndex
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2053,7 +2098,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7997890217058991403, guid: c3704dcb4d4260a47aa21fe6b77309e5, type: 3}
       propertyPath: rarity
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7997890217058991403, guid: c3704dcb4d4260a47aa21fe6b77309e5, type: 3}
+      propertyPath: proficiencySlotIndex
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

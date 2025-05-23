@@ -11,9 +11,14 @@ namespace Code.Runtime.UI.Displays
     public sealed class SkillSelectorDisplay : MonoBehaviour
     {
         [SerializeField] private TMP_Dropdown dropdown;
-        [SerializeField] private int slotIndex;
+        private ISlotIndexProvider _slot;
 
-        private void Start() => SetDropdownOptions();
+        private void Start()
+        {
+            _slot ??= GetComponentInParent<ISlotIndexProvider>( true );
+            SetDropdownOptions();
+        }
+
 
         private void OnEnable() => dropdown.onValueChanged.AddListener( delegate { OnSkillChanged( dropdown ); } );
 
@@ -24,7 +29,7 @@ namespace Code.Runtime.UI.Displays
             var skillId = ( Enum.GetValues( typeof( SkillId ) ) as SkillId[] )!
                 .First( x => x.ToDescription() == change.options[change.value].text );
             
-            GameState.Player.SetSkillIdAtSlotIndex( slotIndex, skillId );
+            GameState.Player.SetSkillIdAtSlotIndex( _slot.Index, skillId );
         }
         
         private void SetDropdownOptions()
