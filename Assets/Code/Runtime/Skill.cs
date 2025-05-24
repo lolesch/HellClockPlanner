@@ -80,10 +80,11 @@ namespace Code.Runtime
                 _proficiencies.Add( proficiencySlotIndex, proficiency );
             
                 foreach( var buff in GlobalBuffs )
-                   GameState.Player.GetStat( buff.characterStatId ).AddModifier( new Modifier( buff.amountPerRank, this ) );
+                   GameState.Player.GetStat( buff.characterStatId ).AddModifier( new Modifier( buff.amountPerRank * (int)proficiency.rarity, this ) );
             }
             
-            GetStat( proficiency.skillStatId ).AddModifier( new Modifier( proficiency.value, this ) );
+            if( proficiency.skillStatId != SkillStatId.None )
+                GetStat( proficiency.skillStatId ).AddModifier( new Modifier( proficiency.value, this ) );
             
             OnProficienciesChanged?.Invoke();
         }
@@ -93,7 +94,7 @@ namespace Code.Runtime
             _proficiencies.Remove( proficiencySlotIndex );
             GetStat( proficiency.skillStatId ).TryRemoveModifier( new Modifier( proficiency.value, this ) );
 
-            // TODO: remove only once -> not all!
+            // TODO: remove only once -> not all! maybe lookup by proficiencySlotIndex
             GlobalBuffs.ForEach( x => GameState.Player.GetStat( x.characterStatId )
                 .TryRemoveAllModifiersBySource( this ) );
             

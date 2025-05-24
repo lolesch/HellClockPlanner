@@ -30,7 +30,7 @@ MonoBehaviour:
     <icon>k__BackingField: {fileID: -2395653308123581402, guid: 40247e416390e91429d65149277d234b, type: 3}
   - name: Cooldown
     <skillStatId>k__BackingField: 5
-    <icon>k__BackingField: {fileID: 1774923721087487189, guid: e61e5536d459c88459c55516847069ae, type: 3}
+    <icon>k__BackingField: {fileID: -6134182235830120359, guid: 3c4251931d6b7c04a8d566a097c7a263, type: 3}
   - name: Skill Speed
     <skillStatId>k__BackingField: 6
     <icon>k__BackingField: {fileID: -1064299142429738930, guid: 285125a929f3ea743b26227dfdc4b197, type: 3}

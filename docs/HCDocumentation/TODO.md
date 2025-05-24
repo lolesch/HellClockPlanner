@@ -1,4 +1,7 @@
 
+### FIX ME
+- [ ] global buff mod should be rarity dependent like the rank
+
 CONTINUE HERE:
 - [x] skill details display
 	- [x] proficiencies apply skill modifier

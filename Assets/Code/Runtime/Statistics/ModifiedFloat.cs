@@ -83,7 +83,7 @@ namespace Code.Runtime.Statistics
             var valueString = ModType switch
             {
                 ModType.Flat => $"{_totalValue:0.##}",
-                ModType.Percent => $"{totalPercent:0.##}%",
+                ModType.Percent => $"{_totalValue:0.##}%",
                 _ => $"{_totalValue}",
             };
             
