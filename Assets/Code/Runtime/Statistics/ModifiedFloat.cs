@@ -78,7 +78,17 @@ namespace Code.Runtime.Statistics
             return true;
         }
 
-        public override string ToString() => isModified ? $"{_totalValue:0.##}".Colored( Color.green ) : $"{_totalValue:0.##}";
+        public override string ToString()
+        {
+            var valueString = ModType switch
+            {
+                ModType.Flat => $"{_totalValue:0.##}",
+                ModType.Percent => $"{_totalValue:0.##}%",
+                _ => $"{_totalValue}",
+            };
+            
+            return isModified ? valueString.Colored( Color.green ) : valueString;
+        }
 
         public string ToString(string format, IFormatProvider provider) => _totalValue.ToString( format, provider );
 

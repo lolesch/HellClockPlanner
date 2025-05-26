@@ -1,5 +1,6 @@
 
 ### FIX ME
+- [ ] global buff mod should be rarity dependent like the rank
 - [ ]  PROFICIENCY DROPDOWN options are broken visually
 - [ ] proficiency dropdown top-most option has no effect
 - [ ] skill stats display no longer updates
