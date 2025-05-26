@@ -106,7 +106,5 @@ namespace Code.Runtime.Provider
         
         public Proficiency GetSkillProficiency( SkillStatId id ) 
             => proficiencies.First( x => x.skillStatId == id );
-
-        public TMP_Dropdown.OptionData GetDefaultDropdownOption() => defaultOption; 
     }
 }

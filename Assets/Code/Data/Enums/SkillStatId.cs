@@ -10,17 +10,20 @@ namespace Code.Data.Enums
         CriticalHitChance,
         CriticalHitDamage,
         
-        [Description("Mana Cost")]
-        ManaCostReduction,
-        [Description("Cooldown")]
-        CooldownReduction,
+        ManaCost,
+        Cooldown,
         SkillSpeed,
-        [Description("Area of Effect")]
-        EffectArea,
-        [Description("Increased Duration")]
-        EffectDuration,
+        AreaOfEffect,
+        Duration,
         
         ProjectileAmount,
         ProjectileBounces,
+        ProjectileSpeed,
+        
+        DashDistance,
+        FireLightningResistShred,
+        PhysicalPlagueResistShred,
+        SlowDebuffIntensity,
+        
     }
 }

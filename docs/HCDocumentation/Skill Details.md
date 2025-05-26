@@ -26,3 +26,7 @@
 - [ ] skill AoE
 - [ ] skill duration
 - [ ] skill cooldown speed
+
+
+Damage Calculation = `(BaseDamage + AddedDamageType) * Damage% * DamageType%`
+

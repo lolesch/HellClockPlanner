@@ -1,3 +1,4 @@
+using Code.Data;
 using Code.Data.Enums;
 using Code.Runtime.Statistics;
 using Code.Utility.Extensions;
@@ -8,7 +9,7 @@ using UnityEngine.UI;
 
 namespace Code.Runtime.UI.Displays
 {
-    public sealed class SkillStatDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    public sealed class SkillStatDisplay : IndexDependentDisplay, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] private SkillStatId statId;
         private SkillStat _stat;
@@ -22,23 +23,30 @@ namespace Code.Runtime.UI.Displays
         public void OnPointerEnter( PointerEventData eventData ) => hoverImage.color = highlightedColor;
         public void OnPointerExit( PointerEventData eventData ) => hoverImage.color = Color.clear;
 
-        public void SetSkill( SkillId skillId )
-        {
-            _stat = GameState.Player.GetSkillFromSkillId( skillId ).GetStat( statId );
-            
-            statName.text = statId.ToDescription();
-            statValue.text = GetTotalString();
-        
-            _stat.Value.OnTotalChanged += _ => statValue.text = GetTotalString();
-        }
-        
-        private string GetTotalString()
+        private void Start( ) => RefreshDisplay();
+
+        private void SetValueText( float value ) => SetValueText(); 
+        private void SetValueText()
         {
             var text = _stat.Value.ToString();
             
             if( _stat.Value.isModified )
                 text = text.Colored( Color.green );
-            return text;
+            statValue.text = text;
+        }
+
+        protected override void OnSkillSlotsChanged( SkillSlotData[] skillSlots ) => RefreshDisplay();
+
+        private void RefreshDisplay()
+        {
+            if( _stat != null )
+                _stat.Value.OnTotalChanged -= SetValueText;
+    
+            _stat = GameState.Player.skills[ slot.index ].GetStat( statId );
+            _stat.Value.OnTotalChanged += SetValueText;
+            
+            statName.text = statId.ToDescription();
+            SetValueText();
         }
     }
 }

@@ -4,10 +4,10 @@ namespace Code.Runtime.UI.Displays
 {
     public sealed class SlotIndex : MonoBehaviour, ISlotIndexProvider
     {
-        [field: SerializeField] public int Index { get; private set; }
+        [field: SerializeField] public int index { get; private set; }
 
-        private void OnValidate() => Index = transform.GetSiblingIndex();
+        private void OnValidate() => index = transform.GetSiblingIndex();
 
-        private void Start() => Index = transform.GetSiblingIndex();
+        private void Awake() => index = transform.GetSiblingIndex();
     }
 }

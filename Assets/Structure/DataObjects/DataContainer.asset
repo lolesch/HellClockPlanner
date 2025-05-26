@@ -17,11 +17,7 @@ MonoBehaviour:
   selectedTogglesIds:
   - skillProficiencies
   - statusEffects
-  - proficiencies
-  - characterStats
-  - globalBuffs
   - skills
-  - skillTags
   foldoutSerializationGUI: 0
   serializationOutputPath: ../../Configs
   serializationFileName: Configs.v0.1
@@ -72,11 +68,11 @@ MonoBehaviour:
       characterStatId: 11
       baseValue: 100
       modType: 1
-    - name: Phys.Damage - 100%
+    - name: Physical Damage - 100%
       characterStatId: 12
       baseValue: 100
       modType: 1
-    - name: Added Phys.Damage - 0
+    - name: Added Phys. Damage - 0
       characterStatId: 13
       baseValue: 0
       modType: 0
@@ -276,7 +272,7 @@ MonoBehaviour:
       manaCost: 0
       cooldown: 0.25
       projectiles: 1
-      maxLevel: 0
+      damageTypeId: 1
     - name: Split Shot
       skillId: 2
       description: Shoot multiple bullets in a cone on front of you. Especially strong
@@ -285,7 +281,7 @@ MonoBehaviour:
       manaCost: 120
       cooldown: 0.25
       projectiles: 3
-      maxLevel: 0
+      damageTypeId: 2
     - name: Shadow Dash
       skillId: 3
       description: Dash vey quickly, dealing damage to enemies on your path.
@@ -293,7 +289,7 @@ MonoBehaviour:
       manaCost: 100
       cooldown: 3
       projectiles: 1
-      maxLevel: 0
+      damageTypeId: 1
     - name: Repeater
       skillId: 4
       description: By holding the skill button, machinegun-like fire on a single
@@ -302,7 +298,7 @@ MonoBehaviour:
       manaCost: 42
       cooldown: 0.5
       projectiles: 1
-      maxLevel: 0
+      damageTypeId: 1
     - name: Reflexes
       skillId: 5
       description: Summons a ring of Spectral Knives around the player that are automatically
@@ -311,7 +307,7 @@ MonoBehaviour:
       manaCost: 0
       cooldown: 8
       projectiles: 0
-      maxLevel: 0
+      damageTypeId: 1
     - name: Old Bell
       skillId: 6
       description: The Old Bell comes crashing down on your enemies.
@@ -319,7 +315,7 @@ MonoBehaviour:
       manaCost: 400
       cooldown: 0.5
       projectiles: 1
-      maxLevel: 0
+      damageTypeId: 4
     - name: Judgement
       skillId: 7
       description: All enemies in the target area are judged, reducing all their
@@ -328,7 +324,7 @@ MonoBehaviour:
       manaCost: 300
       cooldown: 1
       projectiles: 1
-      maxLevel: 0
+      damageTypeId: 0
     - name: Double Knives
       skillId: 8
       description: Continuously spin two blades around while you move, dealing Physical
@@ -337,7 +333,7 @@ MonoBehaviour:
       manaCost: 34
       cooldown: 0.5
       projectiles: 1
-      maxLevel: 0
+      damageTypeId: 1
     - name: Lasso
       skillId: 9
       description: Grapples and pulls enemies in an area, stunning them for 2 seconds
@@ -347,7 +343,7 @@ MonoBehaviour:
       manaCost: 0
       cooldown: 4
       projectiles: 1
-      maxLevel: 0
+      damageTypeId: 0
     - name: Slow Time
       skillId: 10
       description: All enemies have their movement speed, attack speed and projectile
@@ -356,7 +352,7 @@ MonoBehaviour:
       manaCost: 0
       cooldown: 11
       projectiles: 1
-      maxLevel: 0
+      damageTypeId: 0
     - name: Closed Body
       skillId: 11
       description: Envelops you in a Barrier of Conviction based on your Maximum
@@ -366,7 +362,7 @@ MonoBehaviour:
       manaCost: 0
       cooldown: 15
       projectiles: 1
-      maxLevel: 0
+      damageTypeId: 1
     - name: Bombardment
       skillId: 12
       description: Summons a Bombardment over a large area for 8 seconds, dealing
@@ -375,7 +371,7 @@ MonoBehaviour:
       manaCost: 0
       cooldown: 10
       projectiles: 0
-      maxLevel: 0
+      damageTypeId: 1
     - name: Summon the Guard
       skillId: 13
       description: 'Spirits of the Canudos Catholic Guard are summoned to fight by
@@ -385,7 +381,7 @@ MonoBehaviour:
       manaCost: 100
       cooldown: 15
       projectiles: 0
-      maxLevel: 0
+      damageTypeId: 1
     - name: Matadeira
       skillId: 14
       description: Mark an area to be bombarded by a powerful cannon shot. The explosion
@@ -394,7 +390,7 @@ MonoBehaviour:
       manaCost: 0
       cooldown: 5
       projectiles: 1
-      maxLevel: 0
+      damageTypeId: 2
     - name: Holy Rosary
       skillId: 15
       description: Summon beads of the Rosary that orbit in a spiral around you,
@@ -403,7 +399,7 @@ MonoBehaviour:
       manaCost: 200
       cooldown: 0.25
       projectiles: 1
-      maxLevel: 0
+      damageTypeId: 3
     - name: Veil of Quills
       skillId: 16
       description: Unleashes a flurry of spectral quills that seek out nearby enemies,
@@ -412,140 +408,101 @@ MonoBehaviour:
       manaCost: 200
       cooldown: 0.25
       projectiles: 0
-      maxLevel: 0
+      damageTypeId: 4
     skillTags:
     - name: Attack - Marksman
       skillId: 1
-      skillTagId: 8
+      skillTagId: 5
     - name: Attack - Projectile
       skillId: 1
-      skillTagId: 7
+      skillTagId: 4
     - name: Attack - Single Target
       skillId: 1
-      skillTagId: 5
-    - name: Attack - Physical Damage
-      skillId: 1
-      skillTagId: 3
+      skillTagId: 2
     - name: Split Shot - Marksman
       skillId: 2
-      skillTagId: 8
+      skillTagId: 5
     - name: Split Shot - Projectile
       skillId: 2
-      skillTagId: 7
-    - name: Split Shot - Fire Damage
-      skillId: 2
-      skillTagId: 1
+      skillTagId: 4
     - name: Shadow Dash - Mobility
       skillId: 3
-      skillTagId: 10
-    - name: Shadow Dash - Physical Damage
-      skillId: 3
-      skillTagId: 3
+      skillTagId: 7
     - name: Repeater - Marksman
       skillId: 4
-      skillTagId: 8
+      skillTagId: 5
     - name: Repeater - Projectile
       skillId: 4
-      skillTagId: 7
-    - name: Repeater - Physical Damage
-      skillId: 4
-      skillTagId: 3
+      skillTagId: 4
     - name: Reflexes - Projectile
       skillId: 5
-      skillTagId: 7
-    - name: Reflexes - Physical Damage
-      skillId: 5
-      skillTagId: 3
+      skillTagId: 4
     - name: Old Bell - Area Of Effect
       skillId: 6
-      skillTagId: 6
+      skillTagId: 3
     - name: Old Bell - Spell
       skillId: 6
-      skillTagId: 12
-    - name: Old Bell - Plague Damage
-      skillId: 6
-      skillTagId: 4
+      skillTagId: 9
     - name: Judgement - Area Of Effect
       skillId: 7
-      skillTagId: 6
-    - name: Judgement - None
+      skillTagId: 3
+    - name: Judgement - Enchantment
       skillId: 7
-      skillTagId: 0
+      skillTagId: 8
     - name: Double Knives - Melee
       skillId: 8
-      skillTagId: 9
-    - name: Double Knives - Physical Damage
-      skillId: 8
-      skillTagId: 3
+      skillTagId: 6
     - name: Lasso - Area Of Effect
       skillId: 9
-      skillTagId: 6
+      skillTagId: 3
     - name: Lasso - Melee
       skillId: 9
-      skillTagId: 9
+      skillTagId: 6
     - name: Slow Time - Area Of Effect
       skillId: 10
-      skillTagId: 6
+      skillTagId: 3
     - name: Slow Time - Spell
       skillId: 10
-      skillTagId: 12
+      skillTagId: 9
     - name: Closed Body - Area Of Effect
       skillId: 11
-      skillTagId: 6
-    - name: Closed Body - None
-      skillId: 11
-      skillTagId: 0
-    - name: Closed Body - Physical Damage
-      skillId: 11
       skillTagId: 3
+    - name: Closed Body - Enchantment
+      skillId: 11
+      skillTagId: 8
     - name: Bombardment - Area Of Effect
       skillId: 12
-      skillTagId: 6
+      skillTagId: 3
     - name: Bombardment - Spell
       skillId: 12
-      skillTagId: 12
-    - name: Bombardment - Physical Damage
-      skillId: 12
-      skillTagId: 3
+      skillTagId: 9
     - name: Summon the Guard - Projectile
       skillId: 13
-      skillTagId: 7
+      skillTagId: 4
     - name: Summon the Guard - Summon
       skillId: 13
-      skillTagId: 13
-    - name: Summon the Guard - Physical Damage
-      skillId: 13
-      skillTagId: 3
+      skillTagId: 10
     - name: Matadeira - Area Of Effect
       skillId: 14
-      skillTagId: 6
+      skillTagId: 3
     - name: Matadeira - Marksman
       skillId: 14
-      skillTagId: 8
-    - name: Matadeira - Fire Damage
-      skillId: 14
-      skillTagId: 1
+      skillTagId: 5
     - name: Holy Rosary - Projectile
       skillId: 15
-      skillTagId: 7
+      skillTagId: 4
     - name: Holy Rosary - Spell
       skillId: 15
-      skillTagId: 12
-    - name: Holy Rosary - Lightning Damage
-      skillId: 15
-      skillTagId: 2
+      skillTagId: 9
     - name: Veil of Quills - Projectile
       skillId: 16
-      skillTagId: 7
+      skillTagId: 4
     - name: Veil of Quills - Spell
       skillId: 16
-      skillTagId: 12
-    - name: Veil of Quills - Plague Damage
+      skillTagId: 9
+    - name: Veil of Quills - Elemental Damage
       skillId: 16
-      skillTagId: 4
-    - name: Veil of Quills - None
-      skillId: 16
-      skillTagId: 0
+      skillTagId: 1
     globalBuffs:
     - name: Attack -> 2 Critical Hit Chance
       skillId: 1
@@ -620,76 +577,216 @@ MonoBehaviour:
       characterStatId: 59
       amountPerRank: 1.5
     proficiencies:
-    - name: None -> None
-      skillId: 0
-      skillStatId: 0
-      modDescription: 
+    - name: Bombardment -> Area Of Effect
+      skillId: 12
+      skillStatId: 7
+      modDescription: BombardmentArea
       modType: 1
-      proficiencyName: 
+      proficiencyName: Broader Storm
       common: 0
-      magic: 15
-      rare: 0
-      epic: 0
-    - name: None -> None
-      skillId: 0
-      skillStatId: 0
-      modDescription: 
-      modType: 1
-      proficiencyName: 
-      common: 0
-      magic: 15
-      rare: 0
-      epic: 0
-    - name: None -> None
-      skillId: 0
-      skillStatId: 0
-      modDescription: 
-      modType: 1
-      proficiencyName: 
-      common: 0
-      magic: 15
-      rare: 0
-      epic: 0
-    - name: None -> None
-      skillId: 0
-      skillStatId: 0
-      modDescription: 
-      modType: 1
-      proficiencyName: 
-      common: 7
       magic: 0
-      rare: 0
-      epic: 0
-    - name: None -> None
-      skillId: 0
-      skillStatId: 0
+      rare: 15
+      epic: 25
+    - name: Closed Body -> Area Of Effect
+      skillId: 11
+      skillStatId: 7
       modDescription: 
       modType: 1
-      proficiencyName: 
-      common: 4
+      proficiencyName: Expanding Retribution
+      common: 0
+      magic: 20
+      rare: 30
+      epic: 40
+    - name: Double Knives -> Area Of Effect
+      skillId: 8
+      skillStatId: 7
+      modDescription: 
+      modType: 1
+      proficiencyName: Vast Whirlwind
+      common: 0
+      magic: 20
+      rare: 30
+      epic: 40
+    - name: Judgement -> Area Of Effect
+      skillId: 7
+      skillStatId: 7
+      modDescription: 
+      modType: 1
+      proficiencyName: Spreading Doom
+      common: 0
       magic: 0
-      rare: 0
+      rare: 20
+      epic: 40
+    - name: Old Bell -> Area Of Effect
+      skillId: 6
+      skillStatId: 7
+      modDescription: 
+      modType: 1
+      proficiencyName: Amplified Reverberation
+      common: 0
+      magic: 20
+      rare: 30
+      epic: 40
+    - name: Reflexes -> Area Of Effect
+      skillId: 5
+      skillStatId: 7
+      modDescription: 
+      modType: 1
+      proficiencyName: Heightened Senses
+      common: 0
+      magic: 20
+      rare: 30
+      epic: 40
+    - name: Repeater -> Area Of Effect
+      skillId: 4
+      skillStatId: 7
+      modDescription: 
+      modType: 1
+      proficiencyName: Expanded Cataclysm
+      common: 0
+      magic: 10
+      rare: 20
       epic: 0
-    - name: None -> None
-      skillId: 0
+    - name: Shadow Dash -> Area Of Effect
+      skillId: 3
+      skillStatId: 7
+      modDescription: ShadowDashExplosionAoE
+      modType: 1
+      proficiencyName: 
+      common: 0
+      magic: 0
+      rare: 30
+      epic: 0
+    - name: Shadow Dash -> Area Of Effect
+      skillId: 3
+      skillStatId: 7
+      modDescription: 
+      modType: 1
+      proficiencyName: Shadow's Grasp
+      common: 0
+      magic: 20
+      rare: 30
+      epic: 40
+    - name: Slow Time -> Area Of Effect
+      skillId: 10
+      skillStatId: 7
+      modDescription: 
+      modType: 1
+      proficiencyName: Extended Warp
+      common: 0
+      magic: 20
+      rare: 30
+      epic: 40
+    - name: Bombardment -> None
+      skillId: 12
       skillStatId: 0
       modDescription: 
       modType: 1
-      proficiencyName: 
-      common: 15
-      magic: 15
+      proficiencyName: Overwhelming Barrage
+      common: 5
+      magic: 10
       rare: 0
-      epic: 0
-    - name: Split Shot -> Projectile Amount
-      skillId: 2
-      skillStatId: 9
+      epic: 30
+    - name: Shadow Dash -> None
+      skillId: 3
+      skillStatId: 0
       modDescription: 
       modType: 0
-      proficiencyName: Multi-shot
+      proficiencyName: Chain of Shadows
       common: 0
       magic: 0
       rare: 0
-      epic: 1
+      epic: 2
+    - name: Closed Body -> None
+      skillId: 11
+      skillStatId: 0
+      modDescription: 
+      modType: 1
+      proficiencyName: Unyielding Vigil
+      common: 0
+      magic: 0
+      rare: 15
+      epic: 0
+    - name: Closed Body -> None
+      skillId: 11
+      skillStatId: 0
+      modDescription: 
+      modType: 1
+      proficiencyName: Conviction Surge
+      common: 15
+      magic: 20
+      rare: 25
+      epic: 30
+    - name: Bombardment -> Cooldown
+      skillId: 12
+      skillStatId: 5
+      modDescription: 
+      modType: 1
+      proficiencyName: Quickening Storm
+      common: 0
+      magic: -10
+      rare: 20
+      epic: 30
+    - name: Closed Body -> Cooldown
+      skillId: 11
+      skillStatId: 5
+      modDescription: 
+      modType: 1
+      proficiencyName: Iron Will
+      common: 0
+      magic: -10
+      rare: -15
+      epic: -20
+    - name: Reflexes -> Cooldown
+      skillId: 5
+      skillStatId: 5
+      modDescription: KnifeGenerationTime
+      modType: 1
+      proficiencyName: Swift Caster
+      common: -15
+      magic: -20
+      rare: 0
+      epic: 0
+    - name: Shadow Dash -> Cooldown
+      skillId: 3
+      skillStatId: 5
+      modDescription: 
+      modType: 1
+      proficiencyName: Shadow Readiness
+      common: 0
+      magic: -20
+      rare: -20
+      epic: -25
+    - name: Slow Time -> Cooldown
+      skillId: 10
+      skillStatId: 5
+      modDescription: 
+      modType: 1
+      proficiencyName: Swift Distortion
+      common: 0
+      magic: -10
+      rare: -15
+      epic: -20
+    - name: Summon the Guard -> Cooldown
+      skillId: 13
+      skillStatId: 5
+      modDescription: 
+      modType: 1
+      proficiencyName: Quickened Recall
+      common: 0
+      magic: -10
+      rare: -20
+      epic: -30
+    - name: Repeater -> Critical Hit Chance
+      skillId: 4
+      skillStatId: 2
+      modDescription: 
+      modType: 1
+      proficiencyName: Perfect Balance
+      common: 0
+      magic: 0
+      rare: 8
+      epic: 10
     - name: Split Shot -> Critical Hit Chance
       skillId: 2
       skillStatId: 2
@@ -700,6 +797,116 @@ MonoBehaviour:
       magic: 5
       rare: 8
       epic: 10
+    - name: Old Bell -> Critical Hit Damage
+      skillId: 6
+      skillStatId: 3
+      modDescription: 
+      modType: 1
+      proficiencyName: Soul Shatter
+      common: 30
+      magic: 40
+      rare: 50
+      epic: 100
+    - name: Repeater -> Critical Hit Damage
+      skillId: 4
+      skillStatId: 3
+      modDescription: 
+      modType: 1
+      proficiencyName: Deadshot
+      common: 30
+      magic: 40
+      rare: 50
+      epic: 60
+    - name: Bombardment -> Damage
+      skillId: 12
+      skillStatId: 1
+      modDescription: 
+      modType: 1
+      proficiencyName: Relentless Onslaught
+      common: 10
+      magic: 30
+      rare: 0
+      epic: 80
+    - name: Closed Body -> Damage
+      skillId: 11
+      skillStatId: 1
+      modDescription: RetaliationDamage
+      modType: 1
+      proficiencyName: Harsh punishment
+      common: 20
+      magic: 30
+      rare: 40
+      epic: 50
+    - name: Double Knives -> Damage
+      skillId: 8
+      skillStatId: 1
+      modDescription: 
+      modType: 1
+      proficiencyName: Power of the Gate
+      common: 20
+      magic: 30
+      rare: 40
+      epic: 50
+    - name: Holy Rosary -> Damage
+      skillId: 15
+      skillStatId: 1
+      modDescription: 
+      modType: 1
+      proficiencyName: Fervent Assault
+      common: 10
+      magic: 20
+      rare: 50
+      epic: 80
+    - name: Old Bell -> Damage
+      skillId: 6
+      skillStatId: 1
+      modDescription: 
+      modType: 1
+      proficiencyName: Relentless Collapse
+      common: 20
+      magic: 30
+      rare: 40
+      epic: 50
+    - name: Reflexes -> Damage
+      skillId: 5
+      skillStatId: 1
+      modDescription: 
+      modType: 1
+      proficiencyName: Sharp Strike
+      common: 20
+      magic: 30
+      rare: 40
+      epic: 0
+    - name: Repeater -> Damage
+      skillId: 4
+      skillStatId: 1
+      modDescription: 
+      modType: 1
+      proficiencyName: Pestilence Cataclysm
+      common: 0
+      magic: 0
+      rare: 20
+      epic: 40
+    - name: Repeater -> Damage
+      skillId: 4
+      skillStatId: 1
+      modDescription: 
+      modType: 1
+      proficiencyName: Devastating Barrage
+      common: 20
+      magic: 30
+      rare: 40
+      epic: 50
+    - name: Shadow Dash -> Damage
+      skillId: 3
+      skillStatId: 1
+      modDescription: 
+      modType: 1
+      proficiencyName: Swift Assault
+      common: 20
+      magic: 30
+      rare: 40
+      epic: 50
     - name: Split Shot -> Damage
       skillId: 2
       skillStatId: 1
@@ -710,6 +917,176 @@ MonoBehaviour:
       magic: 30
       rare: 40
       epic: 50
+    - name: Summon the Guard -> Damage
+      skillId: 13
+      skillStatId: 1
+      modDescription: Guard Damage
+      modType: 1
+      proficiencyName: Celestial Impact
+      common: 10
+      magic: 20
+      rare: 50
+      epic: 80
+    - name: Veil of Quills -> Damage
+      skillId: 16
+      skillStatId: 1
+      modDescription: 
+      modType: 1
+      proficiencyName: Ethereal Onslaught
+      common: 10
+      magic: 20
+      rare: 50
+      epic: 80
+    - name: Shadow Dash -> Dash Distance
+      skillId: 3
+      skillStatId: 12
+      modDescription: 
+      modType: 1
+      proficiencyName: Shadow's Reach
+      common: 0
+      magic: 0
+      rare: 0
+      epic: 25
+    - name: Judgement -> Fire Lightning Resist Shred
+      skillId: 7
+      skillStatId: 13
+      modDescription: 
+      modType: 1
+      proficiencyName: Elemental Scourge
+      common: 10
+      magic: 30
+      rare: 50
+      epic: 80
+    - name: Bombardment -> Duration
+      skillId: 12
+      skillStatId: 8
+      modDescription: 
+      modType: 1
+      proficiencyName: Prolonged Storm
+      common: 0
+      magic: 15
+      rare: 25
+      epic: 40
+    - name: Closed Body -> Duration
+      skillId: 11
+      skillStatId: 8
+      modDescription: RetaliationAuraDuration
+      modType: 1
+      proficiencyName: Lingering Resolve
+      common: 0
+      magic: 20
+      rare: 25
+      epic: 30
+    - name: Holy Rosary -> Duration
+      skillId: 15
+      skillStatId: 8
+      modDescription: Projectile Duration
+      modType: 1
+      proficiencyName: Lasting Faith
+      common: 0
+      magic: 0
+      rare: 25
+      epic: 40
+    - name: Judgement -> Duration
+      skillId: 7
+      skillStatId: 8
+      modDescription: Enemy Res Shred Duration
+      modType: 1
+      proficiencyName: Prolonged Torment
+      common: 0
+      magic: 20
+      rare: 30
+      epic: 40
+    - name: Reflexes -> Duration
+      skillId: 5
+      skillStatId: 8
+      modDescription: 
+      modType: 1
+      proficiencyName: Enduring Reflexes
+      common: 0
+      magic: 20
+      rare: 30
+      epic: 40
+    - name: Slow Time -> Duration
+      skillId: 10
+      skillStatId: 8
+      modDescription: 
+      modType: 1
+      proficiencyName: Prolonged Distortion
+      common: 20
+      magic: 25
+      rare: 30
+      epic: 35
+    - name: Summon the Guard -> Duration
+      skillId: 13
+      skillStatId: 8
+      modDescription: Guard Rage Duration
+      modType: 1
+      proficiencyName: Prolonged Vigil
+      common: 0
+      magic: 10
+      rare: 20
+      epic: 0
+    - name: Veil of Quills -> Duration
+      skillId: 16
+      skillStatId: 8
+      modDescription: Projectile Duration
+      modType: 1
+      proficiencyName: Enduring Echoes
+      common: 0
+      magic: 10
+      rare: 20
+      epic: 0
+    - name: Double Knives -> Mana Cost
+      skillId: 8
+      skillStatId: 4
+      modDescription: 
+      modType: 1
+      proficiencyName: Efficient Flow
+      common: 0
+      magic: -10
+      rare: -15
+      epic: -20
+    - name: Holy Rosary -> Mana Cost
+      skillId: 15
+      skillStatId: 4
+      modDescription: 
+      modType: 1
+      proficiencyName: Frugal Benediction
+      common: 0
+      magic: -10
+      rare: -20
+      epic: -30
+    - name: Judgement -> Mana Cost
+      skillId: 7
+      skillStatId: 4
+      modDescription: 
+      modType: 1
+      proficiencyName: Efficient Damination
+      common: 0
+      magic: -10
+      rare: -20
+      epic: -30
+    - name: Old Bell -> Mana Cost
+      skillId: 6
+      skillStatId: 4
+      modDescription: 
+      modType: 1
+      proficiencyName: Efficient Reverberation
+      common: 0
+      magic: -10
+      rare: -15
+      epic: -20
+    - name: Repeater -> Mana Cost
+      skillId: 4
+      skillStatId: 4
+      modDescription: 
+      modType: 1
+      proficiencyName: Firing Efficiency
+      common: 0
+      magic: -15
+      rare: -20
+      epic: -25
     - name: Split Shot -> Mana Cost
       skillId: 2
       skillStatId: 4
@@ -720,22 +1097,62 @@ MonoBehaviour:
       magic: 0
       rare: -10
       epic: -20
-    - name: Split Shot -> Skill Speed
-      skillId: 2
-      skillStatId: 6
+    - name: Veil of Quills -> Mana Cost
+      skillId: 16
+      skillStatId: 4
       modDescription: 
       modType: 1
-      proficiencyName: Quick Trigger
-      common: 8
-      magic: 12
-      rare: 16
-      epic: 20
+      proficiencyName: Spiritual Flow
+      common: 0
+      magic: -10
+      rare: -20
+      epic: -30
+    - name: Judgement -> Physical Plague Resist Shred
+      skillId: 7
+      skillStatId: 14
+      modDescription: 
+      modType: 1
+      proficiencyName: Damnation of Flesh
+      common: 10
+      magic: 30
+      rare: 50
+      epic: 80
     - name: Reflexes -> Projectile Amount
       skillId: 5
       skillStatId: 9
       modDescription: MaxKnives
       modType: 0
       proficiencyName: Blade Horde
+      common: 0
+      magic: 0
+      rare: 1
+      epic: 2
+    - name: Split Shot -> Projectile Amount
+      skillId: 2
+      skillStatId: 9
+      modDescription: 
+      modType: 0
+      proficiencyName: Multi-shot
+      common: 0
+      magic: 0
+      rare: 0
+      epic: 1
+    - name: Summon the Guard -> Projectile Amount
+      skillId: 13
+      skillStatId: 9
+      modDescription: SummonedSpirits
+      modType: 0
+      proficiencyName: Legion of Martyrs
+      common: 0
+      magic: 0
+      rare: 1
+      epic: 0
+    - name: Veil of Quills -> Projectile Amount
+      skillId: 16
+      skillStatId: 9
+      modDescription: Quill Amount
+      modType: 0
+      proficiencyName: Spectral Deluge
       common: 0
       magic: 0
       rare: 1
@@ -750,76 +1167,36 @@ MonoBehaviour:
       magic: 0
       rare: 1
       epic: 2
-    - name: Reflexes -> Area of Effect
-      skillId: 5
-      skillStatId: 7
+    - name: Holy Rosary -> Projectile Speed
+      skillId: 15
+      skillStatId: 11
       modDescription: 
       modType: 1
-      proficiencyName: Heightened Senses
+      proficiencyName: Haste of the Faithful
       common: 0
       magic: 20
       rare: 30
       epic: 40
-    - name: Reflexes -> Damage
-      skillId: 5
-      skillStatId: 1
-      modDescription: 
+    - name: Veil of Quills -> Projectile Speed
+      skillId: 16
+      skillStatId: 11
+      modDescription: QuillVelocity
       modType: 1
-      proficiencyName: Sharp Strike
+      proficiencyName: Accelerated Quills
+      common: 0
+      magic: 10
+      rare: 20
+      epic: 30
+    - name: Shadow Dash -> Skill Speed
+      skillId: 3
+      skillStatId: 6
+      modDescription: DashSpeed
+      modType: 1
+      proficiencyName: Shadow's Haste
       common: 20
-      magic: 30
-      rare: 40
-      epic: 0
-    - name: Reflexes -> None
-      skillId: 5
-      skillStatId: 0
-      modDescription: 
-      modType: 1
-      proficiencyName: Enduring Reflexes
-      common: 0
-      magic: 20
+      magic: 25
       rare: 30
       epic: 40
-    - name: Reflexes -> Cooldown
-      skillId: 5
-      skillStatId: 5
-      modDescription: KnifeGenerationTime
-      modType: 1
-      proficiencyName: Swift Caster
-      common: -15
-      magic: -20
-      rare: 0
-      epic: 0
-    - name: Double Knives -> Mana Cost
-      skillId: 8
-      skillStatId: 4
-      modDescription: 
-      modType: 1
-      proficiencyName: Efficient Flow
-      common: 0
-      magic: -10
-      rare: -15
-      epic: -20
-    - name: Double Knives -> Area of Effect
-      skillId: 8
-      skillStatId: 7
-      modDescription: 
-      modType: 1
-      proficiencyName: Vast Whirlwind
-      common: 0
-      magic: 20
-      rare: 30
-      epic: 40
-    - name: Double Knives -> Damage
-      skillId: 8
-      skillStatId: 1
-      modDescription: 
-      modType: 1
-      proficiencyName: Power of the Gate
-      common: 20
-      magic: 30
-      rare: 40
-      epic: 50
     - name: Double Knives -> Skill Speed
       skillId: 8
       skillStatId: 6
@@ -830,476 +1207,6 @@ MonoBehaviour:
       magic: 12
       rare: 16
       epic: 20
-    - name: Old Bell -> Damage
-      skillId: 6
-      skillStatId: 1
-      modDescription: 
-      modType: 1
-      proficiencyName: Relentless Collapse
-      common: 20
-      magic: 30
-      rare: 40
-      epic: 50
-    - name: Old Bell -> Area of Effect
-      skillId: 6
-      skillStatId: 7
-      modDescription: 
-      modType: 1
-      proficiencyName: Amplified Reverberation
-      common: 0
-      magic: 20
-      rare: 30
-      epic: 40
-    - name: Old Bell -> Mana Cost
-      skillId: 6
-      skillStatId: 4
-      modDescription: 
-      modType: 1
-      proficiencyName: Efficient Reverberation
-      common: 0
-      magic: -10
-      rare: -15
-      epic: -20
-    - name: Old Bell -> Critical Hit Damage
-      skillId: 6
-      skillStatId: 3
-      modDescription: 
-      modType: 1
-      proficiencyName: Soul Shatter
-      common: 30
-      magic: 40
-      rare: 50
-      epic: 100
-    - name: Slow Time -> Area of Effect
-      skillId: 10
-      skillStatId: 7
-      modDescription: 
-      modType: 1
-      proficiencyName: Extended Warp
-      common: 0
-      magic: 20
-      rare: 30
-      epic: 40
-    - name: Slow Time -> None
-      skillId: 10
-      skillStatId: 0
-      modDescription: 
-      modType: 0
-      proficiencyName: Intense Distortion
-      common: 10
-      magic: 15
-      rare: 20
-      epic: 25
-    - name: Slow Time -> Cooldown
-      skillId: 10
-      skillStatId: 5
-      modDescription: 
-      modType: 1
-      proficiencyName: Swift Distortion
-      common: 0
-      magic: -10
-      rare: -15
-      epic: -20
-    - name: Slow Time -> None
-      skillId: 10
-      skillStatId: 0
-      modDescription: 
-      modType: 1
-      proficiencyName: Prolonged Distortion
-      common: 20
-      magic: 25
-      rare: 30
-      epic: 35
-    - name: Shadow Dash -> Damage
-      skillId: 3
-      skillStatId: 1
-      modDescription: 
-      modType: 1
-      proficiencyName: Swift Assault
-      common: 20
-      magic: 30
-      rare: 40
-      epic: 50
-    - name: Shadow Dash -> None
-      skillId: 3
-      skillStatId: 0
-      modDescription: 
-      modType: 1
-      proficiencyName: Chain of Shadows
-      common: 0
-      magic: 0
-      rare: 0
-      epic: 2
-    - name: Shadow Dash -> None
-      skillId: 3
-      skillStatId: 0
-      modDescription: ShadowDashExplosionAoE
-      modType: 0
-      proficiencyName: 
-      common: 0
-      magic: 0
-      rare: 30
-      epic: 0
-    - name: Shadow Dash -> None
-      skillId: 3
-      skillStatId: 0
-      modDescription: 
-      modType: 1
-      proficiencyName: Shadow's Haste
-      common: 20
-      magic: 25
-      rare: 30
-      epic: 40
-    - name: Shadow Dash -> Cooldown
-      skillId: 3
-      skillStatId: 5
-      modDescription: 
-      modType: 1
-      proficiencyName: Shadow Readiness
-      common: 0
-      magic: -20
-      rare: -20
-      epic: -25
-    - name: Shadow Dash -> Area of Effect
-      skillId: 3
-      skillStatId: 7
-      modDescription: 
-      modType: 1
-      proficiencyName: Shadow's Grasp
-      common: 0
-      magic: 20
-      rare: 30
-      epic: 40
-    - name: Shadow Dash -> None
-      skillId: 3
-      skillStatId: 0
-      modDescription: 
-      modType: 1
-      proficiencyName: Shadow's Reach
-      common: 0
-      magic: 0
-      rare: 0
-      epic: 25
-    - name: Closed Body -> None
-      skillId: 11
-      skillStatId: 0
-      modDescription: 
-      modType: 1
-      proficiencyName: Conviction Surge
-      common: 15
-      magic: 20
-      rare: 25
-      epic: 30
-    - name: Closed Body -> None
-      skillId: 11
-      skillStatId: 0
-      modDescription: 
-      modType: 1
-      proficiencyName: Unyielding Vigil
-      common: 0
-      magic: 0
-      rare: 15
-      epic: 0
-    - name: Closed Body -> None
-      skillId: 11
-      skillStatId: 0
-      modDescription: RetaliationAuraDuration
-      modType: 1
-      proficiencyName: Lingering Resolve
-      common: 0
-      magic: 20
-      rare: 25
-      epic: 30
-    - name: Closed Body -> Cooldown
-      skillId: 11
-      skillStatId: 5
-      modDescription: 
-      modType: 1
-      proficiencyName: Iron Will
-      common: 0
-      magic: -10
-      rare: -15
-      epic: -20
-    - name: Closed Body -> Damage
-      skillId: 11
-      skillStatId: 1
-      modDescription: RetaliationDamage
-      modType: 1
-      proficiencyName: Harsh punishment
-      common: 20
-      magic: 30
-      rare: 40
-      epic: 50
-    - name: Closed Body -> Area of Effect
-      skillId: 11
-      skillStatId: 7
-      modDescription: 
-      modType: 1
-      proficiencyName: Expanding Retribution
-      common: 0
-      magic: 20
-      rare: 30
-      epic: 40
-    - name: Repeater -> Critical Hit Damage
-      skillId: 4
-      skillStatId: 3
-      modDescription: 
-      modType: 1
-      proficiencyName: Deadshot
-      common: 30
-      magic: 40
-      rare: 50
-      epic: 60
-    - name: Repeater -> None
-      skillId: 4
-      skillStatId: 0
-      modDescription: 
-      modType: 1
-      proficiencyName: Expanded Cataclysm
-      common: 0
-      magic: 10
-      rare: 20
-      epic: 0
-    - name: Repeater -> None
-      skillId: 4
-      skillStatId: 0
-      modDescription: 
-      modType: 1
-      proficiencyName: Pestilence Cataclysm
-      common: 0
-      magic: 0
-      rare: 20
-      epic: 40
-    - name: Repeater -> Critical Hit Chance
-      skillId: 4
-      skillStatId: 2
-      modDescription: 
-      modType: 1
-      proficiencyName: Perfect Balance
-      common: 0
-      magic: 0
-      rare: 8
-      epic: 10
-    - name: Repeater -> Damage
-      skillId: 4
-      skillStatId: 1
-      modDescription: 
-      modType: 1
-      proficiencyName: Devastating Barrage
-      common: 20
-      magic: 30
-      rare: 40
-      epic: 50
-    - name: Repeater -> Skill Speed
-      skillId: 4
-      skillStatId: 6
-      modDescription: 
-      modType: 1
-      proficiencyName: Infernal Barrage
-      common: 0
-      magic: 15
-      rare: 20
-      epic: 25
-    - name: Repeater -> Mana Cost
-      skillId: 4
-      skillStatId: 4
-      modDescription: 
-      modType: 1
-      proficiencyName: Firing Efficiency
-      common: 0
-      magic: -15
-      rare: -20
-      epic: -25
-    - name: Bombardment -> Damage
-      skillId: 12
-      skillStatId: 1
-      modDescription: 
-      modType: 1
-      proficiencyName: Relentless Onslaught
-      common: 10
-      magic: 30
-      rare: 0
-      epic: 80
-    - name: Bombardment -> None
-      skillId: 12
-      skillStatId: 0
-      modDescription: 
-      modType: 1
-      proficiencyName: Overwhelming Barrage
-      common: 5
-      magic: 10
-      rare: 0
-      epic: 30
-    - name: Bombardment -> Cooldown
-      skillId: 12
-      skillStatId: 5
-      modDescription: 
-      modType: 1
-      proficiencyName: Quickening Storm
-      common: 0
-      magic: -10
-      rare: 20
-      epic: 30
-    - name: Bombardment -> None
-      skillId: 12
-      skillStatId: 0
-      modDescription: 
-      modType: 1
-      proficiencyName: Prolonged Storm
-      common: 0
-      magic: 15
-      rare: 25
-      epic: 40
-    - name: Bombardment -> Area of Effect
-      skillId: 12
-      skillStatId: 7
-      modDescription: BombardmentArea
-      modType: 1
-      proficiencyName: Broader Storm
-      common: 0
-      magic: 0
-      rare: 15
-      epic: 25
-    - name: Veil of Quills -> Mana Cost
-      skillId: 16
-      skillStatId: 4
-      modDescription: 
-      modType: 1
-      proficiencyName: Spiritual Flow
-      common: 0
-      magic: -10
-      rare: -20
-      epic: -30
-    - name: Veil of Quills -> Skill Speed
-      skillId: 16
-      skillStatId: 6
-      modDescription: 
-      modType: 1
-      proficiencyName: Phantom Frenzy
-      common: 4
-      magic: 8
-      rare: 0
-      epic: 0
-    - name: Veil of Quills -> Damage
-      skillId: 16
-      skillStatId: 1
-      modDescription: 
-      modType: 1
-      proficiencyName: Ethereal Onslaught
-      common: 10
-      magic: 20
-      rare: 50
-      epic: 80
-    - name: Veil of Quills -> Projectile Amount
-      skillId: 16
-      skillStatId: 9
-      modDescription: Quill Amount
-      modType: 0
-      proficiencyName: Spectral Deluge
-      common: 0
-      magic: 0
-      rare: 1
-      epic: 2
-    - name: Veil of Quills -> None
-      skillId: 16
-      skillStatId: 0
-      modDescription: QuillVelocity
-      modType: 1
-      proficiencyName: Accelerated Quills
-      common: 0
-      magic: 10
-      rare: 20
-      epic: 30
-    - name: Veil of Quills -> None
-      skillId: 16
-      skillStatId: 0
-      modDescription: Projectile Duration
-      modType: 1
-      proficiencyName: Enduring Echoes
-      common: 0
-      magic: 10
-      rare: 20
-      epic: 0
-    - name: Judgement -> None
-      skillId: 7
-      skillStatId: 0
-      modDescription: 
-      modType: 1
-      proficiencyName: Damnation of Flesh
-      common: 10
-      magic: 30
-      rare: 50
-      epic: 80
-    - name: Judgement -> None
-      skillId: 7
-      skillStatId: 0
-      modDescription: 
-      modType: 1
-      proficiencyName: Elemental Scourge
-      common: 10
-      magic: 30
-      rare: 50
-      epic: 80
-    - name: Judgement -> Mana Cost
-      skillId: 7
-      skillStatId: 4
-      modDescription: 
-      modType: 1
-      proficiencyName: Efficient Damination
-      common: 0
-      magic: -10
-      rare: -20
-      epic: -30
-    - name: Judgement -> None
-      skillId: 7
-      skillStatId: 0
-      modDescription: Enemy Res Shred Duration
-      modType: 1
-      proficiencyName: Prolonged Torment
-      common: 0
-      magic: 20
-      rare: 30
-      epic: 40
-    - name: Judgement -> Area of Effect
-      skillId: 7
-      skillStatId: 7
-      modDescription: 
-      modType: 1
-      proficiencyName: Spreading Doom
-      common: 0
-      magic: 0
-      rare: 20
-      epic: 40
-    - name: Holy Rosary -> Damage
-      skillId: 15
-      skillStatId: 1
-      modDescription: 
-      modType: 1
-      proficiencyName: Fervent Assault
-      common: 10
-      magic: 20
-      rare: 50
-      epic: 80
-    - name: Holy Rosary -> Mana Cost
-      skillId: 15
-      skillStatId: 4
-      modDescription: 
-      modType: 1
-      proficiencyName: Frugal Benediction
-      common: 0
-      magic: -10
-      rare: -20
-      epic: -30
-    - name: Holy Rosary -> None
-      skillId: 15
-      skillStatId: 0
-      modDescription: 
-      modType: 1
-      proficiencyName: Haste of the Faithful
-      common: 0
-      magic: 20
-      rare: 30
-      epic: 40
     - name: Holy Rosary -> Skill Speed
       skillId: 15
       skillStatId: 6
@@ -1310,63 +1217,53 @@ MonoBehaviour:
       magic: 8
       rare: 0
       epic: 30
-    - name: Holy Rosary -> None
-      skillId: 15
-      skillStatId: 0
-      modDescription: Projectile Duration
+    - name: Repeater -> Skill Speed
+      skillId: 4
+      skillStatId: 6
+      modDescription: 
       modType: 1
-      proficiencyName: Lasting Faith
+      proficiencyName: Infernal Barrage
       common: 0
-      magic: 0
-      rare: 25
-      epic: 40
-    - name: Summon the Guard -> None
-      skillId: 13
-      skillStatId: 0
-      modDescription: Guard Rage Duration
-      modType: 1
-      proficiencyName: Prolonged Vigil
-      common: 0
-      magic: 10
+      magic: 15
       rare: 20
-      epic: 0
-    - name: Summon the Guard -> None
+      epic: 25
+    - name: Split Shot -> Skill Speed
+      skillId: 2
+      skillStatId: 6
+      modDescription: 
+      modType: 1
+      proficiencyName: Quick Trigger
+      common: 8
+      magic: 12
+      rare: 16
+      epic: 20
+    - name: Summon the Guard -> Skill Speed
       skillId: 13
-      skillStatId: 0
+      skillStatId: 6
       modDescription: Guard Attack Speed
-      modType: 0
+      modType: 1
       proficiencyName: Divine Fire
       common: 4
       magic: 8
       rare: 15
       epic: 0
-    - name: Summon the Guard -> Damage
-      skillId: 13
-      skillStatId: 1
-      modDescription: Guard Damage
-      modType: 1
-      proficiencyName: Celestial Impact
-      common: 10
-      magic: 20
-      rare: 50
-      epic: 80
-    - name: Summon the Guard -> Cooldown
-      skillId: 13
-      skillStatId: 5
+    - name: Veil of Quills -> Skill Speed
+      skillId: 16
+      skillStatId: 6
       modDescription: 
       modType: 1
-      proficiencyName: Quickened Recall
-      common: 0
-      magic: -10
-      rare: -20
-      epic: -30
-    - name: Summon the Guard -> None
-      skillId: 13
-      skillStatId: 0
-      modDescription: 
-      modType: 0
-      proficiencyName: Legion of Martyrs
-      common: 0
-      magic: 0
-      rare: 1
+      proficiencyName: Phantom Frenzy
+      common: 4
+      magic: 8
+      rare: 0
       epic: 0
+    - name: Slow Time -> Slow Debuff Intensity
+      skillId: 10
+      skillStatId: 15
+      modDescription: 
+      modType: 1
+      proficiencyName: Intense Distortion
+      common: 10
+      magic: 15
+      rare: 20
+      epic: 25

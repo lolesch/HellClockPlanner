@@ -5,20 +5,13 @@ using UnityEngine.UI;
 
 namespace Code.Runtime.UI.Displays
 {
-    public sealed class SkillIconDisplay : MonoBehaviour
+    public sealed class SkillIconDisplay : IndexDependentDisplay
     {
         [SerializeField] private Image icon;
 
-        private ISlotIndexProvider _slot;
-
-        private void Start() => _slot ??= GetComponentInParent<ISlotIndexProvider>( true );
-
-        private void OnEnable() => GameState.Player.OnSkillSlotsChanged += OnSkillSlotsChanged;
-        private void OnDisable() => GameState.Player.OnSkillSlotsChanged -= OnSkillSlotsChanged;
-
-        private void OnSkillSlotsChanged( SkillSlotData[] skillSlots )
+        protected override void OnSkillSlotsChanged( SkillSlotData[] skillSlots )
         {
-            var sprite = DataProvider.Instance.GetIconFromSkillId( skillSlots[_slot.Index]._skillHashId );
+            var sprite = DataProvider.Instance.GetIconFromSkillId( skillSlots[slot.index]._skillHashId );
             
             icon.sprite = sprite;
             icon.enabled = sprite != null;
@@ -27,6 +20,6 @@ namespace Code.Runtime.UI.Displays
     
     public interface ISlotIndexProvider
     {
-        int Index { get; }
+        int index { get; }
     }
 }

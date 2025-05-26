@@ -53,5 +53,14 @@ namespace Code.Data
             PlayerSave1,
             PlayerSave2
         }
+
+        public static Color GetDamageTypeColor( DamageTypeId tagId )=> tagId switch
+        {
+            DamageTypeId.Physical => new Color( 0.5f, 0.4f, 0.2f ),
+            DamageTypeId.Fire => new Color( 0.5f, 0.2f, 0.2f ),
+            DamageTypeId.Lightning => new Color( .2f, 0.4f, 0.4f ),
+            DamageTypeId.Plague => new Color( 0.2f, 0.5f, 0.2f ),
+            _ => Color.clear,
+        };
     }
 }

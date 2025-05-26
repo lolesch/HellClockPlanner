@@ -23,11 +23,13 @@ namespace Code.Runtime
         public readonly int MaxLevel;
         public int level { get; private set; } = 1;
         public SkillId skillId => _config.skillId;
+        public DamageTypeId damageType => _damageTypeOverwrite != DamageTypeId.None ? _damageTypeOverwrite : _config.damageTypeId;
+        private DamageTypeId _damageTypeOverwrite;
         public Sprite icon => _config.icon;
         public string description => _config.description;
         public int manaCost => _config.manaCost; // TODO: get level dependent value
         public float cooldown => _config.cooldown; // TODO: get level dependent value
-        public int baseDamage => _config.baseDamage; // TODO: get level dependent value
+        //public int baseDamage => _config.baseDamage; // TODO: get level dependent value
         public int rank => _proficiencies.Where( x => x.Value.skillStatId != SkillStatId.None ).Sum( x => (int)x.Value.rarity ); // (+1?)
 
         //public bool isAssigned => GameState.Player.SkillSlots.Select( x => x._skillHashId ).Contains( _config.id );
@@ -54,15 +56,22 @@ namespace Code.Runtime
 
             _stats = new SkillStat[]
             {
-                new ( SkillStatId.Damage, _config.baseDamage, ModType.Percent ),
-                new ( SkillStatId.CriticalHitChance, 0, ModType.Percent ),
-                new ( SkillStatId.ManaCostReduction, 100, ModType.Percent ),
-                new ( SkillStatId.CooldownReduction, 100, ModType.Percent ),
-                new ( SkillStatId.SkillSpeed, 100, ModType.Percent ),
-                new ( SkillStatId.EffectArea, 100, ModType.Percent ),
-                new ( SkillStatId.EffectDuration, 0, ModType.Percent ),
                 new ( SkillStatId.ProjectileAmount, _config.projectiles, ModType.Flat ),
                 new ( SkillStatId.ProjectileBounces, 0, ModType.Flat ),
+                
+                new ( SkillStatId.Damage, _config.baseDamage, ModType.Percent ),
+                new ( SkillStatId.CriticalHitChance, 100, ModType.Percent ),
+                new ( SkillStatId.CriticalHitDamage, 100, ModType.Percent ),
+                new ( SkillStatId.ManaCost, 100, ModType.Percent ),
+                new ( SkillStatId.Cooldown, 100, ModType.Percent ),
+                new ( SkillStatId.SkillSpeed, 100, ModType.Percent ),
+                new ( SkillStatId.AreaOfEffect, 100, ModType.Percent ),
+                new ( SkillStatId.Duration, 100, ModType.Percent ),
+                new ( SkillStatId.ProjectileSpeed, 100, ModType.Percent ),
+                new ( SkillStatId.DashDistance, 100, ModType.Percent ),
+                new ( SkillStatId.FireLightningResistShred, 100, ModType.Percent ),
+                new ( SkillStatId.PhysicalPlagueResistShred, 100, ModType.Percent ),
+                new ( SkillStatId.SlowDebuffIntensity, 100, ModType.Percent ),
             };
 
             return _stats;
@@ -70,33 +79,32 @@ namespace Code.Runtime
 
         public void AddProficiency( Proficiency proficiency, int proficiencySlotIndex )
         {
-            if( _proficiencies.TryGetValue( proficiencySlotIndex , out var existing ) )
-            {
-                GetStat( existing.skillStatId ).TryRemoveModifier( new Modifier( existing.value, this ) );
-                _proficiencies[proficiencySlotIndex] = proficiency;
-            }
-            else
-            {
-                _proficiencies.Add( proficiencySlotIndex, proficiency );
+            if( _proficiencies.TryGetValue( proficiencySlotIndex, out var existing ) )
+                RemoveProficiency( existing, proficiencySlotIndex );
+
+            if( proficiency.skillStatId == SkillStatId.None ) 
+                return;
             
-                foreach( var buff in GlobalBuffs )
-                   GameState.Player.GetStat( buff.characterStatId ).AddModifier( new Modifier( buff.amountPerRank, this ) );
-            }
-            
-            GetStat( proficiency.skillStatId ).AddModifier( new Modifier( proficiency.value, this ) );
+            _proficiencies.Add( proficiencySlotIndex, proficiency );
+            GetStat( proficiency.skillStatId ).AddModifier( new Modifier( proficiency.value, proficiency ) );
+                
+            foreach( var buff in GlobalBuffs )
+                GameState.Player.GetStat( buff.characterStatId ).AddModifier( new Modifier( buff.amountPerRank * (int)proficiency.rarity, this ) );
             
             OnProficienciesChanged?.Invoke();
         }
 
         public void RemoveProficiency( Proficiency proficiency, int proficiencySlotIndex )
         {
-            _proficiencies.Remove( proficiencySlotIndex );
-            GetStat( proficiency.skillStatId ).TryRemoveModifier( new Modifier( proficiency.value, this ) );
-
-            // TODO: remove only once -> not all!
-            GlobalBuffs.ForEach( x => GameState.Player.GetStat( x.characterStatId )
-                .TryRemoveAllModifiersBySource( this ) );
+            if( proficiency.skillStatId == SkillStatId.None ) 
+                return;
             
+            _proficiencies.Remove( proficiencySlotIndex );
+            GetStat( proficiency.skillStatId ).TryRemoveModifier( new Modifier( proficiency.value, proficiency ) );
+
+            foreach( var buff in GlobalBuffs )
+                GameState.Player.GetStat( buff.characterStatId ).TryRemoveModifier( new Modifier( buff.amountPerRank * (int)proficiency.rarity, this ) );
+
             OnProficienciesChanged?.Invoke();
         }
 
@@ -108,5 +116,7 @@ namespace Code.Runtime
             level = math.clamp( level + increment, 1, MaxLevel );
             OnLevelChanged?.Invoke(level);
         }
+
+        public float CalculateHitDamage() => GameState.Player.CalculateHitDamage( this ) * GetStat( SkillStatId.Damage ).Value;
     }
 }

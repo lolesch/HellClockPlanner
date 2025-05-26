@@ -9,55 +9,55 @@ using UnityEngine;
 
 namespace Code.Runtime.UI.Displays
 {
-    public sealed class ProficiencySelectorDisplay : MonoBehaviour
+    public sealed class ProficiencySelectorDisplay : IndexDependentDisplay
     {
         [SerializeField] private TMP_Dropdown dropdown;
         [SerializeField] private TooltipHolder tooltipHolder;
         [SerializeField] private int proficiencySlotIndex;
         [SerializeField] private RarityId rarity;
-        private ISlotIndexProvider _slot;
 
-        private void Start() => _slot ??= GetComponentInParent<ISlotIndexProvider>( true );
-
-        private void OnEnable()
+        private Skill _skill;
+        
+        protected override void OnEnable()
         {
-            GameState.Player.OnSkillSlotsChanged += SetDropdownOptions;
+            base.OnEnable();
             dropdown.onValueChanged.AddListener( delegate { OnProficiencyChanged( dropdown ); });
         }
 
-        private void OnDisable()
+        protected override void OnDisable()
         {
-            GameState.Player.OnSkillSlotsChanged -= SetDropdownOptions;
+            base.OnDisable();
             dropdown.onValueChanged.RemoveListener(delegate { OnProficiencyChanged(dropdown); });
         }
 
-        private void SetDropdownOptions( SkillSlotData[] skillSlots )
+        protected override void OnSkillSlotsChanged( SkillSlotData[] skillSlots )
         {
-            foreach( var slot in skillSlots )
-                if( slot._slotIndex == _slot.Index )
-                {
-                    var skillDependentProficiencies =
-                        DataProvider.Instance.GetSkillProficiencies( slot._skillHashId, rarity );
-                    
-                    dropdown.ClearOptions();
-                    dropdown.options.Add(DataProvider.Instance.defaultOption);
-                    dropdown.AddOptions(  skillDependentProficiencies
-                        .Select( x => new TMP_Dropdown.OptionData( x.modDescription, x.icon, Color.white ) )
-                        .ToList() );
-                }
+            if( _skill == GameState.Player.skills[slot.index] ) 
+                return;
+                
+            _skill = GameState.Player.skills[slot.index];
+            
+            var skillDependentProficiencies =
+                DataProvider.Instance.GetSkillProficiencies( _skill.skillId, rarity );
+                
+            dropdown.ClearOptions();
+            dropdown.options.Add(DataProvider.Instance.defaultOption);
+            dropdown.AddOptions(  skillDependentProficiencies
+                .Select( x => new TMP_Dropdown.OptionData( x.modDescription, x.icon, Color.white ) )
+                .ToList() );
             dropdown.value = 0;
         }
 
         private void OnProficiencyChanged( TMP_Dropdown change )
         {
-            var skillId = GameState.Player.SkillSlots[_slot.Index]._skillHashId;
+            var skillId = GameState.Player.SkillSlots[slot.index]._skillHashId;
             var optionIndex = change.value - 1;
                 
             var proficiency = new Proficiency();
             if( 0 < optionIndex ) 
                 proficiency = DataProvider.Instance.GetSkillProficiencies( skillId, rarity ).ToArray()[optionIndex];
             
-            GameState.Player.SetProficiencyAtSlotIndex( _slot.Index, proficiency, proficiencySlotIndex );
+            GameState.Player.skills[slot.index].AddProficiency( proficiency, proficiencySlotIndex );
         
             SetTooltip( proficiency );
         }

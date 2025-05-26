@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using Code.Runtime.UI.Displays;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,8 +10,8 @@ namespace Code.Runtime.UI.Panels
     /// A panel should always stay enabled, only its canvasGroup alpha is set to 0.
     /// Therefore, use <see cref="BeforeAppear"/> instead of <see cref="OnEnable()"/> to refresh panel data.
     /// </summary>
-    [RequireComponent(typeof(CanvasGroup), typeof(GraphicRaycaster), typeof(RectTransform))]
-    public abstract class AbstractPanel : MonoBehaviour
+    [RequireComponent(typeof(CanvasGroup))]
+    public abstract class AbstractPanel : AbstractDisplay
     {
         private CanvasGroup _canvasGroup = null;
         public CanvasGroup canvasGroup => _canvasGroup ??= GetComponent<CanvasGroup>();

@@ -86,8 +86,8 @@ namespace Code.Runtime.UI.Toggles
             if (this.isOn && radioGroup)
                 radioGroup.Activate(this);
 
-            if (!this.isOn)
-                DoStateTransition(SelectionState.Normal, false);
+            //if ()
+                DoStateTransition( isOn ? SelectionState.Selected : SelectionState.Normal, false);
 
             //PlayToggleSound(this.isOn);
 

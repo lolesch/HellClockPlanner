@@ -1,9 +1,14 @@
 
+### FIX ME
+- [ ]  PROFICIENCY DROPDOWN options are broken visually
+- [ ] proficiency dropdown top-most option has no effect
+- [ ] skill stats display no longer updates
+
 CONTINUE HERE:
 - [x] skill details display
-	- [x] proficiencies apply skill modifier
+	- [ ] proficiencies apply skill modifier
 	- [ ] show proficiencies in the "affected by" area???
-- [ ] Rank is rarity dependent
+- [x] Rank is rarity dependent
 - [ ] Gear / Trinket dropdowns
 	- [ ] random trinket generation
 	- [ ] rarity distribution

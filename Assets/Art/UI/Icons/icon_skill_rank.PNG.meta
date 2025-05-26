@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 466c59f72ae9a364e97b36fb3e43d1e2
+guid: a7790716d0372b74a93e02c1f39ccc6d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4429478413923637507
-    second: charges_0
+      213: -3533037933063466329
+    second: icon_skill_rank_0
+  - first:
+      213: 6945391406637148638
+    second: icon_skill_rank_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +116,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: charges_0
+      name: icon_skill_rank_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
-        width: 380
-        height: 612
+        width: 31
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 309dd2a262ba87d30800000000000000
-      internalID: 4429478413923637507
+      spriteID: 7a295cdf7b028fec0800000000000000
+      internalID: -3533037933063466329
       vertices: []
       indices: 
       edges: []
@@ -138,7 +141,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 843b050030eed5e41bb5d353cf8f90af
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +151,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      charges_0: 4429478413923637507
+      icon_skill_rank_0: -3533037933063466329
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

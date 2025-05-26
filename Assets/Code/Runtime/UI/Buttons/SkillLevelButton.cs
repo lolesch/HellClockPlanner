@@ -1,3 +1,6 @@
+using Code.Data;
+using Code.Runtime.UI.Displays;
+using Code.Utility.Extensions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,36 +13,60 @@ namespace Code.Runtime.UI.Buttons
         [SerializeField] private bool isIncrement;
         [SerializeField] private TextMeshProUGUI levelText;
         
+        private ISlotIndexProvider _slot;
+
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            GameState.Player.OnSkillSlotsChanged += OnSkillSlotsChanged;
+            RefreshDisplay();
+        }
+
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            GameState.Player.OnSkillSlotsChanged -= OnSkillSlotsChanged;
+        }
+
         protected override void OnLeftClick()
         {
-            _skill.ChangeLevel( isIncrement ? 1 : -1 );
-            RefreshInteractability( _skill.level );
+            _skill?.ChangeLevel( isIncrement ? 1 : -1 );
             OnDeselect( null );
         }
-
-        protected override void OnRightClick() {}
         
-        private void RefreshInteractability( int level = 1 )
-        {
-            var canInteract = isIncrement 
-                ? _skill.level < _skill.MaxLevel 
-                : _skill.level > 1;
+        protected override void OnRightClick() {}
 
-            interactable = canInteract;
-            levelText.text = level.ToString();
-            
-            DoStateTransition(canInteract ? SelectionState.Normal : SelectionState.Disabled, false);
-        }
-
-        public void SetSkill( Skill skill )
+        private void OnSkillSlotsChanged( SkillSlotData[] skillSlots )
         {
             if( _skill != null )
-                _skill.OnLevelChanged -= RefreshInteractability;
+                _skill.OnLevelChanged -= OnLevelChanged;
             
-            _skill = skill;
-            _skill.OnLevelChanged += RefreshInteractability;
+            _slot ??= GetComponentInParent<ISlotIndexProvider>( true );
+            _skill = GameState.Player.skills[ _slot.index ];
             
-            RefreshInteractability( _skill.level );
+            if( _skill != null )
+                _skill.OnLevelChanged += OnLevelChanged;
+            
+            RefreshDisplay();
+        }
+
+        private void OnLevelChanged( int obj ) => RefreshDisplay(); 
+        
+        private void RefreshDisplay()
+        {
+            interactable = false;
+            levelText.text = "0";
+
+            if( _skill != null )
+            { 
+                interactable = _skill != null && isIncrement 
+                ? _skill.level < _skill.MaxLevel 
+                : _skill.level > 1;
+            
+                levelText.text = _skill.level.ToString();
+            }
+            
+            DoStateTransition(interactable ? SelectionState.Normal : SelectionState.Disabled, false);
         }
     }
 }

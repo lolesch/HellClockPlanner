@@ -2,6 +2,7 @@ using System;
 using Code.Data.Enums;
 using Code.Data.ScriptableObjects;
 using Code.Runtime.Provider;
+using Code.Runtime.Statistics;
 using Code.Utility.AttributeRef.Attributes;
 using Code.Utility.Extensions;
 using UnityEngine;
@@ -39,7 +40,7 @@ namespace Code.Data
     }
     
     [Serializable]
-    public struct Proficiency : IEquatable<Proficiency>
+    public struct Proficiency : IEquatable<Proficiency> , IModifierSource
     {
         [HideInInspector] public string name;
         [ReadOnly] public SkillId skillId;

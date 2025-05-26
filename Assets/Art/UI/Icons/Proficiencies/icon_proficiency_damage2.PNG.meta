@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 466c59f72ae9a364e97b36fb3e43d1e2
+guid: 0f4ddf30c4e658c45981da2ddd55b28a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4429478413923637507
-    second: charges_0
+      213: -5930753281997873011
+    second: icon_proficiency_damage2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: charges_0
+      name: icon_proficiency_damage2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 380
-        height: 612
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 309dd2a262ba87d30800000000000000
-      internalID: 4429478413923637507
+      spriteID: d80e800005bb1bda0800000000000000
+      internalID: -5930753281997873011
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      charges_0: 4429478413923637507
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

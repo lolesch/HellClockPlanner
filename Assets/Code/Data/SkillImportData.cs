@@ -18,7 +18,8 @@ namespace Code.Data
         [ReadOnly] public int manaCost;
         [ReadOnly] public float cooldown;
         [ReadOnly] public int projectiles;
-        [ReadOnly] public int maxLevel;
+        //[ReadOnly] public int maxLevel;
+        [ReadOnly] public DamageTypeId damageTypeId;
 
         [ReadOnly] public Sprite icon => DataProvider.Instance.GetIconFromSkillId( skillId );
 

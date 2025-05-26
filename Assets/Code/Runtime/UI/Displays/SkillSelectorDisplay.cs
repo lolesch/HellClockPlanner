@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Code.Data;
 using Code.Data.Enums;
 using Code.Runtime.Provider;
 using Code.Utility.Extensions;
@@ -8,28 +9,31 @@ using UnityEngine;
 
 namespace Code.Runtime.UI.Displays
 {
-    public sealed class SkillSelectorDisplay : MonoBehaviour
+    public sealed class SkillSelectorDisplay : IndexDependentDisplay
     {
         [SerializeField] private TMP_Dropdown dropdown;
-        private ISlotIndexProvider _slot;
+        private void Start() => SetDropdownOptions();
 
-        private void Start()
+        protected override void OnEnable()
         {
-            _slot ??= GetComponentInParent<ISlotIndexProvider>( true );
-            SetDropdownOptions();
+            base.OnEnable();
+            dropdown.onValueChanged.AddListener( delegate { OnSkillChanged( dropdown ); } );
         }
 
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            dropdown.onValueChanged.RemoveListener( delegate { OnSkillChanged( dropdown ); } );
+        }
 
-        private void OnEnable() => dropdown.onValueChanged.AddListener( delegate { OnSkillChanged( dropdown ); } );
-
-        private void OnDisable() => dropdown.onValueChanged.RemoveListener( delegate { OnSkillChanged( dropdown ); } );
+        protected override void OnSkillSlotsChanged( SkillSlotData[] skillSlots ) {}
 
         private void OnSkillChanged( TMP_Dropdown change )
         {
             var skillId = ( Enum.GetValues( typeof( SkillId ) ) as SkillId[] )!
                 .First( x => x.ToDescription() == change.options[change.value].text );
             
-            GameState.Player.SetSkillIdAtSlotIndex( _slot.Index, skillId );
+            GameState.Player.SetSkillIdAtSlotIndex( slot.index, skillId );
         }
         
         private void SetDropdownOptions()
