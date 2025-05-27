@@ -18,8 +18,12 @@ namespace Code.Runtime.Statistics
         
         public static implicit operator float( Modifier mod ) => mod._value;
 
-        public bool Equals( Modifier other ) => Mathf.Approximately( _value, other._value ) && Source == other.Source;
+        public bool Equals( Modifier other ) => Mathf.Approximately( _value, other._value ) 
+                                                && Source.guid == other.Source.guid;
     }
-    
-    public interface IModifierSource { }
+
+    public interface IModifierSource
+    {
+        Guid guid { get; }
+    }
 }

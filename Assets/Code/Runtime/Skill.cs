@@ -30,11 +30,11 @@ namespace Code.Runtime
         public int manaCost => _config.manaCost; // TODO: get level dependent value
         public float cooldown => _config.cooldown; // TODO: get level dependent value
         //public int baseDamage => _config.baseDamage; // TODO: get level dependent value
-        public int rank => _proficiencies.Where( x => x.Value.skillStatId != SkillStatId.None ).Sum( x => (int)x.Value.rarity ); // (+1?)
+        public int rank => _proficiencies.Where( x => x.Value.skillStatId != SkillStatId.None ).Sum( x => (int)x.Value.rarity );
+        public Guid guid { get; } = Guid.NewGuid();
 
         //public bool isAssigned => GameState.Player.SkillSlots.Select( x => x._skillHashId ).Contains( _config.id );
         
-
         public event Action OnProficienciesChanged;
         public event Action<int> OnLevelChanged;
         
@@ -96,8 +96,8 @@ namespace Code.Runtime
 
         public void RemoveProficiency( Proficiency proficiency, int proficiencySlotIndex )
         {
-            if( proficiency.skillStatId == SkillStatId.None ) 
-                return;
+            //if( proficiency.skillStatId == SkillStatId.None ) 
+            //    return;
             
             _proficiencies.Remove( proficiencySlotIndex );
             GetStat( proficiency.skillStatId ).TryRemoveModifier( new Modifier( proficiency.value, proficiency ) );

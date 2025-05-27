@@ -1,3 +1,4 @@
+using Code.Data;
 using Code.Data.Enums;
 using Code.Runtime.Statistics;
 using Code.Utility.Extensions;
@@ -31,6 +32,10 @@ namespace Code.Runtime.UI.Displays
             _stat.Value.OnTotalChanged += _ => SetValueText();
         }
         
-        private void SetValueText() => statValue.text = _stat.Value.ToString();
+        private void SetValueText()
+        {
+            statValue.text = _stat.Value.ToString();
+            statValue.DoPunch();
+        }
     }
 }

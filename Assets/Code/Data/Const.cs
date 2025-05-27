@@ -2,8 +2,11 @@ using System;
 using System.IO;
 using System.Text;
 using Code.Data.Enums;
+using DG.Tweening;
+using TMPro;
 using UnityEngine;
-    
+using UnityEngine.UI;
+
 namespace Code.Data
 {
     public static class Const
@@ -22,6 +25,8 @@ namespace Code.Data
         
         public const float TooltipDelay = .5f;
         public const float TooltipDelayAfterInteraction = 2f;
+        private const float TextPunchScale = .2f;
+        private const float TextPunchDuration = .2f;
 
         public static string GetFileName( PlayerSaveId id ) => $"{id}.{FileEnding}";
         
@@ -62,5 +67,13 @@ namespace Code.Data
             DamageTypeId.Plague => new Color( 0.2f, 0.5f, 0.2f ),
             _ => Color.clear,
         };
+
+        public static void DoPunch( this Graphic text )
+        {
+            text.rectTransform.localScale = Vector3.one;
+            text.rectTransform.pivot = Vector2.one * .5f;
+            text.rectTransform.DOPunchScale( Vector3.one * Const.TextPunchScale, Const.TextPunchDuration, 0, 0 );
+                //.OnComplete( () => text.rectTransform.localScale = Vector3.one );
+        }
     }
 }

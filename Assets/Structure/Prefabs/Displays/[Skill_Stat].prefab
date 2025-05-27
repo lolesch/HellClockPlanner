@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 8884994869782385623}
   - component: {fileID: 8124543183665126586}
   m_Layer: 5
-  m_Name: '[Skill_StatDisplay]'
+  m_Name: '[Skill_Stat]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

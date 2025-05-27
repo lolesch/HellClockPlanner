@@ -1,6 +1,7 @@
 using System;
 using Code.Data;
 using Code.Utility.Extensions;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ namespace Code.Runtime.UI.Displays
 {
     public sealed class SkillRankDisplay : IndexDependentDisplay
     {
-        [SerializeField] private TextMeshProUGUI skillRank;
+        [SerializeField] private TextMeshProUGUI rankValue;
 
         private Skill _skill;
 
@@ -29,9 +30,11 @@ namespace Code.Runtime.UI.Displays
         
         private void RefreshDisplay()
         {
-            skillRank.text = "Rank: " + ( _skill is { rank: > 0 } 
+            rankValue.text = _skill is { rank: > 0 } 
                 ? $"{_skill.rank}".Colored( Color.yellow ) 
-                : "0" );
+                : "0";
+            
+            rankValue.DoPunch();
         }
     }
 }

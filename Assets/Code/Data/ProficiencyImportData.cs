@@ -5,6 +5,7 @@ using Code.Runtime.Provider;
 using Code.Runtime.Statistics;
 using Code.Utility.AttributeRef.Attributes;
 using Code.Utility.Extensions;
+using UnityEditor;
 using UnityEngine;
 using static System.String;
 
@@ -40,7 +41,7 @@ namespace Code.Data
     }
     
     [Serializable]
-    public struct Proficiency : IEquatable<Proficiency> , IModifierSource
+    public struct Proficiency : IModifierSource
     {
         [HideInInspector] public string name;
         [ReadOnly] public SkillId skillId;
@@ -50,7 +51,21 @@ namespace Code.Data
         [ReadOnly] public ModType modType;
         [ReadOnly] public RarityId rarity;
         [ReadOnly, PreviewIcon(32)] public Sprite icon;
-        
+        [ReadOnly] public Guid guid { get; private set; }
+
+        public Proficiency( SkillId skillId, SkillStatId skillStatId, string modDescription, float value, RarityId rarity, string name, Sprite icon, ModType modType )
+        {
+            this.skillId = skillId;
+            this.skillStatId = skillStatId;
+            this.modDescription = modDescription;
+            this.value = value;
+            this.rarity = rarity;
+            this.name = name;
+            this.icon = icon;
+            this.modType = modType;
+            guid = Guid.NewGuid();
+        }
+
         public string ToTooltipString()
         {
             string valueString = modType switch
@@ -62,11 +77,5 @@ namespace Code.Data
 
             return $"{modDescription.ToDescription()} {valueString.Colored( Color.green)}";
         }
-
-        public bool Equals( Proficiency other ) => skillId == other.skillId && modDescription == other.modDescription && value.Equals( other.value ) && rarity == other.rarity;
-
-        public override bool Equals( object obj ) => obj is Proficiency other && Equals( other );
-
-        public override int GetHashCode() => HashCode.Combine( (int) skillId, (int) skillStatId, value, (int) rarity );
     }
 }

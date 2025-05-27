@@ -10,10 +10,9 @@ namespace Code.Runtime.UI.Displays
 {
     public sealed class SkillDisplay : IndexDependentDisplay
     {
-        [SerializeField] private SkillDescriptionDisplay skillDescriptionDisplay;
-        [SerializeField] private GameObject body;
-        [SerializeField] private SkillTagDisplay skillTagPrefab;
         [SerializeField] private TextMeshProUGUI skillName;
+        //[SerializeField] private GameObject[] toggleObjects;
+        [SerializeField] private SkillTagDisplay skillTagPrefab;
         private Skill _skill;
        
         private void Start()
@@ -39,24 +38,23 @@ namespace Code.Runtime.UI.Displays
         {
             // TODO: skill stats
             // TODO: affected relics
-            
-            var showDetails = _skill != null && _skill.skillId != SkillId.None;
-            body.SetActive( showDetails );
-            //skillLevelDisplay.ActivateStatParent( showDetails );
-            //skillLevelDisplay.gameObject.SetActive( showDetails );
-            skillTagPrefab.transform.parent.gameObject.SetActive( showDetails );
-            
-            if( !showDetails )
-            {
-                skillName.text = "No Skill Assigned";   
-                //icon.sprite = DataProvider.Instance.GetIconFromSkillId( SkillId.None );
-                
-                return;
-            }
-            
-            skillName.text = _skill.skillId.ToDescription();
 
+            var showDetails = _skill != null && _skill.skillId != SkillId.None;
+            
+            //foreach( var toggleObject in toggleObjects )
+            //    toggleObject.SetActive( showDetails );
+            
+            skillName.text = showDetails ? _skill.skillId.ToDescription() : "No Skill Assigned";
+            
             PoolProvider.Instance.ReleaseAll( skillTagPrefab );
+            if( showDetails )
+                CreateTags();
+            
+            LayoutRebuilder.ForceRebuildLayoutImmediate( transform.parent as RectTransform );
+        }
+
+        private void CreateTags()
+        {
             foreach( var tagId in _skill.Tags )
             {
                 var skillTag = PoolProvider.Instance.GetObject( skillTagPrefab, false ) as SkillTagDisplay;
@@ -70,8 +68,6 @@ namespace Code.Runtime.UI.Displays
                 damageTypeTag?.SetTag( _skill.damageType );
                 damageTypeTag?.gameObject.SetActive(true);
             }
-            
-            LayoutRebuilder.ForceRebuildLayoutImmediate( transform.parent as RectTransform );
         }
     }
 }

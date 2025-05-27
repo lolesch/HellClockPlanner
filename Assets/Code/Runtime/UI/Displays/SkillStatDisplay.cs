@@ -2,6 +2,7 @@ using Code.Data;
 using Code.Data.Enums;
 using Code.Runtime.Statistics;
 using Code.Utility.Extensions;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -13,7 +14,6 @@ namespace Code.Runtime.UI.Displays
     {
         [SerializeField] private SkillStatId statId;
         private SkillStat _stat;
-        //[SerializeField] private SkillId _currentSkillId;
         
         [SerializeField] private TextMeshProUGUI statName;
         [SerializeField] private TextMeshProUGUI statValue;
@@ -33,6 +33,8 @@ namespace Code.Runtime.UI.Displays
             if( _stat.Value.isModified )
                 text = text.Colored( Color.green );
             statValue.text = text;
+            
+            statValue.DoPunch();
         }
 
         protected override void OnSkillSlotsChanged( SkillSlotData[] skillSlots ) => RefreshDisplay();

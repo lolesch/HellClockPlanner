@@ -370,7 +370,7 @@ GameObject:
   - component: {fileID: 4617788232319806024}
   - component: {fileID: 3311533242459193461}
   m_Layer: 5
-  m_Name: '[Skill_ProficiencyIconDisplay]'
+  m_Name: '[Skill_ProficiencyIcon]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

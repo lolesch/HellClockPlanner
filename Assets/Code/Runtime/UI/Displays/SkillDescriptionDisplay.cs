@@ -2,6 +2,7 @@ using System.Text;
 using Code.Data;
 using Code.Data.Enums;
 using Code.Utility.Extensions;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ namespace Code.Runtime.UI.Displays
     {
         [SerializeField] private TextMeshProUGUI descriptionText;
         [SerializeField] private TextMeshProUGUI globalBuffsText;
+        [SerializeField] private TextMeshProUGUI globalBuffsValue;
 
         private Skill _skill;
 
@@ -33,10 +35,13 @@ namespace Code.Runtime.UI.Displays
         {
             var skill = GameState.Player.skills[ slot.index ];
             descriptionText.text = skill != null ? skill.description : "";
-            globalBuffsText.text = skill != null ? GetGlobalBuffString( skill ) : "";
+            globalBuffsText.text = skill != null ? GetGlobalBuffDescription( skill ) : "";
+            globalBuffsValue.text = skill != null ? GetGlobalBuffValue( skill ) : "";
+
+            globalBuffsValue.DoPunch();
         }
         
-        private string GetGlobalBuffString( Skill skill )
+        private string GetGlobalBuffDescription( Skill skill )
         {
             var sb = new StringBuilder();
             
@@ -45,12 +50,27 @@ namespace Code.Runtime.UI.Displays
                 var modType = GameState.Player.GetStat( globalBuff.characterStatId ).Value.ModType;
 
                 var perRankValueString = GetModTypeRelatedValueString( globalBuff.amountPerRank, modType );
+                
+                sb.AppendLine( $"{globalBuff.characterStatId.ToDescription()} ({perRankValueString} per rank)" );
+            }
+
+            return sb.ToString();
+        }
+        
+        private string GetGlobalBuffValue( Skill skill )
+        {
+            var sb = new StringBuilder();
+            
+            foreach( var globalBuff in skill.GlobalBuffs )
+            {
+                var modType = GameState.Player.GetStat( globalBuff.characterStatId ).Value.ModType;
+
                 var totalValueString = GetModTypeRelatedValueString( globalBuff.amountPerRank * skill.rank, modType );
 
                 if( skill.rank > 0 )
                     totalValueString = totalValueString.Colored( Color.yellow );
                 
-                sb.AppendLine( $"{totalValueString} {globalBuff.characterStatId.ToDescription()} ({perRankValueString} per rank)" );
+                sb.AppendLine( $"{totalValueString}");
             }
 
             return sb.ToString();

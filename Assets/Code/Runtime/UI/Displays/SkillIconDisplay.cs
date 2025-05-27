@@ -1,5 +1,6 @@
 using Code.Data;
 using Code.Runtime.Provider;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,7 @@ namespace Code.Runtime.UI.Displays
             
             icon.sprite = sprite;
             icon.enabled = sprite != null;
+            icon.DoPunch();
         }
     }
     

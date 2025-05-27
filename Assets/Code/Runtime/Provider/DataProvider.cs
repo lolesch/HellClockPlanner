@@ -84,17 +84,17 @@ namespace Code.Runtime.Provider
         
         private Proficiency CreateProficiencyForRarity( ProficiencyImportData data, RarityId rarity )
         {
-            return new Proficiency
-            {
-                skillId = data.skillId,
-                skillStatId = data.skillStatId,
-                modDescription = data.modDescription == string.Empty ? data.skillStatId.ToDescription() : data.modDescription,
-                value = data.GetValue( rarity ),
-                rarity = rarity,
-                name = data.proficiencyName.Colored( Const.GetRarityColor( rarity ) ),
-                icon = GetIconFromSkillStatId( data.skillStatId ),
-                modType = data.modType,
-            };
+            return new Proficiency( 
+                data.skillId, 
+                data.skillStatId,
+                data.modDescription == string.Empty
+                    ? data.skillStatId.ToDescription()
+                    : data.modDescription, 
+                data.GetValue( rarity ), 
+                rarity,
+                data.proficiencyName.Colored( Const.GetRarityColor( rarity ) ),
+                GetIconFromSkillStatId( data.skillStatId ), 
+                data.modType );
         }
 
         private IEnumerable<Proficiency> GetSkillProficiencies( SkillId id )

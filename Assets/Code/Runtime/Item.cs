@@ -17,6 +17,7 @@ namespace Code.Runtime
 
         // TODO: implement distribution
         protected RarityId GetRandomRarity() => (RarityId) Random.Range(0, Enum.GetValues( typeof(RarityId) ).Length);
+        public Guid guid { get; } = Guid.NewGuid();
     }
     
     public sealed class Gear : Item
