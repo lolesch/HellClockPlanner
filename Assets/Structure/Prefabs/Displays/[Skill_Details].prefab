@@ -186,7 +186,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '#'
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 88b6dd6d8d891da4a8165c7c717a19e8, type: 2}
   m_sharedMaterial: {fileID: -4523790674863202085, guid: 88b6dd6d8d891da4a8165c7c717a19e8, type: 2}
@@ -1453,7 +1453,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1875070652254782455}
   isIncrement: 1
   levelText: {fileID: 706729082556795817}
@@ -2252,7 +2252,7 @@ GameObject:
   - component: {fileID: 8000600564244659905}
   - component: {fileID: 736351335823209877}
   m_Layer: 5
-  m_Name: '[SkillDetails]'
+  m_Name: '[Skill_Details]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

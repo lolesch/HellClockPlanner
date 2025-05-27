@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 namespace Code.Runtime.UI.Displays
 {
+    [RequireComponent( typeof(GraphicRaycaster), typeof(RectTransform))]
     public sealed class SkillTagDisplay : PoolObject
     {
         [SerializeField] private TextMeshProUGUI tagText;

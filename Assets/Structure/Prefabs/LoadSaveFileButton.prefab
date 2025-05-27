@@ -39,8 +39,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 62.655, y: -21.41}
-  m_SizeDelta: {x: 125.31, y: 0}
+  m_AnchoredPosition: {x: 62.65503, y: -21.409973}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &390297501684240791
 CanvasRenderer:
@@ -161,7 +161,6 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 8832340572735669327}
-  tooltipHolder: {fileID: 3531780280098065199}
   playerSaveId: 0
 --- !u!114 &3531780280098065199
 MonoBehaviour:
