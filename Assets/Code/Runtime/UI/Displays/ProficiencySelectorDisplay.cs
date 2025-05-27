@@ -50,12 +50,9 @@ namespace Code.Runtime.UI.Displays
 
         private void OnProficiencyChanged( TMP_Dropdown change )
         {
-            var skillId = GameState.Player.SkillSlots[slot.index]._skillHashId;
-            var optionIndex = change.value - 1;
-                
-            var proficiency = new Proficiency();
-            if( 0 < optionIndex ) 
-                proficiency = DataProvider.Instance.GetSkillProficiencies( skillId, rarity ).ToArray()[optionIndex];
+            var proficiency = 0 < change.value 
+                ? DataProvider.Instance.GetSkillProficiencies( _skill.skillId, rarity ).ToArray()[change.value - 1]
+                : new Proficiency();
             
             GameState.Player.skills[slot.index].AddProficiency( proficiency, proficiencySlotIndex );
         
