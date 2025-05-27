@@ -1,14 +1,12 @@
 
 ### FIX ME
-- [x] global buff mod should be rarity dependent like the rank
-- [ ]  PROFICIENCY DROPDOWN options are broken visually
-- [ ] proficiency dropdown top-most option has no effect
-- [x] skill stats display no longer updates
+- [ ] 
 
 CONTINUE HERE:
 - [x] skill details display
-	- [ ] proficiencies apply skill modifier
+	- [x] proficiencies apply skill modifier
 	- [ ] show proficiencies in the "affected by" area???
+	- [ ] show all skill stats
 - [x] Rank is rarity dependent
 - [ ] Gear / Trinket dropdowns
 	- [ ] random trinket generation
@@ -34,10 +32,6 @@ CONTINUE HERE:
 - [x] show character stats
 	- [ ] stat cap ( max res = 75% )
 ### Skill Slots
-- [x] listen for save file load and display the loaded skills
-- [ ] ~~onHover -> show skill details popup
-- [x] onClick -> show skill dropdown to select from
-	- [x] onSelect -> update saveFile with new skill
 - [ ] ~~dragAndDrop -> swap skills
 
 ### Proficiencies
@@ -46,7 +40,7 @@ CONTINUE HERE:
 - [x] onClick -> show proficiencies dropdown
 	- [x] make it skill-dependent
 	- [x] apply global buff
-	- [ ] apply skill modifier
+	- [x] apply skill modifier
 	- [ ] concat relic dependent proficiencies
 		- implement relics
 		- split proficiencyImportData so that the default dropdown list excludes relic proficiencies.

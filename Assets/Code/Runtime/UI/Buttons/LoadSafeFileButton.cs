@@ -13,7 +13,3 @@ namespace Code.Runtime.UI.Buttons
         }
     }
 }
-
-namespace Code.Runtime.UI.Toggles
-{
-}
