@@ -4,6 +4,7 @@ using System.Linq;
 using Code.Data;
 using Code.Data.Enums;
 using Code.Data.ScriptableObjects;
+using Code.Runtime.Statistics;
 using Code.Utility.Extensions;
 using TMPro;
 using UnityEngine;
@@ -67,6 +68,7 @@ namespace Code.Runtime.Provider
         public List<SkillTagImportData> GetSkillTagImports() => database.tables.skillTags;
         public List<GlobalBuffImportData> GetGlobalBuffImports() => database.tables.globalBuffs;
         public List<ProficiencyImportData> GetProficiencyImports() => database.tables.proficiencies;
+        public List<ShrineImportData> GetShrineImports() => database.tables.shrines;
         
         public List<SkillTagId> GetSkillTagsForSkill( SkillId skillId ) => GetSkillTagImports().Where( x => x.skillId == skillId ).Select( x => x.skillTagId ).ToList();
         

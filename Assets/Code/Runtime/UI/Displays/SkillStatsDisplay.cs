@@ -30,11 +30,20 @@ namespace Code.Runtime.UI.Displays
             if( skill == null || skill.skillId == SkillId.None )
                 return;
             
-            skillDamage.text = skill.GetStat( SkillStatId.Damage ).Value.ToString();
-            
-            skillDamage.DoPunch();
-            
+            SetSkillDamageText( skill );
+
+            // TODO: SetHitDamageText with punch
             onHitDamage.text = $"Hit Damage: {skill.CalculateHitDamage( ):0.##}";
+        }
+
+        private void SetSkillDamageText( Skill skill )
+        {
+            var text = skill.GetStat( SkillStatId.Damage ).Value.ToString();
+            if( skillDamage.text == text )
+                return;
+            
+            skillDamage.text = text;
+            skillDamage.DoPunch();
         }
     }
 }

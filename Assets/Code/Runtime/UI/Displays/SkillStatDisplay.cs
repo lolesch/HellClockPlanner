@@ -29,11 +29,10 @@ namespace Code.Runtime.UI.Displays
         private void SetValueText()
         {
             var text = _stat.Value.ToString();
+            if( statValue.text == text )
+                return;
             
-            if( _stat.Value.isModified )
-                text = text.Colored( Color.green );
             statValue.text = text;
-            
             statValue.DoPunch();
         }
 

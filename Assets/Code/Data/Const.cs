@@ -21,6 +21,7 @@ namespace Code.Data
         public const string DatabaseProficiencies = "Proficiencies";
         public const string DatabaseCharacterStats = "CharacterStats";
         public const string DatabaseGlobalBuffs = "GlobalBuffs";
+        public const string DatabaseShrines = "Shrines";
         //public const string DatabaseStatusEffects = "StatusEffects";
         
         public const float TooltipDelay = .5f;

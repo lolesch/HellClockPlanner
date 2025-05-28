@@ -13,6 +13,9 @@ namespace Code.Runtime.UI.Displays
         protected override void OnSkillSlotsChanged( SkillSlotData[] skillSlots )
         {
             var sprite = DataProvider.Instance.GetIconFromSkillId( skillSlots[slot.index]._skillHashId );
+
+            if( icon.sprite == sprite ) 
+                return;
             
             icon.sprite = sprite;
             icon.enabled = sprite != null;

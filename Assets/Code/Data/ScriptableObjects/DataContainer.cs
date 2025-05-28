@@ -31,5 +31,8 @@ namespace Code.Data.ScriptableObjects
     
         [SpreadsheetPage( Const.DatabaseProficiencies )] 
         public List<ProficiencyImportData> proficiencies;
+    
+        [SpreadsheetPage( Const.DatabaseShrines )] 
+        public List<ShrineImportData> shrines;
     }
 }

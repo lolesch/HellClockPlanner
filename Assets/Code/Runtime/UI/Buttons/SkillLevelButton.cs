@@ -58,17 +58,21 @@ namespace Code.Runtime.UI.Buttons
             interactable = false;
             levelText.text = "0";
 
-            if( _skill != null )
-            { 
-                interactable = _skill != null && isIncrement 
+            DoStateTransition(interactable ? SelectionState.Normal : SelectionState.Disabled, false);
+
+            if( _skill == null ) 
+                return;
+            
+            interactable = _skill != null && isIncrement 
                 ? _skill.level < _skill.MaxLevel 
                 : _skill.level > 1;
             
-                levelText.text = _skill.level.ToString();
-            }
+            if( levelText.text == _skill.level.ToString() )
+                return;
             
+            levelText.text = _skill.level.ToString();
             levelText.DoPunch();
-            DoStateTransition(interactable ? SelectionState.Normal : SelectionState.Disabled, false);
+
         }
     }
 }

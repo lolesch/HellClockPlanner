@@ -9,7 +9,7 @@ namespace Code.Runtime.Statistics
     public struct StatModifier : IStatModifier
     {
         [field: SerializeField] public CharacterStatId stat { get; private set; }
-        [field: SerializeField] public Modifier modifier { get; private set; }
+        public Modifier modifier { get; private set; }
 
         public StatModifier( CharacterStatId stat, Modifier modifier )
         {

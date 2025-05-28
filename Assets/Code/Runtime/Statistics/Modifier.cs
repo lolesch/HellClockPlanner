@@ -7,18 +7,18 @@ namespace Code.Runtime.Statistics
     [Serializable]
     public struct Modifier : IEquatable<Modifier>
     {
-        private readonly float _value;
+        public readonly float Value;
         public readonly IModifierSource Source;
 
         public Modifier( float value, IModifierSource source )
         {
-            _value = value;
+            Value = value;
             Source = source;
         }
         
-        public static implicit operator float( Modifier mod ) => mod._value;
+        public static implicit operator float( Modifier mod ) => mod.Value;
 
-        public bool Equals( Modifier other ) => Mathf.Approximately( _value, other._value ) 
+        public bool Equals( Modifier other ) => Mathf.Approximately( Value, other.Value ) 
                                                 && Source.guid == other.Source.guid;
     }
 

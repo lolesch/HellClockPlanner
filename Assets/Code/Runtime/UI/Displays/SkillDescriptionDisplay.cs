@@ -36,8 +36,10 @@ namespace Code.Runtime.UI.Displays
             var skill = GameState.Player.skills[ slot.index ];
             descriptionText.text = skill != null ? skill.description : "";
             globalBuffsText.text = skill != null ? GetGlobalBuffDescription( skill ) : "";
+            
+            if( globalBuffsValue.text == (skill != null ? GetGlobalBuffValue( skill ) : "" ) )
+                return;
             globalBuffsValue.text = skill != null ? GetGlobalBuffValue( skill ) : "";
-
             globalBuffsValue.DoPunch();
         }
         

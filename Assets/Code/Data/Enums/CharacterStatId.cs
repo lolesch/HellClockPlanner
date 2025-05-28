@@ -91,4 +91,14 @@ namespace Code.Data.Enums
         StunBuildupRate = 59,
         CrowdControlResistance = 60,
     }
+    public enum ShrineId : byte
+    {
+        None = 0,
+        Learning,
+        Aptitude,
+        Speed,
+        Wealth,
+        Protection,
+        Power,
+    }
 }

@@ -14,7 +14,21 @@ namespace Code.Runtime.UI.Toggles
         [field: SerializeField] public bool isOn { get; private set; } = false;
 
         [SerializeField, ReadOnly] private RadioGroup _radioGroup = null;
-        public RadioGroup radioGroup => _radioGroup ??= GetComponentInParent<RadioGroup>();
+        public RadioGroup radioGroup// => _radioGroup ??= GetComponentInParent<RadioGroup>( );
+        {
+            get
+            {
+                if( _radioGroup is not null && _radioGroup.enabled ) 
+                    return _radioGroup;
+                
+                var inParent = GetComponentInParent<RadioGroup>( );
+                if( inParent is not null && inParent.enabled )
+                    return _radioGroup = inParent;
+        
+                _radioGroup = null;
+                return _radioGroup;
+            }
+        }
 
         //[SerializeField] protected TextMeshProUGUI displayText = null;
         
@@ -31,7 +45,7 @@ namespace Code.Runtime.UI.Toggles
 #if UNITY_EDITOR
         protected override void OnValidate()
         {
-            if (radioGroup != null && radioGroup.transform != transform.parent)
+            if ( radioGroup?.transform != transform.parent )
                 _radioGroup = null;
 
             if (isOn && radioGroup)

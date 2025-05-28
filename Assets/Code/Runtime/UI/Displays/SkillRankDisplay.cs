@@ -30,9 +30,10 @@ namespace Code.Runtime.UI.Displays
         
         private void RefreshDisplay()
         {
-            rankValue.text = _skill is { rank: > 0 } 
-                ? $"{_skill.rank}".Colored( Color.yellow ) 
-                : "0";
+            var text = _skill != null ? $"{_skill.rank}".Colored( Color.yellow ) : "0";
+            if( rankValue.text == text )
+                return;
+            rankValue.text = text;
             
             rankValue.DoPunch();
         }

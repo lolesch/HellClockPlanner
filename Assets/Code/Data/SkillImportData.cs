@@ -64,4 +64,18 @@ namespace Code.Data
 
         public void OnAfterDeserialize() {}
     }
+    
+    [Serializable]
+    public struct ShrineImportData : ISerializationCallbackReceiver
+    {
+        [HideInInspector] public string name;
+        
+        [ReadOnly] public ShrineId shrineId;
+        [ReadOnly] public CharacterStatId characterStatId;
+        [ReadOnly] public int amount;
+        //[ReadOnly] public int duration;
+        public void OnBeforeSerialize() => name = $"{shrineId.ToDescription()} -> {amount} {characterStatId.ToDescription()}";
+
+        public void OnAfterDeserialize() {}
+    }
 }

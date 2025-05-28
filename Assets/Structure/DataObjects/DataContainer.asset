@@ -17,7 +17,7 @@ MonoBehaviour:
   selectedTogglesIds:
   - skillProficiencies
   - statusEffects
-  - skills
+  - shrines
   foldoutSerializationGUI: 0
   serializationOutputPath: ../../Configs
   serializationFileName: Configs.v0.1
@@ -1267,3 +1267,40 @@ MonoBehaviour:
       magic: 15
       rare: 20
       epic: 25
+    shrines:
+    - name: Learning -> 300 Experience Gain
+      shrineId: 1
+      characterStatId: 28
+      amount: 300
+    - name: Aptitude -> 300 Cooldown Speed
+      shrineId: 2
+      characterStatId: 26
+      amount: 300
+    - name: Speed -> 40 Attack Speed
+      shrineId: 3
+      characterStatId: 25
+      amount: 40
+    - name: Speed -> 40 Move Speed
+      shrineId: 3
+      characterStatId: 24
+      amount: 40
+    - name: Wealth -> 500 Gold Gain
+      shrineId: 4
+      characterStatId: 29
+      amount: 500
+    - name: Protection -> 75 Physical Resistance
+      shrineId: 5
+      characterStatId: 43
+      amount: 75
+    - name: Protection -> 75 Elemental Resistance
+      shrineId: 5
+      characterStatId: 40
+      amount: 75
+    - name: Protection -> 75 Crowd Control Resistance
+      shrineId: 5
+      characterStatId: 60
+      amount: 75
+    - name: Power -> 200 Damage
+      shrineId: 6
+      characterStatId: 2
+      amount: 200

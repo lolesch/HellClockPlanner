@@ -34,7 +34,10 @@ namespace Code.Runtime.UI.Displays
         
         private void SetValueText()
         {
-            statValue.text = _stat.Value.ToString();
+            var text = _stat.Value.ToString();
+            if( statValue.text == text )
+                return;
+            statValue.text = text;
             statValue.DoPunch();
         }
     }

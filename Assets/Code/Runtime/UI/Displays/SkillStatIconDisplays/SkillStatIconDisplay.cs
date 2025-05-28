@@ -65,6 +65,10 @@ namespace Code.Runtime.UI.Displays.SkillStatIconDisplays
             var value = "#";
             if( Skill != null && Stat != null && CharacterStat != null )
                 value = CalculateValue();
+            
+            if( statValue.text == value )
+                return;
+                
             statValue.text = value;
             statValue.DoPunch();
             tooltipHolder.SetTooltipText( $"{statId.ToDescription()} {value}" );

@@ -12,7 +12,7 @@ CONTINUE HERE:
 	- [ ] random trinket generation
 	- [ ] rarity distribution
 - [ ] foundations
-- [ ] shrines
+- [x] shrines
 - [ ] create a hashNumber that restores the current build
 	- [ ] update hash while building
 	- [ ] copy/paste into input field
@@ -73,5 +73,5 @@ CONTINUE HERE:
 	- [ ] stat modifier
 	- [ ] proc
 - shrines
-	- [ ] stat modifier
+	- [x] stat modifier
 <!-- - gold -->
