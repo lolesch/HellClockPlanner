@@ -4,6 +4,8 @@
 
 CONTINUE HERE:
 - [x] skill details display
+	- [ ] calculate dps -> hit damage x attackSpeed x skillSpeed?
+		- [ ] concider mana spent
 	- [x] proficiencies apply skill modifier
 	- [ ] show proficiencies in the "affected by" area???
 	- [ ] show all skill stats

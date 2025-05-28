@@ -20,7 +20,7 @@
 - [x] skill cooldown speed
 - [x] skill mana cost
 - [x] skill damage
-- [ ] skill hit damage ( character damage * skill damage ) 
+- [x] skill hit damage ( character damage * skill damage ) 
 - [ ] skill crit chance
 - [ ] skill projectile amount?
 - [ ] skill projectile bounces

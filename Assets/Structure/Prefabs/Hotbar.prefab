@@ -1257,7 +1257,6 @@ GameObject:
   - component: {fileID: 6790209392404354953}
   - component: {fileID: 1979601026151770611}
   - component: {fileID: 1955997718244712829}
-  - component: {fileID: 7747956130710263966}
   - component: {fileID: 8869180282576628315}
   - component: {fileID: 6157722146756758216}
   m_Layer: 5
@@ -1352,20 +1351,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 2
---- !u!114 &7747956130710263966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7341696256204153347}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4b8fe2d910fd6442ae5d64791cc58a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <activatedToggle>k__BackingField: {fileID: 5475995618159892050}
-  <allowSwitchOff>k__BackingField: 1
 --- !u!222 &8869180282576628315
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2613,12 +2598,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8067615880347384964, guid: a355d8048b8caaf4cbcd11d684dab7c4, type: 3}
       propertyPath: tooltipText
-      value: '<smallcaps>Shrine of Speed</smallcaps>
+      value: '<smallcaps>Shrine of Aptitude</smallcaps>
 
-        Attack Speed<color=#00FF00FF>
-        +40</color>
-
-        Move Speed<color=#00FF00FF> +40</color>
+        Cooldown Speed<color=#00FF00FF>
+        +300</color>
 
 '
       objectReference: {fileID: 0}
@@ -3247,10 +3230,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8067615880347384964, guid: a355d8048b8caaf4cbcd11d684dab7c4, type: 3}
       propertyPath: tooltipText
-      value: '<smallcaps>Shrine of Power</smallcaps>
+      value: '<smallcaps>Shrine of Learning</smallcaps>
 
-        Damage<color=#00FF00FF>
-        +200</color>
+        Experience Gain<color=#00FF00FF>
+        +300</color>
 
 '
       objectReference: {fileID: 0}
@@ -3366,10 +3349,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8067615880347384964, guid: a355d8048b8caaf4cbcd11d684dab7c4, type: 3}
       propertyPath: tooltipText
-      value: '<smallcaps>Shrine of Wealth</smallcaps>
+      value: '<smallcaps>Shrine of Protection</smallcaps>
 
-        Gold Gain<color=#00FF00FF>
-        +500</color>
+        Physical Resistance<color=#00FF00FF>
+        +75</color>
+
+        Elemental Resistance<color=#00FF00FF> +75</color>
+
+        Crowd
+        Control Resistance<color=#00FF00FF> +75</color>
 
 '
       objectReference: {fileID: 0}
@@ -3896,10 +3884,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8067615880347384964, guid: a355d8048b8caaf4cbcd11d684dab7c4, type: 3}
       propertyPath: tooltipText
-      value: '<smallcaps>Shrine of Aptitude</smallcaps>
+      value: '<smallcaps>Shrine of Speed</smallcaps>
 
-        Cooldown Speed<color=#00FF00FF>
-        +300</color>
+        Attack Speed<color=#00FF00FF>
+        +40</color>
+
+        Move Speed<color=#00FF00FF> +40</color>
 
 '
       objectReference: {fileID: 0}
@@ -4015,10 +4005,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8067615880347384964, guid: a355d8048b8caaf4cbcd11d684dab7c4, type: 3}
       propertyPath: tooltipText
-      value: '<smallcaps>Shrine of Learning</smallcaps>
+      value: '<smallcaps>Shrine of Power</smallcaps>
 
-        Experience Gain<color=#00FF00FF>
-        +300</color>
+        Damage<color=#00FF00FF>
+        +200</color>
 
 '
       objectReference: {fileID: 0}
@@ -4112,17 +4102,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8890205289826980966, guid: a355d8048b8caaf4cbcd11d684dab7c4, type: 3}
   m_PrefabInstance: {fileID: 8082024718462097158}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5475995618159892050 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4312121504194625876, guid: a355d8048b8caaf4cbcd11d684dab7c4, type: 3}
-  m_PrefabInstance: {fileID: 8082024718462097158}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91042957ea4a4010be0a73dfd117efe3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &8085801792308054138
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4548,15 +4527,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8067615880347384964, guid: a355d8048b8caaf4cbcd11d684dab7c4, type: 3}
       propertyPath: tooltipText
-      value: '<smallcaps>Shrine of Protection</smallcaps>
+      value: '<smallcaps>Shrine of Wealth</smallcaps>
 
-        Physical Resistance<color=#00FF00FF>
-        +75</color>
-
-        Elemental Resistance<color=#00FF00FF> +75</color>
-
-        Crowd
-        Control Resistance<color=#00FF00FF> +75</color>
+        Gold Gain<color=#00FF00FF>
+        +500</color>
 
 '
       objectReference: {fileID: 0}

@@ -7,7 +7,7 @@ namespace Code.Runtime.UI.Displays.SkillStatIconDisplays
     {
         protected override string CalculateValue()
         {
-            var cooldown = $"{Skill.cooldown * Stat.Value / CharacterStat.Value:0.##} s";
+            var cooldown = $"{Skill.cooldown * Stat.Value / CharacterStat.Value:0.##}s";
             return Stat.Value.isModified || CharacterStat.Value.isModified 
                 ? cooldown.Colored( Color.yellow ) 
                 : cooldown;

@@ -2314,7 +2314,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: v0.1.33_a_b9ab42c
+  m_text: v0.1.35_a_8b859ba
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 88b6dd6d8d891da4a8165c7c717a19e8, type: 2}
   m_sharedMaterial: {fileID: -4523790674863202085, guid: 88b6dd6d8d891da4a8165c7c717a19e8, type: 2}
@@ -67037,7 +67037,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 942048143636750135, guid: e6531f8b9af25c148b92f2ef093671ba, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 75.19
+      value: 78.43
       objectReference: {fileID: 0}
     - target: {fileID: 942048143636750135, guid: e6531f8b9af25c148b92f2ef093671ba, type: 3}
       propertyPath: m_SizeDelta.y
@@ -67045,7 +67045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 942048143636750135, guid: e6531f8b9af25c148b92f2ef093671ba, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 55.595
+      value: 57.215
       objectReference: {fileID: 0}
     - target: {fileID: 942048143636750135, guid: e6531f8b9af25c148b92f2ef093671ba, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -67977,7 +67977,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6347237034344498554, guid: e6531f8b9af25c148b92f2ef093671ba, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 99.175
+      value: 102.415
       objectReference: {fileID: 0}
     - target: {fileID: 6347237034344498554, guid: e6531f8b9af25c148b92f2ef093671ba, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -68346,6 +68346,10 @@ PrefabInstance:
     - target: {fileID: 8285598115577161250, guid: e6531f8b9af25c148b92f2ef093671ba, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8430903599132167895, guid: e6531f8b9af25c148b92f2ef093671ba, type: 3}
+      propertyPath: m_text
+      value: 'Hit Damage:'
       objectReference: {fileID: 0}
     - target: {fileID: 8430903599132167895, guid: e6531f8b9af25c148b92f2ef093671ba, type: 3}
       propertyPath: m_fontStyle

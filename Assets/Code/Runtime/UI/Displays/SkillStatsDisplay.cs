@@ -31,9 +31,7 @@ namespace Code.Runtime.UI.Displays
                 return;
             
             SetSkillDamageText( skill );
-
-            // TODO: SetHitDamageText with punch
-            onHitDamage.text = $"Hit Damage: {skill.CalculateHitDamage( ):0.##}";
+            SetHitDamageText( skill );
         }
 
         private void SetSkillDamageText( Skill skill )
@@ -44,6 +42,16 @@ namespace Code.Runtime.UI.Displays
             
             skillDamage.text = text;
             skillDamage.DoPunch();
+        }
+
+        private void SetHitDamageText( Skill skill )
+        {
+            var text = $"{skill.CalculateHitDamage( ):0.##}";
+            if( onHitDamage.text == text )
+                return;
+            
+            onHitDamage.text = text;
+            onHitDamage.DoPunch();
         }
     }
 }
