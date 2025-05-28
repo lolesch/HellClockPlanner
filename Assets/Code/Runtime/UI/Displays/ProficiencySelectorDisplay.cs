@@ -39,12 +39,19 @@ namespace Code.Runtime.UI.Displays
             
             var skillDependentProficiencies =
                 DataProvider.Instance.GetSkillProficiencies( _skill.skillId, rarity );
+            var hasProficiencies = skillDependentProficiencies.Any();
+            
+            dropdown.interactable = hasProficiencies;
+            dropdown.captionImage.color = hasProficiencies ? Color.white : Color.clear;
                 
             dropdown.ClearOptions();
             dropdown.options.Add(DataProvider.Instance.defaultOption);
-            dropdown.AddOptions(  skillDependentProficiencies
-                .Select( x => new TMP_Dropdown.OptionData( x.modDescription, x.icon, Color.white ) )
-                .ToList() );
+            
+            if( hasProficiencies )
+                dropdown.AddOptions(  skillDependentProficiencies
+                    .Select( x => new TMP_Dropdown.OptionData( x.modDescription, x.icon, Color.white ) )
+                    .ToList() );
+            
             dropdown.value = 0;
         }
 

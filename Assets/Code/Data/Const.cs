@@ -11,7 +11,7 @@ namespace Code.Data
 {
     public static class Const
     {
-        // ScriptableObject hierarchy
+        /// ScriptableObject hierarchy
         private const string Root = "SO/";
         public const string DataCollections = Root + "DataCollections/";
         
@@ -26,8 +26,9 @@ namespace Code.Data
         
         public const float TooltipDelay = .5f;
         public const float TooltipDelayAfterInteraction = 2f;
-        private const float TextPunchScale = .2f;
-        private const float TextPunchDuration = .2f;
+        
+        private const float TextPunchScale = .25f;
+        private const float TextPunchDuration = .25f;
 
         public static string GetFileName( PlayerSaveId id ) => $"{id}.{FileEnding}";
         
@@ -62,19 +63,18 @@ namespace Code.Data
 
         public static Color GetDamageTypeColor( DamageTypeId tagId )=> tagId switch
         {
-            DamageTypeId.Physical => new Color( 0.5f, 0.4f, 0.2f ),
-            DamageTypeId.Fire => new Color( 0.5f, 0.2f, 0.2f ),
-            DamageTypeId.Lightning => new Color( .2f, 0.4f, 0.4f ),
-            DamageTypeId.Plague => new Color( 0.2f, 0.5f, 0.2f ),
-            _ => Color.clear,
+            DamageTypeId.Physical => new Color( 0.7f, 0.6f, 0.4f ),
+            DamageTypeId.Fire => new Color( 0.5f, 0.2f, 0.15f ),
+            DamageTypeId.Lightning => new Color( .2f, 0.3f, 0.4f ),
+            DamageTypeId.Plague => new Color( 0.2f, 0.5f, 0.3f ),
+            _ => new Color( 0.33f, 0.33f, 0.33f ),
         };
 
-        public static void DoPunch( this Graphic text )
+        public static void DoPunch( this Graphic target )
         {
-            text.rectTransform.localScale = Vector3.one;
-            text.rectTransform.pivot = Vector2.one * .5f;
-            text.rectTransform.DOPunchScale( Vector3.one * Const.TextPunchScale, Const.TextPunchDuration, 0, 0 );
-                //.OnComplete( () => text.rectTransform.localScale = Vector3.one );
+            target.rectTransform.localScale = Vector3.one;
+            target.rectTransform.pivot = Vector2.one * .5f;
+            target.rectTransform.DOPunchScale( Vector3.one * TextPunchScale, TextPunchDuration, 0, 0 );
         }
     }
 }

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      icon_foundation_alacrity_0: -9217492562680578337
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

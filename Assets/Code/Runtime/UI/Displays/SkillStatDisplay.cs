@@ -1,5 +1,6 @@
 using Code.Data;
 using Code.Data.Enums;
+using Code.Runtime.Provider;
 using Code.Runtime.Statistics;
 using Code.Utility.Extensions;
 using DG.Tweening;
@@ -17,18 +18,24 @@ namespace Code.Runtime.UI.Displays
         
         [SerializeField] private TextMeshProUGUI statName;
         [SerializeField] private TextMeshProUGUI statValue;
+        [SerializeField] private Image icon;
         [SerializeField] private Image hoverImage;
         [SerializeField] private Color highlightedColor = new Color( 0.1764706f, 0, 0, 1f );
         
         public void OnPointerEnter( PointerEventData eventData ) => hoverImage.color = highlightedColor;
         public void OnPointerExit( PointerEventData eventData ) => hoverImage.color = Color.clear;
 
-        private void Start( ) => RefreshDisplay();
+        private void Start( )
+        {
+            statName.text = statId.ToDescription();
+            icon.sprite = DataProvider.Instance.GetIconFromSkillStatId( statId );
+            RefreshDisplay();
+        }
 
         private void SetValueText( float value ) => SetValueText(); 
         private void SetValueText()
         {
-            var text = _stat.Value.ToString();
+            var text = _stat != null ? _stat.Value.ToString() : "";
             if( statValue.text == text )
                 return;
             
@@ -43,10 +50,11 @@ namespace Code.Runtime.UI.Displays
             if( _stat != null )
                 _stat.Value.OnTotalChanged -= SetValueText;
     
-            _stat = GameState.Player.skills[ slot.index ].GetStat( statId );
-            _stat.Value.OnTotalChanged += SetValueText;
+            var skill = GameState.Player.skills[ slot.index ];
             
-            statName.text = statId.ToDescription();
+            _stat = skill?.GetStat( statId );
+            if( _stat != null )
+                _stat.Value.OnTotalChanged += SetValueText;
             SetValueText();
         }
     }

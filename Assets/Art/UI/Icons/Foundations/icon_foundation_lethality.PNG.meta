@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      icon_foundation_lethality_0: 2844856706285824747
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

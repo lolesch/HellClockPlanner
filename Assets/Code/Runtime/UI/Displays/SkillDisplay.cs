@@ -13,6 +13,7 @@ namespace Code.Runtime.UI.Displays
         [SerializeField] private TextMeshProUGUI skillName;
         //[SerializeField] private GameObject[] toggleObjects;
         [SerializeField] private SkillTagDisplay skillTagPrefab;
+        [SerializeField] private Image frame;
         private Skill _skill;
        
         private void Start()
@@ -49,6 +50,8 @@ namespace Code.Runtime.UI.Displays
             PoolProvider.Instance.ReleaseAll( skillTagPrefab );
             if( showDetails )
                 CreateTags();
+            
+            frame.color = Const.GetDamageTypeColor( _skill?.damageType ?? DamageTypeId.None ) * Color.gray;
             
             LayoutRebuilder.ForceRebuildLayoutImmediate( transform.parent as RectTransform );
         }

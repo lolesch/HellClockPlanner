@@ -82,8 +82,11 @@ namespace Code.Runtime
             if( _proficiencies.TryGetValue( proficiencySlotIndex, out var existing ) )
                 RemoveProficiency( existing, proficiencySlotIndex );
 
-            if( proficiency.skillStatId == SkillStatId.None ) 
+            if( proficiency.skillStatId == SkillStatId.None )
+            {
+                OnProficienciesChanged?.Invoke();
                 return;
+            }
             
             _proficiencies.Add( proficiencySlotIndex, proficiency );
             GetStat( proficiency.skillStatId ).AddModifier( new Modifier( proficiency.value, proficiency ) );
@@ -94,18 +97,13 @@ namespace Code.Runtime
             OnProficienciesChanged?.Invoke();
         }
 
-        public void RemoveProficiency( Proficiency proficiency, int proficiencySlotIndex )
+        private void RemoveProficiency( Proficiency proficiency, int proficiencySlotIndex )
         {
-            //if( proficiency.skillStatId == SkillStatId.None ) 
-            //    return;
-            
             _proficiencies.Remove( proficiencySlotIndex );
             GetStat( proficiency.skillStatId ).TryRemoveModifier( new Modifier( proficiency.value, proficiency ) );
 
             foreach( var buff in GlobalBuffs )
                 GameState.Player.GetStat( buff.characterStatId ).TryRemoveModifier( new Modifier( buff.amountPerRank * (int)proficiency.rarity, this ) );
-
-            OnProficienciesChanged?.Invoke();
         }
 
         public void RevertGlobalBuffs() => GlobalBuffs.ForEach( x =>

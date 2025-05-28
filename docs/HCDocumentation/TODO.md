@@ -1,14 +1,18 @@
 
 ### FIX ME
-- [ ] 
+- [ ] ~~doPunch for hitDamage on characterStatChanges. ~~
+    -  right now it just punches on skillDamage change
+- [ ] add skillStats for 
+	- [ ] conviction gain
+	- [ ] conviction decay resistance
 
 CONTINUE HERE:
 - [x] skill details display
+	- [ ] show all skill stats
 	- [ ] calculate dps -> hit damage x attackSpeed x skillSpeed?
 		- [ ] concider mana spent
 	- [x] proficiencies apply skill modifier
 	- [ ] show proficiencies in the "affected by" area???
-	- [ ] show all skill stats
 - [x] Rank is rarity dependent
 - [ ] Gear / Trinket dropdowns
 	- [ ] random trinket generation
