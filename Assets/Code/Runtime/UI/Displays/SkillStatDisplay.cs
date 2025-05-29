@@ -3,7 +3,6 @@ using Code.Data.Enums;
 using Code.Runtime.Provider;
 using Code.Runtime.Statistics;
 using Code.Utility.Extensions;
-using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;

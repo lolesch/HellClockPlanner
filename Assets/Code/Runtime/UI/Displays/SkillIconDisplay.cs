@@ -1,6 +1,5 @@
 using Code.Data;
 using Code.Runtime.Provider;
-using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 

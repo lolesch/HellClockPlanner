@@ -7,30 +7,30 @@ namespace Code.Runtime.UI.Toggles
 {
     public class RadioGroup : MonoBehaviour
     {
-        [field: SerializeField, ReadOnly] public AbstractToggle activatedToggle { get; private set; }
+        [field: SerializeField, ReadOnly] public AbstractRadioToggle activatedRadioToggle { get; private set; }
         [field: SerializeField] public bool allowSwitchOff { get; private set; } = false;
 
         public event Action OnGroupChanged;
 
-        private readonly List<AbstractToggle> _radioToggles = new();
+        private readonly List<AbstractRadioToggle> _radioToggles = new();
 
-        public void Activate( AbstractToggle newToggle )
+        public void Activate( AbstractRadioToggle newRadioToggle )
         {
-            if (newToggle == null || activatedToggle == newToggle)
+            if (newRadioToggle == null || activatedRadioToggle == newRadioToggle)
                 return;
 
-            activatedToggle = newToggle;
+            activatedRadioToggle = newRadioToggle;
 
             foreach (var toggle in _radioToggles)
             {
-                if (toggle != activatedToggle /*&& toggle.IsOn*/)
+                if (toggle != activatedRadioToggle /*&& toggle.IsOn*/)
                     toggle.SetToggle(false);
             }
 
             OnGroupChanged?.Invoke();
         }
 
-        public void Register(AbstractToggle item)
+        public void Register(AbstractRadioToggle item)
         {
             if (_radioToggles.Contains(item))
                 return;
@@ -40,7 +40,7 @@ namespace Code.Runtime.UI.Toggles
             OnGroupChanged?.Invoke();
         }
 
-        public void Unregister(AbstractToggle item)
+        public void Unregister(AbstractRadioToggle item)
         {
             if (!_radioToggles.Contains(item))
                 return;

@@ -1,9 +1,8 @@
-using System;
 using System.IO;
 using System.Text;
 using Code.Data.Enums;
-using DG.Tweening;
-using TMPro;
+using LitMotion;
+using LitMotion.Extensions;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -72,9 +71,13 @@ namespace Code.Data
 
         public static void DoPunch( this Graphic target )
         {
-            target.rectTransform.localScale = Vector3.one;
             target.rectTransform.pivot = Vector2.one * .5f;
-            target.rectTransform.DOPunchScale( Vector3.one * TextPunchScale, TextPunchDuration, 0, 0 );
+            
+            LMotion.Punch.Create( Vector3.one, Vector3.one * TextPunchScale, TextPunchDuration )
+                .WithEase( Ease.OutCubic )
+                .WithFrequency(1) // Specify oscillation count
+                //.WithDampingRatio(0f) // Specify damping ratio
+                .BindToLocalScale( target.rectTransform );
         }
     }
 }

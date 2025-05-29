@@ -1,7 +1,6 @@
 using System;
 using Code.Data;
 using Code.Utility.Extensions;
-using DG.Tweening;
 using TMPro;
 using UnityEngine;
 

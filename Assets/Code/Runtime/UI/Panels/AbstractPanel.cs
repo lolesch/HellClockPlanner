@@ -1,7 +1,6 @@
 ﻿using Code.Runtime.UI.Displays;
-using DG.Tweening;
+using LitMotion;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Code.Runtime.UI.Panels
 {
@@ -22,6 +21,8 @@ namespace Code.Runtime.UI.Panels
         public bool isActive => Mathf.Approximately( canvasGroup.alpha, 1 );
         [field: SerializeField, Range(0, 1)] public float fadeDuration { get; private set; } = .2f;
 
+        private MotionHandle _handle;
+
         protected virtual void Awake()
         {
             if (isActiveAndEnabled)
@@ -33,8 +34,8 @@ namespace Code.Runtime.UI.Panels
         protected virtual void OnDisable() => KillTweens();
 
         [ContextMenu("FadeIn")]
-        public void FadeIn() => FadeIn(fadeDuration);
-        public void FadeIn(float fadeInDuration)
+        public MotionHandle FadeIn() => FadeIn(fadeDuration);
+        public MotionHandle FadeIn(float fadeInDuration)
         {
             KillTweens();
 
@@ -46,24 +47,21 @@ namespace Code.Runtime.UI.Panels
 
                 OnAppear();
 
-                return;
-            }
-
-            _ = canvasGroup.DOFade(1, fadeInDuration).SetEase(Ease.InOutQuad).OnComplete(() => OnAppear());
-        }
-
-        public Sequence FadeInAfterDelay(float fadeInDelay = 0)
-        {
-            if (0 >= fadeInDelay)
-            {
-                FadeIn();
-                return null;
+                _handle = new MotionHandle();
             }
             else
-            {
-                var sequence = DOTween.Sequence();
-                return sequence.InsertCallback(fadeInDelay, FadeIn);
-            }
+                _handle = LMotion.Create( 0, 1, fadeInDuration ).WithEase( Ease.InQuad ).WithOnComplete( OnAppear )
+                    .Bind( canvasGroup, ( x, target ) => target.alpha = x );
+            
+            return _handle;
+        }
+
+        public void FadeInAfterDelay(float fadeInDelay = 0)
+        {
+            if (0 >= fadeInDelay)
+                FadeIn();
+            else
+                LSequence.Create().Insert( fadeInDelay, FadeIn() );
         }
 
         /// <summary>
@@ -95,7 +93,8 @@ namespace Code.Runtime.UI.Panels
                 return;
             }
 
-            _ = canvasGroup.DOFade(0, fadeOutDuration).SetEase(Ease.InQuad); //.OnComplete(() => OnDisappear());
+            _handle = LMotion.Create( 1, 0, fadeOutDuration ).WithEase( Ease.InQuad )
+                .Bind( canvasGroup, ( x, target ) => target.alpha = x );//.OnComplete(() => OnDisappear());
         }
 
         [ContextMenu("Toggle Visibility")]
@@ -109,11 +108,8 @@ namespace Code.Runtime.UI.Panels
 
         private void KillTweens()
         {
-            if (canvasGroup == null)
-                return;
-
-            if (DOTween.IsTweening(canvasGroup))
-                _ = DOTween.Kill(canvasGroup);
+            if ( _handle.IsActive() ) 
+                _handle.Cancel();
         }
     }
 }

@@ -1,10 +1,7 @@
 using Code.Data;
 using Code.Runtime.UI.Displays;
-using Code.Utility.Extensions;
-using DG.Tweening;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Code.Runtime.UI.Buttons
 {
@@ -72,7 +69,6 @@ namespace Code.Runtime.UI.Buttons
             
             levelText.text = _skill.level.ToString();
             levelText.DoPunch();
-
         }
     }
 }

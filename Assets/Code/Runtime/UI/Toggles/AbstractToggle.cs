@@ -1,8 +1,4 @@
-﻿using System;
-using Code.Data;
-using Code.Utility.AttributeRef.Attributes;
-using DG.Tweening;
-using TMPro;
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -12,23 +8,6 @@ namespace Code.Runtime.UI.Toggles
     public abstract class AbstractToggle : Selectable, IPointerClickHandler
     {
         [field: SerializeField] public bool isOn { get; private set; } = false;
-
-        [SerializeField, ReadOnly] private RadioGroup _radioGroup = null;
-        public RadioGroup radioGroup// => _radioGroup ??= GetComponentInParent<RadioGroup>( );
-        {
-            get
-            {
-                if( _radioGroup is not null && _radioGroup.enabled ) 
-                    return _radioGroup;
-                
-                var inParent = GetComponentInParent<RadioGroup>( );
-                if( inParent is not null && inParent.enabled )
-                    return _radioGroup = inParent;
-        
-                _radioGroup = null;
-                return _radioGroup;
-            }
-        }
 
         //[SerializeField] protected TextMeshProUGUI displayText = null;
         
@@ -42,48 +21,17 @@ namespace Code.Runtime.UI.Toggles
 
         public event Action<bool> OnToggle;
 
-#if UNITY_EDITOR
-        protected override void OnValidate()
-        {
-            if ( radioGroup?.transform != transform.parent )
-                _radioGroup = null;
-
-            if (isOn && radioGroup)
-                radioGroup.Activate(this);
-        }
-#endif // if UNTIY_EDITOR
-
-        protected override void OnDisable()
-        {
-            base.OnDisable();
-
-            if (radioGroup)
-                radioGroup.Unregister(this);
-
-            if (targetGraphic && DOTween.IsTweening(targetGraphic.transform))
-                _ = DOTween.Kill(targetGraphic.transform);
-        }
-
-        protected override void OnEnable()
-        {
-            base.OnEnable();
-
-            if (radioGroup && interactable)
-                radioGroup.Register(this);
-        }
-
         protected override void Start()
         {
             base.Start();
-            //hideTooltip = new HideTooltipCommand();
 
             SetToggle(isOn);
         }
 
-        internal void SetToggle(bool on)
+        internal virtual void SetToggle(bool on)
         {
-            this.isOn = on;
-            OnToggle?.Invoke(this.isOn);
+            isOn = on;
+            OnToggle?.Invoke(isOn);
 
             //if (icon != null)
             //{
@@ -97,23 +45,11 @@ namespace Code.Runtime.UI.Toggles
             //        displayText.text = this.isOn ? toggledOnText : toggledOffText;
             //}
 
-            if (this.isOn && radioGroup)
-                radioGroup.Activate(this);
-
-            //if ()
-                DoStateTransition( isOn ? SelectionState.Selected : SelectionState.Normal, false);
+            DoStateTransition();
 
             //PlayToggleSound(this.isOn);
 
             Toggle(on);
-        }
-
-        public override void OnDeselect(BaseEventData eventData)
-        {
-            base.OnDeselect(eventData);
-
-            if (interactable)
-                DoStateTransition(isOn ? SelectionState.Selected : SelectionState.Normal, false);
         }
 
         protected abstract void Toggle(bool on);
@@ -123,21 +59,26 @@ namespace Code.Runtime.UI.Toggles
             if (!interactable)
                 return;
 
-            if (radioGroup && !radioGroup.allowSwitchOff && isOn)
-                return;
-
             if (eventData.button == PointerEventData.InputButton.Left)
                 SetToggle(!isOn);
         }
-
+        
         public override void OnPointerExit(PointerEventData eventData)
         {
             base.OnPointerExit(eventData);
 
             if (interactable)
-                DoStateTransition(isOn ? SelectionState.Selected : SelectionState.Normal, false);
+                DoStateTransition();
         }
 
-        //public virtual void PlayToggleSound(bool on) { } // => AudioProvider.Instance.PlayButtonClick();
+        public override void OnDeselect(BaseEventData eventData)
+        {
+            base.OnDeselect(eventData);
+        
+            if (interactable)
+                DoStateTransition();
+        }
+        
+        private void DoStateTransition() => DoStateTransition(isOn ? SelectionState.Selected : SelectionState.Normal, false);
     }
 }

@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.annulusgames.lit-motion": "https://github.com/AnnulusGames/LitMotion.git?path=src/LitMotion/Assets/LitMotion",
     "com.kamgam.editor.gittool": "https://github.com/kamgam/UnityEditorGitTool.git",
     "com.norska-lib.spreadsheets": "https://github.com/NorskaGames/NorskaLib.Spreadsheets.git",
     "com.unity.feature.2d": "2.0.1",
