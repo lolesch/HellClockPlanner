@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      icon_skill_holyRosary_0: -7482662899515750804
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

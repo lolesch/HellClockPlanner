@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      icon_proficiency_knifeBounceAmount_0: 6077308720662455747
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

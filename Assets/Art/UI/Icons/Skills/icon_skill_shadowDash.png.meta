@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      icon_skill_shadowDash_0: 7540120025045706771
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

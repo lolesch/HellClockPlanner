@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      icon_skill_matadeira_0: 3437657772822503084
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

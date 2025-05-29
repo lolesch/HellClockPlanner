@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ProficiencyIconBackground_0: 7469800596045280735
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Shrine and relic buffs_0: 9215121760949756735
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

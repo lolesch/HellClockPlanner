@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      icon_proficiency_criticalHitChance_0: -8333743995534904006
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

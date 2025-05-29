@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      icon_skill_lasso_0: 1502977070337614901
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

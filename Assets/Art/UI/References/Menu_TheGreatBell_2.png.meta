@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Menu_TheGreatBell_2_0: -82130770104412400
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

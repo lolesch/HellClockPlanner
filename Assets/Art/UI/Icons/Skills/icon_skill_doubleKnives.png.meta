@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      icon_skill_doubleKnives_0: 4369131097030311678
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

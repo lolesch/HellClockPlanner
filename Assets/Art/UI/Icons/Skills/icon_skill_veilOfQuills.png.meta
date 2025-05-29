@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      icon_skill_veilOfQuills_0: -1072311324571223980
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

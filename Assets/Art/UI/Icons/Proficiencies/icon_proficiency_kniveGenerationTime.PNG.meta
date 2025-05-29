@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      icon_proficiency_kniveGenerationTime_0: -6134182235830120359
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
