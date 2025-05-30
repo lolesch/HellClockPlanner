@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Code.Runtime.Pools
 {
@@ -9,5 +10,9 @@ namespace Code.Runtime.Pools
         public virtual void Initialize()
         {
         }
+    }
+    internal interface IPoolObject : IDisposable
+    {
+        void Initialize();
     }
 }

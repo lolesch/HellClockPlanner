@@ -1,0 +1,3 @@
+[submodule "Assets/External/hellclock-data-export"]
+	path = Assets/External/hellclock-data-export
+	url = https://github.com/RogueSnail/hellclock-data-export.git
