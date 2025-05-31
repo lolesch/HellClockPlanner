@@ -15,7 +15,7 @@ namespace Code.Runtime.UI.Toggles
         public Guid guid { get; } = Guid.NewGuid();
         [SerializeField] private ShrineId shrineId;
         [SerializeField] private TooltipHolder tooltipHolder;
-        private IEnumerable<StatModifier> _modifiers;
+        private IEnumerable<CharacterStatModifier> _modifiers;
 
         protected override void Awake()
         {
@@ -24,7 +24,7 @@ namespace Code.Runtime.UI.Toggles
             var imports = DataProvider.Instance.GetShrineImports();
             _modifiers = imports
                 .Where( x => x.shrineId == shrineId )
-                .Select( x => new StatModifier( x.characterStatId, new Modifier( x.amount, this )));
+                .Select( x => new CharacterStatModifier( x.characterStatId, new Modifier( x.amount, this )));
             
             // TODO: replace with buffDisplay
             var sb = new StringBuilder();

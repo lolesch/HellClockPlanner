@@ -14,7 +14,7 @@ namespace Code.Runtime.UI.Displays
         [SerializeField] private TMP_Dropdown dropdown;
         [SerializeField] private TooltipHolder tooltipHolder;
         [SerializeField] private int proficiencySlotIndex;
-        [SerializeField] private RarityId rarity;
+        [SerializeField] private RarityId rarityId;
 
         private Skill _skill;
         
@@ -38,7 +38,7 @@ namespace Code.Runtime.UI.Displays
             _skill = GameState.Player.skills[slot.index];
             
             var skillDependentProficiencies =
-                DataProvider.Instance.GetSkillProficiencies( _skill.skillId, rarity );
+                DataProvider.Instance.GetSkillProficiencies( _skill.skillId, rarityId );
             var hasProficiencies = skillDependentProficiencies.Any();
             
             dropdown.interactable = hasProficiencies;
@@ -58,7 +58,7 @@ namespace Code.Runtime.UI.Displays
         private void OnProficiencyChanged( TMP_Dropdown change )
         {
             var proficiency = 0 < change.value 
-                ? DataProvider.Instance.GetSkillProficiencies( _skill.skillId, rarity ).ToArray()[change.value - 1]
+                ? DataProvider.Instance.GetSkillProficiencies( _skill.skillId, rarityId ).ToArray()[change.value - 1]
                 : new Proficiency();
             
             GameState.Player.skills[slot.index].AddProficiency( proficiency, proficiencySlotIndex );

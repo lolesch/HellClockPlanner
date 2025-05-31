@@ -19,7 +19,7 @@ namespace Code.Runtime.UI.Displays
         public void SetTag( DamageTypeId tagId)
         {
             tagText.text = tagId.ToDescription();
-            frame.color = Const.GetDamageTypeColor( tagId ); // add damage type icon instead/on top ?
+            frame.color = tagId.GetDamageTypeColor(); // add damage type icon instead/on top ?
         }
 
         public override void Dispose()

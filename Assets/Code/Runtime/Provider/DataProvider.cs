@@ -84,7 +84,7 @@ namespace Code.Runtime.Provider
         //    return GetSkillImports().Where( x => skillIds.Contains( x.skillId ) ).ToList();
         //}
         
-        private Proficiency CreateProficiencyForRarity( ProficiencyImportData data, RarityId rarity )
+        private Proficiency CreateProficiencyForRarity( ProficiencyImportData data, RarityId rarityId )
         {
             return new Proficiency( 
                 data.skillId, 
@@ -92,9 +92,9 @@ namespace Code.Runtime.Provider
                 data.modDescription == string.Empty
                     ? data.skillStatId.ToDescription()
                     : data.modDescription, 
-                data.GetValue( rarity ), 
-                rarity,
-                data.proficiencyName.Colored( Const.GetRarityColor( rarity ) ),
+                data.GetValue( rarityId ), 
+                rarityId,
+                data.proficiencyName.Colored( rarityId.GetRarityColor() ),
                 GetIconFromSkillStatId( data.skillStatId ), 
                 data.modType );
         }
@@ -102,8 +102,8 @@ namespace Code.Runtime.Provider
         private IEnumerable<Proficiency> GetSkillProficiencies( SkillId id )
             => proficiencies.Where( x => x.skillId == id );
 
-        public IEnumerable<Proficiency> GetSkillProficiencies( SkillId id, RarityId rarity ) 
-            => GetSkillProficiencies( id ).Where( x => x.rarity == rarity )
+        public IEnumerable<Proficiency> GetSkillProficiencies( SkillId id, RarityId rarityId ) 
+            => GetSkillProficiencies( id ).Where( x => x.rarityId == rarityId )
                 .OrderBy( x => x.skillStatId);
         
         public Proficiency GetSkillProficiency( SkillStatId id ) 

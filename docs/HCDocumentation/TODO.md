@@ -1,12 +1,12 @@
 
 ### FIX ME
-- [ ] ~~doPunch for hitDamage on characterStatChanges. ~~
-    -  right now it just punches on skillDamage change
 - [ ] add skillStats for 
 	- [ ] conviction gain
 	- [ ] conviction decay resistance
 
 CONTINUE HERE:
+- [ ] review Abstract2dContainer and match AbstractSlotContainer logic
+- [ ] Check For Trinket Upgrade ( see InventoryTetris currency for reference )
 - [x] skill details display
 	- [ ] show all skill stats
 	- [ ] calculate dps -> hit damage x attackSpeed x skillSpeed?

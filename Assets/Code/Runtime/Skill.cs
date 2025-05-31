@@ -30,7 +30,7 @@ namespace Code.Runtime
         public int manaCost => _config.manaCost; // TODO: get level dependent value
         public float cooldown => _config.cooldown; // TODO: get level dependent value
         //public int baseDamage => _config.baseDamage; // TODO: get level dependent value
-        public int rank => _proficiencies.Where( x => x.Value.skillStatId != SkillStatId.None ).Sum( x => (int)x.Value.rarity );
+        public int rank => _proficiencies.Where( x => x.Value.skillStatId != SkillStatId.None ).Sum( x => (int)x.Value.rarityId );
         public Guid guid { get; } = Guid.NewGuid();
 
         //public bool isAssigned => GameState.Player.SkillSlots.Select( x => x._skillHashId ).Contains( _config.id );
@@ -92,7 +92,7 @@ namespace Code.Runtime
             GetStat( proficiency.skillStatId ).AddModifier( new Modifier( proficiency.value, proficiency ) );
                 
             foreach( var buff in GlobalBuffs )
-                GameState.Player.GetStat( buff.characterStatId ).AddModifier( new Modifier( buff.amountPerRank * (int)proficiency.rarity, this ) );
+                GameState.Player.GetStat( buff.characterStatId ).AddModifier( new Modifier( buff.amountPerRank * (int)proficiency.rarityId, this ) );
             
             OnProficienciesChanged?.Invoke();
         }
@@ -103,7 +103,7 @@ namespace Code.Runtime
             GetStat( proficiency.skillStatId ).TryRemoveModifier( new Modifier( proficiency.value, proficiency ) );
 
             foreach( var buff in GlobalBuffs )
-                GameState.Player.GetStat( buff.characterStatId ).TryRemoveModifier( new Modifier( buff.amountPerRank * (int)proficiency.rarity, this ) );
+                GameState.Player.GetStat( buff.characterStatId ).TryRemoveModifier( new Modifier( buff.amountPerRank * (int)proficiency.rarityId, this ) );
         }
 
         public void RevertGlobalBuffs() => GlobalBuffs.ForEach( x =>

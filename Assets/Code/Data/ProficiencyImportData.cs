@@ -30,13 +30,13 @@ namespace Code.Data
 
         public void OnAfterDeserialize() {}
         
-        public float GetValue( RarityId rarity ) => rarity switch
+        public float GetValue( RarityId rarityId ) => rarityId switch
         {
             RarityId.Common => common,
             RarityId.Magic => magic,
             RarityId.Rare => rare,
             RarityId.Epic => epic,
-            _ => throw new ArgumentOutOfRangeException( nameof( rarity ), rarity, null )
+            _ => throw new ArgumentOutOfRangeException( nameof( rarityId ), rarityId, null )
         };
     }
     
@@ -49,17 +49,17 @@ namespace Code.Data
         [ReadOnly] public SkillStatId skillStatId;
         [ReadOnly] public float value;
         [ReadOnly] public ModType modType;
-        [ReadOnly] public RarityId rarity;
+        [ReadOnly] public RarityId rarityId;
         [ReadOnly, PreviewIcon(32)] public Sprite icon;
         [ReadOnly] public Guid guid { get; private set; }
 
-        public Proficiency( SkillId skillId, SkillStatId skillStatId, string modDescription, float value, RarityId rarity, string name, Sprite icon, ModType modType )
+        public Proficiency( SkillId skillId, SkillStatId skillStatId, string modDescription, float value, RarityId rarityId, string name, Sprite icon, ModType modType )
         {
             this.skillId = skillId;
             this.skillStatId = skillStatId;
             this.modDescription = modDescription;
             this.value = value;
-            this.rarity = rarity;
+            this.rarityId = rarityId;
             this.name = name;
             this.icon = icon;
             this.modType = modType;

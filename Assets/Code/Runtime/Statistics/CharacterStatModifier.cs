@@ -1,17 +1,19 @@
 ﻿using System;
 using Code.Data.Enums;
-using Code.Utility.Tools.Statistics;
 using UnityEngine;
 
 namespace Code.Runtime.Statistics
 {
     [Serializable]
-    public struct StatModifier : IStatModifier
+    public struct CharacterStatModifier : IStatModifier
     {
+        /// where to put this?
+        //[field: SerializeField] protected float randomRoll { get; } = Random.value;
+        //[SerializeField] protected Vector2 _range;
         [field: SerializeField] public CharacterStatId stat { get; private set; }
         public Modifier modifier { get; private set; }
 
-        public StatModifier( CharacterStatId stat, Modifier modifier )
+        public CharacterStatModifier( CharacterStatId stat, Modifier modifier )
         {
             this.stat = stat;
             this.modifier = modifier;

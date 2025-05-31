@@ -29,7 +29,7 @@ namespace Code.Data
         private const float TextPunchScale = .25f;
         private const float TextPunchDuration = .25f;
 
-        public static string GetFileName( PlayerSaveId id ) => $"{id}.{FileEnding}";
+        public static string GetFileName( this PlayerSaveId id ) => $"{id}.{FileEnding}";
         
         public static string GetSaveDirectory()
         {
@@ -44,13 +44,28 @@ namespace Code.Data
             return sb.ToString();
         }
 
-        public static Color GetRarityColor( RarityId rarity ) => rarity switch
+        public static Color GetRarityColor( this RarityId rarityId ) => rarityId switch
         {
             RarityId.Common => new Color( 0.3490196f, 0.3254902f, 0.3254902f ),
             RarityId.Magic =>new Color( 0.2901961f, 0.4901961f, 1f ),
             RarityId.Rare => new Color( 0.8901961f, 0.7490196f, 0.3215686f ),
             RarityId.Epic => new Color( 1f, 0.3254902f, 0.1921569f ),
             _ => Color.clear,
+        };
+        
+        public static Vector2Int ToDimension( this RelicSizeId relicSizeId) => relicSizeId switch
+        {
+            RelicSizeId.None => Vector2Int.zero,
+            RelicSizeId.OneByOne => new Vector2Int(1, 1),
+            RelicSizeId.OneByTwo => new Vector2Int(1, 2),
+            //RelicSizeId.OneByThree => new Vector2Int(1, 3),
+            RelicSizeId.OneByFour => new Vector2Int(1, 4),
+
+            //RelicSizeId.TwoByOne => new Vector2Int(2, 1),
+            RelicSizeId.TwoByTwo => new Vector2Int(2, 2),
+            //RelicSizeId.TwoByThree => new Vector2Int(2, 3),
+            //RelicSizeId.TwoByFour => new Vector2Int(2, 4),
+            _ => Vector2Int.zero,
         };
 
         public enum PlayerSaveId
@@ -60,7 +75,7 @@ namespace Code.Data
             PlayerSave2
         }
 
-        public static Color GetDamageTypeColor( DamageTypeId tagId )=> tagId switch
+        public static Color GetDamageTypeColor( this DamageTypeId tagId )=> tagId switch
         {
             DamageTypeId.Physical => new Color( 0.7f, 0.6f, 0.4f ),
             DamageTypeId.Fire => new Color( 0.5f, 0.2f, 0.15f ),

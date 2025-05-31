@@ -1,4 +1,4 @@
-### Import Data
+ ### Import Data
 - [x] name/id
 - [x] description
 - [x] mana cost
@@ -7,7 +7,7 @@
 - [x] icon
 - [x] tags list
 - [x] global buffs list
-- [ ] maximum skill level
+- [ ] ~~maximum skill level~~ <- global
 - [x] current skill level
 
 ### Derived

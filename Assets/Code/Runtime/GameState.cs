@@ -1,5 +1,4 @@
 using System.IO;
-using System.Runtime.Serialization.Json;
 using Code.Data;
 using UnityEngine;
 
@@ -27,11 +26,11 @@ namespace Code.Runtime
                 return;
             }
             
-            var files = Directory.GetFiles(directory, $"*{Const.GetFileName(id)}");
+            var files = Directory.GetFiles(directory, $"*{id.GetFileName()}");
             
             if ( files.Length == 0 )
             {
-                Debug.Log( $"File {Const.GetFileName(id)} does not exist" );
+                Debug.Log( $"File {id.GetFileName()} does not exist" );
                 return;
             }
             

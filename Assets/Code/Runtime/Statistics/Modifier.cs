@@ -6,6 +6,7 @@ namespace Code.Runtime.Statistics
     [Serializable]
     public struct Modifier : IEquatable<Modifier>
     {
+        //public readonly Vector2Int Range; // TODO: implement
         public readonly float Value;
         public readonly IModifierSource Source;
 
