@@ -14,7 +14,7 @@ namespace Code.Data
         private const string Root = "SO/";
         public const string DataCollections = Root + "DataCollections/";
         
-        private const string FileEnding = "json";
+        public const string FileTypeJson = ".json";
         public const string DatabaseSkills = "Skills";
         public const string DatabaseSkillTags = "SkillTags";
         public const string DatabaseProficiencies = "Proficiencies";
@@ -29,9 +29,9 @@ namespace Code.Data
         private const float TextPunchScale = .25f;
         private const float TextPunchDuration = .25f;
 
-        public static string GetFileName( this PlayerSaveId id ) => $"{id}.{FileEnding}";
+        public static string GetFileName( this PlayerSaveId id ) => $"{id}{FileTypeJson}";
         
-        public static string GetSaveDirectory()
+        public static string GetSaveFileDirectory()
         {
             var persistentPath = Application.persistentDataPath;
             var subPaths = persistentPath.Split( Path.DirectorySeparatorChar, Path.PathSeparator, Path.AltDirectorySeparatorChar );
@@ -41,6 +41,13 @@ namespace Code.Data
             var sb = new StringBuilder();
             sb.AppendJoin( "/", subPaths );
             
+            return sb.ToString();
+        }
+        
+        public static string GetImportFileDirectory()
+        {
+            var sb = new StringBuilder();
+            sb.AppendJoin( "/", Application.dataPath, "External", "hellclock-data-export", "data" );
             return sb.ToString();
         }
         

@@ -7,8 +7,7 @@
 - [ ] proficiencies are broken, no proficiency to select from
 
 CONTINUE HERE:
-- [x] test the status effects colors for skill damage types
-- [x] convert tags into icons with the tag string as tooltip
+- [ ] import data from submodule
 - [ ] Check For Trinket Upgrade ( see InventoryTetris currency for reference )
 - [x] skill details display
 	- [ ] show all skill stats

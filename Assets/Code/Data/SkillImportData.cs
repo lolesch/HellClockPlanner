@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Code.Data.Enums;
 using Code.Runtime.Provider;
 using Code.Utility.AttributeRef.Attributes;
@@ -77,5 +78,28 @@ namespace Code.Data
         public void OnBeforeSerialize() => name = $"{shrineId.ToDescription()} -> {amount} {characterStatId.ToDescription()}";
 
         public void OnAfterDeserialize() {}
+    }
+    
+    [Serializable]
+    public struct SkillDefinitionImportData
+    {
+        public SkillId id;
+        public Dictionary<string, string> localizedName;
+        public string descriptionKey;
+        public Sprite icon;
+        public float baseDamageMod;
+        public DamageTypeId eDamageType;
+        public float cooldown;
+        public float minCooldown;
+        public bool useAttackSpeed;
+        public bool ignoreCooldownSpeed;
+        public float range;
+        public List<SkillTagId> skillTags;
+    }
+    
+    [Serializable]
+    public struct SkillDefinitionsImportData
+    {
+        public SkillDefinitionImportData[] Skills;
     }
 }

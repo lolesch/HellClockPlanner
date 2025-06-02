@@ -17,6 +17,27 @@ namespace Code.Runtime.Provider
         [SerializeField] private SkillStatIcons skillStatIcons;
         [SerializeField] private Proficiency[] proficiencies;
         public TMP_Dropdown.OptionData defaultOption;
+        
+        [SerializeField] private SkillDefinitionsImportData skillImportData;
+        
+        [ContextMenu("LoadSlot0")]
+        private void LoadSlot0() => GameState.LoadSaveFile( Const.PlayerSaveId.PlayerSave0 );
+        [ContextMenu("LoadSlot1")]
+        private void LoadSlot1() => GameState.LoadSaveFile( Const.PlayerSaveId.PlayerSave1 );
+        [ContextMenu("LoadSlot2")]
+        private void LoadSlot2() => GameState.LoadSaveFile( Const.PlayerSaveId.PlayerSave2 );
+        
+        [ContextMenu("ImportSkills")]
+        public void ImportSkills()
+        {
+            var fileName = "Skills";
+            var jsonString = GameState.LoadJson( fileName, Const.GetImportFileDirectory() );
+            
+            //JsonUtility.FromJsonOverwrite( jsonString, PlayerSaveData );
+            skillImportData = JsonUtility.FromJson<SkillDefinitionsImportData>( jsonString );
+            
+            //Player.UpdateData( PlayerSaveData );
+        }
 
         //public List<SkillIcon> skillIconList => skillIcons.icons;
         //public List<ProficiencyIcon> proficiencyIconList => proficiencyIcons.icons;

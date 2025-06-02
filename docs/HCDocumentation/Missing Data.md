@@ -19,4 +19,7 @@
 - red portal ![[Pasted image 20250530224905.png]]
 - normal portal ![[Pasted image 20250530225232.png]]
 - blessing statue ![[Pasted image 20250530225458.png]]
-- 
+
+### Passive Skills
+- Second wind
+- potion use

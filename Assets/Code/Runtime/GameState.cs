@@ -1,4 +1,5 @@
 using System.IO;
+using System.Linq;
 using Code.Data;
 using UnityEngine;
 
@@ -9,42 +10,33 @@ namespace Code.Runtime
         private static PlayerSaveData PlayerSaveData = new(); 
         public static readonly Player Player = new();
         
-        [ContextMenu("LoadSlot0")]
-        private static void LoadSlot0() => LoadJson( Const.PlayerSaveId.PlayerSave0 );
-        [ContextMenu("LoadSlot1")]
-        private static void LoadSlot1() => LoadJson( Const.PlayerSaveId.PlayerSave1 );
-        [ContextMenu("LoadSlot2")]
-        private static void LoadSlot2() => LoadJson( Const.PlayerSaveId.PlayerSave2 );
-        
-        public static void LoadJson( Const.PlayerSaveId id )
+        public static void LoadSaveFile( Const.PlayerSaveId id )
         {
-            var directory = Const.GetSaveDirectory();
-
+            var jsonString = LoadJson( id.ToString(), Const.GetSaveFileDirectory() );
+            
+            //JsonUtility.FromJsonOverwrite( jsonString, PlayerSaveData );
+            PlayerSaveData = JsonUtility.FromJson<PlayerSaveData>( jsonString );
+            
+            Player.UpdateData( PlayerSaveData );
+        }
+        
+        public static string LoadJson( string fileName, string directory )
+        {
             if( !Directory.Exists( directory ) )
             {
                 Debug.Log( $"{directory} does not exist" );
-                return;
+                return null;
             }
             
-            var files = Directory.GetFiles(directory, $"*{id.GetFileName()}");
+            var file = Directory.GetFiles(directory, $"*{fileName}{Const.FileTypeJson}").FirstOrDefault();
             
-            if ( files.Length == 0 )
+            if ( file == null )
             {
-                Debug.Log( $"File {id.GetFileName()} does not exist" );
-                return;
+                Debug.Log( $"File {fileName}{Const.FileTypeJson} does not exist" );
+                return null;
             }
             
-            //var bytes = File.ReadAllBytes( files[0] );
-            //var serializer = new DataContractJsonSerializer( typeof(PlayerSaveData) );
-            //var stream = new MemoryStream(bytes);
-            // try catch...
-            //PlayerSaveData = (PlayerSaveData)serializer.ReadObject(stream);
-            
-            var jsonFile = new TextAsset( File.ReadAllText( files[0] ) );
-            //JsonUtility.FromJsonOverwrite( jsonFile.text, PlayerSaveData );
-            PlayerSaveData = JsonUtility.FromJson<PlayerSaveData>( jsonFile.text );
-            
-            Player.UpdateData( PlayerSaveData );
+            return new TextAsset( File.ReadAllText( file ) ).text;
         }
     }
 }
