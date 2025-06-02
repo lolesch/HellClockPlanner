@@ -43,15 +43,6 @@ namespace Code.Data
             
             return sb.ToString();
         }
-
-        public static Color GetRarityColor( this RarityId rarityId ) => rarityId switch
-        {
-            RarityId.Common => new Color( 0.3490196f, 0.3254902f, 0.3254902f ),
-            RarityId.Magic =>new Color( 0.2901961f, 0.4901961f, 1f ),
-            RarityId.Rare => new Color( 0.8901961f, 0.7490196f, 0.3215686f ),
-            RarityId.Epic => new Color( 1f, 0.3254902f, 0.1921569f ),
-            _ => Color.clear,
-        };
         
         public static Vector2Int ToDimension( this RelicSizeId relicSizeId) => relicSizeId switch
         {
@@ -75,12 +66,30 @@ namespace Code.Data
             PlayerSave2
         }
 
-        public static Color GetDamageTypeColor( this DamageTypeId tagId )=> tagId switch
+        public static Color GetRarityColor( this RarityId rarityId ) => rarityId switch
         {
-            DamageTypeId.Physical => new Color( 0.7f, 0.6f, 0.4f ),
-            DamageTypeId.Fire => new Color( 0.5f, 0.2f, 0.15f ),
-            DamageTypeId.Lightning => new Color( .2f, 0.3f, 0.4f ),
-            DamageTypeId.Plague => new Color( 0.2f, 0.5f, 0.3f ),
+            RarityId.Common => new Color( 0.3490196f, 0.3254902f, 0.3254902f ),
+            RarityId.Magic =>new Color( 0.2901961f, 0.4901961f, 1f ),
+            RarityId.Rare => new Color( 0.8901961f, 0.7490196f, 0.3215686f ),
+            RarityId.Epic => new Color( 1f, 0.3254902f, 0.1921569f ),
+            _ => Color.clear,
+        };
+
+        //public static Color GetDamageTypeColor( this DamageTypeId tagId ) => tagId switch
+        //{
+        //    DamageTypeId.Physical => new Color( 0.7f, 0.6f, 0.4f ),
+        //    DamageTypeId.Fire => new Color( 0.5f, 0.2f, 0.15f ),
+        //    DamageTypeId.Lightning => new Color( .2f, 0.3f, 0.4f ),
+        //    DamageTypeId.Plague => new Color( 0.2f, 0.5f, 0.3f ),
+        //    _ => new Color( 0.33f, 0.33f, 0.33f ),
+        //};
+
+        public static Color GetStatusEffectColor( this DamageTypeId tagId ) => tagId switch
+        {
+            DamageTypeId.Physical => new Color( 0.7f, 0f, 0.12f ),
+            DamageTypeId.Fire => new Color( 0.84f, 0.4f, 0.1f ),
+            DamageTypeId.Lightning => new Color( .9f, 0.8f, 0.1f ),
+            DamageTypeId.Plague => new Color( 0.33f, 0.62f, 0.13f ),
             _ => new Color( 0.33f, 0.33f, 0.33f ),
         };
 

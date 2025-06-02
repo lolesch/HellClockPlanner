@@ -1,10 +1,8 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Code.Data;
 using Code.Data.Enums;
 using Code.Data.ScriptableObjects;
-using Code.Runtime.Statistics;
 using Code.Utility.Extensions;
 using TMPro;
 using UnityEngine;
@@ -15,6 +13,7 @@ namespace Code.Runtime.Provider
     {
         [SerializeField] private DataContainer database;
         [SerializeField] private SkillIcons skillIcons;
+        [SerializeField] private TagIcons tagIcons;
         [SerializeField] private SkillStatIcons skillStatIcons;
         [SerializeField] private Proficiency[] proficiencies;
         public TMP_Dropdown.OptionData defaultOption;
@@ -22,6 +21,8 @@ namespace Code.Runtime.Provider
         //public List<SkillIcon> skillIconList => skillIcons.icons;
         //public List<ProficiencyIcon> proficiencyIconList => proficiencyIcons.icons;
         public Sprite GetIconFromSkillId( SkillId skillId ) => skillIcons.GetIconFromSkillId( skillId );
+        public Sprite GetIconFromTagId( SkillTagId tag ) => tagIcons.GetIconFromTagId( tag );
+        public Sprite GetIconFromTagId( DamageTypeId tag ) => tagIcons.GetIconFromTagId( tag );
 
         public Sprite GetIconFromSkillStatId( SkillStatId skillStatId ) =>
             skillStatIcons.GetIconFromSkillStatId( skillStatId );

@@ -51,7 +51,7 @@ namespace Code.Runtime.UI.Displays
             if( showDetails )
                 CreateTags();
             
-            frame.color = (_skill?.damageType ?? DamageTypeId.None).GetDamageTypeColor() * Color.gray;
+            frame.color = (_skill?.damageType ?? DamageTypeId.None).GetStatusEffectColor() * Color.gray;
             
             LayoutRebuilder.ForceRebuildLayoutImmediate( transform.parent as RectTransform );
         }

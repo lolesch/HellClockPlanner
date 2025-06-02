@@ -15,11 +15,10 @@ namespace Code.Data.ScriptableObjects
         public Sprite GetIconFromSkillStatId( SkillStatId skillStatId ) =>
             icons.Find( x => x.skillStatId == skillStatId ).icon;
 
-        [ContextMenu( "ResetList" )]
-        private void UpdateSkills()
+        [ContextMenu( "UpdateList" )]
+        private void UpdateList()
         {
             icons ??= new List<SkillStatIcon>();
-            //icons.Clear();
             var ids = Enum.GetValues( typeof( SkillStatId ) ) as SkillStatId[];
             var missing = ids.Where( x => icons.All( y => y.skillStatId != x ) ).ToArray();
             foreach( var id in missing )

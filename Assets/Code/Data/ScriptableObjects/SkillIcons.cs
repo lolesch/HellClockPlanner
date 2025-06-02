@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Code.Data.Enums;
-using Code.Utility.AttributeRef.Attributes;
 using Code.Utility.Extensions;
 using UnityEngine;
 
@@ -14,13 +14,14 @@ namespace Code.Data.ScriptableObjects
 
         public Sprite GetIconFromSkillId( SkillId skillId ) => icons.Find( x => x.skillId == skillId ).icon;
 
-        [ContextMenu( "ResetList" )]
-        private void UpdateSkills()
+        [ContextMenu( "UpdateList" )]
+        private void UpdateList()
         {
             icons ??= new List<SkillIcon>();
-            icons.Clear();
+            //icons.Clear();
             var ids = Enum.GetValues( typeof( SkillId ) ) as SkillId[];
-            foreach( var id in ids )
+            var missing = ids.Where( x => icons.All( y => y.skillId != x ) ).ToArray();
+            foreach( var id in missing )
                 icons.Add( new SkillIcon( id ) );
         }
     }

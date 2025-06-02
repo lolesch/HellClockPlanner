@@ -59,7 +59,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -78,7 +78,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -122,12 +122,12 @@ TextureImporter:
       name: UI_Icon_Effects_Shocked_0
       rect:
         serializedVersion: 2
-        x: 36
-        y: 56
-        width: 9
-        height: 18
+        x: 34
+        y: 30
+        width: 60
+        height: 71
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -140,55 +140,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: UI_Icon_Effects_Shocked_1
-      rect:
-        serializedVersion: 2
-        x: 46
-        y: 30
-        width: 37
-        height: 71
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 815be66a16ba533d0800000000000000
-      internalID: -3227485122048641768
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Icon_Effects_Shocked_2
-      rect:
-        serializedVersion: 2
-        x: 78
-        y: 35
-        width: 13
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 325b186cbb7bb4440800000000000000
-      internalID: 4921229034949555491
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: dafe1ee07f2f01549a98dc72bac8db2b
     internalID: 0
     vertices: []
     indices: 
@@ -197,7 +153,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      UI_Icon_Effects_Shocked_0: -7126482382870156077
+      UI_Icon_Effects_Shocked_1: -3227485122048641768
+      UI_Icon_Effects_Shocked_2: 4921229034949555491
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
