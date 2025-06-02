@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      reference_Menu_BlessedCorner_0: -5324074231109513750
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      reference_Menu_Blessings2_0: 5339511875118782862
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

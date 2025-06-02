@@ -222,7 +222,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      reference_skill_level_buttons_0: 9072164660567038599
+      reference_skill_level_buttons_1: -2459781061303436222
+      reference_skill_level_buttons_2: -8858758869430105129
+      reference_skill_level_buttons_3: -1934651099330859404
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      reference_d4-feedback-item-tooltip-ui-adjustments-explanation-in-v0-hl4le5spv1ra1_0: -878877420389194030
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

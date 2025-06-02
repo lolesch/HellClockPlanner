@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      reference_Stats-in-Diablo-4_0: -4180052429666881115
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      reference_diablo-4-gear-tiers_0: -4082448697370068019
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
