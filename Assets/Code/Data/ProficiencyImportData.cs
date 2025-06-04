@@ -16,7 +16,7 @@ namespace Code.Data
     {
         [HideInInspector] public string name;
         
-        [ReadOnly] public SkillId skillId;
+        [ReadOnly] public SkillHashId skillId;
         [ReadOnly] public SkillStatId skillStatId;
         [ReadOnly] public string modDescription;
         [ReadOnly] public ModType modType;
@@ -44,7 +44,7 @@ namespace Code.Data
     public struct Proficiency : IModifierSource
     {
         [HideInInspector] public string name;
-        [ReadOnly] public SkillId skillId;
+        [ReadOnly] public SkillHashId skillId;
         [ReadOnly] public string modDescription;
         [ReadOnly] public SkillStatId skillStatId;
         [ReadOnly] public float value;
@@ -53,7 +53,7 @@ namespace Code.Data
         [ReadOnly, PreviewIcon(32)] public Sprite icon;
         [ReadOnly] public Guid guid { get; private set; }
 
-        public Proficiency( SkillId skillId, SkillStatId skillStatId, string modDescription, float value, RarityId rarityId, string name, Sprite icon, ModType modType )
+        public Proficiency( SkillHashId skillId, SkillStatId skillStatId, string modDescription, float value, RarityId rarityId, string name, Sprite icon, ModType modType )
         {
             this.skillId = skillId;
             this.skillStatId = skillStatId;

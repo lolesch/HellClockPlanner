@@ -21,11 +21,11 @@ namespace Code.Runtime
         
         public readonly SkillSlotData[] SkillSlots = 
         {
-            new ( 0, SkillId.None ),
-            new ( 1, SkillId.None ),
-            new ( 2, SkillId.None ),
-            new ( 3, SkillId.None ),
-            new ( 4, SkillId.None ),
+            new ( 0, SkillHashId.None ),
+            new ( 1, SkillHashId.None ),
+            new ( 2, SkillHashId.None ),
+            new ( 3, SkillHashId.None ),
+            new ( 4, SkillHashId.None ),
         };
 
         public event Action<SkillSlotData[]> OnSkillSlotsChanged;
@@ -87,15 +87,15 @@ namespace Code.Runtime
             OnSkillSlotsChanged?.Invoke( SkillSlots );
         }
 
-        public void SetSkillIdAtSlotIndex( int slotIndex, SkillId id )
+        public void SetSkillIdAtSlotIndex( int slotIndex, SkillHashId hashId )
         {
             skills[slotIndex]?.RevertGlobalBuffs();
+
+            var skillData = DataProvider.Instance.GetSkillData( hashId );
+            var globalBuffs = DataProvider.Instance.GetGlobalBuffImports().Where( x => x.skillHashId == hashId ).ToList();
+            skills[slotIndex] = new Skill( skillData, globalBuffs );
             
-            var config = DataProvider.Instance.GetSkillImports().FirstOrDefault( x => x.skillId == id );
-            var globalBuffs = DataProvider.Instance.GetGlobalBuffImports().Where( x => x.skillId == id ).ToList();
-            skills[slotIndex] = new Skill( config, globalBuffs );
-            
-            SkillSlots[slotIndex] = new SkillSlotData( slotIndex, id );
+            SkillSlots[slotIndex] = new SkillSlotData( slotIndex, hashId );
             OnSkillSlotsChanged?.Invoke( SkillSlots );
         }
     }

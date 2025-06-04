@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShrineBuff
       objectReference: {fileID: 0}
+    - target: {fileID: 4518429707069782421, guid: 69b8153dd6d32314c97d13151ae0e972, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3fc9d9f4beb71084099a1a5595e0d0bb, type: 3}
     - target: {fileID: 4722272059139391652, guid: 69b8153dd6d32314c97d13151ae0e972, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -181,7 +185,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2390c880d6b46eb98599c3fb135e4bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tooltipText: Set the tooltip text in the inspector
+  tooltipText: '<smallcaps>Shrine of None</smallcaps>
+
+'
 --- !u!114 &5834978010425585187 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4722272059139391652, guid: 69b8153dd6d32314c97d13151ae0e972, type: 3}

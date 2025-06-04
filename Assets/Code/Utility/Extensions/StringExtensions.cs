@@ -61,9 +61,9 @@ namespace Code.Utility.Extensions
 
             foreach( var val in Enum.GetValues( type ) )
             {
-                if ( ToDescription( (T) val ) == enumDescription )
+                if ( SplitCamelCase( (T) val ) == enumDescription )
                     return (T) val;
-                else if ( SplitCamelCase( (T) val ) == enumDescription )
+                if ( ToDescription( (T) val ) == enumDescription )
                     return (T) val;
             }
 

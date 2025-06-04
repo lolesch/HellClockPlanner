@@ -8,25 +8,23 @@ namespace Code.Data.Enums
     {
         None = 0,
         
-        //FireDamage,
-        //LightningDamage,
-        //PhysicalDamage,
-        //PlagueDamage,
-        ElementalDamage,
+        // Skill Definitions
+        Marksman,
+        Melee,
+        Enchantment,
+        Spell,
         
         SingleTarget,
         AreaOfEffect,
-        Projectile,
-        
-        Marksman,
-        Melee,
-        
-        Mobility,
-        Enchantment,
-        Spell,
         Summon,
+        Prayer,
+        Mobility,
+        
+        Projectile,
+        Attack,
         
         Passive,
+        ElementalDamage,
     }
     
     public enum DamageTypeId : byte

@@ -15,14 +15,14 @@ namespace Code.Runtime
     public sealed class Skill : IModifierSource
     {
         private SkillStat[] _stats;
-        private readonly SkillImportData _config;
+        private readonly SkillData _config;
         private readonly Dictionary<int, Proficiency> _proficiencies;
         public readonly List<GlobalBuffImportData> GlobalBuffs;
         
         public readonly List<SkillTagId> Tags;
         public readonly int MaxLevel;
         public int level { get; private set; } = 1;
-        public SkillId skillId => _config.skillId;
+        public SkillHashId skillId => _config.id;
         public DamageTypeId damageType => _damageTypeOverwrite != DamageTypeId.None ? _damageTypeOverwrite : _config.damageTypeId;
         private DamageTypeId _damageTypeOverwrite;
         public Sprite icon => _config.icon;
@@ -38,13 +38,13 @@ namespace Code.Runtime
         public event Action OnProficienciesChanged;
         public event Action<int> OnLevelChanged;
         
-        public Skill( SkillImportData config, List<GlobalBuffImportData> globalBuffs )
+        public Skill( SkillData config, List<GlobalBuffImportData> globalBuffs )
         {
             _config = config;
             GlobalBuffs = globalBuffs;
             MaxLevel = 4; // TODO: get from config.maxLevel;
             _proficiencies = new Dictionary<int, Proficiency>();
-            Tags = DataProvider.Instance.GetSkillTagsForSkill( _config.skillId );
+            Tags = DataProvider.Instance.GetSkillTagsForSkill( _config.id );
         }
         
         public SkillStat GetStat( SkillStatId statId ) => GetStats().First( x => x.Stat == statId );
@@ -59,7 +59,7 @@ namespace Code.Runtime
                 new ( SkillStatId.ProjectileAmount, _config.projectiles, ModType.Flat ),
                 new ( SkillStatId.ProjectileBounces, 0, ModType.Flat ),
                 
-                new ( SkillStatId.Damage, _config.baseDamage, ModType.Percent ),
+                new ( SkillStatId.Damage, _config.baseDamageMod, ModType.Percent ),
                 new ( SkillStatId.CriticalHitChance, 100, ModType.Percent ),
                 new ( SkillStatId.CriticalHitDamage, 100, ModType.Percent ),
                 new ( SkillStatId.ManaCost, 100, ModType.Percent ),

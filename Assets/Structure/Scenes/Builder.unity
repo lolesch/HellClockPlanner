@@ -6662,7 +6662,332 @@ MonoBehaviour:
     m_Image: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
     m_Color: {r: 1, g: 1, b: 1, a: 1}
   skillImportData:
-    skills: []
+    Skills:
+    - name: BasicAttackDefinition
+      id: 0
+      icon: IconSkill_BasicAttack
+      baseDamageMod: 1
+      eDamageType: 0
+      cooldown: 0.4
+      minCooldown: 0.1
+      useAttackSpeed: 1
+      ignoreCooldownSpeed: 0
+      range: 15
+      skillTags:
+      - Single Target
+      - 'Marksman '
+      - Projectile
+      - Physical Damage
+      - Attack
+    - name: SplitshotDefinition
+      id: 1
+      icon: IconSkill_SplitShot
+      baseDamageMod: 0.6
+      eDamageType: 0
+      cooldown: 0.3
+      minCooldown: 0.1
+      useAttackSpeed: 1
+      ignoreCooldownSpeed: 0
+      range: 15
+      skillTags:
+      - 'Marksman '
+      - Projectile
+      - Fire Damage
+      - Elemental Damage
+      - Attack
+    - name: ShadowDashDefinition
+      id: 2
+      icon: IconSkill_ShadowDash
+      baseDamageMod: 0.8
+      eDamageType: 0
+      cooldown: 3
+      minCooldown: 0.15
+      useAttackSpeed: 0
+      ignoreCooldownSpeed: 0
+      range: 0
+      skillTags:
+      - Mobility
+      - Physical Damage
+    - name: RepeaterDefinition
+      id: 3
+      icon: IconSkill_Repeater
+      baseDamageMod: 0.66
+      eDamageType: 0
+      cooldown: 0.5
+      minCooldown: 0.1
+      useAttackSpeed: 1
+      ignoreCooldownSpeed: 0
+      range: 15
+      skillTags:
+      - 'Marksman '
+      - Projectile
+      - Physical Damage
+      - Attack
+    - name: ReflexesDefinition
+      id: 4
+      icon: IconSkill_Reflexes
+      baseDamageMod: 0.75
+      eDamageType: 0
+      cooldown: 8
+      minCooldown: 0.5
+      useAttackSpeed: 0
+      ignoreCooldownSpeed: 0
+      range: 7
+      skillTags:
+      - Projectile
+      - Physical Damage
+    - name: PrayerOfHealthSkillDefinition
+      id: 46
+      icon: IconSkill_PrayerofHealth
+      baseDamageMod: 0
+      eDamageType: 0
+      cooldown: 14.5
+      minCooldown: 0
+      useAttackSpeed: 0
+      ignoreCooldownSpeed: 0
+      range: 0
+      skillTags:
+      - Enchantment
+      - Prayer
+    - name: PrayerOfVengeanceSkillDefinition
+      id: 49
+      icon: IconSkill_PrayerofVengeance
+      baseDamageMod: 0
+      eDamageType: 0
+      cooldown: 20
+      minCooldown: 0
+      useAttackSpeed: 0
+      ignoreCooldownSpeed: 0
+      range: 0
+      skillTags:
+      - Enchantment
+      - Prayer
+    - name: TheOldBellSkillDefinition
+      id: 50
+      icon: IconSkill_OldBell
+      baseDamageMod: 2.5
+      eDamageType: 0
+      cooldown: 0.5
+      minCooldown: 0.16
+      useAttackSpeed: 0
+      ignoreCooldownSpeed: 0
+      range: 15
+      skillTags:
+      - Area of Effect
+      - Spell
+      - Plague Damage
+      - Elemental Damage
+    - name: JudgementDefinition
+      id: 67
+      icon: IconSkill_Judgement
+      baseDamageMod: 0
+      eDamageType: 0
+      cooldown: 1
+      minCooldown: 0.2
+      useAttackSpeed: 0
+      ignoreCooldownSpeed: 0
+      range: 0
+      skillTags:
+      - Area of Effect
+      - Enchantment
+    - name: DoubleKnivesSkillDefinition
+      id: 69
+      icon: IconSkill_DoubleKnives
+      baseDamageMod: 0.75
+      eDamageType: 0
+      cooldown: 0.5
+      minCooldown: 0.16
+      useAttackSpeed: 1
+      ignoreCooldownSpeed: 0
+      range: 4
+      skillTags:
+      - Melee
+      - Physical Damage
+      - Attack
+    - name: PassageSkillDefinition
+      id: 70
+      icon: IconSkill_Passage
+      baseDamageMod: 1
+      eDamageType: 0
+      cooldown: 2.5
+      minCooldown: 0.4
+      useAttackSpeed: 0
+      ignoreCooldownSpeed: 0
+      range: 0
+      skillTags:
+      - Mobility
+      - Spell
+      - Lightning Damage
+      - Elemental Damage
+    - name: LassoSkillDefinition
+      id: 71
+      icon: IconSkill_Lasso
+      baseDamageMod: 0
+      eDamageType: 0
+      cooldown: 11.5
+      minCooldown: 0.1
+      useAttackSpeed: 0
+      ignoreCooldownSpeed: 0
+      range: 20
+      skillTags:
+      - Area of Effect
+      - Melee
+    - name: FeitorsLashSkillDefinition
+      id: 72
+      icon: IconSkill_FeitorsLash
+      baseDamageMod: 1
+      eDamageType: 0
+      cooldown: 0.5
+      minCooldown: 0.16
+      useAttackSpeed: 1
+      ignoreCooldownSpeed: 0
+      range: 8
+      skillTags:
+      - Melee
+      - Fire Damage
+      - Elemental Damage
+      - Attack
+    - name: SlowTimeSkillDefinition
+      id: 74
+      icon: IconSkill_SlowTime
+      baseDamageMod: 0
+      eDamageType: 0
+      cooldown: 11
+      minCooldown: 0.2
+      useAttackSpeed: 0
+      ignoreCooldownSpeed: 0
+      range: 0
+      skillTags:
+      - Area of Effect
+      - Spell
+    - name: Use Potion Skill Definition
+      id: 150
+      icon: Icon_Potion_Base
+      baseDamageMod: 1
+      eDamageType: 0
+      cooldown: 0.15
+      minCooldown: 0.05
+      useAttackSpeed: 0
+      ignoreCooldownSpeed: 0
+      range: 0
+      skillTags:
+      - Physical Damage
+    - name: ClosedBodySkillDefinition
+      id: 157
+      icon: IconSkill_ClosedBody
+      baseDamageMod: 1
+      eDamageType: 0
+      cooldown: 15
+      minCooldown: 1
+      useAttackSpeed: 0
+      ignoreCooldownSpeed: 0
+      range: 0
+      skillTags:
+      - Area of Effect
+      - Enchantment
+      - Physical Damage
+    - name: BombardmentSkillDefinition
+      id: 201
+      icon: IconSkill_RainOfHeads
+      baseDamageMod: 1
+      eDamageType: 0
+      cooldown: 10
+      minCooldown: 1
+      useAttackSpeed: 0
+      ignoreCooldownSpeed: 0
+      range: 15
+      skillTags:
+      - Area of Effect
+      - Spell
+      - Physical Damage
+    - name: Summon The Guard Skill Definition
+      id: 203
+      icon: IconSkill_SummonTheGuard
+      baseDamageMod: 0.4
+      eDamageType: 0
+      cooldown: 15
+      minCooldown: 0
+      useAttackSpeed: 0
+      ignoreCooldownSpeed: 0
+      range: 10
+      skillTags:
+      - Summon
+      - Projectile
+      - Physical Damage
+    - name: Matadeira Skill Definition
+      id: 209
+      icon: IconSkill_EnemyCannons
+      baseDamageMod: 1.2
+      eDamageType: 0
+      cooldown: 5
+      minCooldown: 1
+      useAttackSpeed: 0
+      ignoreCooldownSpeed: 0
+      range: 20
+      skillTags:
+      - Area of Effect
+      - 'Marksman '
+      - Fire Damage
+      - Elemental Damage
+    - name: Holy Rosary Skill Definition
+      id: 210
+      icon: IconSkill_HolyRosary
+      baseDamageMod: 1.2
+      eDamageType: 0
+      cooldown: 0.4
+      minCooldown: 0.13
+      useAttackSpeed: 1
+      ignoreCooldownSpeed: 0
+      range: 0
+      skillTags:
+      - Projectile
+      - Spell
+      - Lightning Damage
+      - Elemental Damage
+      - Attack
+    - name: Veil of Quils Skill Definition
+      id: 211
+      icon: IconSkill_HomingProjectiles
+      baseDamageMod: 0.6
+      eDamageType: 0
+      cooldown: 0.5
+      minCooldown: 0.16
+      useAttackSpeed: 0
+      ignoreCooldownSpeed: 0
+      range: 20
+      skillTags:
+      - Projectile
+      - Spell
+      - Plague Damage
+      - Elemental Damage
+    - name: Summon Brute Skill Definition
+      id: 323
+      icon: IconSkill_SummonBrute
+      baseDamageMod: 1
+      eDamageType: 0
+      cooldown: 12
+      minCooldown: 0
+      useAttackSpeed: 0
+      ignoreCooldownSpeed: 0
+      range: 10
+      skillTags:
+      - Summon
+      - Projectile
+      - Physical Damage
+    - name: Summon Marksmen Skill Definition
+      id: 326
+      icon: IconSkill_PhantomMarksmen
+      baseDamageMod: 0.8
+      eDamageType: 0
+      cooldown: 10
+      minCooldown: 0
+      useAttackSpeed: 0
+      ignoreCooldownSpeed: 0
+      range: 20
+      skillTags:
+      - Summon
+      - Projectile
+      - Physical Damage
 --- !u!4 &606251037
 Transform:
   m_ObjectHideFlags: 0
@@ -26976,7 +27301,7 @@ PrefabInstance:
     - target: {fileID: 2665324516125848395, guid: 935236939f5f8f940b0f5eea58262f8d, type: 3}
       propertyPath: _radioGroup
       value: 
-      objectReference: {fileID: 91982296}
+      objectReference: {fileID: 0}
     - target: {fileID: 2665324516125848395, guid: 935236939f5f8f940b0f5eea58262f8d, type: 3}
       propertyPath: m_Interactable
       value: 0
@@ -75034,7 +75359,7 @@ PrefabInstance:
     - target: {fileID: 2665324516125848395, guid: 935236939f5f8f940b0f5eea58262f8d, type: 3}
       propertyPath: _radioGroup
       value: 
-      objectReference: {fileID: 1555999899}
+      objectReference: {fileID: 0}
     - target: {fileID: 5032839689243725857, guid: 935236939f5f8f940b0f5eea58262f8d, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -80461,7 +80786,7 @@ PrefabInstance:
     - target: {fileID: 2665324516125848395, guid: 935236939f5f8f940b0f5eea58262f8d, type: 3}
       propertyPath: _radioGroup
       value: 
-      objectReference: {fileID: 91982296}
+      objectReference: {fileID: 0}
     - target: {fileID: 2665324516125848395, guid: 935236939f5f8f940b0f5eea58262f8d, type: 3}
       propertyPath: m_Interactable
       value: 0

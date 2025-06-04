@@ -44,10 +44,15 @@ namespace Code.Data
             return sb.ToString();
         }
         
-        public static string GetImportFileDirectory()
+        public static string GetIconImportDirectory(  string fileName = null) => GetImportFileDirectory( "icons", fileName );
+        public static string GetDataImportDirectory(  string fileName = null) => GetImportFileDirectory( "data", fileName );
+        private static string GetImportFileDirectory( string subFolder, string fileName = null )
         {
             var sb = new StringBuilder();
-            sb.AppendJoin( "/", Application.dataPath, "External", "hellclock-data-export", "data" );
+            sb.AppendJoin( "/", Application.dataPath, "Resources", "hellclock-data-export", subFolder );
+            if( !string.IsNullOrEmpty( fileName ) )
+                sb.Append( $"/{fileName}" );
+            Debug.Log( sb.ToString() );
             return sb.ToString();
         }
         

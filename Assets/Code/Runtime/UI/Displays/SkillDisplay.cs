@@ -40,7 +40,7 @@ namespace Code.Runtime.UI.Displays
             // TODO: skill stats
             // TODO: affected relics
 
-            var showDetails = _skill != null && _skill.skillId != SkillId.None;
+            var showDetails = _skill != null && _skill.skillId != SkillHashId.None;
             
             //foreach( var toggleObject in toggleObjects )
             //    toggleObject.SetActive( showDetails );

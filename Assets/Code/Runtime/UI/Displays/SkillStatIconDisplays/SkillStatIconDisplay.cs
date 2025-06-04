@@ -45,7 +45,7 @@ namespace Code.Runtime.UI.Displays.SkillStatIconDisplays
             if( Stat != null )
                 Stat.Value.OnTotalChanged -= RefreshDisplay;
             Skill = GameState.Player.skills[slot.index];
-            if( Skill == null || Skill.skillId == SkillId.None )
+            if( Skill == null || Skill.skillId == SkillHashId.None )
             {
                 statValue.text = "";
                 return;
