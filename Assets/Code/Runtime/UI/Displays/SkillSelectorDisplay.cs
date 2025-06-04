@@ -40,8 +40,8 @@ namespace Code.Runtime.UI.Displays
         {
             dropdown.ClearOptions();
             dropdown.options.Add( DataProvider.Instance.defaultOption );
-            dropdown.AddOptions( DataProvider.Instance.GetSkillImports().Select( x =>
-                    new TMP_Dropdown.OptionData( x.skillId.ToDescription(), x.icon, Color.white ) ).ToList() );
+            dropdown.AddOptions( DataProvider.Instance.GetSkillDefinitions().Select( x =>
+                    new TMP_Dropdown.OptionData( x.id.ToDescription(), x.icon, Color.white ) ).ToList() );
         }
     }
 }

@@ -6667,7 +6667,7 @@ MonoBehaviour:
       id: 0
       icon: IconSkill_BasicAttack
       baseDamageMod: 1
-      eDamageType: 0
+      eDamageType: PHYSICAL
       cooldown: 0.4
       minCooldown: 0.1
       useAttackSpeed: 1
@@ -6683,7 +6683,7 @@ MonoBehaviour:
       id: 1
       icon: IconSkill_SplitShot
       baseDamageMod: 0.6
-      eDamageType: 0
+      eDamageType: FIRE
       cooldown: 0.3
       minCooldown: 0.1
       useAttackSpeed: 1
@@ -6699,7 +6699,7 @@ MonoBehaviour:
       id: 2
       icon: IconSkill_ShadowDash
       baseDamageMod: 0.8
-      eDamageType: 0
+      eDamageType: PHYSICAL
       cooldown: 3
       minCooldown: 0.15
       useAttackSpeed: 0
@@ -6712,7 +6712,7 @@ MonoBehaviour:
       id: 3
       icon: IconSkill_Repeater
       baseDamageMod: 0.66
-      eDamageType: 0
+      eDamageType: PHYSICAL
       cooldown: 0.5
       minCooldown: 0.1
       useAttackSpeed: 1
@@ -6727,7 +6727,7 @@ MonoBehaviour:
       id: 4
       icon: IconSkill_Reflexes
       baseDamageMod: 0.75
-      eDamageType: 0
+      eDamageType: PHYSICAL
       cooldown: 8
       minCooldown: 0.5
       useAttackSpeed: 0
@@ -6740,7 +6740,7 @@ MonoBehaviour:
       id: 46
       icon: IconSkill_PrayerofHealth
       baseDamageMod: 0
-      eDamageType: 0
+      eDamageType: PHYSICAL
       cooldown: 14.5
       minCooldown: 0
       useAttackSpeed: 0
@@ -6753,7 +6753,7 @@ MonoBehaviour:
       id: 49
       icon: IconSkill_PrayerofVengeance
       baseDamageMod: 0
-      eDamageType: 0
+      eDamageType: PHYSICAL
       cooldown: 20
       minCooldown: 0
       useAttackSpeed: 0
@@ -6766,7 +6766,7 @@ MonoBehaviour:
       id: 50
       icon: IconSkill_OldBell
       baseDamageMod: 2.5
-      eDamageType: 0
+      eDamageType: PLAGUE
       cooldown: 0.5
       minCooldown: 0.16
       useAttackSpeed: 0
@@ -6781,7 +6781,7 @@ MonoBehaviour:
       id: 67
       icon: IconSkill_Judgement
       baseDamageMod: 0
-      eDamageType: 0
+      eDamageType: PHYSICAL
       cooldown: 1
       minCooldown: 0.2
       useAttackSpeed: 0
@@ -6794,7 +6794,7 @@ MonoBehaviour:
       id: 69
       icon: IconSkill_DoubleKnives
       baseDamageMod: 0.75
-      eDamageType: 0
+      eDamageType: PHYSICAL
       cooldown: 0.5
       minCooldown: 0.16
       useAttackSpeed: 1
@@ -6808,7 +6808,7 @@ MonoBehaviour:
       id: 70
       icon: IconSkill_Passage
       baseDamageMod: 1
-      eDamageType: 0
+      eDamageType: LIGHTNING
       cooldown: 2.5
       minCooldown: 0.4
       useAttackSpeed: 0
@@ -6823,7 +6823,7 @@ MonoBehaviour:
       id: 71
       icon: IconSkill_Lasso
       baseDamageMod: 0
-      eDamageType: 0
+      eDamageType: PHYSICAL
       cooldown: 11.5
       minCooldown: 0.1
       useAttackSpeed: 0
@@ -6836,7 +6836,7 @@ MonoBehaviour:
       id: 72
       icon: IconSkill_FeitorsLash
       baseDamageMod: 1
-      eDamageType: 0
+      eDamageType: FIRE
       cooldown: 0.5
       minCooldown: 0.16
       useAttackSpeed: 1
@@ -6851,7 +6851,7 @@ MonoBehaviour:
       id: 74
       icon: IconSkill_SlowTime
       baseDamageMod: 0
-      eDamageType: 0
+      eDamageType: PHYSICAL
       cooldown: 11
       minCooldown: 0.2
       useAttackSpeed: 0
@@ -6864,7 +6864,7 @@ MonoBehaviour:
       id: 150
       icon: Icon_Potion_Base
       baseDamageMod: 1
-      eDamageType: 0
+      eDamageType: PHYSICAL
       cooldown: 0.15
       minCooldown: 0.05
       useAttackSpeed: 0
@@ -6876,7 +6876,7 @@ MonoBehaviour:
       id: 157
       icon: IconSkill_ClosedBody
       baseDamageMod: 1
-      eDamageType: 0
+      eDamageType: PHYSICAL
       cooldown: 15
       minCooldown: 1
       useAttackSpeed: 0
@@ -6890,7 +6890,7 @@ MonoBehaviour:
       id: 201
       icon: IconSkill_RainOfHeads
       baseDamageMod: 1
-      eDamageType: 0
+      eDamageType: PHYSICAL
       cooldown: 10
       minCooldown: 1
       useAttackSpeed: 0
@@ -6904,7 +6904,7 @@ MonoBehaviour:
       id: 203
       icon: IconSkill_SummonTheGuard
       baseDamageMod: 0.4
-      eDamageType: 0
+      eDamageType: PHYSICAL
       cooldown: 15
       minCooldown: 0
       useAttackSpeed: 0
@@ -6918,7 +6918,7 @@ MonoBehaviour:
       id: 209
       icon: IconSkill_EnemyCannons
       baseDamageMod: 1.2
-      eDamageType: 0
+      eDamageType: FIRE
       cooldown: 5
       minCooldown: 1
       useAttackSpeed: 0
@@ -6933,7 +6933,7 @@ MonoBehaviour:
       id: 210
       icon: IconSkill_HolyRosary
       baseDamageMod: 1.2
-      eDamageType: 0
+      eDamageType: LIGHTNING
       cooldown: 0.4
       minCooldown: 0.13
       useAttackSpeed: 1
@@ -6949,7 +6949,7 @@ MonoBehaviour:
       id: 211
       icon: IconSkill_HomingProjectiles
       baseDamageMod: 0.6
-      eDamageType: 0
+      eDamageType: PLAGUE
       cooldown: 0.5
       minCooldown: 0.16
       useAttackSpeed: 0
@@ -6964,7 +6964,7 @@ MonoBehaviour:
       id: 323
       icon: IconSkill_SummonBrute
       baseDamageMod: 1
-      eDamageType: 0
+      eDamageType: PHYSICAL
       cooldown: 12
       minCooldown: 0
       useAttackSpeed: 0
@@ -6978,7 +6978,7 @@ MonoBehaviour:
       id: 326
       icon: IconSkill_PhantomMarksmen
       baseDamageMod: 0.8
-      eDamageType: 0
+      eDamageType: PHYSICAL
       cooldown: 10
       minCooldown: 0
       useAttackSpeed: 0
@@ -6988,6 +6988,337 @@ MonoBehaviour:
       - Summon
       - Projectile
       - Physical Damage
+  skillData:
+  - name: Attack
+    id: 0
+    description: Basic revolver shot. Restores 15% of maximum Mana on hit.
+    icon: {fileID: 7970369261536995758, guid: 08d8e1095dfabdc438999aa772cfdfb0, type: 3}
+    baseDamageMod: 1
+    damageTypeId: 1
+    cooldown: 0.4
+    skillTags:
+    - Single Target
+    - 'Marksman '
+    - Projectile
+    - Physical Damage
+    - Attack
+    manaCost: 0
+    projectiles: 1
+  - name: Split Shot
+    id: 1
+    description: Shoot multiple bullets in a cone on front of you. Especially strong
+      against nearby enemies.
+    icon: {fileID: 7241807617978933828, guid: ca1958e8698dd8e4faadbfb03fffae21, type: 3}
+    baseDamageMod: 0.6
+    damageTypeId: 2
+    cooldown: 0.3
+    skillTags:
+    - 'Marksman '
+    - Projectile
+    - Fire Damage
+    - Elemental Damage
+    - Attack
+    manaCost: 120
+    projectiles: 3
+  - name: Shadow Dash
+    id: 2
+    description: Dash vey quickly, dealing damage to enemies on your path.
+    icon: {fileID: 6695853489212874208, guid: 013f3427d6cfe284aa56192eae147ae0, type: 3}
+    baseDamageMod: 0.8
+    damageTypeId: 1
+    cooldown: 3
+    skillTags:
+    - Mobility
+    - Physical Damage
+    manaCost: 100
+    projectiles: 1
+  - name: Repeater
+    id: 3
+    description: By holding the skill button, machinegun-like fire on a single target.
+    icon: {fileID: 4858796983160260817, guid: 3be588d2e3ca4194d94c36a25ebd7bf5, type: 3}
+    baseDamageMod: 0.66
+    damageTypeId: 1
+    cooldown: 0.5
+    skillTags:
+    - 'Marksman '
+    - Projectile
+    - Physical Damage
+    - Attack
+    manaCost: 42
+    projectiles: 1
+  - name: Reflexes
+    id: 4
+    description: Summons a ring of Spectral Knives around the player that are automatically
+      thrown at nearby enemies.
+    icon: {fileID: 6889565235451855511, guid: f9ce4d942df30c34ba90dd1aaa1c3a2a, type: 3}
+    baseDamageMod: 0.75
+    damageTypeId: 1
+    cooldown: 8
+    skillTags:
+    - Projectile
+    - Physical Damage
+    manaCost: 0
+    projectiles: 5
+  - name: Second Wind
+    id: 9
+    description: After taking fatal damage, you don't die and recover a percentage
+      of your life.
+    icon: {fileID: 0}
+    baseDamageMod: 0
+    damageTypeId: 0
+    cooldown: 0
+    skillTags: []
+    manaCost: 120
+    projectiles: 0
+  - name: Prayer Of Health
+    id: 46
+    description: You gain constant Life regeneration. All allies are also affected.
+    icon: {fileID: 5358297555349630363, guid: f7f9563eff1166d4cb91cabbc2d655a1, type: 3}
+    baseDamageMod: 0
+    damageTypeId: 1
+    cooldown: 14.5
+    skillTags:
+    - Enchantment
+    - Prayer
+    manaCost: 25
+    projectiles: 0
+  - name: Prayer Of Vengeance
+    id: 49
+    description: You and all allies in the target area gain increased damage and
+      attack speed.
+    icon: {fileID: -5332639933679185725, guid: 31d7c94844d6e394395ad132bdcb6583, type: 3}
+    baseDamageMod: 0
+    damageTypeId: 1
+    cooldown: 20
+    skillTags:
+    - Enchantment
+    - Prayer
+    manaCost: 10
+    projectiles: 0
+  - name: Old Bell
+    id: 50
+    description: The Old Bell comes crashing down on your enemies.
+    icon: {fileID: 3939249815212376250, guid: 306695547c62be04db06ebf939a49e29, type: 3}
+    baseDamageMod: 2.5
+    damageTypeId: 4
+    cooldown: 0.5
+    skillTags:
+    - Area of Effect
+    - Spell
+    - Plague Damage
+    - Elemental Damage
+    manaCost: 400
+    projectiles: 1
+  - name: Judgement
+    id: 67
+    description: All enemies in the target area are judged, reducing all their resistances
+      by 40% for 4 seconds.
+    icon: {fileID: 1611659691657539743, guid: 12c250dcb9a2efb4188a8de5aa8e2e3a, type: 3}
+    baseDamageMod: 0
+    damageTypeId: 1
+    cooldown: 1
+    skillTags:
+    - Area of Effect
+    - Enchantment
+    manaCost: 300
+    projectiles: 1
+  - name: Double Knives
+    id: 69
+    description: Continuously spin two blades around while you move, dealing Physical
+      damage to nearby enemies.
+    icon: {fileID: 174335222118752752, guid: 7732d9dc4c1fae3449e56b60f3a9d656, type: 3}
+    baseDamageMod: 0.75
+    damageTypeId: 1
+    cooldown: 0.5
+    skillTags:
+    - Melee
+    - Physical Damage
+    - Attack
+    manaCost: 34
+    projectiles: 1
+  - name: Passage
+    id: 70
+    description: Cut a passage through space and time, instantly appearing somewhere
+      else.
+    icon: {fileID: 5978412548774718142, guid: 2692dff19ac1f714b98e7a6164d2faf5, type: 3}
+    baseDamageMod: 1
+    damageTypeId: 3
+    cooldown: 2.5
+    skillTags:
+    - Mobility
+    - Spell
+    - Lightning Damage
+    - Elemental Damage
+    manaCost: 0
+    projectiles: 0
+  - name: Lasso
+    id: 71
+    description: Grapples and pulls enemies in an area, stunning them for 2 seconds
+      with a 20% chance to cause Bleeding for 4 seconds. Bosses are not pulled, nor
+      stunned but can still suffer Bleeding.
+    icon: {fileID: 8721006196460943222, guid: 3918753ae26fc654ca96ad0e89847639, type: 3}
+    baseDamageMod: 0
+    damageTypeId: 1
+    cooldown: 11.5
+    skillTags:
+    - Area of Effect
+    - Melee
+    manaCost: 0
+    projectiles: 1
+  - name: Feitors Lash
+    id: 72
+    description: Lash at nearby enemies in an arc in front of you.
+    icon: {fileID: -2731442598449226292, guid: 70e3449206841024d89be846ec7a96d7, type: 3}
+    baseDamageMod: 1
+    damageTypeId: 2
+    cooldown: 0.5
+    skillTags:
+    - Melee
+    - Fire Damage
+    - Elemental Damage
+    - Attack
+    manaCost: 0
+    projectiles: 0
+  - name: Slow Time
+    id: 74
+    description: All enemies have their movement speed, attack speed and projectile
+      speed reduced.
+    icon: {fileID: -1362109737943017948, guid: 5b88f6d9a7baac144ba4fa595d8abf66, type: 3}
+    baseDamageMod: 0
+    damageTypeId: 1
+    cooldown: 11
+    skillTags:
+    - Area of Effect
+    - Spell
+    manaCost: 0
+    projectiles: 1
+  - name: Use Potion
+    id: 150
+    description: 
+    icon: {fileID: -1622096428343074779, guid: 44a64457e69bcc54d9ac7ba80ba3d179, type: 3}
+    baseDamageMod: 1
+    damageTypeId: 1
+    cooldown: 0.15
+    skillTags:
+    - Physical Damage
+    manaCost: 0
+    projectiles: 0
+  - name: Closed Body
+    id: 157
+    description: Envelops you in a Barrier of Conviction based on your Maximum Mana,
+      While Closed Body is active, your Conviction Decay is reduced by 50%, and every
+      attack received is retaliated with a Physical Damage Explosion.
+    icon: {fileID: 2910093086290590589, guid: 3776500d1a856e4458c81844d96c00f1, type: 3}
+    baseDamageMod: 1
+    damageTypeId: 1
+    cooldown: 15
+    skillTags:
+    - Area of Effect
+    - Enchantment
+    - Physical Damage
+    manaCost: 0
+    projectiles: 1
+  - name: Bombardment
+    id: 201
+    description: Summons a Bombardment over a large area for 8 seconds, dealing AoE
+      Physical Damage on impact.
+    icon: {fileID: 5280961912189506534, guid: 93a7fb86a9b0ba24c8a2cd1d1c16226f, type: 3}
+    baseDamageMod: 1
+    damageTypeId: 1
+    cooldown: 10
+    skillTags:
+    - Area of Effect
+    - Spell
+    - Physical Damage
+    manaCost: 0
+    projectiles: 20
+  - name: Summon The Guard
+    id: 203
+    description: 'Spirits of the Canudos Catholic Guard are summoned to fight by
+      your side. Guard''s Rage: Upon skill activation, all Catholic Guard''s Spirits
+      reveive a 200% boost to attack speed for 4 seconds.'
+    icon: {fileID: 3111050118329368605, guid: acdddc5b64a351c45b97c835626a2525, type: 3}
+    baseDamageMod: 0.4
+    damageTypeId: 1
+    cooldown: 15
+    skillTags:
+    - Summon
+    - Projectile
+    - Physical Damage
+    manaCost: 100
+    projectiles: 4
+  - name: Matadeira
+    id: 209
+    description: Mark an area to be bombarded by a powerful cannon shot. The explosion
+      area is ignited for 3 seconds.
+    icon: {fileID: 41269098085275515, guid: 92c84ae69f6d8084b926135cf250ae33, type: 3}
+    baseDamageMod: 1.2
+    damageTypeId: 2
+    cooldown: 5
+    skillTags:
+    - Area of Effect
+    - 'Marksman '
+    - Fire Damage
+    - Elemental Damage
+    manaCost: 0
+    projectiles: 1
+  - name: Holy Rosary
+    id: 210
+    description: Summon beads of the Rosary that orbit in a spiral around you, dealing
+      Lightning damage.
+    icon: {fileID: 863623981874991071, guid: 74fdb595bc2c8a34f97a43effe70c2f4, type: 3}
+    baseDamageMod: 1.2
+    damageTypeId: 3
+    cooldown: 0.4
+    skillTags:
+    - Projectile
+    - Spell
+    - Lightning Damage
+    - Elemental Damage
+    - Attack
+    manaCost: 200
+    projectiles: 1
+  - name: Veil Of Quills
+    id: 211
+    description: Unleashes a flurry of spectral quills that seek out nearby enemies,
+      dealing Plague damage.
+    icon: {fileID: 9022825200162550632, guid: 7507722ee6e80514faeb7d28261f3f83, type: 3}
+    baseDamageMod: 0.6
+    damageTypeId: 4
+    cooldown: 0.5
+    skillTags:
+    - Projectile
+    - Spell
+    - Plague Damage
+    - Elemental Damage
+    manaCost: 200
+    projectiles: 4
+  - name: Summon Brute
+    id: 323
+    description: 
+    icon: {fileID: -4935273945233333856, guid: 0296ea56f9d3c274c9af629409578820, type: 3}
+    baseDamageMod: 1
+    damageTypeId: 1
+    cooldown: 12
+    skillTags:
+    - Summon
+    - Projectile
+    - Physical Damage
+    manaCost: 0
+    projectiles: 0
+  - name: Summon Marksmen
+    id: 326
+    description: 
+    icon: {fileID: 1754397402253633169, guid: f0cdf424864fa324685352cdc62fd5b7, type: 3}
+    baseDamageMod: 0.8
+    damageTypeId: 1
+    cooldown: 10
+    skillTags:
+    - Summon
+    - Projectile
+    - Physical Damage
+    manaCost: 0
+    projectiles: 0
 --- !u!4 &606251037
 Transform:
   m_ObjectHideFlags: 0

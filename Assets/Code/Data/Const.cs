@@ -49,10 +49,10 @@ namespace Code.Data
         private static string GetImportFileDirectory( string subFolder, string fileName = null )
         {
             var sb = new StringBuilder();
-            sb.AppendJoin( "/", Application.dataPath, "Resources", "DataImport", subFolder );
+            sb.AppendJoin( "/", /*Application.dataPath, "Resources",*/ "DataImport", subFolder );
             if( !string.IsNullOrEmpty( fileName ) )
                 sb.Append( $"/{fileName}" );
-            Debug.Log( sb.ToString() );
+            //Debug.Log( sb.ToString() );
             return sb.ToString();
         }
         

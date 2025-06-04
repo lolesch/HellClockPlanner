@@ -16,8 +16,7 @@ namespace Code.Data
         [ReadOnly] public SkillHashId id;
         //[ReadOnly] [TextArea(3,5)] public string localizedName;
         [ReadOnly] [TextArea(3,5)] public string description;
-        public Sprite icon;
-        [ReadOnly] public string iconString;
+        [ReadOnly] [PreviewIcon] public Sprite icon;
         [ReadOnly] public float baseDamageMod;
         [ReadOnly] public DamageTypeId damageTypeId;
         [ReadOnly] public float cooldown;
@@ -40,8 +39,6 @@ namespace Code.Data
             //localizedName = definition.localizedName.GetLocalizedString();
             //description = definition.descriptionKey.GetLocalizedString();
             
-            iconString = $"{definition.icon}";
-            // TODO: if this works, we can remove the DataProvider.Instance.GetIconFromSkillId( definition.id );
             icon = Resources.Load<Sprite>( Const.GetIconImportDirectory( $"{definition.icon}" ) );
             baseDamageMod = definition.baseDamageMod;
             damageTypeId = Enum.TryParse<DamageTypeId>(definition.eDamageType, true, out var damageType) ? damageType : DamageTypeId.None;
@@ -81,7 +78,7 @@ namespace Code.Data
         //[ReadOnly] public int maxLevel;
         //[ReadOnly] public DamageTypeId damageTypeId;
 
-        [ReadOnly] public Sprite icon => DataProvider.Instance.GetIconFromSkillId( skillId );
+        //[ReadOnly] public Sprite icon => DataProvider.Instance.GetIconFromSkillId( skillId );
 
         public void OnBeforeSerialize() => name = skillId.ToDescription();
         public void OnAfterDeserialize() {}

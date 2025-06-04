@@ -20,19 +20,19 @@ namespace Code.Runtime.Provider
         public TMP_Dropdown.OptionData defaultOption;
         
         [SerializeField] private SkillDefinitionsImportData skillImportData;
-        [SerializeField] private List<SkillData> skillDataTest;
+        [SerializeField] private List<SkillData> skillData;
         
         [ContextMenu("loadSkillDataTest")]
         private void LoadSkillDataTest()
         {
-            skillDataTest.Clear();
+            skillData.Clear();
             
             foreach( var id in Enum.GetValues( typeof( SkillHashId ) ) as SkillHashId[] )
             {
                 if( id == SkillHashId.None )
                     continue;
 
-                skillDataTest.Add( GetSkillData( id ) );
+                skillData.Add( GetSkillData( id ) );
             }
         }
 
@@ -55,7 +55,7 @@ namespace Code.Runtime.Provider
 
         //public List<SkillIcon> skillIconList => skillIcons.icons;
         //public List<ProficiencyIcon> proficiencyIconList => proficiencyIcons.icons;
-        public Sprite GetIconFromSkillId( SkillHashId skillHashId ) => skillIcons.GetIconFromSkillId( skillHashId );
+        //public Sprite GetIconFromSkillId( SkillHashId skillHashId ) => skillIcons.GetIconFromSkillId( skillHashId );
         public Sprite GetIconFromTagId( SkillTagId tag ) => tagIcons.GetIconFromTagId( tag );
         public Sprite GetIconFromTagId( DamageTypeId tag ) => tagIcons.GetIconFromTagId( tag );
 
@@ -77,6 +77,7 @@ namespace Code.Runtime.Provider
                 Debug.LogError( "No skillIcons found!" );
 
             CreateAllProficienciesFromImportData();
+            LoadSkillDataTest();
         }
 
         [ContextMenu("CreateAllProficienciesFromImportData")]
@@ -106,6 +107,7 @@ namespace Code.Runtime.Provider
             skillImportData.Skills.FirstOrDefault( x => x.id == id );
 
         public List<SkillImportData> GetSkillImports() => database.tables.skills;
+        public List<SkillData> GetSkillDefinitions() => skillData;
 
         public SkillData GetSkillData( SkillHashId id ) =>
             new ( GetSkillDefinitionImport( id ), GetSkillImport( id ) );

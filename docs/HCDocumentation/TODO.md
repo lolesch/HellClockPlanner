@@ -7,7 +7,13 @@
 - [ ] proficiencies are broken, no proficiency to select from
 
 CONTINUE HERE:
-- [ ] import data from submodule
+- [ ] load icons once and store them 
+- [ ] act skill unlock lookup for no spoilers
+	- [ ] setting for what act is unlocked
+- [ ] welcome popup
+- [ ] changelog
+- [ ] relics
+- [x] import data from submodule
 - [ ] Check For Trinket Upgrade ( see InventoryTetris currency for reference )
 - [x] skill details display
 	- [ ] show all skill stats
