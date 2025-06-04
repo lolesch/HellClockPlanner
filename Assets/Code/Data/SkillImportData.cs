@@ -42,7 +42,7 @@ namespace Code.Data
             
             iconString = $"{definition.icon}";
             // TODO: if this works, we can remove the DataProvider.Instance.GetIconFromSkillId( definition.id );
-            icon = Resources.Load<Sprite>( Const.GetIconImportDirectory( $"{definition.icon}.png" ) );
+            icon = Resources.Load<Sprite>( Const.GetIconImportDirectory( $"{definition.icon}" ) );
             baseDamageMod = definition.baseDamageMod;
             damageTypeId = Enum.TryParse<DamageTypeId>(definition.eDamageType, true, out var damageType) ? damageType : DamageTypeId.None;
             cooldown = definition.cooldown;
