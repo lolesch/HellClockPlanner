@@ -5,13 +5,18 @@
 	- [ ] conviction decay resistance
 - [ ] rank 0 is yellow
 - [ ] proficiencies are broken, no proficiency to select from
+- [ ] default physical damage tag from dataImport
 
 CONTINUE HERE:
+- [ ] exchange global buffs to new import and rethink who is the source
+- [ ] review statModifiersPerLevel and rethink who is the source
 - [ ] load icons once and store them 
 - [ ] act skill unlock lookup for no spoilers
-	- [ ] setting for what act is unlocked
-- [ ] welcome popup
-- [ ] changelog
+	- [x] Const.cs -> what act is unlocked in the builder version
+- [ ] implement language selection and apply locale change to displays
+- [x] welcome popup
+- [x] changelog
+	- [ ] automate this?
 - [ ] relics
 - [x] import data from submodule
 - [ ] Check For Trinket Upgrade ( see InventoryTetris currency for reference )
@@ -31,6 +36,7 @@ CONTINUE HERE:
 	- [ ] update hash while building
 	- [ ] copy/paste into input field
 	- [ ] restore the pasted hash
+- [ ] link known issues to the discord channel
 
 ### Trinkets
 - [x] panel to show trinkets

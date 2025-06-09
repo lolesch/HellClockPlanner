@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Code.Data;
 using Code.Data.Enums;
+using Code.Data.Imports;
+using Code.Data.Imports.Skills;
 using Code.Data.ScriptableObjects;
+using Code.Utility.AttributeRef.Attributes;
 using Code.Utility.Extensions;
 using TMPro;
 using UnityEngine;
@@ -18,21 +21,26 @@ namespace Code.Runtime.Provider
         [SerializeField] private SkillStatIcons skillStatIcons;
         [SerializeField] private Proficiency[] proficiencies;
         public TMP_Dropdown.OptionData defaultOption;
+        [SerializeField][ReadOnly] private SkillDefinitions skillDefinitions;
         
-        [SerializeField] private SkillDefinitionsImportData skillImportData;
-        [SerializeField] private List<SkillData> skillData;
+        [SerializeField][ReadOnly] private List<SkillData> skillData;
         
-        [ContextMenu("loadSkillDataTest")]
-        private void LoadSkillDataTest()
+        [ContextMenu("ImportSkillData")]
+        private void SetSkillData()
         {
+            ImportSkillDefinitions();
+            
             skillData.Clear();
             
-            foreach( var id in Enum.GetValues( typeof( SkillHashId ) ) as SkillHashId[] )
+            foreach( var id in Enum.GetValues( typeof( SkillTypeId ) ) as SkillTypeId[] )
             {
-                if( id == SkillHashId.None )
+                if( id == SkillTypeId.None )
                     continue;
+                
+                var definition = skillDefinitions.Skills.FirstOrDefault( x => x.id == (int)id );
+                var tableImport = database.tables.skills.FirstOrDefault( x => x.skillTypeId == id );
 
-                skillData.Add( GetSkillData( id ) );
+                skillData.Add( new ( definition, tableImport ) );
             }
         }
 
@@ -43,14 +51,14 @@ namespace Code.Runtime.Provider
         [ContextMenu("LoadSlot2")]
         private void LoadSlot2() => GameState.LoadSaveFile( Const.PlayerSaveId.PlayerSave2 );
         
-        [ContextMenu("ImportSkills")]
-        public void ImportSkills()
+        private void ImportSkillDefinitions()
         {
             var fileName = "Skills";
-            var output = GameState.LoadJson( fileName, Const.GetDataImportDirectory() );
+            var output = GameState.LoadJson( fileName, Const.GetImportDirectory() );
             
-            skillImportData = JsonUtility.FromJson<SkillDefinitionsImportData>( output );
+            skillDefinitions = JsonUtility.FromJson<SkillDefinitions>( output );
             //JsonUtility.FromJsonOverwrite( output, skillImportData );
+            LogExtensions.LogBroadcast( $"Imported: {fileName}" , gameObject );
         }
 
         //public List<SkillIcon> skillIconList => skillIcons.icons;
@@ -77,7 +85,7 @@ namespace Code.Runtime.Provider
                 Debug.LogError( "No skillIcons found!" );
 
             CreateAllProficienciesFromImportData();
-            LoadSkillDataTest();
+            SetSkillData();
         }
 
         [ContextMenu("CreateAllProficienciesFromImportData")]
@@ -97,26 +105,20 @@ namespace Code.Runtime.Provider
                     newList.Add( CreateProficiencyForRarity( data, RarityId.Epic ) );
             }
             
-            proficiencies = newList.OrderBy( x => x.skillId ).ThenBy( x=> x.skillStatId ).ToArray();
+            proficiencies = newList.OrderBy( x => x.skillTypeId ).ThenBy( x=> x.skillStatId ).ToArray();
         }
         
         public List<CharacterStatImportData> GetBaseStatImports() => database.tables.characterStats;
-        private SkillImportData GetSkillImport( SkillHashId id ) => 
-            database.tables.skills.FirstOrDefault( x => x.skillId == id );
-        private SkillDefinitionImportData GetSkillDefinitionImport( SkillHashId id ) => 
-            skillImportData.Skills.FirstOrDefault( x => x.id == id );
-
         public List<SkillImportData> GetSkillImports() => database.tables.skills;
         public List<SkillData> GetSkillDefinitions() => skillData;
 
-        public SkillData GetSkillData( SkillHashId id ) =>
-            new ( GetSkillDefinitionImport( id ), GetSkillImport( id ) );
+        public SkillData GetSkillData( SkillTypeId typeId ) => skillData.Find( x => x.type == typeId );
         public List<SkillTagImportData> GetSkillTagImports() => database.tables.skillTags;
         public List<GlobalBuffImportData> GetGlobalBuffImports() => database.tables.globalBuffs;
         public List<ProficiencyImportData> GetProficiencyImports() => database.tables.proficiencies;
         public List<ShrineImportData> GetShrineImports() => database.tables.shrines;
         
-        public List<SkillTagId> GetSkillTagsForSkill( SkillHashId skillHashId ) => GetSkillTagImports().Where( x => x.skillHashId == skillHashId ).Select( x => x.skillTagId ).ToList();
+        public List<SkillTagId> GetSkillTagsForSkill( SkillTypeId skillTypeId ) => GetSkillTagImports().Where( x => x.skillTypeId == skillTypeId ).Select( x => x.skillTagId ).ToList();
         
         //public List<SkillImportData> GetUnassignedSkills()
         //{
@@ -133,7 +135,7 @@ namespace Code.Runtime.Provider
         private Proficiency CreateProficiencyForRarity( ProficiencyImportData data, RarityId rarityId )
         {
             return new Proficiency( 
-                data.skillId, 
+                data.skillTypeId, 
                 data.skillStatId,
                 data.modDescription == string.Empty
                     ? data.skillStatId.ToDescription()
@@ -145,11 +147,11 @@ namespace Code.Runtime.Provider
                 data.modType );
         }
 
-        private IEnumerable<Proficiency> GetSkillProficiencies( SkillHashId hashId )
-            => proficiencies.Where( x => x.skillId == hashId );
+        private IEnumerable<Proficiency> GetSkillProficiencies( SkillTypeId typeId )
+            => proficiencies.Where( x => x.skillTypeId == typeId );
 
-        public IEnumerable<Proficiency> GetSkillProficiencies( SkillHashId hashId, RarityId rarityId ) 
-            => GetSkillProficiencies( hashId ).Where( x => x.rarityId == rarityId )
+        public IEnumerable<Proficiency> GetSkillProficiencies( SkillTypeId typeId, RarityId rarityId ) => 
+            GetSkillProficiencies( typeId ).Where( x => x.rarityId == rarityId )
                 .OrderBy( x => x.skillStatId);
         
         public Proficiency GetSkillProficiency( SkillStatId id ) 

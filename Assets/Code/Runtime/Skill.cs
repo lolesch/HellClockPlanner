@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Code.Data;
 using Code.Data.Enums;
+using Code.Data.Imports;
+using Code.Data.Imports.Skills;
 using Code.Runtime.Provider;
 using Code.Runtime.Statistics;
-using Code.Utility.Tools.Statistics;
 using Unity.Mathematics;
 using UnityEngine;
 using Modifier = Code.Runtime.Statistics.Modifier;
@@ -17,21 +18,26 @@ namespace Code.Runtime
         private SkillStat[] _stats;
         private readonly SkillData _config;
         private readonly Dictionary<int, Proficiency> _proficiencies;
-        public readonly List<GlobalBuffImportData> GlobalBuffs;
+        public readonly List<GlobalBuffImportData> GlobalBuffs; // TODO: replace with _config.statModifiersPerRankUpgrade
         
         public readonly List<SkillTagId> Tags;
-        public readonly int MaxLevel;
-        public int level { get; private set; } = 1;
-        public SkillHashId skillId => _config.id;
+        public int level { get; private set; } = 0;
+        public SkillTypeId skillTypeId => _config.type;
         public DamageTypeId damageType => _damageTypeOverwrite != DamageTypeId.None ? _damageTypeOverwrite : _config.damageTypeId;
         private DamageTypeId _damageTypeOverwrite;
+        public float baseDamage => _config.baseDamageMod;
         public Sprite icon => _config.icon;
-        public string description => _config.description;
+        public string name => _config.GetLocaName();
+        public string description => _config.GetLocaDescription();
         public int manaCost => _config.manaCost; // TODO: get level dependent value
         public float cooldown => _config.cooldown; // TODO: get level dependent value
         //public int baseDamage => _config.baseDamage; // TODO: get level dependent value
         public int rank => _proficiencies.Where( x => x.Value.skillStatId != SkillStatId.None ).Sum( x => (int)x.Value.rarityId );
         public Guid guid { get; } = Guid.NewGuid();
+
+        public bool hasDamageType => damageType == DamageTypeId.None ||
+                                     ( damageType == DamageTypeId.Physical && 0 <= baseDamage );
+
 
         //public bool isAssigned => GameState.Player.SkillSlots.Select( x => x._skillHashId ).Contains( _config.id );
         
@@ -42,9 +48,8 @@ namespace Code.Runtime
         {
             _config = config;
             GlobalBuffs = globalBuffs;
-            MaxLevel = 4; // TODO: get from config.maxLevel;
             _proficiencies = new Dictionary<int, Proficiency>();
-            Tags = DataProvider.Instance.GetSkillTagsForSkill( _config.id );
+            Tags = DataProvider.Instance.GetSkillTagsForSkill( _config.type );
         }
         
         public SkillStat GetStat( SkillStatId statId ) => GetStats().First( x => x.Stat == statId );
@@ -56,7 +61,7 @@ namespace Code.Runtime
 
             _stats = new SkillStat[]
             {
-                new ( SkillStatId.ProjectileAmount, _config.projectiles, ModType.Flat ),
+                new ( SkillStatId.SkillProjectileAmount, _config.projectiles, ModType.Flat ),
                 new ( SkillStatId.ProjectileBounces, 0, ModType.Flat ),
                 
                 new ( SkillStatId.Damage, _config.baseDamageMod, ModType.Percent ),
@@ -65,7 +70,7 @@ namespace Code.Runtime
                 new ( SkillStatId.ManaCost, 100, ModType.Percent ),
                 new ( SkillStatId.Cooldown, 100, ModType.Percent ),
                 new ( SkillStatId.SkillSpeed, 100, ModType.Percent ),
-                new ( SkillStatId.AreaOfEffect, 100, ModType.Percent ),
+                new ( SkillStatId.SkillAreaOfEffect, 100, ModType.Percent ),
                 new ( SkillStatId.Duration, 100, ModType.Percent ),
                 new ( SkillStatId.ProjectileSpeed, 100, ModType.Percent ),
                 new ( SkillStatId.DashDistance, 100, ModType.Percent ),
@@ -89,10 +94,10 @@ namespace Code.Runtime
             }
             
             _proficiencies.Add( proficiencySlotIndex, proficiency );
-            GetStat( proficiency.skillStatId ).AddModifier( new Modifier( proficiency.value, proficiency ) );
+            GetStat( proficiency.skillStatId ).AddModifier( new Modifier( proficiency.value, proficiency.guid ) );
                 
             foreach( var buff in GlobalBuffs )
-                GameState.Player.GetStat( buff.characterStatId ).AddModifier( new Modifier( buff.amountPerRank * (int)proficiency.rarityId, this ) );
+                GameState.Player.GetStat( buff.characterStatId ).AddModifier( new Modifier( buff.amountPerRank * (int)proficiency.rarityId, guid ) );
             
             OnProficienciesChanged?.Invoke();
         }
@@ -100,10 +105,28 @@ namespace Code.Runtime
         private void RemoveProficiency( Proficiency proficiency, int proficiencySlotIndex )
         {
             _proficiencies.Remove( proficiencySlotIndex );
-            GetStat( proficiency.skillStatId ).TryRemoveModifier( new Modifier( proficiency.value, proficiency ) );
+            GetStat( proficiency.skillStatId ).TryRemoveModifier( new Modifier( proficiency.value, proficiency.guid ) );
 
             foreach( var buff in GlobalBuffs )
-                GameState.Player.GetStat( buff.characterStatId ).TryRemoveModifier( new Modifier( buff.amountPerRank * (int)proficiency.rarityId, this ) );
+                GameState.Player.GetStat( buff.characterStatId ).TryRemoveModifier( new Modifier( buff.amountPerRank * (int)proficiency.rarityId, guid ) );
+        }
+
+        private void AddLevelMods( SkillLevelStatModifier levelMods )
+        {
+            if( levelMods.mods == null || levelMods.mods.Length == 0 )
+                return;
+            
+            foreach( var mod in levelMods.mods )
+                GetStat( mod.stat ).AddModifier( new Modifier( mod.modifier, levelMods.guid ) );
+        }
+
+        private void RemoveLevelMods( SkillLevelStatModifier levelMods )
+        {
+            if( levelMods.mods == null || levelMods.mods.Length == 0 )
+                return;
+            
+            foreach( var mod in levelMods.mods )
+                GetStat( mod.stat ).TryRemoveAllModifiersBySource( levelMods.guid );
         }
 
         public void RevertGlobalBuffs() => GlobalBuffs.ForEach( x =>
@@ -111,7 +134,12 @@ namespace Code.Runtime
 
         public void ChangeLevel( int increment )
         {
-            level = math.clamp( level + increment, 1, MaxLevel );
+            RemoveLevelMods( _config.modifiersPerLevel.First(x => x.level == level ) );
+            
+            level = math.clamp( level + increment, 1, Const.MaxSkillLevel );
+            
+            AddLevelMods( _config.modifiersPerLevel.First(x => x.level == level ) );
+            
             OnLevelChanged?.Invoke(level);
         }
 

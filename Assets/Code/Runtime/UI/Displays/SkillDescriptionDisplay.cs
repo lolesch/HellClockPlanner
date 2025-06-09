@@ -32,13 +32,12 @@ namespace Code.Runtime.UI.Displays
         
         private void RefreshDisplay()
         {
-            var skill = GameState.Player.skills[ slot.index ];
-            descriptionText.text = skill != null ? skill.description : "";
-            globalBuffsText.text = skill != null ? GetGlobalBuffDescription( skill ) : "";
+            descriptionText.text = _skill != null ? _skill.description : "";
+            globalBuffsText.text = _skill != null ? GetGlobalBuffDescription( _skill ) : "";
             
-            if( globalBuffsValue.text == (skill != null ? GetGlobalBuffValue( skill ) : "" ) )
+            if( globalBuffsValue.text == (_skill != null ? GetGlobalBuffValue( _skill ) : "" ) )
                 return;
-            globalBuffsValue.text = skill != null ? GetGlobalBuffValue( skill ) : "";
+            globalBuffsValue.text = _skill != null ? GetGlobalBuffValue( _skill ) : "";
             globalBuffsValue.DoPunch();
         }
         

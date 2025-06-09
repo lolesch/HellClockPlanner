@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using Code.Data;
 using Code.Data.Enums;
+using Code.Data.Imports;
 using Code.Runtime.Provider;
 using Code.Runtime.Statistics;
 using Code.Runtime.UI.Displays;
@@ -21,11 +22,11 @@ namespace Code.Runtime
         
         public readonly SkillSlotData[] SkillSlots = 
         {
-            new ( 0, SkillHashId.None ),
-            new ( 1, SkillHashId.None ),
-            new ( 2, SkillHashId.None ),
-            new ( 3, SkillHashId.None ),
-            new ( 4, SkillHashId.None ),
+            new ( 0, SkillTypeId.None ),
+            new ( 1, SkillTypeId.None ),
+            new ( 2, SkillTypeId.None ),
+            new ( 3, SkillTypeId.None ),
+            new ( 4, SkillTypeId.None ),
         };
 
         public event Action<SkillSlotData[]> OnSkillSlotsChanged;
@@ -87,15 +88,20 @@ namespace Code.Runtime
             OnSkillSlotsChanged?.Invoke( SkillSlots );
         }
 
-        public void SetSkillIdAtSlotIndex( int slotIndex, SkillHashId hashId )
+        public void SetSkillIdAtSlotIndex( int slotIndex, SkillTypeId typeId )
         {
             skills[slotIndex]?.RevertGlobalBuffs();
-
-            var skillData = DataProvider.Instance.GetSkillData( hashId );
-            var globalBuffs = DataProvider.Instance.GetGlobalBuffImports().Where( x => x.skillHashId == hashId ).ToList();
-            skills[slotIndex] = new Skill( skillData, globalBuffs );
             
-            SkillSlots[slotIndex] = new SkillSlotData( slotIndex, hashId );
+            skills[slotIndex] = null;
+            
+            if( typeId != SkillTypeId.None )
+            {
+                var skillData = DataProvider.Instance.GetSkillData( typeId );
+                var globalBuffs = DataProvider.Instance.GetGlobalBuffImports().Where( x => x.skillTypeId == typeId ).ToList();
+                skills[slotIndex] = new Skill( skillData, globalBuffs );
+            }
+            
+            SkillSlots[slotIndex].skillTypeId =  typeId;
             OnSkillSlotsChanged?.Invoke( SkillSlots );
         }
     }

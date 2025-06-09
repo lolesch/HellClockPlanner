@@ -49,20 +49,20 @@ namespace Code.Runtime.UI.Panels
 
                 _handle = new MotionHandle();
             }
-            else
+            else if ( !isActive )
                 _handle = LMotion.Create( 0, 1, fadeInDuration ).WithEase( Ease.InQuad ).WithOnComplete( OnAppear )
                     .Bind( canvasGroup, ( x, target ) => target.alpha = x );
             
             return _handle;
         }
 
-        public void FadeInAfterDelay(float fadeInDelay = 0)
-        {
-            if (0 >= fadeInDelay)
-                FadeIn();
-            else
-                LSequence.Create().Insert( fadeInDelay, FadeIn() );
-        }
+        //public void FadeInAfterDelay(float fadeInDelay = 0)
+        //{
+        //    if (0 >= fadeInDelay)
+        //        FadeIn();
+        //    else
+        //        LSequence.Create().Insert( fadeInDelay, FadeIn() );
+        //}
 
         /// <summary>
         /// Called right before the CanvasGroup fades in.
@@ -84,7 +84,7 @@ namespace Code.Runtime.UI.Panels
 
             canvasGroup.blocksRaycasts = false;
 
-            if (fadeOutDuration <= 0)
+            if( fadeOutDuration <= 0 )
             {
                 canvasGroup.alpha = 0;
 
@@ -92,9 +92,9 @@ namespace Code.Runtime.UI.Panels
 
                 return;
             }
-
-            _handle = LMotion.Create( 1, 0, fadeOutDuration ).WithEase( Ease.InQuad )
-                .Bind( canvasGroup, ( x, target ) => target.alpha = x );//.OnComplete(() => OnDisappear());
+            else if( isActive )
+                _handle = LMotion.Create( 1, 0, fadeOutDuration ).WithEase( Ease.InQuad )
+                    .Bind( canvasGroup, ( x, target ) => target.alpha = x ); //.OnComplete(() => OnDisappear());
         }
 
         [ContextMenu("Toggle Visibility")]

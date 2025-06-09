@@ -7,10 +7,16 @@ namespace Code.Runtime.Statistics
     public struct Modifier : IEquatable<Modifier>
     {
         //public readonly Vector2Int Range; // TODO: implement
-        public readonly float Value;
-        public readonly IModifierSource Source;
+        [field: SerializeField] public float Value { get; private set; }
+        public readonly Guid Source;
 
-        public Modifier( float value, IModifierSource source )
+       //public Modifier( float value, IModifierSource source )
+       //{
+       //    Value = value;
+       //    Source = source.guid;
+       //}
+
+        public Modifier( float value, Guid source )
         {
             Value = value;
             Source = source;
@@ -19,7 +25,7 @@ namespace Code.Runtime.Statistics
         public static implicit operator float( Modifier mod ) => mod.Value;
 
         public bool Equals( Modifier other ) => Mathf.Approximately( Value, other.Value ) 
-                                                && Source.guid == other.Source.guid;
+                                                && Source == other.Source;
     }
 
     public interface IModifierSource

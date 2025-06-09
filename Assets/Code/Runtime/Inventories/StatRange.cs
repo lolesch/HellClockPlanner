@@ -65,7 +65,7 @@ namespace Code.Runtime.Inventories
             var mappedValue = weightedRoll.MapFrom01(min - 1, max);
             var value = Mathf.Max(min, Mathf.CeilToInt(mappedValue));
 
-            return new Modifier( /*new Vector2Int(min, max),*/ value, null );
+            return new Modifier( /*new Vector2Int(min, max),*/ value, Guid.Empty );
         }
 
         public void OnBeforeSerialize() => name = $"{StatName}\t{Range}\t{DefaultModType}";

@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using Code.Data.Imports;
+using Code.Data.Imports.Skills;
 using NorskaLib.Spreadsheets;
 using UnityEngine;
 

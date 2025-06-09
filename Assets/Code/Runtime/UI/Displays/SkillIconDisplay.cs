@@ -11,8 +11,10 @@ namespace Code.Runtime.UI.Displays
 
         protected override void OnSkillSlotsChanged( SkillSlotData[] skillSlots )
         {
-            var sprite = DataProvider.Instance.GetIconFromSkillId( skillSlots[slot.index]._skillHashId );
-
+            var skill = GameState.Player.skills[slot.index];
+            
+            var sprite = skill != null ? skill.icon : DataProvider.Instance.defaultOption.image;
+            
             if( icon.sprite == sprite ) 
                 return;
             

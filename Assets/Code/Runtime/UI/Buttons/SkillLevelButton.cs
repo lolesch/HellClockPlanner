@@ -1,4 +1,5 @@
 using Code.Data;
+using Code.Data.Enums;
 using Code.Runtime.UI.Displays;
 using TMPro;
 using UnityEngine;
@@ -48,26 +49,20 @@ namespace Code.Runtime.UI.Buttons
             RefreshDisplay();
         }
 
-        private void OnLevelChanged( int obj ) => RefreshDisplay(); 
+        private void OnLevelChanged( int level ) => RefreshDisplay(); 
         
         private void RefreshDisplay()
         {
-            interactable = false;
-            levelText.text = "0";
-
+            interactable = isIncrement 
+                ? _skill?.level < Const.MaxSkillLevel 
+                : _skill?.level > 0;
+            
             DoStateTransition(interactable ? SelectionState.Normal : SelectionState.Disabled, false);
-
-            if( _skill == null ) 
+            
+            if( levelText.text == (_skill?.level + 1).ToString() )
                 return;
             
-            interactable = _skill != null && isIncrement 
-                ? _skill.level < _skill.MaxLevel 
-                : _skill.level > 1;
-            
-            if( levelText.text == _skill.level.ToString() )
-                return;
-            
-            levelText.text = _skill.level.ToString();
+            levelText.text = (_skill?.level + 1).ToString();
             levelText.DoPunch();
         }
     }

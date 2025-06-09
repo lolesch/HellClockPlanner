@@ -20,6 +20,6 @@ namespace Code.Runtime.Statistics
 
         public bool TryRemoveModifier( Modifier modifier ) => Value.TryRemoveModifier( modifier );
         
-        public bool TryRemoveAllModifiersBySource( IModifierSource source ) => Value.TryRemoveAllModifiersBySource( source );
+        public bool TryRemoveAllModifiersBySource( Guid source ) => Value.TryRemoveAllModifiersBySource( source );
     }
 }

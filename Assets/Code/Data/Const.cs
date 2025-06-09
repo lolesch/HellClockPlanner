@@ -1,6 +1,7 @@
 using System.IO;
 using System.Text;
 using Code.Data.Enums;
+using Code.Utility.Extensions;
 using LitMotion;
 using LitMotion.Extensions;
 using UnityEngine;
@@ -23,13 +24,20 @@ namespace Code.Data
         public const string DatabaseShrines = "Shrines";
         //public const string DatabaseStatusEffects = "StatusEffects";
         
-        public const float TooltipDelay = .5f;
+        public const float TooltipDelay = .7f;
         public const float TooltipDelayAfterInteraction = 2f;
         
         private const float TextPunchScale = .25f;
         private const float TextPunchDuration = .25f;
-
-        public static string GetFileName( this PlayerSaveId id ) => $"{id}{FileTypeJson}";
+        
+        //private const int UnlockedAct = 1;
+        public const int MaxSkillLevel = 6;
+        
+        /// Localization
+        public const LocaleId CurrentLocale = LocaleId.En;
+        public const string LocaleIdEn = "en";
+        public const string LocaleIdPtBr = "pt-br";
+        public const string LocaleIdZhCn = "zh-cn";
         
         public static string GetSaveFileDirectory()
         {
@@ -44,12 +52,21 @@ namespace Code.Data
             return sb.ToString();
         }
         
-        public static string GetIconImportDirectory(  string fileName = null) => GetImportFileDirectory( "icons", fileName );
-        public static string GetDataImportDirectory(  string fileName = null) => GetImportFileDirectory( "data", fileName );
-        private static string GetImportFileDirectory( string subFolder, string fileName = null )
+        public static string GetIconPath(  string fileName ) => GetResourceFilePath( new []{"DataImport","icons"}, fileName );
+        private static string GetResourceFilePath( string[] subFolder, string fileName )
         {
             var sb = new StringBuilder();
-            sb.AppendJoin( "/", /*Application.dataPath, "Resources",*/ "DataImport", subFolder );
+            sb.AppendJoin( "/", subFolder );
+            if( !string.IsNullOrEmpty( fileName ) )
+                sb.Append( $"/{fileName}" );
+            //Debug.Log( sb.ToString() );
+            return sb.ToString();
+        }
+        
+        public static string GetImportDirectory( string fileName = null)
+        {
+            var sb = new StringBuilder();
+            sb.AppendJoin( "/", Application.dataPath, "Resources", "DataImport", "data" );
             if( !string.IsNullOrEmpty( fileName ) )
                 sb.Append( $"/{fileName}" );
             //Debug.Log( sb.ToString() );
@@ -61,13 +78,8 @@ namespace Code.Data
             RelicSizeId.None => Vector2Int.zero,
             RelicSizeId.OneByOne => new Vector2Int(1, 1),
             RelicSizeId.OneByTwo => new Vector2Int(1, 2),
-            //RelicSizeId.OneByThree => new Vector2Int(1, 3),
             RelicSizeId.OneByFour => new Vector2Int(1, 4),
-
-            //RelicSizeId.TwoByOne => new Vector2Int(2, 1),
             RelicSizeId.TwoByTwo => new Vector2Int(2, 2),
-            //RelicSizeId.TwoByThree => new Vector2Int(2, 3),
-            //RelicSizeId.TwoByFour => new Vector2Int(2, 4),
             _ => Vector2Int.zero,
         };
 
@@ -98,6 +110,7 @@ namespace Code.Data
 
         public static Color GetStatusEffectColor( this DamageTypeId tagId ) => tagId switch
         {
+            //TODO: use status enum instead
             DamageTypeId.Physical => new Color( 0.7f, 0f, 0.12f ),
             DamageTypeId.Fire => new Color( 0.84f, 0.4f, 0.1f ),
             DamageTypeId.Lightning => new Color( .9f, 0.8f, 0.1f ),

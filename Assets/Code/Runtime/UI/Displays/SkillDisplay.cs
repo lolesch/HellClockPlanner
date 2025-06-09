@@ -40,12 +40,12 @@ namespace Code.Runtime.UI.Displays
             // TODO: skill stats
             // TODO: affected relics
 
-            var showDetails = _skill != null && _skill.skillId != SkillHashId.None;
+            var showDetails = _skill != null && _skill.skillTypeId != SkillTypeId.None;
             
             //foreach( var toggleObject in toggleObjects )
             //    toggleObject.SetActive( showDetails );
             
-            skillName.text = showDetails ? _skill.skillId.ToDescription() : "No Skill Assigned";
+            skillName.text = showDetails ? _skill.name : "No Skill Assigned";
             
             PoolProvider.Instance.ReleaseAll( skillTagPrefab );
             if( showDetails )
@@ -65,12 +65,12 @@ namespace Code.Runtime.UI.Displays
                 skillTag?.gameObject.SetActive(true);
             }
 
-            if( _skill.damageType != DamageTypeId.None )
-            {
-                var damageTypeTag = PoolProvider.Instance.GetObject( skillTagPrefab, false ) as SkillTagDisplay;
-                damageTypeTag?.SetTag( _skill.damageType );
-                damageTypeTag?.gameObject.SetActive(true);
-            }
+            if( _skill.hasDamageType )//.damageType == DamageTypeId.None || ( _skill.damageType == DamageTypeId.Physical && 0 <= _skill.baseDamage ) ) 
+                return;
+            
+            var damageTypeTag = PoolProvider.Instance.GetObject( skillTagPrefab, false ) as SkillTagDisplay;
+            damageTypeTag?.SetTag( _skill.damageType );
+            damageTypeTag?.gameObject.SetActive(true);
         }
     }
 }

@@ -30,10 +30,12 @@ namespace Code.Runtime.UI.Displays
 
         private void OnSkillChanged( TMP_Dropdown change )
         {
-            var skillId = ( Enum.GetValues( typeof( SkillHashId ) ) as SkillHashId[] )!
+            var skillId = ( Enum.GetValues( typeof( SkillTypeId ) ) as SkillTypeId[] )!
                 .First( x => x.ToDescription() == change.options[change.value].text );
             
             GameState.Player.SetSkillIdAtSlotIndex( slot.index, skillId );
+            
+            dropdown.captionImage.DoPunch();
         }
         
         private void SetDropdownOptions()
@@ -41,7 +43,7 @@ namespace Code.Runtime.UI.Displays
             dropdown.ClearOptions();
             dropdown.options.Add( DataProvider.Instance.defaultOption );
             dropdown.AddOptions( DataProvider.Instance.GetSkillDefinitions().Select( x =>
-                    new TMP_Dropdown.OptionData( x.id.ToDescription(), x.icon, Color.white ) ).ToList() );
+                    new TMP_Dropdown.OptionData( x.type.ToDescription(), x.icon, Color.white ) ).ToList() );
         }
     }
 }

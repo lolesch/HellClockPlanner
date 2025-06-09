@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using Code.Data;
 using Code.Data.Enums;
+using Code.Data.Imports;
 using Code.Runtime.Provider;
 using Code.Utility.Extensions;
 using TMPro;
@@ -36,9 +37,10 @@ namespace Code.Runtime.UI.Displays
                 return;
                 
             _skill = GameState.Player.skills[slot.index];
-            
-            var skillDependentProficiencies =
-                DataProvider.Instance.GetSkillProficiencies( _skill.skillId, rarityId );
+
+            var skillDependentProficiencies = _skill != null
+                ? DataProvider.Instance.GetSkillProficiencies( _skill.skillTypeId, rarityId )
+                : Enumerable.Empty<Proficiency>();
             var hasProficiencies = skillDependentProficiencies.Any();
             
             dropdown.interactable = hasProficiencies;
@@ -58,7 +60,7 @@ namespace Code.Runtime.UI.Displays
         private void OnProficiencyChanged( TMP_Dropdown change )
         {
             var proficiency = 0 < change.value 
-                ? DataProvider.Instance.GetSkillProficiencies( _skill.skillId, rarityId ).ToArray()[change.value - 1]
+                ? DataProvider.Instance.GetSkillProficiencies( _skill.skillTypeId, rarityId ).ToArray()[change.value - 1]
                 : new Proficiency();
             
             GameState.Player.skills[slot.index].AddProficiency( proficiency, proficiencySlotIndex );

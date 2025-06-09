@@ -27,7 +27,7 @@ namespace Code.Runtime.UI.Displays
         private void RefreshDisplay()
         {
             var skill = GameState.Player.skills[ slot.index ];
-            if( skill == null || skill.skillId == SkillHashId.None )
+            if( skill == null || skill.skillTypeId == SkillTypeId.None )
                 return;
             
             SetSkillDamageText( skill );

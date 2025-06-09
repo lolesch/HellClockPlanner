@@ -13,26 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Skill Details.md",
+                "file": "Missing Data.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Skill Details"
-            }
-          },
-          {
-            "id": "bc2b1ff2117779ad",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Announcement.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Announcement"
+              "title": "Missing Data"
             }
           }
         ]
@@ -41,20 +27,6 @@
         "id": "2283a892d2c36a5f",
         "type": "tabs",
         "children": [
-          {
-            "id": "13758a085de6f7d9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Dev Communication.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Dev Communication"
-            }
-          },
           {
             "id": "7d2fbf067ce13f27",
             "type": "leaf",
@@ -68,23 +40,8 @@
               "icon": "lucide-file",
               "title": "TODO"
             }
-          },
-          {
-            "id": "6affb86dfa46dea2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "TODO.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "TODO"
-            }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -231,11 +188,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "6affb86dfa46dea2",
+  "active": "7d2fbf067ce13f27",
   "lastOpenFiles": [
     "Missing Data.md",
-    "TODO.md",
     "Skill Details.md",
+    "TODO.md",
     "Announcement.md",
     "Dev Communication.md",
     "Image References/Pasted image 20250530222825.png",

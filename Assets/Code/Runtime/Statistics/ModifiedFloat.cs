@@ -92,7 +92,7 @@ namespace Code.Runtime.Statistics
 
         public string ToString(string format, IFormatProvider provider) => _totalValue.ToString( format, provider );
 
-        public bool TryRemoveAllModifiersBySource( object source )
+        public bool TryRemoveAllModifiersBySource( Guid source )
         {
             var removed = _modifiers.RemoveAll( x => x.Source == source );
             CalculateTotalValue();

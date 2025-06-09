@@ -17,7 +17,8 @@ MonoBehaviour:
   selectedTogglesIds:
   - skillProficiencies
   - statusEffects
-  - skills
+  - globalBuffs
+  - skillTags
   foldoutSerializationGUI: 0
   serializationOutputPath: ../../Configs
   serializationFileName: Configs.v0.1
@@ -405,170 +406,170 @@ MonoBehaviour:
       manaCost: 0
       projectiles: 0
     skillTags:
-    - name: Attack - Single Target
-      skillHashId: 0
-      skillTagId: 5
-    - name: Attack - Spell
-      skillHashId: 0
-      skillTagId: 4
-    - name: Attack - Melee
-      skillHashId: 0
-      skillTagId: 2
-    - name: Attack - Single Target
-      skillHashId: 0
-      skillTagId: 5
-    - name: Attack - Spell
-      skillHashId: 0
-      skillTagId: 4
-    - name: Attack - Summon
-      skillHashId: 0
-      skillTagId: 7
-    - name: Attack - Single Target
-      skillHashId: 0
-      skillTagId: 5
-    - name: Attack - Spell
-      skillHashId: 0
-      skillTagId: 4
-    - name: Attack - Spell
-      skillHashId: 0
-      skillTagId: 4
-    - name: Attack - Enchantment
-      skillHashId: 0
-      skillTagId: 3
-    - name: Attack - Mobility
-      skillHashId: 0
-      skillTagId: 9
-    - name: Attack - Enchantment
-      skillHashId: 0
-      skillTagId: 3
-    - name: Attack - Prayer
-      skillHashId: 0
-      skillTagId: 8
-    - name: Attack - Area Of Effect
-      skillHashId: 0
-      skillTagId: 6
-    - name: Attack - Enchantment
-      skillHashId: 0
-      skillTagId: 3
-    - name: Attack - Area Of Effect
-      skillHashId: 0
-      skillTagId: 6
-    - name: Attack - Enchantment
-      skillHashId: 0
-      skillTagId: 3
-    - name: Attack - Mobility
-      skillHashId: 0
-      skillTagId: 9
-    - name: Attack - Enchantment
-      skillHashId: 0
-      skillTagId: 3
-    - name: Attack - Prayer
-      skillHashId: 0
-      skillTagId: 8
-    - name: Attack - Enchantment
-      skillHashId: 0
-      skillTagId: 3
-    - name: Attack - Mobility
-      skillHashId: 0
-      skillTagId: 9
-    - name: Attack - Spell
-      skillHashId: 0
-      skillTagId: 4
-    - name: Attack - Projectile
-      skillHashId: 0
-      skillTagId: 10
-    - name: Attack - Enchantment
-      skillHashId: 0
-      skillTagId: 3
-    - name: Attack - Single Target
-      skillHashId: 0
-      skillTagId: 5
-    - name: Attack - Spell
-      skillHashId: 0
-      skillTagId: 4
-    - name: Attack - Mobility
-      skillHashId: 0
-      skillTagId: 9
-    - name: Attack - Spell
-      skillHashId: 0
-      skillTagId: 4
-    - name: Attack - Mobility
-      skillHashId: 0
-      skillTagId: 9
     - name: Attack - Marksman
-      skillHashId: 0
+      skillId: 0
       skillTagId: 1
+    - name: Attack - Projectile
+      skillId: 0
+      skillTagId: 10
+    - name: Attack - Single Target
+      skillId: 0
+      skillTagId: 5
+    - name: Split Shot - Marksman
+      skillId: 1
+      skillTagId: 1
+    - name: Split Shot - Projectile
+      skillId: 1
+      skillTagId: 10
+    - name: Shadow Dash - Mobility
+      skillId: 2
+      skillTagId: 9
+    - name: Repeater - Marksman
+      skillId: 3
+      skillTagId: 1
+    - name: Repeater - Projectile
+      skillId: 3
+      skillTagId: 10
+    - name: Reflexes - Projectile
+      skillId: 4
+      skillTagId: 10
+    - name: Old Bell - Area Of Effect
+      skillId: 50
+      skillTagId: 6
+    - name: Old Bell - Spell
+      skillId: 50
+      skillTagId: 4
+    - name: Judgement - Area Of Effect
+      skillId: 67
+      skillTagId: 6
+    - name: Judgement - Enchantment
+      skillId: 67
+      skillTagId: 3
+    - name: Double Knives - Melee
+      skillId: 69
+      skillTagId: 2
+    - name: Lasso - Area Of Effect
+      skillId: 71
+      skillTagId: 6
+    - name: Lasso - Melee
+      skillId: 71
+      skillTagId: 2
+    - name: Slow Time - Area Of Effect
+      skillId: 74
+      skillTagId: 6
+    - name: Slow Time - Spell
+      skillId: 74
+      skillTagId: 4
+    - name: Closed Body - Area Of Effect
+      skillId: 157
+      skillTagId: 6
+    - name: Closed Body - Enchantment
+      skillId: 157
+      skillTagId: 3
+    - name: Bombardment - Area Of Effect
+      skillId: 201
+      skillTagId: 6
+    - name: Bombardment - Spell
+      skillId: 201
+      skillTagId: 4
+    - name: Summon The Guard - Projectile
+      skillId: 203
+      skillTagId: 10
+    - name: Summon The Guard - Summon
+      skillId: 203
+      skillTagId: 7
+    - name: Matadeira - Area Of Effect
+      skillId: 209
+      skillTagId: 6
+    - name: Matadeira - Marksman
+      skillId: 209
+      skillTagId: 1
+    - name: Holy Rosary - Projectile
+      skillId: 210
+      skillTagId: 10
+    - name: Holy Rosary - Spell
+      skillId: 210
+      skillTagId: 4
+    - name: Veil Of Quills - Projectile
+      skillId: 211
+      skillTagId: 10
+    - name: Veil Of Quills - Spell
+      skillId: 211
+      skillTagId: 4
+    - name: Veil Of Quills - Elemental Damage
+      skillId: 211
+      skillTagId: 13
     globalBuffs:
     - name: Attack -> 2 Critical Hit Chance
-      skillHashId: 0
+      skillId: 0
       characterStatId: 20
       amountPerRank: 2
-    - name: Attack -> 2 Critical Hit Damage
-      skillHashId: 0
+    - name: Split Shot -> 2 Critical Hit Damage
+      skillId: 1
       characterStatId: 22
       amountPerRank: 2
-    - name: Attack -> -2.5 Skill Mana Cost
-      skillHashId: 0
+    - name: Shadow Dash -> -2.5 Skill Mana Cost
+      skillId: 2
       characterStatId: 27
       amountPerRank: -2.5
-    - name: Attack -> 0.5 Critical Hit Chance
-      skillHashId: 0
+    - name: Repeater -> 0.5 Critical Hit Chance
+      skillId: 3
       characterStatId: 20
       amountPerRank: 0.5
-    - name: Attack -> 1.5 Damage
-      skillHashId: 0
+    - name: Reflexes -> 1.5 Damage
+      skillId: 4
       characterStatId: 2
       amountPerRank: 1.5
-    - name: Attack -> 1 Life Percent
-      skillHashId: 0
+    - name: Old Bell -> 1 Life Percent
+      skillId: 50
       characterStatId: 46
       amountPerRank: 1
-    - name: Attack -> 1 Mana Percent
-      skillHashId: 0
+    - name: Old Bell -> 1 Mana Percent
+      skillId: 50
       characterStatId: 50
       amountPerRank: 1
-    - name: Attack -> 2 Ailment Duration
-      skillHashId: 0
+    - name: Judgement -> 2 Ailment Duration
+      skillId: 67
       characterStatId: 56
       amountPerRank: 2
-    - name: Attack -> 0.5 Attack Speed
-      skillHashId: 0
+    - name: Double Knives -> 0.5 Attack Speed
+      skillId: 69
       characterStatId: 25
       amountPerRank: 0.5
-    - name: Attack -> 1.5 Damage
-      skillHashId: 0
+    - name: Lasso -> 1.5 Damage
+      skillId: 71
       characterStatId: 2
       amountPerRank: 1.5
-    - name: Attack -> 0.75 Evasion
-      skillHashId: 0
+    - name: Slow Time -> 0.75 Evasion
+      skillId: 74
       characterStatId: 55
       amountPerRank: 0.75
-    - name: Attack -> 0.5 Physical Resistance
-      skillHashId: 0
+    - name: Closed Body -> 0.5 Physical Resistance
+      skillId: 157
       characterStatId: 43
       amountPerRank: 0.5
-    - name: Attack -> 2 Skill Area Of Effect
-      skillHashId: 0
+    - name: Bombardment -> 2 Skill Area Of Effect
+      skillId: 201
       characterStatId: 57
       amountPerRank: 2
-    - name: Attack -> 1 Cooldown Speed
-      skillHashId: 0
+    - name: Summon The Guard -> 1 Cooldown Speed
+      skillId: 203
       characterStatId: 26
       amountPerRank: 1
-    - name: Attack -> 2 Skill Area Of Effect
-      skillHashId: 0
+    - name: Matadeira -> 2 Skill Area Of Effect
+      skillId: 209
       characterStatId: 57
       amountPerRank: 2
-    - name: Attack -> 2 Critical Hit Damage
-      skillHashId: 0
+    - name: Holy Rosary -> 2 Critical Hit Damage
+      skillId: 210
       characterStatId: 22
       amountPerRank: 2
-    - name: Attack -> 1.5 Wither Buildup Rate
-      skillHashId: 0
+    - name: Veil Of Quills -> 1.5 Wither Buildup Rate
+      skillId: 211
       characterStatId: 58
       amountPerRank: 1.5
-    - name: Attack -> 1.5 Stun Buildup Rate
-      skillHashId: 0
+    - name: Veil Of Quills -> 1.5 Stun Buildup Rate
+      skillId: 211
       characterStatId: 59
       amountPerRank: 1.5
     proficiencies:

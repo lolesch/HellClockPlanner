@@ -6,17 +6,17 @@ namespace Code.Data.Enums
     {
         None = 0,
         
-        Damage,
+        Damage,//
         CriticalHitChance,
         CriticalHitDamage,
         
         ManaCost,
         Cooldown,
         SkillSpeed,
-        AreaOfEffect,
+        SkillAreaOfEffect,//
         Duration,
         
-        ProjectileAmount,
+        SkillProjectileAmount,//
         ProjectileBounces,
         ProjectileSpeed,
         
@@ -25,5 +25,7 @@ namespace Code.Data.Enums
         PhysicalPlagueResistShred,
         SlowDebuffIntensity,
         
+        //SkillMeleeDamage,
+        //SkillSpellDamage
     }
 }

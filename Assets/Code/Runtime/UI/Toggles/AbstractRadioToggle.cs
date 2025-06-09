@@ -7,6 +7,10 @@ namespace Code.Runtime.UI.Toggles
     public abstract class AbstractRadioToggle : AbstractToggle
     {
         [SerializeField, ReadOnly] private RadioGroup _radioGroup = null;
+        
+        [SerializeField] private Sprite toggleOnSprite;
+        [SerializeField] private Sprite toggleOffSprite;
+        
         public RadioGroup radioGroup// => _radioGroup ??= GetComponentInParent<RadioGroup>( );
         {
             get
@@ -31,9 +35,13 @@ namespace Code.Runtime.UI.Toggles
             if ( radioGroup?.transform != transform.parent )
                 _radioGroup = null;
 
-            if (isOn && radioGroup)
+            if ( isOn && radioGroup )
                 radioGroup.Activate(this);
+            
+            if (toggleOnSprite != null && toggleOffSprite != null && targetGraphic is UnityEngine.UI.Image image)
+                image.sprite = isOn ? toggleOnSprite : toggleOffSprite;
         }
+
 #endif // UNITY_EDITOR
 
         protected override void OnDisable()
@@ -66,6 +74,9 @@ namespace Code.Runtime.UI.Toggles
 
             if ( isOn && radioGroup )
                 radioGroup.Activate(this);
+            
+            if (toggleOnSprite != null && toggleOffSprite != null && targetGraphic is UnityEngine.UI.Image image)
+                image.sprite = isOn ? toggleOnSprite : toggleOffSprite;
         }
         
         protected abstract override void Toggle(bool on);

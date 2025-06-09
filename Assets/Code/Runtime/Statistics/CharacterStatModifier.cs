@@ -5,11 +5,8 @@ using UnityEngine;
 namespace Code.Runtime.Statistics
 {
     [Serializable]
-    public struct CharacterStatModifier : IStatModifier
+    public struct CharacterStatModifier : ICharacterStatModifier
     {
-        /// where to put this?
-        //[field: SerializeField] protected float randomRoll { get; } = Random.value;
-        //[SerializeField] protected Vector2 _range;
         [field: SerializeField] public CharacterStatId stat { get; private set; }
         public Modifier modifier { get; private set; }
 
@@ -19,10 +16,25 @@ namespace Code.Runtime.Statistics
             this.modifier = modifier;
         }
     }
-
-    internal interface IStatModifier
+    
+    [Serializable]
+    public struct SkillStatModifier : ISkillStatModifier
     {
-        CharacterStatId stat { get; }
+        [field: SerializeField] public SkillStatId stat { get; private set; }
+        [field: SerializeField] public Modifier modifier { get; private set; }
+
+        public SkillStatModifier( SkillStatId stat, Modifier modifier )
+        {
+            this.stat = stat;
+            this.modifier = modifier;
+        }
+    }
+
+    internal interface IStatModifier<out T> where T : Enum
+    {
+        T stat { get; }
         Modifier modifier { get; }
     }
+    internal interface ICharacterStatModifier : IStatModifier<CharacterStatId> {}
+    internal interface ISkillStatModifier : IStatModifier<SkillStatId> {}
 }

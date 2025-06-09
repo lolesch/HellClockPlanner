@@ -1,6 +1,7 @@
 using System;
 using Code.Data;
 using Code.Data.Enums;
+using Code.Data.Imports;
 
 namespace Code.Runtime.Statistics
 {
@@ -20,7 +21,7 @@ namespace Code.Runtime.Statistics
 
         public bool TryRemoveModifier( Modifier modifier ) => Value.TryRemoveModifier( modifier );
         
-        public bool TryRemoveAllModifiersBySource( IModifierSource source ) => Value.TryRemoveAllModifiersBySource( source );
+        public bool TryRemoveAllModifiersBySource( IModifierSource source ) => Value.TryRemoveAllModifiersBySource( source.guid );
     }
     
     [Serializable]
