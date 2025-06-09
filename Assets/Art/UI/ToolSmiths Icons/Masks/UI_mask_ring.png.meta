@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: c0a36fc63ae6f4b4791236b3b396ae82
+guid: 87dbedec61eccf34ab93c481fe6db9ea
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -864311226054739648
-    second: mask_diamond_0
+      213: 5351490934946447835
+    second: UI_mask_ring_0
+  - first:
+      213: -5864866393160188338
+    second: UI_mask_ring_1
+  - first:
+      213: 2723684790000160925
+    second: UI_mask_ring_2
+  - first:
+      213: -5956040654538159732
+    second: UI_mask_ring_3
+  - first:
+      213: 1485902070306228527
+    second: UI_mask_ring_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +58,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,13 +125,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mask_diamond_0
+      name: UI_mask_ring_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 128
-        height: 128
+        y: 521
+        width: 479
+        height: 479
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +140,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 049ff9be4895104f0800000000000000
-      internalID: -864311226054739648
+      spriteID: bd1c434e6a0544a40800000000000000
+      internalID: 5351490934946447835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_mask_ring_1
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 59
+        width: 881
+        height: 881
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4e7f8cb61fcb9ea0800000000000000
+      internalID: -5864866393160188338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_mask_ring_2
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 521
+        width: 479
+        height: 479
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d901814c2e87cc520800000000000000
+      internalID: 2723684790000160925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_mask_ring_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 479
+        height: 479
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c89c776c494e75da0800000000000000
+      internalID: -5956040654538159732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_mask_ring_4
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 0
+        width: 479
+        height: 479
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f29ce9f6f0cfe9410800000000000000
+      internalID: 1485902070306228527
       vertices: []
       indices: 
       edges: []
@@ -138,7 +238,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +248,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      mask_diamond_0: -864311226054739648
+      UI_mask_ring_0: 5351490934946447835
+      UI_mask_ring_1: -5864866393160188338
+      UI_mask_ring_2: 2723684790000160925
+      UI_mask_ring_3: -5956040654538159732
+      UI_mask_ring_4: 1485902070306228527
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
