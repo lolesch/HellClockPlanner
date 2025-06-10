@@ -2,18 +2,19 @@ using System;
 using Code.Data;
 using Code.Data.Enums;
 using Code.Data.Imports;
+using Code.Data.Imports.Skills;
 
 namespace Code.Runtime.Statistics
 {
     [Serializable]
     public sealed class CharacterStat
     {
-        public readonly CharacterStatId Stat;
+        public readonly StatId Stat;
         public readonly ModifiedFloat Value;
             
-        public CharacterStat( CharacterStatImportData config )
+        public CharacterStat( StatData config )
         {
-            Stat = config.characterStatId;
+            Stat = config.type;
             Value = new ModifiedFloat( config.baseValue, config.modType );
         }
 

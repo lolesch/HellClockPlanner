@@ -11,7 +11,7 @@ namespace Code.Runtime.UI.Displays
 {
     public sealed class CharacterStatDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        [SerializeField] private CharacterStatId statId;
+        [SerializeField] private StatId statId;
         private CharacterStat _stat;
         
         [SerializeField] private TextMeshProUGUI statName;

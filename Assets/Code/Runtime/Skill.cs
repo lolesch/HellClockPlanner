@@ -23,6 +23,7 @@ namespace Code.Runtime
         public readonly List<SkillTagId> Tags;
         public int level { get; private set; } = 0;
         public SkillTypeId skillTypeId => _config.type;
+        // TODO: actually damageType is a list where damage is split with all entries in _damageTypeOverwrites
         public DamageTypeId damageType => _damageTypeOverwrite != DamageTypeId.None ? _damageTypeOverwrite : _config.damageTypeId;
         private DamageTypeId _damageTypeOverwrite;
         public float baseDamage => _config.baseDamageMod;
@@ -97,7 +98,7 @@ namespace Code.Runtime
             GetStat( proficiency.skillStatId ).AddModifier( new Modifier( proficiency.value, proficiency.guid ) );
                 
             foreach( var buff in GlobalBuffs )
-                GameState.Player.GetStat( buff.characterStatId ).AddModifier( new Modifier( buff.amountPerRank * (int)proficiency.rarityId, guid ) );
+                GameState.Player.GetStat( buff.statId ).AddModifier( new Modifier( buff.amountPerRank * (int)proficiency.rarityId, guid ) );
             
             OnProficienciesChanged?.Invoke();
         }
@@ -108,7 +109,7 @@ namespace Code.Runtime
             GetStat( proficiency.skillStatId ).TryRemoveModifier( new Modifier( proficiency.value, proficiency.guid ) );
 
             foreach( var buff in GlobalBuffs )
-                GameState.Player.GetStat( buff.characterStatId ).TryRemoveModifier( new Modifier( buff.amountPerRank * (int)proficiency.rarityId, guid ) );
+                GameState.Player.GetStat( buff.statId ).TryRemoveModifier( new Modifier( buff.amountPerRank * (int)proficiency.rarityId, guid ) );
         }
 
         private void AddLevelMods( SkillLevelStatModifier levelMods )
@@ -130,7 +131,7 @@ namespace Code.Runtime
         }
 
         public void RevertGlobalBuffs() => GlobalBuffs.ForEach( x =>
-            GameState.Player.GetStat( x.characterStatId ).TryRemoveAllModifiersBySource( this ) );
+            GameState.Player.GetStat( x.statId ).TryRemoveAllModifiersBySource( this ) );
 
         public void ChangeLevel( int increment )
         {

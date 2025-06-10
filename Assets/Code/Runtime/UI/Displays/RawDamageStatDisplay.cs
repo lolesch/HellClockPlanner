@@ -5,8 +5,8 @@ namespace Code.Runtime.UI.Displays
 {
     public sealed class RawDamageStatDisplay : BaseCharacterStatDisplay
     {
-        private const CharacterStatId AddedStatId = CharacterStatId.BaseDamage;
-        private const CharacterStatId PercentStatId = CharacterStatId.Damage;
+        private const StatId AddedStatId = StatId.BaseDamage;
+        private const StatId PercentStatId = StatId.Damage;
         
         protected override void Start()
         {

@@ -12,6 +12,8 @@ namespace Code.Runtime.Statistics
         private readonly float _baseValue;
         public readonly ModType ModType;
         private readonly List<Modifier> _modifiers;
+        //private readonly bool willClamp = false;
+        //private readonly Vector2 range;
         
         private float _totalValue;
         private float totalPercent => _totalValue * 0.01f;
@@ -50,7 +52,8 @@ namespace Code.Runtime.Statistics
                 newTotal += flatAddModValue;
             }
 
-            //newTotal = Mathf.Clamp(newTotal, range.min, range.max);
+            //if( willClamp )
+            //    newTotal = Mathf.Clamp(newTotal, range.x, range.y);
             
             if( Mathf.Approximately( _totalValue, newTotal ) )
                 return;

@@ -47,11 +47,11 @@ namespace Code.Runtime.UI.Displays
             
             foreach( var globalBuff in skill.GlobalBuffs )
             {
-                var modType = GameState.Player.GetStat( globalBuff.characterStatId ).Value.ModType;
+                var modType = GameState.Player.GetStat( globalBuff.statId ).Value.ModType;
 
                 var perRankValueString = GetModTypeRelatedValueString( globalBuff.amountPerRank, modType );
                 
-                sb.AppendLine( $"{globalBuff.characterStatId.ToDescription()} ({perRankValueString} per rank)" );
+                sb.AppendLine( $"{globalBuff.statId.ToDescription()} ({perRankValueString} per rank)" );
             }
 
             return sb.ToString();
@@ -63,7 +63,7 @@ namespace Code.Runtime.UI.Displays
             
             foreach( var globalBuff in skill.GlobalBuffs )
             {
-                var modType = GameState.Player.GetStat( globalBuff.characterStatId ).Value.ModType;
+                var modType = GameState.Player.GetStat( globalBuff.statId ).Value.ModType;
 
                 var totalValueString = GetModTypeRelatedValueString( globalBuff.amountPerRank * skill.rank, modType );
 

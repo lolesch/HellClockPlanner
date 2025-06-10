@@ -16,20 +16,11 @@ namespace Code.Data.ScriptableObjects
     [Serializable]
     public sealed class SpreadsheetTables
     {
-        [SpreadsheetPage( Const.DatabaseCharacterStats )] 
-        public List<CharacterStatImportData> characterStats;
-        
-        [SpreadsheetPage( Const.DatabaseSkills )] 
-        public List<SkillImportData> skills;
-    
         [SpreadsheetPage( Const.DatabaseSkillTags )] 
         public List<SkillTagImportData> skillTags;
         
         [SpreadsheetPage( Const.DatabaseGlobalBuffs )] 
         public List<GlobalBuffImportData> globalBuffs;
-        
-        //[SpreadsheetPage( Const.DatabaseStatusEffects )] 
-        //public List<StatusEffectImportData> statusEffects;
     
         [SpreadsheetPage( Const.DatabaseProficiencies )] 
         public List<ProficiencyImportData> proficiencies;

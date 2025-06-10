@@ -8,20 +8,6 @@ using UnityEngine;
 namespace Code.Data.Imports.Skills
 {
     [Serializable]
-    public struct SkillImportData : ISerializationCallbackReceiver
-    {
-        [HideInInspector] 
-        [ReadOnly] public string name;
-        
-        [ReadOnly] public SkillTypeId skillTypeId;
-        [ReadOnly] public int manaCost;
-        [ReadOnly] public int projectiles;
-
-        public void OnBeforeSerialize() => name = skillTypeId.ToDescription();
-        public void OnAfterDeserialize() {}
-    }
-
-    [Serializable]
     public struct SkillTagImportData : ISerializationCallbackReceiver
     {
         [HideInInspector] public string name;
@@ -39,10 +25,10 @@ namespace Code.Data.Imports.Skills
         [HideInInspector] public string name;
         
         [ReadOnly] public SkillTypeId skillTypeId;
-        [ReadOnly] public CharacterStatId characterStatId;
+        [ReadOnly] public StatId statId;
         [ReadOnly] public float amountPerRank;
 
-        public void OnBeforeSerialize() => name = $"{skillTypeId.ToDescription()} -> {amountPerRank} {characterStatId.ToDescription()}";
+        public void OnBeforeSerialize() => name = $"{skillTypeId.ToDescription()} -> {amountPerRank} {statId.ToDescription()}";
 
         public void OnAfterDeserialize() {}
     }
@@ -65,10 +51,10 @@ namespace Code.Data.Imports.Skills
         [HideInInspector] public string name;
         
         [ReadOnly] public ShrineId shrineId;
-        [ReadOnly] public CharacterStatId characterStatId;
+        [ReadOnly] public StatId statId;
         [ReadOnly] public int amount;
         //[ReadOnly] public int duration;
-        public void OnBeforeSerialize() => name = $"{shrineId.ToDescription()} -> {amount} {characterStatId.ToDescription()}";
+        public void OnBeforeSerialize() => name = $"{shrineId.ToDescription()} -> {amount} {statId.ToDescription()}";
 
         public void OnAfterDeserialize() {}
     }

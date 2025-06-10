@@ -21,9 +21,12 @@ namespace Code.Runtime.Provider
         [SerializeField] private SkillStatIcons skillStatIcons;
         [SerializeField] private Proficiency[] proficiencies;
         public TMP_Dropdown.OptionData defaultOption;
-        [SerializeField][ReadOnly] private SkillDefinitions skillDefinitions;
         
-        [SerializeField][ReadOnly] private List<SkillData> skillData;
+        // New Import Data
+        [SerializeField] private StatDefinitions statDefinitions;
+        [SerializeField] private SkillDefinitions skillDefinitions;
+        [SerializeField] public List<StatData> statData = new ();
+        [SerializeField] private List<SkillData> skillData = new ();
         
         [ContextMenu("ImportSkillData")]
         private void SetSkillData()
@@ -38,10 +41,21 @@ namespace Code.Runtime.Provider
                     continue;
                 
                 var definition = skillDefinitions.Skills.FirstOrDefault( x => x.id == (int)id );
-                var tableImport = database.tables.skills.FirstOrDefault( x => x.skillTypeId == id );
+                //var tableImport = database.tables.skills.FirstOrDefault( x => x.skillTypeId == id );
 
-                skillData.Add( new ( definition, tableImport ) );
+                skillData.Add( new ( definition/*, tableImport*/ ) );
             }
+        }
+        
+        [ContextMenu("ImportStatData")]
+        private void SetStatData()
+        {
+            ImportStatDefinitions();
+            
+            statData.Clear();
+            
+            foreach( var definition in statDefinitions.Stats )
+                statData.Add( new ( definition ) );
         }
 
         [ContextMenu("LoadSlot0")]
@@ -51,6 +65,14 @@ namespace Code.Runtime.Provider
         [ContextMenu("LoadSlot2")]
         private void LoadSlot2() => GameState.LoadSaveFile( Const.PlayerSaveId.PlayerSave2 );
         
+        private void ImportStatDefinitions()
+        {
+            var fileName = "Stats";
+            var output = GameState.LoadJson( fileName, Const.GetImportDirectory() );
+            
+            statDefinitions = JsonUtility.FromJson<StatDefinitions>( output );
+            LogExtensions.LogBroadcast( $"Imported: {fileName}" , gameObject );
+        }
         private void ImportSkillDefinitions()
         {
             var fileName = "Skills";
@@ -108,8 +130,8 @@ namespace Code.Runtime.Provider
             proficiencies = newList.OrderBy( x => x.skillTypeId ).ThenBy( x=> x.skillStatId ).ToArray();
         }
         
-        public List<CharacterStatImportData> GetBaseStatImports() => database.tables.characterStats;
-        public List<SkillImportData> GetSkillImports() => database.tables.skills;
+        //public List<CharacterStatImportData> GetBaseStatImports() => database.tables.characterStats;
+        //public List<SkillImportData> GetSkillImports() => database.tables.skills;
         public List<SkillData> GetSkillDefinitions() => skillData;
 
         public SkillData GetSkillData( SkillTypeId typeId ) => skillData.Find( x => x.type == typeId );

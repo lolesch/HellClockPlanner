@@ -7,8 +7,8 @@ namespace Code.Runtime.UI.Displays
 {
     public sealed class DamageTypeStatDisplay : BaseCharacterStatDisplay
     {
-        [SerializeField] private CharacterStatId addedStatId;
-        [SerializeField] private CharacterStatId percentStatId;
+        [SerializeField] private StatId addedStatId;
+        [SerializeField] private StatId percentStatId;
         private DerivedCharacterStat _rawDamage;
 
         
@@ -16,8 +16,8 @@ namespace Code.Runtime.UI.Displays
         {
             addedStat = GameState.Player.GetStat( addedStatId );
             percentStat = GameState.Player.GetStat( percentStatId );
-            _rawDamage = new DerivedCharacterStat( GameState.Player.GetStat( CharacterStatId.BaseDamage ), 
-                GameState.Player.GetStat( CharacterStatId.Damage ) );
+            _rawDamage = new DerivedCharacterStat( GameState.Player.GetStat( StatId.BaseDamage ), 
+                GameState.Player.GetStat( StatId.Damage ) );
             
             base.Start();
         }

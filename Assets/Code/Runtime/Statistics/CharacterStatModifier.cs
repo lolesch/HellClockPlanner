@@ -7,10 +7,10 @@ namespace Code.Runtime.Statistics
     [Serializable]
     public struct CharacterStatModifier : ICharacterStatModifier
     {
-        [field: SerializeField] public CharacterStatId stat { get; private set; }
+        [field: SerializeField] public StatId stat { get; private set; }
         public Modifier modifier { get; private set; }
 
-        public CharacterStatModifier( CharacterStatId stat, Modifier modifier )
+        public CharacterStatModifier( StatId stat, Modifier modifier )
         {
             this.stat = stat;
             this.modifier = modifier;
@@ -35,6 +35,6 @@ namespace Code.Runtime.Statistics
         T stat { get; }
         Modifier modifier { get; }
     }
-    internal interface ICharacterStatModifier : IStatModifier<CharacterStatId> {}
+    internal interface ICharacterStatModifier : IStatModifier<StatId> {}
     internal interface ISkillStatModifier : IStatModifier<SkillStatId> {}
 }

@@ -12,7 +12,6 @@ namespace Code.Data.Imports.Skills
     [Serializable]
     public class SkillData : IModifierSource
     {
-        [HideInInspector] 
         public string name;
         public int skillHashId;
         public SkillTypeId type;
@@ -36,9 +35,8 @@ namespace Code.Data.Imports.Skills
         
         public Guid guid { get; } = Guid.NewGuid();
 
-        public SkillData( SkillDefinition definition, SkillImportData table )
+        public SkillData( SkillDefinition definition )
         {
-            #region Definition
             name = definition.name;
             skillHashId = definition.id;
             type = (SkillTypeId)definition.id;
@@ -57,18 +55,12 @@ namespace Code.Data.Imports.Skills
             //range = definition.range;
             skillTags = definition.skillTags;
             
-            #endregion Definition
-            
-            #region Table
-
-            manaCost = table.manaCost;
-            projectiles = table.projectiles;
-            
-            #endregion Table
+            //manaCost = table.manaCost;
+            //projectiles = table.projectiles;
         }
 
-        public string GetLocaDescription( ) => descriptionKey.FirstOrDefault( x => x.langCode == Const.CurrentLocale.ToDescription() ).langTranslation;
-        public string GetLocaName(  ) => localizedName.FirstOrDefault( x => x.langCode == Const.CurrentLocale.ToDescription() ).langTranslation;
+        public string GetLocaDescription( ) => descriptionKey?.FirstOrDefault( x => x.langCode == Const.CurrentLocale.ToDescription() ).langTranslation;
+        public string GetLocaName(  ) => localizedName?.FirstOrDefault( x => x.langCode == Const.CurrentLocale.ToDescription() ).langTranslation;
 
         private SkillLevelStatModifier[] RetreiveModifiersPerLevel( SkillLevelDefinition[] levelDefinitions )
         {
@@ -91,11 +83,10 @@ namespace Code.Data.Imports.Skills
     {
         public SkillDefinition[] Skills;
     }
-    
+
     [Serializable]
     public struct SkillDefinition
     {
-        [HideInInspector] 
         public string name;
         public int id;
         //public string type; // could be an enum, names have no spaces
@@ -160,6 +151,7 @@ namespace Code.Data.Imports.Skills
             }
 
             statId = SkillStatId.None;
+            Debug.LogWarning( $"Could not find skill stat id: {skillValueModifierKey}" );
             return false;
         }
     }
@@ -174,7 +166,7 @@ namespace Code.Data.Imports.Skills
     [Serializable]
     public struct SkillStatModifierDefinition
     {
-        public string type; // probably an enum but always "SkillUpgradeModifier"
+        public string type; // always "SkillUpgradeModifier"
         public string skillValueModifierKey;
         public string modifierType;
         public float value;
@@ -183,7 +175,7 @@ namespace Code.Data.Imports.Skills
     [Serializable]
     public struct GlobalStatDefinition
     {
-        public string type; // probably an enum but always "StatModifierDefinition"
+        public string type; // always "StatModifierDefinition"
         public string eStatDefinition;
         public string modifierType;
         public float value;
@@ -192,7 +184,7 @@ namespace Code.Data.Imports.Skills
     [Serializable]
     public struct SkillModifiableStatsDefinition
     {
-        public string type; // probably an enum but always "SkillValueModifierConfig"
+        public string type; // always "SkillValueModifierConfig"
         public string skillValueModifierKey;
         public string[] multiplicativeStats; // enum[] of skill stats
         public string[] additiveStats; // enum[] of skill stats

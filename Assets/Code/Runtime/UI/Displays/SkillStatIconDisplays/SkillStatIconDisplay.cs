@@ -15,8 +15,8 @@ namespace Code.Runtime.UI.Displays.SkillStatIconDisplays
         protected SkillStat Stat;
         protected CharacterStat CharacterStat;
         
-        [SerializeField] private SkillStatId statId;
-        [SerializeField] private CharacterStatId characterStatId;
+        [SerializeField] private SkillStatId skillStatId;
+        [SerializeField] private StatId statId;
         [SerializeField] private Image statIcon;
         [SerializeField] private TextMeshProUGUI statValue;
         [SerializeField] private TooltipHolder tooltipHolder;
@@ -35,8 +35,8 @@ namespace Code.Runtime.UI.Displays.SkillStatIconDisplays
         
         private void Start( )
         {
-            statIcon.sprite = DataProvider.Instance.GetIconFromSkillStatId( statId );
-            CharacterStat = GameState.Player.GetStat( characterStatId );
+            statIcon.sprite = DataProvider.Instance.GetIconFromSkillStatId( skillStatId );
+            CharacterStat = GameState.Player.GetStat( statId );
             RefreshDisplay();
         }
 
@@ -50,7 +50,7 @@ namespace Code.Runtime.UI.Displays.SkillStatIconDisplays
                 statValue.text = "";
                 return;
             }
-            Stat = Skill?.GetStat( statId );
+            Stat = Skill?.GetStat( skillStatId );
             if( Stat != null )
                 Stat.Value.OnTotalChanged += RefreshDisplay;
             
@@ -71,7 +71,7 @@ namespace Code.Runtime.UI.Displays.SkillStatIconDisplays
                 
             statValue.text = value;
             statValue.DoPunch();
-            tooltipHolder.SetTooltipText( $"{statId.ToDescription()} {value}" );
+            tooltipHolder.SetTooltipText( $"{skillStatId.ToDescription()} {value}" );
         }
     }
 }

@@ -24,7 +24,7 @@ namespace Code.Runtime.UI.Toggles
             var imports = DataProvider.Instance.GetShrineImports();
             _modifiers = imports
                 .Where( x => x.shrineId == shrineId )
-                .Select( x => new CharacterStatModifier( x.characterStatId, new Modifier( x.amount, guid )));
+                .Select( x => new CharacterStatModifier( x.statId, new Modifier( x.amount, guid )));
             
             // TODO: replace with buffDisplay
             var sb = new StringBuilder();

@@ -10,9 +10,18 @@ namespace Code.Runtime.UI.Toggles
         [field: SerializeField, ReadOnly] public AbstractRadioToggle activatedRadioToggle { get; private set; }
         [field: SerializeField] public bool allowSwitchOff { get; private set; } = false;
 
-        public event Action OnGroupChanged;
+        //public event Action OnGroupChanged;
 
         private readonly List<AbstractRadioToggle> _radioToggles = new();
+        
+        void Start()
+        {
+            if( _radioToggles?.Count == 0 || allowSwitchOff ) 
+                return;
+            
+            if ( !activatedRadioToggle.gameObject.activeInHierarchy )
+                _radioToggles[0]?.SetToggle(true);
+        }
 
         public void Activate( AbstractRadioToggle newRadioToggle )
         {
@@ -27,7 +36,7 @@ namespace Code.Runtime.UI.Toggles
                     toggle.SetToggle(false);
             }
 
-            OnGroupChanged?.Invoke();
+            //OnGroupChanged?.Invoke();
         }
 
         public void Register(AbstractRadioToggle item)
@@ -37,7 +46,7 @@ namespace Code.Runtime.UI.Toggles
 
             _radioToggles.Add(item);
 
-            OnGroupChanged?.Invoke();
+            //OnGroupChanged?.Invoke();
         }
 
         public void Unregister(AbstractRadioToggle item)
@@ -47,7 +56,7 @@ namespace Code.Runtime.UI.Toggles
 
             _ = _radioToggles.Remove(item);
 
-            OnGroupChanged?.Invoke();
+            //OnGroupChanged?.Invoke();
         }
     }
 }

@@ -14,12 +14,12 @@ namespace Code.Runtime
         //private PlayerSaveData _config;
 
         private CharacterStat[] _stats;
-        public Skill[] skills { get; } = new Skill[5];
         
         // GEAR
         //private readonly Trinket[,] _trinkets = new Trinket[3,4];
         //private readonly Equipment[] _equipment = new Equipment[8];
         
+        public Skill[] skills { get; } = new Skill[5];
         public readonly SkillSlotData[] SkillSlots = 
         {
             new ( 0, SkillTypeId.None ),
@@ -32,19 +32,14 @@ namespace Code.Runtime
         public event Action<SkillSlotData[]> OnSkillSlotsChanged;
         public event Action OnStatsChanged;
 
-        public CharacterStat GetStat( CharacterStatId statId ) => GetStats().First( x => x.Stat == statId );
-        public CharacterStat[] GetStats()
-        {
-            if( _stats != null ) 
-                return _stats;
-
-            return InitializeCharacterStats();
-        }
+        public CharacterStat GetStat( StatId statId ) => GetStats().First( x => x.Stat == statId );
+        private CharacterStat[] GetStats() => _stats ?? InitializeCharacterStats();
 
         private CharacterStat[] InitializeCharacterStats()
         {
-            var baseStats = DataProvider.Instance.GetBaseStatImports();
+            var baseStats = DataProvider.Instance.statData;
             _stats = new CharacterStat[baseStats.Count];
+
             for( var i = 0; i < baseStats.Count; i++ )
             {
                 _stats[i] = new CharacterStat( baseStats[i] );
@@ -56,23 +51,23 @@ namespace Code.Runtime
 
         public float CalculateHitDamage( Skill skill )
         {
-            var baseDamage = GetStat( CharacterStatId.BaseDamage ).Value;
-            var damage = GetStat( CharacterStatId.Damage ).Value;
-            //var elementalDamage = GetStat( CharacterStatId.ElementalDamage ).Value;
+            var baseDamage = GetStat( StatId.BaseDamage ).Value;
+            var damage = GetStat( StatId.Damage ).Value;
+            var magicDamage = GetStat( StatId.MagicDamage ).Value;
             var addedTypeDamage = skill.damageType switch
             {
-                DamageTypeId.Physical => GetStat( CharacterStatId.AddedPhysicalDamage ).Value,
-                DamageTypeId.Fire => GetStat( CharacterStatId.AddedFireDamage ).Value,
-                DamageTypeId.Lightning => GetStat( CharacterStatId.AddedLightningDamage ).Value,
-                DamageTypeId.Plague => GetStat( CharacterStatId.AddedPlagueDamage ).Value,
+                DamageTypeId.Physical => GetStat( StatId.AdditionalPhysicalDamage ).Value,
+                DamageTypeId.Fire => GetStat( StatId.AdditionalFireDamage ).Value,
+                DamageTypeId.Lightning => GetStat( StatId.AdditionalLightningDamage ).Value,
+                DamageTypeId.Plague => GetStat( StatId.AdditionalPlagueDamage ).Value,
                 _ => 0f,
             };
             var typeDamage = skill.damageType switch
             {
-                DamageTypeId.Physical => GetStat( CharacterStatId.PhysicalDamage ).Value,
-                DamageTypeId.Fire => GetStat( CharacterStatId.FireDamage ).Value,
-                DamageTypeId.Lightning => GetStat( CharacterStatId.LightningDamage ).Value,
-                DamageTypeId.Plague => GetStat( CharacterStatId.PlagueDamage ).Value,
+                DamageTypeId.Physical => GetStat( StatId.PhysicalDamage ).Value,
+                DamageTypeId.Fire => GetStat( StatId.FireDamage ).Value,
+                DamageTypeId.Lightning => GetStat( StatId.LightningDamage ).Value,
+                DamageTypeId.Plague => GetStat( StatId.PlagueDamage ).Value,
                 _ => 0f,
             };
 
@@ -96,6 +91,7 @@ namespace Code.Runtime
             
             if( typeId != SkillTypeId.None )
             {
+                // TODO: select the skill from a database instead of creating garbage every time
                 var skillData = DataProvider.Instance.GetSkillData( typeId );
                 var globalBuffs = DataProvider.Instance.GetGlobalBuffImports().Where( x => x.skillTypeId == typeId ).ToList();
                 skills[slotIndex] = new Skill( skillData, globalBuffs );

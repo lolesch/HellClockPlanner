@@ -11,7 +11,7 @@ namespace Code.Runtime.Inventories
     public class StatRange : ISerializationCallbackReceiver
     {
         [SerializeField, HideInInspector] public string name;
-        [SerializeField] public CharacterStatId StatName;
+        [SerializeField] public StatId StatName;
         [FormerlySerializedAs("MinMax")]
         [SerializeField] private Vector2Int Range;
         [SerializeField] private ModType DefaultModType = ModType.Flat;
@@ -19,7 +19,7 @@ namespace Code.Runtime.Inventories
         [Tooltip("Modifies the likleyness to roll values within the given range")]
         [SerializeField] public AnimationCurve Distribution;
 
-        public StatRange(CharacterStatId statName, Vector2Int range, ModType defaultModType)
+        public StatRange(StatId statName, Vector2Int range, ModType defaultModType)
         {
             StatName = statName;
             Range = range;
