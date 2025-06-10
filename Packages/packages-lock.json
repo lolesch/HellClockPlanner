@@ -11,6 +11,20 @@
       },
       "hash": "b651c5866fe0e3fba065ce2e56dfdfcd59d3d109"
     },
+    "com.cysharp.zlinq": {
+      "version": "https://github.com/Cysharp/ZLinq.git?path=src/ZLinq.Unity/Assets/ZLinq.Unity",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "6d239742f8ba76e54dfea987ca93b02b3be9487c"
+    },
+    "com.github-glitchenzo.nugetforunity": {
+      "version": "https://github.com/GlitchEnzo/NuGetForUnity.git?path=/src/NuGetForUnity",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "a22299e7e94eaa13ac17b326e0de8f2d3afa9e46"
+    },
     "com.kamgam.editor.gittool": {
       "version": "https://github.com/kamgam/UnityEditorGitTool.git",
       "depth": 0,

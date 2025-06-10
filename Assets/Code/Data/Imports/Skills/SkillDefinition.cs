@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Code.Data.Enums;
 using Code.Runtime.Statistics;
 using Code.Utility.AttributeRef.Attributes;
 using Code.Utility.Extensions;
 using UnityEngine;
+using ZLinq;
 
 namespace Code.Data.Imports.Skills
 {
@@ -59,8 +59,10 @@ namespace Code.Data.Imports.Skills
             //projectiles = table.projectiles;
         }
 
-        public string GetLocaDescription( ) => descriptionKey?.FirstOrDefault( x => x.langCode == Const.CurrentLocale.ToDescription() ).langTranslation;
-        public string GetLocaName(  ) => localizedName?.FirstOrDefault( x => x.langCode == Const.CurrentLocale.ToDescription() ).langTranslation;
+        public string GetLocaDescription( ) => descriptionKey?.AsValueEnumerable()
+            .FirstOrDefault( x => x.langCode == Const.CurrentLocale.ToDescription() ).langTranslation;
+        public string GetLocaName(  ) => localizedName?.AsValueEnumerable()
+            .FirstOrDefault( x => x.langCode == Const.CurrentLocale.ToDescription() ).langTranslation;
 
         private SkillLevelStatModifier[] RetreiveModifiersPerLevel( SkillLevelDefinition[] levelDefinitions )
         {
@@ -141,7 +143,7 @@ namespace Code.Data.Imports.Skills
     
         private static bool TryGetSkillStatIdFromString( string skillValueModifierKey, out SkillStatId statId )
         {
-            foreach( var id in Enum.GetValues( typeof( SkillStatId ) ).Cast<SkillStatId>() )
+            foreach( var id in (SkillStatId[])Enum.GetValues( typeof( SkillStatId ) ) )
             {
                 if( id.ToDescription() + " Modifier" != skillValueModifierKey ) 
                     continue;

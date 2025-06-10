@@ -48,8 +48,9 @@ namespace Code.Runtime.UI.Toggles
             DoStateTransition();
 
             //PlayToggleSound(this.isOn);
-
-            Toggle(on);
+            
+            if( Application.isPlaying)
+                Toggle(on);
         }
 
         protected abstract void Toggle(bool on);

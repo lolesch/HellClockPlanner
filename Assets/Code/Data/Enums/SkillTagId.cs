@@ -1,6 +1,4 @@
 using System.ComponentModel;
-using Code.Utility.Extensions;
-using UnityEngine;
 
 namespace Code.Data.Enums
 {

@@ -1,5 +1,5 @@
 using System.IO;
-using System.Linq;
+using ZLinq;
 using Code.Data;
 using Code.Data.Enums;
 using Code.Data.Imports;
@@ -35,7 +35,7 @@ namespace Code.Runtime
                 return null;
             }
             
-            var file = Directory.GetFiles(directory, $"*{fileName}{Const.FileTypeJson}").FirstOrDefault();
+            var file = Directory.GetFiles(directory, $"*{fileName}{Const.FileTypeJson}").AsValueEnumerable().FirstOrDefault();
             
             if ( file == null )
             {
@@ -46,7 +46,7 @@ namespace Code.Runtime
             return new TextAsset( File.ReadAllText( file ) ).text;
         }
         
-        public static SkillTypeId[] GetAvailableSkills( uint act) => ActAvailableSkills.Where( x => x.act == act ).Select( x => x.SkillTypeId ).ToArray();
+        public static SkillTypeId[] GetAvailableSkills( uint act) => ActAvailableSkills.AsValueEnumerable().Where( x => x.act == act ).Select( x => x.SkillTypeId ).ToArray();
     }
 
     // consider moving the act assignment into the skill import data

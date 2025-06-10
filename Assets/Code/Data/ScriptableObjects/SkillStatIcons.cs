@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using ZLinq;
 using Code.Data.Enums;
 using Code.Utility.Extensions;
 using UnityEngine;
@@ -19,12 +19,12 @@ namespace Code.Data.ScriptableObjects
         private void UpdateList()
         {
             icons ??= new List<SkillStatIcon>();
-            var ids = Enum.GetValues( typeof( SkillStatId ) ) as SkillStatId[];
-            var missing = ids.Where( x => icons.All( y => y.skillStatId != x ) ).ToArray();
+            var ids = (SkillStatId[])Enum.GetValues( typeof( SkillStatId ) );
+            var missing = ids.AsValueEnumerable().Where( x => icons.AsValueEnumerable().All( y => y.skillStatId != x ) ).ToArray();
             foreach( var id in missing )
                 icons.Add( new SkillStatIcon( id ) );
             
-            icons = icons.OrderBy( x => x.skillStatId ).ToList();
+            icons = icons.AsValueEnumerable().OrderBy( x => x.skillStatId ).ToList();
         }
     }
 

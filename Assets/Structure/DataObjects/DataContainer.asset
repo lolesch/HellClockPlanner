@@ -17,564 +17,182 @@ MonoBehaviour:
   selectedTogglesIds:
   - skillProficiencies
   - statusEffects
-  - globalBuffs
-  - skillTags
+  - shrines
   foldoutSerializationGUI: 0
   serializationOutputPath: ../../Configs
   serializationFileName: Configs.v0.1
   serializationFormat: 0
   <tables>k__BackingField:
-    characterStats:
-    - name: Base Damage - 100
-      characterStatId: 1
-      baseValue: 100
-      modType: 0
-    - name: Damage - 100%
-      characterStatId: 2
-      baseValue: 100
-      modType: 1
-    - name: Elemental Damage - 0%
-      characterStatId: 3
-      baseValue: 0
-      modType: 1
-    - name: Fire Damage - 100%
-      characterStatId: 4
-      baseValue: 100
-      modType: 1
-    - name: Added Fire Damage - 0
-      characterStatId: 5
-      baseValue: 0
-      modType: 0
-    - name: None - 0%
-      characterStatId: 0
-      baseValue: 0
-      modType: 1
-    - name: Ignited Status Intensity - 100%
-      characterStatId: 7
-      baseValue: 100
-      modType: 1
-    - name: Lightning Damage - 100%
-      characterStatId: 8
-      baseValue: 100
-      modType: 1
-    - name: Added Lightning Damage - 0
-      characterStatId: 9
-      baseValue: 0
-      modType: 0
-    - name: None - 0%
-      characterStatId: 0
-      baseValue: 0
-      modType: 1
-    - name: Shocked Status Intensity - 100%
-      characterStatId: 11
-      baseValue: 100
-      modType: 1
-    - name: Physical Damage - 100%
-      characterStatId: 12
-      baseValue: 100
-      modType: 1
-    - name: Added Phys. Damage - 0
-      characterStatId: 13
-      baseValue: 0
-      modType: 0
-    - name: None - 0%
-      characterStatId: 0
-      baseValue: 0
-      modType: 1
-    - name: Bleeding Status Intensity - 100%
-      characterStatId: 15
-      baseValue: 100
-      modType: 1
-    - name: Plague Damage - 100%
-      characterStatId: 16
-      baseValue: 100
-      modType: 1
-    - name: Added Plague Damage - 0
-      characterStatId: 17
-      baseValue: 0
-      modType: 0
-    - name: None - 0%
-      characterStatId: 0
-      baseValue: 0
-      modType: 1
-    - name: Blighted Status Intensity - 100%
-      characterStatId: 19
-      baseValue: 100
-      modType: 1
-    - name: Critical Hit Chance - 5%
-      characterStatId: 20
-      baseValue: 5
-      modType: 1
-    - name: Critical Hit Chance Multiplier - 0%
-      characterStatId: 21
-      baseValue: 0
-      modType: 1
-    - name: Critical Hit Damage - 150%
-      characterStatId: 22
-      baseValue: 150
-      modType: 1
-    - name: Critical Hit Damage Multiplier - 0%
-      characterStatId: 23
-      baseValue: 0
-      modType: 1
-    - name: Move Speed - 100%
-      characterStatId: 24
-      baseValue: 100
-      modType: 1
-    - name: Attack Speed - 100%
-      characterStatId: 25
-      baseValue: 100
-      modType: 1
-    - name: Cooldown Speed - 100%
-      characterStatId: 26
-      baseValue: 100
-      modType: 1
-    - name: Skill Mana Cost - 100%
-      characterStatId: 27
-      baseValue: 100
-      modType: 1
-    - name: Experience Gain - 100%
-      characterStatId: 28
-      baseValue: 100
-      modType: 1
-    - name: Gold Gain - 100%
-      characterStatId: 29
-      baseValue: 100
-      modType: 1
-    - name: Soul Stone Gain - 100%
-      characterStatId: 30
-      baseValue: 100
-      modType: 1
-    - name: Item Find - 100%
-      characterStatId: 31
-      baseValue: 100
-      modType: 1
-    - name: Bonus Gear Drop Chance - 0%
-      characterStatId: 32
-      baseValue: 0
-      modType: 1
-    - name: Bonus Relic Drop Chance - 0%
-      characterStatId: 33
-      baseValue: 0
-      modType: 1
-    - name: Bonus Trinket Drop Chance - 0%
-      characterStatId: 34
-      baseValue: 0
-      modType: 1
-    - name: Conv. Decay Resistance - 0%
-      characterStatId: 35
-      baseValue: 0
-      modType: 1
-    - name: Conv. Decay Threshold - 0
-      characterStatId: 36
-      baseValue: 0
-      modType: 0
-    - name: Conv. From Mana Spent - 0%
-      characterStatId: 37
-      baseValue: 0
-      modType: 1
-    - name: Conviction Gain - 100%
-      characterStatId: 38
-      baseValue: 100
-      modType: 1
-    - name: Conviction Generation - 0%
-      characterStatId: 39
-      baseValue: 0
-      modType: 1
-    - name: Elemental Resistance - 0%
-      characterStatId: 40
-      baseValue: 0
-      modType: 1
-    - name: Fire Resistance - 0%
-      characterStatId: 41
-      baseValue: 0
-      modType: 1
-    - name: Lightning Resistance - 0%
-      characterStatId: 42
-      baseValue: 0
-      modType: 1
-    - name: Physical Resistance - 0%
-      characterStatId: 43
-      baseValue: 0
-      modType: 1
-    - name: Plague Resistance - 0%
-      characterStatId: 44
-      baseValue: 0
-      modType: 1
-    - name: Life - 600
-      characterStatId: 45
-      baseValue: 600
-      modType: 0
-    - name: Life Percent - 0%
-      characterStatId: 46
-      baseValue: 0
-      modType: 1
-    - name: Life On Kill - 0
-      characterStatId: 47
-      baseValue: 0
-      modType: 0
-    - name: Life Regeneration - 0%
-      characterStatId: 48
-      baseValue: 0
-      modType: 1
-    - name: Mana - 600
-      characterStatId: 49
-      baseValue: 600
-      modType: 0
-    - name: Mana Percent - 0%
-      characterStatId: 50
-      baseValue: 0
-      modType: 1
-    - name: Mana On Kill - 0
-      characterStatId: 51
-      baseValue: 0
-      modType: 0
-    - name: Mana Regeneration - 10%
-      characterStatId: 52
-      baseValue: 10
-      modType: 1
-    - name: Potion Capacity - 3
-      characterStatId: 53
-      baseValue: 3
-      modType: 0
-    - name: Potion Efficiency - 100%
-      characterStatId: 54
-      baseValue: 100
-      modType: 1
-    - name: Evasion - 100%
-      characterStatId: 55
-      baseValue: 100
-      modType: 1
-    - name: Ailment Duration - 100
-      characterStatId: 56
-      baseValue: 100
-      modType: 0
-    - name: Skill Area Of Effect - 100
-      characterStatId: 57
-      baseValue: 100
-      modType: 0
-    - name: Wither Buildup Rate - 100
-      characterStatId: 58
-      baseValue: 100
-      modType: 0
-    - name: Stun Buildup Rate - 100
-      characterStatId: 59
-      baseValue: 100
-      modType: 0
-    - name: Crowd Control Resistance - 100
-      characterStatId: 60
-      baseValue: 100
-      modType: 0
-    skills:
-    - name: Attack
-      skillId: 0
-      description: Basic revolver shot. Restores 15% of maximum Mana on hit.
-      manaCost: 0
-      projectiles: 1
-    - name: Split Shot
-      skillId: 1
-      description: Shoot multiple bullets in a cone on front of you. Especially strong
-        against nearby enemies.
-      manaCost: 120
-      projectiles: 3
-    - name: Shadow Dash
-      skillId: 2
-      description: Dash vey quickly, dealing damage to enemies on your path.
-      manaCost: 100
-      projectiles: 1
-    - name: Repeater
-      skillId: 3
-      description: By holding the skill button, machinegun-like fire on a single
-        target.
-      manaCost: 42
-      projectiles: 1
-    - name: Reflexes
-      skillId: 4
-      description: Summons a ring of Spectral Knives around the player that are automatically
-        thrown at nearby enemies.
-      manaCost: 0
-      projectiles: 5
-    - name: Second Wind
-      skillId: 9
-      description: After taking fatal damage, you don't die and recover a percentage
-        of your life.
-      manaCost: 120
-      projectiles: 0
-    - name: Prayer Of Health
-      skillId: 46
-      description: You gain constant Life regeneration. All allies are also affected.
-      manaCost: 25
-      projectiles: 0
-    - name: Prayer Of Vengeance
-      skillId: 49
-      description: You and all allies in the target area gain increased damage and
-        attack speed.
-      manaCost: 10
-      projectiles: 0
-    - name: Old Bell
-      skillId: 50
-      description: The Old Bell comes crashing down on your enemies.
-      manaCost: 400
-      projectiles: 1
-    - name: Judgement
-      skillId: 67
-      description: All enemies in the target area are judged, reducing all their
-        resistances by 40% for 4 seconds.
-      manaCost: 300
-      projectiles: 1
-    - name: Double Knives
-      skillId: 69
-      description: Continuously spin two blades around while you move, dealing Physical
-        damage to nearby enemies.
-      manaCost: 34
-      projectiles: 1
-    - name: Passage
-      skillId: 70
-      description: Cut a passage through space and time, instantly appearing somewhere
-        else.
-      manaCost: 0
-      projectiles: 0
-    - name: Lasso
-      skillId: 71
-      description: Grapples and pulls enemies in an area, stunning them for 2 seconds
-        with a 20% chance to cause Bleeding for 4 seconds. Bosses are not pulled,
-        nor stunned but can still suffer Bleeding.
-      manaCost: 0
-      projectiles: 1
-    - name: Feitors Lash
-      skillId: 72
-      description: Lash at nearby enemies in an arc in front of you.
-      manaCost: 0
-      projectiles: 0
-    - name: Slow Time
-      skillId: 74
-      description: All enemies have their movement speed, attack speed and projectile
-        speed reduced.
-      manaCost: 0
-      projectiles: 1
-    - name: Use Potion
-      skillId: 150
-      description: 
-      manaCost: 0
-      projectiles: 0
-    - name: Closed Body
-      skillId: 157
-      description: Envelops you in a Barrier of Conviction based on your Maximum
-        Mana, While Closed Body is active, your Conviction Decay is reduced by 50%,
-        and every attack received is retaliated with a Physical Damage Explosion.
-      manaCost: 0
-      projectiles: 1
-    - name: Bombardment
-      skillId: 201
-      description: Summons a Bombardment over a large area for 8 seconds, dealing
-        AoE Physical Damage on impact.
-      manaCost: 0
-      projectiles: 20
-    - name: Summon The Guard
-      skillId: 203
-      description: 'Spirits of the Canudos Catholic Guard are summoned to fight by
-        your side. Guard''s Rage: Upon skill activation, all Catholic Guard''s Spirits
-        reveive a 200% boost to attack speed for 4 seconds.'
-      manaCost: 100
-      projectiles: 4
-    - name: Matadeira
-      skillId: 209
-      description: Mark an area to be bombarded by a powerful cannon shot. The explosion
-        area is ignited for 3 seconds.
-      manaCost: 0
-      projectiles: 1
-    - name: Holy Rosary
-      skillId: 210
-      description: Summon beads of the Rosary that orbit in a spiral around you,
-        dealing Lightning damage.
-      manaCost: 200
-      projectiles: 1
-    - name: Veil Of Quills
-      skillId: 211
-      description: Unleashes a flurry of spectral quills that seek out nearby enemies,
-        dealing Plague damage.
-      manaCost: 200
-      projectiles: 4
-    - name: Summon Brute
-      skillId: 323
-      description: 
-      manaCost: 0
-      projectiles: 0
-    - name: Summon Marksmen
-      skillId: 326
-      description: 
-      manaCost: 0
-      projectiles: 0
     skillTags:
     - name: Attack - Marksman
-      skillId: 0
+      skillTypeId: 0
       skillTagId: 1
     - name: Attack - Projectile
-      skillId: 0
+      skillTypeId: 0
       skillTagId: 10
     - name: Attack - Single Target
-      skillId: 0
+      skillTypeId: 0
       skillTagId: 5
-    - name: Split Shot - Marksman
-      skillId: 1
+    - name: Attack - Marksman
+      skillTypeId: 0
       skillTagId: 1
-    - name: Split Shot - Projectile
-      skillId: 1
+    - name: Attack - Projectile
+      skillTypeId: 0
       skillTagId: 10
-    - name: Shadow Dash - Mobility
-      skillId: 2
+    - name: Attack - Mobility
+      skillTypeId: 0
       skillTagId: 9
-    - name: Repeater - Marksman
-      skillId: 3
+    - name: Attack - Marksman
+      skillTypeId: 0
       skillTagId: 1
-    - name: Repeater - Projectile
-      skillId: 3
+    - name: Attack - Projectile
+      skillTypeId: 0
       skillTagId: 10
-    - name: Reflexes - Projectile
-      skillId: 4
+    - name: Attack - Projectile
+      skillTypeId: 0
       skillTagId: 10
-    - name: Old Bell - Area Of Effect
-      skillId: 50
+    - name: Attack - Area Of Effect
+      skillTypeId: 0
       skillTagId: 6
-    - name: Old Bell - Spell
-      skillId: 50
+    - name: Attack - Spell
+      skillTypeId: 0
       skillTagId: 4
-    - name: Judgement - Area Of Effect
-      skillId: 67
+    - name: Attack - Area Of Effect
+      skillTypeId: 0
       skillTagId: 6
-    - name: Judgement - Enchantment
-      skillId: 67
+    - name: Attack - Enchantment
+      skillTypeId: 0
       skillTagId: 3
-    - name: Double Knives - Melee
-      skillId: 69
+    - name: Attack - Melee
+      skillTypeId: 0
       skillTagId: 2
-    - name: Lasso - Area Of Effect
-      skillId: 71
+    - name: Attack - Area Of Effect
+      skillTypeId: 0
       skillTagId: 6
-    - name: Lasso - Melee
-      skillId: 71
+    - name: Attack - Melee
+      skillTypeId: 0
       skillTagId: 2
-    - name: Slow Time - Area Of Effect
-      skillId: 74
+    - name: Attack - Area Of Effect
+      skillTypeId: 0
       skillTagId: 6
-    - name: Slow Time - Spell
-      skillId: 74
+    - name: Attack - Spell
+      skillTypeId: 0
       skillTagId: 4
-    - name: Closed Body - Area Of Effect
-      skillId: 157
+    - name: Attack - Area Of Effect
+      skillTypeId: 0
       skillTagId: 6
-    - name: Closed Body - Enchantment
-      skillId: 157
+    - name: Attack - Enchantment
+      skillTypeId: 0
       skillTagId: 3
-    - name: Bombardment - Area Of Effect
-      skillId: 201
+    - name: Attack - Area Of Effect
+      skillTypeId: 0
       skillTagId: 6
-    - name: Bombardment - Spell
-      skillId: 201
+    - name: Attack - Spell
+      skillTypeId: 0
       skillTagId: 4
-    - name: Summon The Guard - Projectile
-      skillId: 203
+    - name: Attack - Projectile
+      skillTypeId: 0
       skillTagId: 10
-    - name: Summon The Guard - Summon
-      skillId: 203
+    - name: Attack - Summon
+      skillTypeId: 0
       skillTagId: 7
-    - name: Matadeira - Area Of Effect
-      skillId: 209
+    - name: Attack - Area Of Effect
+      skillTypeId: 0
       skillTagId: 6
-    - name: Matadeira - Marksman
-      skillId: 209
+    - name: Attack - Marksman
+      skillTypeId: 0
       skillTagId: 1
-    - name: Holy Rosary - Projectile
-      skillId: 210
+    - name: Attack - Projectile
+      skillTypeId: 0
       skillTagId: 10
-    - name: Holy Rosary - Spell
-      skillId: 210
+    - name: Attack - Spell
+      skillTypeId: 0
       skillTagId: 4
-    - name: Veil Of Quills - Projectile
-      skillId: 211
+    - name: Attack - Projectile
+      skillTypeId: 0
       skillTagId: 10
-    - name: Veil Of Quills - Spell
-      skillId: 211
+    - name: Attack - Spell
+      skillTypeId: 0
       skillTagId: 4
-    - name: Veil Of Quills - Elemental Damage
-      skillId: 211
+    - name: Attack - Elemental Damage
+      skillTypeId: 0
       skillTagId: 13
     globalBuffs:
-    - name: Attack -> 2 Critical Hit Chance
-      skillId: 0
-      characterStatId: 20
+    - name: Attack -> 2 Base Damage
+      skillTypeId: 0
+      statId: 0
       amountPerRank: 2
-    - name: Split Shot -> 2 Critical Hit Damage
-      skillId: 1
-      characterStatId: 22
+    - name: Attack -> 2 Base Damage
+      skillTypeId: 0
+      statId: 0
       amountPerRank: 2
-    - name: Shadow Dash -> -2.5 Skill Mana Cost
-      skillId: 2
-      characterStatId: 27
+    - name: Attack -> -2.5 Base Damage
+      skillTypeId: 0
+      statId: 0
       amountPerRank: -2.5
-    - name: Repeater -> 0.5 Critical Hit Chance
-      skillId: 3
-      characterStatId: 20
+    - name: Attack -> 0.5 Base Damage
+      skillTypeId: 0
+      statId: 0
       amountPerRank: 0.5
-    - name: Reflexes -> 1.5 Damage
-      skillId: 4
-      characterStatId: 2
+    - name: Attack -> 1.5 Base Damage
+      skillTypeId: 0
+      statId: 0
       amountPerRank: 1.5
-    - name: Old Bell -> 1 Life Percent
-      skillId: 50
-      characterStatId: 46
+    - name: Attack -> 1 Base Damage
+      skillTypeId: 0
+      statId: 0
       amountPerRank: 1
-    - name: Old Bell -> 1 Mana Percent
-      skillId: 50
-      characterStatId: 50
+    - name: Attack -> 1 Base Damage
+      skillTypeId: 0
+      statId: 0
       amountPerRank: 1
-    - name: Judgement -> 2 Ailment Duration
-      skillId: 67
-      characterStatId: 56
+    - name: Attack -> 2 Base Damage
+      skillTypeId: 0
+      statId: 0
       amountPerRank: 2
-    - name: Double Knives -> 0.5 Attack Speed
-      skillId: 69
-      characterStatId: 25
+    - name: Attack -> 0.5 Base Damage
+      skillTypeId: 0
+      statId: 0
       amountPerRank: 0.5
-    - name: Lasso -> 1.5 Damage
-      skillId: 71
-      characterStatId: 2
+    - name: Attack -> 1.5 Base Damage
+      skillTypeId: 0
+      statId: 0
       amountPerRank: 1.5
-    - name: Slow Time -> 0.75 Evasion
-      skillId: 74
-      characterStatId: 55
+    - name: Attack -> 0.75 Base Damage
+      skillTypeId: 0
+      statId: 0
       amountPerRank: 0.75
-    - name: Closed Body -> 0.5 Physical Resistance
-      skillId: 157
-      characterStatId: 43
+    - name: Attack -> 0.5 Base Damage
+      skillTypeId: 0
+      statId: 0
       amountPerRank: 0.5
-    - name: Bombardment -> 2 Skill Area Of Effect
-      skillId: 201
-      characterStatId: 57
+    - name: Attack -> 2 Base Damage
+      skillTypeId: 0
+      statId: 0
       amountPerRank: 2
-    - name: Summon The Guard -> 1 Cooldown Speed
-      skillId: 203
-      characterStatId: 26
+    - name: Attack -> 1 Base Damage
+      skillTypeId: 0
+      statId: 0
       amountPerRank: 1
-    - name: Matadeira -> 2 Skill Area Of Effect
-      skillId: 209
-      characterStatId: 57
+    - name: Attack -> 2 Base Damage
+      skillTypeId: 0
+      statId: 0
       amountPerRank: 2
-    - name: Holy Rosary -> 2 Critical Hit Damage
-      skillId: 210
-      characterStatId: 22
+    - name: Attack -> 2 Base Damage
+      skillTypeId: 0
+      statId: 0
       amountPerRank: 2
-    - name: Veil Of Quills -> 1.5 Wither Buildup Rate
-      skillId: 211
-      characterStatId: 58
+    - name: Attack -> 1.5 Base Damage
+      skillTypeId: 0
+      statId: 0
       amountPerRank: 1.5
-    - name: Veil Of Quills -> 1.5 Stun Buildup Rate
-      skillId: 211
-      characterStatId: 59
+    - name: Attack -> 1.5 Base Damage
+      skillTypeId: 0
+      statId: 0
       amountPerRank: 1.5
     proficiencies:
-    - name: 12 -> Area Of Effect
-      skillId: 12
+    - name: Attack -> Skill Area Of Effect
+      skillTypeId: 0
       skillStatId: 7
       modDescription: BombardmentArea
       modType: 1
@@ -583,8 +201,8 @@ MonoBehaviour:
       magic: 0
       rare: 15
       epic: 25
-    - name: 11 -> Area Of Effect
-      skillId: 11
+    - name: Attack -> Skill Area Of Effect
+      skillTypeId: 0
       skillStatId: 7
       modDescription: 
       modType: 1
@@ -593,8 +211,8 @@ MonoBehaviour:
       magic: 20
       rare: 30
       epic: 40
-    - name: 8 -> Area Of Effect
-      skillId: 8
+    - name: Attack -> Skill Area Of Effect
+      skillTypeId: 0
       skillStatId: 7
       modDescription: 
       modType: 1
@@ -603,8 +221,8 @@ MonoBehaviour:
       magic: 20
       rare: 30
       epic: 40
-    - name: 7 -> Area Of Effect
-      skillId: 7
+    - name: Attack -> Skill Area Of Effect
+      skillTypeId: 0
       skillStatId: 7
       modDescription: 
       modType: 1
@@ -613,8 +231,8 @@ MonoBehaviour:
       magic: 0
       rare: 20
       epic: 40
-    - name: 6 -> Area Of Effect
-      skillId: 6
+    - name: Attack -> Skill Area Of Effect
+      skillTypeId: 0
       skillStatId: 7
       modDescription: 
       modType: 1
@@ -623,8 +241,8 @@ MonoBehaviour:
       magic: 20
       rare: 30
       epic: 40
-    - name: 5 -> Area Of Effect
-      skillId: 5
+    - name: Attack -> Skill Area Of Effect
+      skillTypeId: 0
       skillStatId: 7
       modDescription: 
       modType: 1
@@ -633,8 +251,8 @@ MonoBehaviour:
       magic: 20
       rare: 30
       epic: 40
-    - name: Reflexes -> Area Of Effect
-      skillId: 4
+    - name: Attack -> Skill Area Of Effect
+      skillTypeId: 0
       skillStatId: 7
       modDescription: 
       modType: 1
@@ -643,8 +261,8 @@ MonoBehaviour:
       magic: 10
       rare: 20
       epic: 0
-    - name: Repeater -> Area Of Effect
-      skillId: 3
+    - name: Attack -> Skill Area Of Effect
+      skillTypeId: 0
       skillStatId: 7
       modDescription: ShadowDashExplosionAoE
       modType: 1
@@ -653,8 +271,8 @@ MonoBehaviour:
       magic: 0
       rare: 30
       epic: 0
-    - name: Repeater -> Area Of Effect
-      skillId: 3
+    - name: Attack -> Skill Area Of Effect
+      skillTypeId: 0
       skillStatId: 7
       modDescription: 
       modType: 1
@@ -663,8 +281,8 @@ MonoBehaviour:
       magic: 20
       rare: 30
       epic: 40
-    - name: 10 -> Area Of Effect
-      skillId: 10
+    - name: Attack -> Skill Area Of Effect
+      skillTypeId: 0
       skillStatId: 7
       modDescription: 
       modType: 1
@@ -673,8 +291,8 @@ MonoBehaviour:
       magic: 20
       rare: 30
       epic: 40
-    - name: 12 -> None
-      skillId: 12
+    - name: Attack -> None
+      skillTypeId: 0
       skillStatId: 0
       modDescription: 
       modType: 1
@@ -683,8 +301,8 @@ MonoBehaviour:
       magic: 10
       rare: 0
       epic: 30
-    - name: Repeater -> None
-      skillId: 3
+    - name: Attack -> None
+      skillTypeId: 0
       skillStatId: 0
       modDescription: 
       modType: 0
@@ -693,8 +311,8 @@ MonoBehaviour:
       magic: 0
       rare: 0
       epic: 2
-    - name: 11 -> None
-      skillId: 11
+    - name: Attack -> None
+      skillTypeId: 0
       skillStatId: 0
       modDescription: 
       modType: 1
@@ -703,8 +321,8 @@ MonoBehaviour:
       magic: 0
       rare: 15
       epic: 0
-    - name: 11 -> None
-      skillId: 11
+    - name: Attack -> None
+      skillTypeId: 0
       skillStatId: 0
       modDescription: 
       modType: 1
@@ -713,8 +331,8 @@ MonoBehaviour:
       magic: 20
       rare: 25
       epic: 30
-    - name: 12 -> Cooldown
-      skillId: 12
+    - name: Attack -> Cooldown
+      skillTypeId: 0
       skillStatId: 5
       modDescription: 
       modType: 1
@@ -723,8 +341,8 @@ MonoBehaviour:
       magic: -10
       rare: 20
       epic: 30
-    - name: 11 -> Cooldown
-      skillId: 11
+    - name: Attack -> Cooldown
+      skillTypeId: 0
       skillStatId: 5
       modDescription: 
       modType: 1
@@ -733,8 +351,8 @@ MonoBehaviour:
       magic: -10
       rare: -15
       epic: -20
-    - name: 5 -> Cooldown
-      skillId: 5
+    - name: Attack -> Cooldown
+      skillTypeId: 0
       skillStatId: 5
       modDescription: KnifeGenerationTime
       modType: 1
@@ -743,8 +361,8 @@ MonoBehaviour:
       magic: -20
       rare: 0
       epic: 0
-    - name: Repeater -> Cooldown
-      skillId: 3
+    - name: Attack -> Cooldown
+      skillTypeId: 0
       skillStatId: 5
       modDescription: 
       modType: 1
@@ -753,8 +371,8 @@ MonoBehaviour:
       magic: -20
       rare: -20
       epic: -25
-    - name: 10 -> Cooldown
-      skillId: 10
+    - name: Attack -> Cooldown
+      skillTypeId: 0
       skillStatId: 5
       modDescription: 
       modType: 1
@@ -763,8 +381,8 @@ MonoBehaviour:
       magic: -10
       rare: -15
       epic: -20
-    - name: 13 -> Cooldown
-      skillId: 13
+    - name: Attack -> Cooldown
+      skillTypeId: 0
       skillStatId: 5
       modDescription: 
       modType: 1
@@ -773,8 +391,8 @@ MonoBehaviour:
       magic: -10
       rare: -20
       epic: -30
-    - name: Reflexes -> Critical Hit Chance
-      skillId: 4
+    - name: Attack -> Critical Hit Chance
+      skillTypeId: 0
       skillStatId: 2
       modDescription: 
       modType: 1
@@ -783,8 +401,8 @@ MonoBehaviour:
       magic: 0
       rare: 8
       epic: 10
-    - name: Shadow Dash -> Critical Hit Chance
-      skillId: 2
+    - name: Attack -> Critical Hit Chance
+      skillTypeId: 0
       skillStatId: 2
       modDescription: 
       modType: 1
@@ -793,8 +411,8 @@ MonoBehaviour:
       magic: 5
       rare: 8
       epic: 10
-    - name: 6 -> Critical Hit Damage
-      skillId: 6
+    - name: Attack -> Critical Hit Damage
+      skillTypeId: 0
       skillStatId: 3
       modDescription: 
       modType: 1
@@ -803,8 +421,8 @@ MonoBehaviour:
       magic: 40
       rare: 50
       epic: 100
-    - name: Reflexes -> Critical Hit Damage
-      skillId: 4
+    - name: Attack -> Critical Hit Damage
+      skillTypeId: 0
       skillStatId: 3
       modDescription: 
       modType: 1
@@ -813,8 +431,8 @@ MonoBehaviour:
       magic: 40
       rare: 50
       epic: 60
-    - name: 12 -> Damage
-      skillId: 12
+    - name: Attack -> Damage
+      skillTypeId: 0
       skillStatId: 1
       modDescription: 
       modType: 1
@@ -823,8 +441,8 @@ MonoBehaviour:
       magic: 30
       rare: 0
       epic: 80
-    - name: 11 -> Damage
-      skillId: 11
+    - name: Attack -> Damage
+      skillTypeId: 0
       skillStatId: 1
       modDescription: RetaliationDamage
       modType: 1
@@ -833,8 +451,8 @@ MonoBehaviour:
       magic: 30
       rare: 40
       epic: 50
-    - name: 8 -> Damage
-      skillId: 8
+    - name: Attack -> Damage
+      skillTypeId: 0
       skillStatId: 1
       modDescription: 
       modType: 1
@@ -843,8 +461,8 @@ MonoBehaviour:
       magic: 30
       rare: 40
       epic: 50
-    - name: 15 -> Damage
-      skillId: 15
+    - name: Attack -> Damage
+      skillTypeId: 0
       skillStatId: 1
       modDescription: 
       modType: 1
@@ -853,8 +471,8 @@ MonoBehaviour:
       magic: 20
       rare: 50
       epic: 80
-    - name: 6 -> Damage
-      skillId: 6
+    - name: Attack -> Damage
+      skillTypeId: 0
       skillStatId: 1
       modDescription: 
       modType: 1
@@ -863,8 +481,8 @@ MonoBehaviour:
       magic: 30
       rare: 40
       epic: 50
-    - name: 5 -> Damage
-      skillId: 5
+    - name: Attack -> Damage
+      skillTypeId: 0
       skillStatId: 1
       modDescription: 
       modType: 1
@@ -873,8 +491,8 @@ MonoBehaviour:
       magic: 30
       rare: 40
       epic: 0
-    - name: Reflexes -> Damage
-      skillId: 4
+    - name: Attack -> Damage
+      skillTypeId: 0
       skillStatId: 1
       modDescription: 
       modType: 1
@@ -883,8 +501,8 @@ MonoBehaviour:
       magic: 0
       rare: 20
       epic: 40
-    - name: Reflexes -> Damage
-      skillId: 4
+    - name: Attack -> Damage
+      skillTypeId: 0
       skillStatId: 1
       modDescription: 
       modType: 1
@@ -893,8 +511,8 @@ MonoBehaviour:
       magic: 30
       rare: 40
       epic: 50
-    - name: Repeater -> Damage
-      skillId: 3
+    - name: Attack -> Damage
+      skillTypeId: 0
       skillStatId: 1
       modDescription: 
       modType: 1
@@ -903,8 +521,8 @@ MonoBehaviour:
       magic: 30
       rare: 40
       epic: 50
-    - name: Shadow Dash -> Damage
-      skillId: 2
+    - name: Attack -> Damage
+      skillTypeId: 0
       skillStatId: 1
       modDescription: 
       modType: 1
@@ -913,8 +531,8 @@ MonoBehaviour:
       magic: 30
       rare: 40
       epic: 50
-    - name: 13 -> Damage
-      skillId: 13
+    - name: Attack -> Damage
+      skillTypeId: 0
       skillStatId: 1
       modDescription: Guard Damage
       modType: 1
@@ -923,8 +541,8 @@ MonoBehaviour:
       magic: 20
       rare: 50
       epic: 80
-    - name: 16 -> Damage
-      skillId: 16
+    - name: Attack -> Damage
+      skillTypeId: 0
       skillStatId: 1
       modDescription: 
       modType: 1
@@ -933,8 +551,8 @@ MonoBehaviour:
       magic: 20
       rare: 50
       epic: 80
-    - name: Repeater -> Dash Distance
-      skillId: 3
+    - name: Attack -> Dash Distance
+      skillTypeId: 0
       skillStatId: 12
       modDescription: 
       modType: 1
@@ -943,8 +561,8 @@ MonoBehaviour:
       magic: 0
       rare: 0
       epic: 25
-    - name: 7 -> Fire Lightning Resist Shred
-      skillId: 7
+    - name: Attack -> Fire Lightning Resist Shred
+      skillTypeId: 0
       skillStatId: 13
       modDescription: 
       modType: 1
@@ -953,8 +571,8 @@ MonoBehaviour:
       magic: 30
       rare: 50
       epic: 80
-    - name: 12 -> Duration
-      skillId: 12
+    - name: Attack -> Duration
+      skillTypeId: 0
       skillStatId: 8
       modDescription: 
       modType: 1
@@ -963,8 +581,8 @@ MonoBehaviour:
       magic: 15
       rare: 25
       epic: 40
-    - name: 11 -> Duration
-      skillId: 11
+    - name: Attack -> Duration
+      skillTypeId: 0
       skillStatId: 8
       modDescription: RetaliationAuraDuration
       modType: 1
@@ -973,8 +591,8 @@ MonoBehaviour:
       magic: 20
       rare: 25
       epic: 30
-    - name: 15 -> Duration
-      skillId: 15
+    - name: Attack -> Duration
+      skillTypeId: 0
       skillStatId: 8
       modDescription: Projectile Duration
       modType: 1
@@ -983,8 +601,8 @@ MonoBehaviour:
       magic: 0
       rare: 25
       epic: 40
-    - name: 7 -> Duration
-      skillId: 7
+    - name: Attack -> Duration
+      skillTypeId: 0
       skillStatId: 8
       modDescription: Enemy Res Shred Duration
       modType: 1
@@ -993,8 +611,8 @@ MonoBehaviour:
       magic: 20
       rare: 30
       epic: 40
-    - name: 5 -> Duration
-      skillId: 5
+    - name: Attack -> Duration
+      skillTypeId: 0
       skillStatId: 8
       modDescription: 
       modType: 1
@@ -1003,8 +621,8 @@ MonoBehaviour:
       magic: 20
       rare: 30
       epic: 40
-    - name: 10 -> Duration
-      skillId: 10
+    - name: Attack -> Duration
+      skillTypeId: 0
       skillStatId: 8
       modDescription: 
       modType: 1
@@ -1013,8 +631,8 @@ MonoBehaviour:
       magic: 25
       rare: 30
       epic: 35
-    - name: 13 -> Duration
-      skillId: 13
+    - name: Attack -> Duration
+      skillTypeId: 0
       skillStatId: 8
       modDescription: Guard Rage Duration
       modType: 1
@@ -1023,8 +641,8 @@ MonoBehaviour:
       magic: 10
       rare: 20
       epic: 0
-    - name: 16 -> Duration
-      skillId: 16
+    - name: Attack -> Duration
+      skillTypeId: 0
       skillStatId: 8
       modDescription: Projectile Duration
       modType: 1
@@ -1033,8 +651,8 @@ MonoBehaviour:
       magic: 10
       rare: 20
       epic: 0
-    - name: 8 -> Mana Cost
-      skillId: 8
+    - name: Attack -> Mana Cost
+      skillTypeId: 0
       skillStatId: 4
       modDescription: 
       modType: 1
@@ -1043,8 +661,8 @@ MonoBehaviour:
       magic: -10
       rare: -15
       epic: -20
-    - name: 15 -> Mana Cost
-      skillId: 15
+    - name: Attack -> Mana Cost
+      skillTypeId: 0
       skillStatId: 4
       modDescription: 
       modType: 1
@@ -1053,8 +671,8 @@ MonoBehaviour:
       magic: -10
       rare: -20
       epic: -30
-    - name: 7 -> Mana Cost
-      skillId: 7
+    - name: Attack -> Mana Cost
+      skillTypeId: 0
       skillStatId: 4
       modDescription: 
       modType: 1
@@ -1063,8 +681,8 @@ MonoBehaviour:
       magic: -10
       rare: -20
       epic: -30
-    - name: 6 -> Mana Cost
-      skillId: 6
+    - name: Attack -> Mana Cost
+      skillTypeId: 0
       skillStatId: 4
       modDescription: 
       modType: 1
@@ -1073,8 +691,8 @@ MonoBehaviour:
       magic: -10
       rare: -15
       epic: -20
-    - name: Reflexes -> Mana Cost
-      skillId: 4
+    - name: Attack -> Mana Cost
+      skillTypeId: 0
       skillStatId: 4
       modDescription: 
       modType: 1
@@ -1083,8 +701,8 @@ MonoBehaviour:
       magic: -15
       rare: -20
       epic: -25
-    - name: Shadow Dash -> Mana Cost
-      skillId: 2
+    - name: Attack -> Mana Cost
+      skillTypeId: 0
       skillStatId: 4
       modDescription: 
       modType: 1
@@ -1093,8 +711,8 @@ MonoBehaviour:
       magic: 0
       rare: -10
       epic: -20
-    - name: 16 -> Mana Cost
-      skillId: 16
+    - name: Attack -> Mana Cost
+      skillTypeId: 0
       skillStatId: 4
       modDescription: 
       modType: 1
@@ -1103,8 +721,8 @@ MonoBehaviour:
       magic: -10
       rare: -20
       epic: -30
-    - name: 7 -> Physical Plague Resist Shred
-      skillId: 7
+    - name: Attack -> Physical Plague Resist Shred
+      skillTypeId: 0
       skillStatId: 14
       modDescription: 
       modType: 1
@@ -1113,8 +731,8 @@ MonoBehaviour:
       magic: 30
       rare: 50
       epic: 80
-    - name: 5 -> Projectile Amount
-      skillId: 5
+    - name: Attack -> Skill Projectile Amount
+      skillTypeId: 0
       skillStatId: 9
       modDescription: MaxKnives
       modType: 0
@@ -1123,8 +741,8 @@ MonoBehaviour:
       magic: 0
       rare: 1
       epic: 2
-    - name: Shadow Dash -> Projectile Amount
-      skillId: 2
+    - name: Attack -> Skill Projectile Amount
+      skillTypeId: 0
       skillStatId: 9
       modDescription: 
       modType: 0
@@ -1133,8 +751,8 @@ MonoBehaviour:
       magic: 0
       rare: 0
       epic: 1
-    - name: 13 -> Projectile Amount
-      skillId: 13
+    - name: Attack -> Skill Projectile Amount
+      skillTypeId: 0
       skillStatId: 9
       modDescription: SummonedSpirits
       modType: 0
@@ -1143,8 +761,8 @@ MonoBehaviour:
       magic: 0
       rare: 1
       epic: 0
-    - name: 16 -> Projectile Amount
-      skillId: 16
+    - name: Attack -> Skill Projectile Amount
+      skillTypeId: 0
       skillStatId: 9
       modDescription: Quill Amount
       modType: 0
@@ -1153,8 +771,8 @@ MonoBehaviour:
       magic: 0
       rare: 1
       epic: 2
-    - name: 5 -> Projectile Bounces
-      skillId: 5
+    - name: Attack -> Projectile Bounces
+      skillTypeId: 0
       skillStatId: 10
       modDescription: KnifeBounceAmount
       modType: 0
@@ -1163,8 +781,8 @@ MonoBehaviour:
       magic: 0
       rare: 1
       epic: 2
-    - name: 15 -> Projectile Speed
-      skillId: 15
+    - name: Attack -> Projectile Speed
+      skillTypeId: 0
       skillStatId: 11
       modDescription: 
       modType: 1
@@ -1173,8 +791,8 @@ MonoBehaviour:
       magic: 20
       rare: 30
       epic: 40
-    - name: 16 -> Projectile Speed
-      skillId: 16
+    - name: Attack -> Projectile Speed
+      skillTypeId: 0
       skillStatId: 11
       modDescription: QuillVelocity
       modType: 1
@@ -1183,8 +801,8 @@ MonoBehaviour:
       magic: 10
       rare: 20
       epic: 30
-    - name: Repeater -> Skill Speed
-      skillId: 3
+    - name: Attack -> Skill Speed
+      skillTypeId: 0
       skillStatId: 6
       modDescription: DashSpeed
       modType: 1
@@ -1193,8 +811,8 @@ MonoBehaviour:
       magic: 25
       rare: 30
       epic: 40
-    - name: 8 -> Skill Speed
-      skillId: 8
+    - name: Attack -> Skill Speed
+      skillTypeId: 0
       skillStatId: 6
       modDescription: 
       modType: 1
@@ -1203,8 +821,8 @@ MonoBehaviour:
       magic: 12
       rare: 16
       epic: 20
-    - name: 15 -> Skill Speed
-      skillId: 15
+    - name: Attack -> Skill Speed
+      skillTypeId: 0
       skillStatId: 6
       modDescription: 
       modType: 1
@@ -1213,8 +831,8 @@ MonoBehaviour:
       magic: 8
       rare: 0
       epic: 30
-    - name: Reflexes -> Skill Speed
-      skillId: 4
+    - name: Attack -> Skill Speed
+      skillTypeId: 0
       skillStatId: 6
       modDescription: 
       modType: 1
@@ -1223,8 +841,8 @@ MonoBehaviour:
       magic: 15
       rare: 20
       epic: 25
-    - name: Shadow Dash -> Skill Speed
-      skillId: 2
+    - name: Attack -> Skill Speed
+      skillTypeId: 0
       skillStatId: 6
       modDescription: 
       modType: 1
@@ -1233,8 +851,8 @@ MonoBehaviour:
       magic: 12
       rare: 16
       epic: 20
-    - name: 13 -> Skill Speed
-      skillId: 13
+    - name: Attack -> Skill Speed
+      skillTypeId: 0
       skillStatId: 6
       modDescription: Guard Attack Speed
       modType: 1
@@ -1243,8 +861,8 @@ MonoBehaviour:
       magic: 8
       rare: 15
       epic: 0
-    - name: 16 -> Skill Speed
-      skillId: 16
+    - name: Attack -> Skill Speed
+      skillTypeId: 0
       skillStatId: 6
       modDescription: 
       modType: 1
@@ -1253,8 +871,8 @@ MonoBehaviour:
       magic: 8
       rare: 0
       epic: 0
-    - name: 10 -> Slow Debuff Intensity
-      skillId: 10
+    - name: Attack -> Slow Debuff Intensity
+      skillTypeId: 0
       skillStatId: 15
       modDescription: 
       modType: 1
@@ -1264,39 +882,39 @@ MonoBehaviour:
       rare: 20
       epic: 25
     shrines:
-    - name: Learning -> 300 Experience Gain
+    - name: Learning -> 3 Experience Gain
       shrineId: 1
-      characterStatId: 28
-      amount: 300
-    - name: Aptitude -> 300 Cooldown Speed
+      statId: 9
+      amount: 3
+    - name: Aptitude -> 3 Cooldown Speed
       shrineId: 2
-      characterStatId: 26
-      amount: 300
-    - name: Speed -> 40 Attack Speed
+      statId: 8
+      amount: 3
+    - name: Speed -> 0.4 Attack Speed
       shrineId: 3
-      characterStatId: 25
-      amount: 40
-    - name: Speed -> 40 Move Speed
+      statId: 7
+      amount: 0.4
+    - name: Speed -> 0.4 Movement Speed
       shrineId: 3
-      characterStatId: 24
-      amount: 40
-    - name: Wealth -> 500 Gold Gain
+      statId: 6
+      amount: 0.4
+    - name: Wealth -> 5 Gold Gain
       shrineId: 4
-      characterStatId: 29
-      amount: 500
-    - name: Protection -> 75 Physical Resistance
+      statId: 40
+      amount: 5
+    - name: Protection -> 1 Physical Resistance
       shrineId: 5
-      characterStatId: 43
-      amount: 75
-    - name: Protection -> 75 Elemental Resistance
+      statId: 4
+      amount: 1
+    - name: Protection -> 1 Magic Resistance
       shrineId: 5
-      characterStatId: 40
-      amount: 75
-    - name: Protection -> 75 Crowd Control Resistance
+      statId: 5
+      amount: 1
+    - name: Protection -> 1 Crowd Control Resistance
       shrineId: 5
-      characterStatId: 60
-      amount: 75
-    - name: Power -> 200 Damage
+      statId: 37
+      amount: 1
+    - name: Power -> 2 Damage
       shrineId: 6
-      characterStatId: 2
-      amount: 200
+      statId: 12
+      amount: 2

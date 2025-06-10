@@ -1,5 +1,3 @@
-using System.ComponentModel;
-
 namespace Code.Data.Enums
 {
     public enum SkillStatId : byte

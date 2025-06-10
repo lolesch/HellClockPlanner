@@ -1,5 +1,4 @@
 using System;
-using Code.Data;
 using Code.Data.Enums;
 
 namespace Code.Runtime.Statistics
@@ -7,13 +6,14 @@ namespace Code.Runtime.Statistics
     [Serializable]
     public sealed class SkillStat
     {
+        //TODO: public readonly SkillStatData Config;
         public readonly SkillStatId Stat;
         public readonly ModifiedFloat Value;
 
-        public SkillStat( SkillStatId id, float baseValue, ModType modType )
+        public SkillStat( SkillStatId id, float baseValue, StatValueType valueType )
         {
             Stat = id;
-            Value = new ModifiedFloat( baseValue, modType );
+            Value = new ModifiedFloat( baseValue );
         }
 
         public void AddModifier( Modifier modifier ) => Value.AddModifier( modifier );

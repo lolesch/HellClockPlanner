@@ -1,13 +1,14 @@
 
 ### FIX ME
-- [ ] implement ZLinq! we use a lot of LINQ syntax
+- [x] implement ZLinq! we use a lot of LINQ syntax
 - [x] replace old stats import with new one
 	- [ ] add stat displays for all stats and put them into chategories
 	- [ ] add a toggle to show CharacterSheet / AllStats
 	- [ ] improve stat displays 
-		- [ ] support locaName
+		- [x] support locaName
 		- [ ] details -> base + modifiers -> clamping range
 		- [ ] show/hide details onHover -> stay visible onClick
+- [ ] make "Attack" selectable (hotbar) but without dropdown (to see its stats)
 - [ ] add skillStats for 
 	- [ ] conviction gain
 	- [ ] conviction decay resistance

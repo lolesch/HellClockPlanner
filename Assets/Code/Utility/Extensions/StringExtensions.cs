@@ -8,29 +8,17 @@ namespace Code.Utility.Extensions
 {
     public static class StringExtensions
     {
-        /// <summary>
-        ///     An inline richtext color converter
-        /// </summary>
-        public static string Colored( this string text, Color color )
-        {
-            return $"<color=#{ColorUtility.ToHtmlStringRGBA( color )}>{text}</color>";
-        }
+        public static string Colored( this string text, Color color ) => 
+            $"<color=#{ColorUtility.ToHtmlStringRGBA( color )}>{text}</color>";
 
-        public static string ColoredComponent( this string text )
-        {
-            return Colored( text, ColorExtensions.Prefab );
-        }
+        public static string Styled( this string text, string style ) => $"<style=\"{style}\">{text}</style>";
 
-        public static string ColoredComponent( this GameObject gameObject )
-        {
-            return ColoredComponent( gameObject.name );
-        }
+        public static string ColoredComponent( this string text ) => Colored( text, ColorExtensions.Prefab );
 
-        private static string SplitCamelCase( this object obj )
-        {
-            return Regex.Replace( obj.ToString(), "([A-Z])", " $1",
-                RegexOptions.Compiled ).Trim();
-        }
+        public static string ColoredComponent( this GameObject gameObject ) => ColoredComponent( gameObject.name );
+
+        private static string SplitCamelCase( this object obj ) => 
+            Regex.Replace( obj.ToString(), "([A-Z])", " $1", RegexOptions.Compiled ).Trim();
 
         /// <param name="obj"></param>
         /// <returns>
@@ -50,24 +38,21 @@ namespace Code.Utility.Extensions
         /// <typeparam name="T">The type of the attribute you want to retrieve</typeparam>
         /// <param name="obj">The object value</param>
         /// <returns>The attribute of type T that exists on the object value</returns>
-        public static T GetAttributeOfType<T>( this object obj ) where T : Attribute
-        {
-            return (T) obj.GetType()?.GetField( obj.ToString() )?.GetCustomAttribute( typeof(T), false );
-        }
+        private static T GetAttributeOfType<T>( this object obj ) where T : Attribute => 
+            (T) obj.GetType()?.GetField( obj.ToString() )?.GetCustomAttribute( typeof(T), false );
 
-        public static Enum ToEnum<T>( this string enumDescription ) where T : Enum
+        public static T ToEnum<T>( this string enumDescription ) where T : struct, Enum
         {
             var type = typeof(T);
+            
+            if ( Enum.TryParse( enumDescription, true, out T result ) )
+                return result;
 
             foreach( var val in Enum.GetValues( type ) )
-            {
-                if ( SplitCamelCase( (T) val ) == enumDescription )
+               if ( ToDescription( (T) val ) == enumDescription )
                     return (T) val;
-                if ( ToDescription( (T) val ) == enumDescription )
-                    return (T) val;
-            }
-
-            throw new ArgumentException( "ToEnum<T>(): Invalid description for enum " + typeof(T).Name, "enumDescription" );
+            
+            throw new ArgumentException( "Invalid conversion to " + typeof(T).Name, "enumDescription" );
         }
     }
 }

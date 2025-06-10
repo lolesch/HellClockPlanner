@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using ZLinq;
 using Code.Data.Enums;
-using Code.Runtime.Provider;
 using Code.Utility.Extensions;
 using UnityEngine;
 
@@ -21,12 +20,12 @@ namespace Code.Data.ScriptableObjects
         {
             icons ??= new List<SkillIcon>();
             //icons.Clear();
-            var ids = Enum.GetValues( typeof( SkillTypeId ) ) as SkillTypeId[];
-            var missing = ids.Where( x => icons.All( y => y.skillTypeId != x ) ).ToArray();
+            var ids = (SkillTypeId[])Enum.GetValues( typeof( SkillTypeId ) );
+            var missing = ids.AsValueEnumerable().Where( x => icons.AsValueEnumerable().All( y => y.skillTypeId != x ) ).ToArray();
             foreach( var id in missing )
                 icons.Add( new SkillIcon( id ) );
             
-            icons = icons.OrderBy( x => x.skillTypeId ).ToList();
+            icons = icons.AsValueEnumerable().OrderBy( x => x.skillTypeId ).ToList();
         }
     }
 

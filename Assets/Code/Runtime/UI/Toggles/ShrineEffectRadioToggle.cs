@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using ZLinq;
 using System.Text;
 using Code.Data.Enums;
 using Code.Runtime.Provider;
@@ -23,14 +23,16 @@ namespace Code.Runtime.UI.Toggles
 
             var imports = DataProvider.Instance.GetShrineImports();
             _modifiers = imports
+                .AsValueEnumerable()
                 .Where( x => x.shrineId == shrineId )
-                .Select( x => new CharacterStatModifier( x.statId, new Modifier( x.amount, guid )));
+                .Select( x => new CharacterStatModifier( x.statId, new Modifier( x.amount, guid )))
+                .AsEnumerable();
             
             // TODO: replace with buffDisplay
             var sb = new StringBuilder();
             sb.AppendLine( $"<smallcaps>Shrine of {shrineId.ToDescription()}</smallcaps>" );
             foreach( var modifier in _modifiers )
-                sb.AppendLine( modifier.stat.ToDescription() + $" {modifier.modifier.Value:+0.##;-0.##}".Colored(Color.green) );
+                sb.AppendLine( modifier.stat.ToDescription() + $" {modifier.modifier}".Styled( "GreenText" ) );
             
             tooltipHolder.SetTooltipText( sb.ToString() ); 
         }

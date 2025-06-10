@@ -1,18 +1,17 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using ZLinq;
 using Code.Utility.AttributeRef.Attributes;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Code.Utility.Tools.Statistics
 {
     public sealed class MutableFloat : IMutable<float>, IFormattable
     {
-        [SerializeField, ReadOnly] private float _totalValue;
-        // consider making _baseValue a Modifiable -> And growthPerLevel is applied on level up
         [SerializeField] private readonly float _baseValue;
+        // consider making _baseValue a Modifiable -> And growthPerLevel is applied on level up
         [SerializeField] private readonly List<Modifier> _modifiers;
+        [SerializeField, ReadOnly] private float _totalValue;
 
         public event Action<float> OnTotalChanged;
         public MutableFloatData GetTerms() => ApplyModifiers( out _ );
@@ -47,13 +46,13 @@ namespace Code.Utility.Tools.Statistics
             var percentAddModValue = 0f;
             
             newTotal = _baseValue;
-            if( !_modifiers.Any() )
+            if( _modifiers?.Count == 0 )
                 return new MutableFloatData( newTotal, baseValue, flatAddModValue, 1 + percentAddModValue );
 
-            flatAddModValue = _modifiers.Where( x => x.Type == ModifierType.FlatAdd ).Sum( x => x );
+            flatAddModValue = _modifiers.AsValueEnumerable().Where( x => x.Type == ModifierType.FlatAdd ).Sum( x => x );
             newTotal += flatAddModValue;
 
-            percentAddModValue = _modifiers.Where( x => x.Type == ModifierType.PercentAdd ).Sum( x => x / 100f );
+            percentAddModValue = _modifiers.AsValueEnumerable().Where( x => x.Type == ModifierType.PercentAdd ).Sum( x => x / 100f );
             newTotal *= 1 + percentAddModValue;
             
             return new MutableFloatData( newTotal, baseValue, flatAddModValue, 1 + percentAddModValue );

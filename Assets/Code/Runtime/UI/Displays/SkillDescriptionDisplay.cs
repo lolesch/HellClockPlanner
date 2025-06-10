@@ -47,9 +47,9 @@ namespace Code.Runtime.UI.Displays
             
             foreach( var globalBuff in skill.GlobalBuffs )
             {
-                var modType = GameState.Player.GetStat( globalBuff.statId ).Value.ModType;
+                var valueType = GameState.Player.GetStat( globalBuff.statId ).Config.valueType;
 
-                var perRankValueString = GetModTypeRelatedValueString( globalBuff.amountPerRank, modType );
+                var perRankValueString = GetModTypeRelatedValueString( globalBuff.amountPerRank, valueType );
                 
                 sb.AppendLine( $"{globalBuff.statId.ToDescription()} ({perRankValueString} per rank)" );
             }
@@ -63,9 +63,9 @@ namespace Code.Runtime.UI.Displays
             
             foreach( var globalBuff in skill.GlobalBuffs )
             {
-                var modType = GameState.Player.GetStat( globalBuff.statId ).Value.ModType;
+                var valueType = GameState.Player.GetStat( globalBuff.statId ).Config.valueType;
 
-                var totalValueString = GetModTypeRelatedValueString( globalBuff.amountPerRank * skill.rank, modType );
+                var totalValueString = GetModTypeRelatedValueString( globalBuff.amountPerRank * skill.rank, valueType );
 
                 if( skill.rank > 0 )
                     totalValueString = totalValueString.Colored( Color.yellow );
@@ -76,10 +76,10 @@ namespace Code.Runtime.UI.Displays
             return sb.ToString();
         }
 
-        private string GetModTypeRelatedValueString( float value, ModType modType ) => modType switch
+        private string GetModTypeRelatedValueString( float value, StatValueType valueType ) => valueType switch
         {
-            ModType.Flat => $"{value:+0.##;-0.##}",
-            ModType.Percent => $"{value:+0.##;-0.##}%",
+            StatValueType.Number => $"{value * 100:+0.##;-0.##}",
+            StatValueType.Percent => $"{value:+0.##;-0.##}%",
             _ => $"{value}",
         };
     }

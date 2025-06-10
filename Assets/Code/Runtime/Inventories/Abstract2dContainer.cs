@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using ZLinq;
 using Code.Data;
-using Code.Data.Enums;
 using UnityEngine;
 
 namespace Code.Runtime.Inventories
@@ -153,7 +152,7 @@ namespace Code.Runtime.Inventories
                 if( _gridPointer.TryGetValue(p, out var itemPosition ) )
                     itemPositions.Add( itemPosition );
 
-            return itemPositions.Distinct().ToList();
+            return itemPositions.AsValueEnumerable().Distinct().ToList();
         }
 
         public bool TryGetItemAt( ref Vector2Int position/*, out Abstract2dItem storedItem*/ )
@@ -176,7 +175,7 @@ namespace Code.Runtime.Inventories
         }
         
         private bool IsAvailable( Vector2Int position, Abstract2dItem item ) => 
-            GetRequiredPointers( position, item ).All( x => _availablePositions.Contains( x ) );
+            GetRequiredPointers( position, item ).AsValueEnumerable().All( x => _availablePositions.Contains( x ) );
         
         // TODO: move the IsWithinDimensions check to the _availablePositions setter
         private bool IsWithinDimensions( Vector2Int position ) => 
@@ -186,6 +185,7 @@ namespace Code.Runtime.Inventories
         public void Sort()
         {
             var sortedItems = storedItems
+                .AsValueEnumerable()
                 .OrderByDescending(x => x.Value.relicSizeId)
                 .ThenByDescending(x => x.Value.rarityId)
                 //.ThenBy(x => x.ToString())

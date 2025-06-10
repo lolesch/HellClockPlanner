@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using ZLinq;
 
 namespace Code.Utility.Extensions
 {
@@ -10,16 +10,16 @@ namespace Code.Utility.Extensions
     {
         public static IEnumerable<T> Randomize<T>( this IEnumerable<T> source )
         {
-            return source?.OrderBy( x => Guid.NewGuid() );
+            return source?.AsValueEnumerable().OrderBy( x => Guid.NewGuid() ).AsEnumerable();
         }
 
         public static IEnumerable<T> GetScriptableObjectsOfType<T>() where T : ScriptableObject
         {
 #if UNITY_EDITOR
             var guids = AssetDatabase.FindAssets( $"t:{typeof(T).Name}" );
-            var paths = guids.Select( AssetDatabase.GUIDToAssetPath );
+            var paths = guids.AsValueEnumerable().Select( AssetDatabase.GUIDToAssetPath );
 
-            return paths.Select( AssetDatabase.LoadAssetAtPath<T> );
+            return paths.Select( AssetDatabase.LoadAssetAtPath<T> ).AsEnumerable();
 #else
             return null;
 #endif
@@ -35,6 +35,13 @@ namespace Code.Utility.Extensions
         public static IEnumerable<T> Yield<T>( this T item )
         {
             yield return item;
+        }
+
+        public static IEnumerable<T> AsEnumerable<TEnumerator, T>( this ValueEnumerable<TEnumerator, T> valueEnumerable ) where TEnumerator : struct, IValueEnumerator<T>
+        {
+            using var e = valueEnumerable.Enumerator;
+            while ( e.TryGetNext( out var current) )
+                yield return current;
         }
     }
 }

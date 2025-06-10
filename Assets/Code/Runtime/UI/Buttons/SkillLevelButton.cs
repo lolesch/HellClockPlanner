@@ -1,5 +1,4 @@
 using Code.Data;
-using Code.Data.Enums;
 using Code.Runtime.UI.Displays;
 using TMPro;
 using UnityEngine;

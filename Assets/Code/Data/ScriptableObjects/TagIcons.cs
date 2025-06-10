@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using ZLinq;
 using Code.Data.Enums;
 using Code.Utility.Extensions;
 using UnityEngine;
@@ -21,13 +21,13 @@ namespace Code.Data.ScriptableObjects
         {
             tagIcons ??= new List<TagIcon>();
             var ids = Enum.GetValues( typeof( SkillTagId ) ) as SkillTagId[];
-            var missing = ids.Where( x => tagIcons.All( y => y.tagId != x ) ).ToArray();
+            var missing = ids.AsValueEnumerable().Where( x => tagIcons.AsValueEnumerable().All( y => y.tagId != x ) ).ToArray();
             foreach( var id in missing )
                 tagIcons.Add( new TagIcon( id ) );
             
             damageIcons ??= new List<DamageTagIcon>();
             var damageTypeIds = Enum.GetValues( typeof( DamageTypeId ) ) as DamageTypeId[];
-            var missingDamageTypeIds = damageTypeIds.Where( x => damageIcons.All( y => y.tagId != x ) ).ToArray();
+            var missingDamageTypeIds = damageTypeIds.AsValueEnumerable().Where( x => damageIcons.AsValueEnumerable().All( y => y.tagId != x ) ).ToArray();
             foreach( var id in missingDamageTypeIds )
                 damageIcons.Add( new DamageTagIcon( id ) );
         }

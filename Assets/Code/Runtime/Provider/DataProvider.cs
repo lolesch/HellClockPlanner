@@ -1,15 +1,15 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using ZLinq;
 using Code.Data;
 using Code.Data.Enums;
 using Code.Data.Imports;
 using Code.Data.Imports.Skills;
 using Code.Data.ScriptableObjects;
-using Code.Utility.AttributeRef.Attributes;
 using Code.Utility.Extensions;
 using TMPro;
 using UnityEngine;
+using ZLinq.Linq;
 
 namespace Code.Runtime.Provider
 {
@@ -40,7 +40,7 @@ namespace Code.Runtime.Provider
                 if( id == SkillTypeId.None )
                     continue;
                 
-                var definition = skillDefinitions.Skills.FirstOrDefault( x => x.id == (int)id );
+                var definition = skillDefinitions.Skills.AsValueEnumerable().FirstOrDefault( x => x.id == (int)id );
                 //var tableImport = database.tables.skills.FirstOrDefault( x => x.skillTypeId == id );
 
                 skillData.Add( new ( definition/*, tableImport*/ ) );
@@ -94,8 +94,8 @@ namespace Code.Runtime.Provider
 
         private void OnValidate()
         {
-            database = EnumerableExtensions.GetScriptableObjectsOfType<DataContainer>().First();
-            skillIcons = EnumerableExtensions.GetScriptableObjectsOfType<SkillIcons>().First();
+            database = EnumerableExtensions.GetScriptableObjectsOfType<DataContainer>().AsValueEnumerable().First();
+            skillIcons = EnumerableExtensions.GetScriptableObjectsOfType<SkillIcons>().AsValueEnumerable().First();
         }
 
         private void Start()
@@ -127,7 +127,7 @@ namespace Code.Runtime.Provider
                     newList.Add( CreateProficiencyForRarity( data, RarityId.Epic ) );
             }
             
-            proficiencies = newList.OrderBy( x => x.skillTypeId ).ThenBy( x=> x.skillStatId ).ToArray();
+            proficiencies = newList.AsValueEnumerable().OrderBy( x => x.skillTypeId ).ThenBy( x=> x.skillStatId ).ToArray();
         }
         
         //public List<CharacterStatImportData> GetBaseStatImports() => database.tables.characterStats;
@@ -140,7 +140,9 @@ namespace Code.Runtime.Provider
         public List<ProficiencyImportData> GetProficiencyImports() => database.tables.proficiencies;
         public List<ShrineImportData> GetShrineImports() => database.tables.shrines;
         
-        public List<SkillTagId> GetSkillTagsForSkill( SkillTypeId skillTypeId ) => GetSkillTagImports().Where( x => x.skillTypeId == skillTypeId ).Select( x => x.skillTagId ).ToList();
+        public List<SkillTagId> GetSkillTagsForSkill( SkillTypeId skillTypeId ) => GetSkillTagImports()
+            .AsValueEnumerable()
+            .Where( x => x.skillTypeId == skillTypeId ).Select( x => x.skillTagId ).ToList();
         
         //public List<SkillImportData> GetUnassignedSkills()
         //{
@@ -170,13 +172,13 @@ namespace Code.Runtime.Provider
         }
 
         private IEnumerable<Proficiency> GetSkillProficiencies( SkillTypeId typeId )
-            => proficiencies.Where( x => x.skillTypeId == typeId );
+            => proficiencies.AsValueEnumerable().Where( x => x.skillTypeId == typeId ).AsEnumerable();
 
         public IEnumerable<Proficiency> GetSkillProficiencies( SkillTypeId typeId, RarityId rarityId ) => 
-            GetSkillProficiencies( typeId ).Where( x => x.rarityId == rarityId )
-                .OrderBy( x => x.skillStatId);
+            GetSkillProficiencies( typeId ).AsValueEnumerable().Where( x => x.rarityId == rarityId )
+                .OrderBy( x => x.skillStatId).AsEnumerable();
         
         public Proficiency GetSkillProficiency( SkillStatId id ) 
-            => proficiencies.First( x => x.skillStatId == id );
+            => proficiencies.AsValueEnumerable().First( x => x.skillStatId == id );
     }
 }

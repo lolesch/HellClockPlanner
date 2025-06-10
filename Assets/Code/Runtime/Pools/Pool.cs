@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using ZLinq;
 using UnityEngine;
+using ZLinq.Linq;
 
 namespace Code.Runtime.Pools
 {
@@ -10,8 +12,8 @@ namespace Code.Runtime.Pools
         private readonly Transform _parent;
         private readonly List<T> _pool = new();
 
-        public IEnumerable<T> InUse => _pool.Where( x => x.gameObject.activeSelf );
-        public IEnumerable<T> Available => _pool.Except( InUse );
+        public ValueEnumerable<ListWhere<T>, T> InUse => _pool.AsValueEnumerable().Where( x => x.gameObject.activeSelf );
+        public ValueEnumerable<Except<FromList<T>, ListWhere<T>, T>, T> Available => _pool.AsValueEnumerable().Except( InUse );
 
         public Pool( T prefab, Transform parent = null, uint initialAmount = 1 )
         {

@@ -1,11 +1,10 @@
 using System;
-using System.Linq;
+using ZLinq;
 using Code.Data;
 using Code.Data.Enums;
 using Code.Data.Imports;
 using Code.Runtime.Provider;
 using Code.Runtime.Statistics;
-using Code.Runtime.UI.Displays;
 
 namespace Code.Runtime
 {
@@ -32,7 +31,7 @@ namespace Code.Runtime
         public event Action<SkillSlotData[]> OnSkillSlotsChanged;
         public event Action OnStatsChanged;
 
-        public CharacterStat GetStat( StatId statId ) => GetStats().First( x => x.Stat == statId );
+        public CharacterStat GetStat( StatId statId ) => GetStats().AsValueEnumerable().First( x => x.stat == statId );
         private CharacterStat[] GetStats() => _stats ?? InitializeCharacterStats();
 
         private CharacterStat[] InitializeCharacterStats()
@@ -93,7 +92,7 @@ namespace Code.Runtime
             {
                 // TODO: select the skill from a database instead of creating garbage every time
                 var skillData = DataProvider.Instance.GetSkillData( typeId );
-                var globalBuffs = DataProvider.Instance.GetGlobalBuffImports().Where( x => x.skillTypeId == typeId ).ToList();
+                var globalBuffs = DataProvider.Instance.GetGlobalBuffImports().AsValueEnumerable().Where( x => x.skillTypeId == typeId ).ToList();
                 skills[slotIndex] = new Skill( skillData, globalBuffs );
             }
             

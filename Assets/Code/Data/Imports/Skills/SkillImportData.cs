@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using Code.Data.Enums;
 using Code.Utility.AttributeRef.Attributes;
 using Code.Utility.Extensions;
@@ -50,10 +49,10 @@ namespace Code.Data.Imports.Skills
     {
         [HideInInspector] public string name;
         
-        [ReadOnly] public ShrineId shrineId;
-        [ReadOnly] public StatId statId;
-        [ReadOnly] public int amount;
-        //[ReadOnly] public int duration;
+        public ShrineId shrineId;
+        public StatId statId;
+        public float amount;
+        //public int duration;
         public void OnBeforeSerialize() => name = $"{shrineId.ToDescription()} -> {amount} {statId.ToDescription()}";
 
         public void OnAfterDeserialize() {}

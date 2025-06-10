@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using ZLinq;
 using Code.Data;
 using Code.Data.Enums;
 using Code.Data.Imports;
@@ -33,7 +33,7 @@ namespace Code.Runtime
         public int manaCost => _config.manaCost; // TODO: get level dependent value
         public float cooldown => _config.cooldown; // TODO: get level dependent value
         //public int baseDamage => _config.baseDamage; // TODO: get level dependent value
-        public int rank => _proficiencies.Where( x => x.Value.skillStatId != SkillStatId.None ).Sum( x => (int)x.Value.rarityId );
+        public int rank => _proficiencies.AsValueEnumerable().Where( x => x.Value.skillStatId != SkillStatId.None ).Sum( x => (int)x.Value.rarityId );
         public Guid guid { get; } = Guid.NewGuid();
 
         public bool hasDamageType => damageType == DamageTypeId.None ||
@@ -53,31 +53,32 @@ namespace Code.Runtime
             Tags = DataProvider.Instance.GetSkillTagsForSkill( _config.type );
         }
         
-        public SkillStat GetStat( SkillStatId statId ) => GetStats().First( x => x.Stat == statId );
+        public SkillStat GetStat( SkillStatId statId ) => GetStats().AsValueEnumerable().First( x => x.Stat == statId );
 
         public SkillStat[] GetStats()
         {
             if( _stats != null )
                 return _stats;
 
+            // TODO: replace with import data
             _stats = new SkillStat[]
             {
-                new ( SkillStatId.SkillProjectileAmount, _config.projectiles, ModType.Flat ),
-                new ( SkillStatId.ProjectileBounces, 0, ModType.Flat ),
+                new ( SkillStatId.SkillProjectileAmount, _config.projectiles, StatValueType.Number ),
+                new ( SkillStatId.ProjectileBounces, 0,StatValueType.Number ),
                 
-                new ( SkillStatId.Damage, _config.baseDamageMod, ModType.Percent ),
-                new ( SkillStatId.CriticalHitChance, 100, ModType.Percent ),
-                new ( SkillStatId.CriticalHitDamage, 100, ModType.Percent ),
-                new ( SkillStatId.ManaCost, 100, ModType.Percent ),
-                new ( SkillStatId.Cooldown, 100, ModType.Percent ),
-                new ( SkillStatId.SkillSpeed, 100, ModType.Percent ),
-                new ( SkillStatId.SkillAreaOfEffect, 100, ModType.Percent ),
-                new ( SkillStatId.Duration, 100, ModType.Percent ),
-                new ( SkillStatId.ProjectileSpeed, 100, ModType.Percent ),
-                new ( SkillStatId.DashDistance, 100, ModType.Percent ),
-                new ( SkillStatId.FireLightningResistShred, 100, ModType.Percent ),
-                new ( SkillStatId.PhysicalPlagueResistShred, 100, ModType.Percent ),
-                new ( SkillStatId.SlowDebuffIntensity, 100, ModType.Percent ),
+                new ( SkillStatId.Damage, _config.baseDamageMod, StatValueType.Percent ),
+                new ( SkillStatId.CriticalHitChance, 100, StatValueType.Percent ),
+                new ( SkillStatId.CriticalHitDamage, 100, StatValueType.Percent ),
+                new ( SkillStatId.ManaCost, 100, StatValueType.Percent ),
+                new ( SkillStatId.Cooldown, 100, StatValueType.Percent ),
+                new ( SkillStatId.SkillSpeed, 100, StatValueType.Percent ),
+                new ( SkillStatId.SkillAreaOfEffect, 100, StatValueType.Percent ),
+                new ( SkillStatId.Duration, 100, StatValueType.Percent ),
+                new ( SkillStatId.ProjectileSpeed, 100, StatValueType.Percent ),
+                new ( SkillStatId.DashDistance, 100, StatValueType.Percent ),
+                new ( SkillStatId.FireLightningResistShred, 100, StatValueType.Percent ),
+                new ( SkillStatId.PhysicalPlagueResistShred, 100, StatValueType.Percent ),
+                new ( SkillStatId.SlowDebuffIntensity, 100, StatValueType.Percent ),
             };
 
             return _stats;
@@ -135,11 +136,11 @@ namespace Code.Runtime
 
         public void ChangeLevel( int increment )
         {
-            RemoveLevelMods( _config.modifiersPerLevel.First(x => x.level == level ) );
+            RemoveLevelMods( _config.modifiersPerLevel.AsValueEnumerable().First(x => x.level == level ) );
             
             level = math.clamp( level + increment, 1, Const.MaxSkillLevel );
             
-            AddLevelMods( _config.modifiersPerLevel.First(x => x.level == level ) );
+            AddLevelMods( _config.modifiersPerLevel.AsValueEnumerable().First(x => x.level == level ) );
             
             OnLevelChanged?.Invoke(level);
         }

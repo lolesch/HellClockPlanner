@@ -1,5 +1,5 @@
 using System;
-using System.Linq;
+using ZLinq;
 using Code.Data;
 using Code.Data.Enums;
 using Code.Runtime.Provider;
@@ -31,6 +31,7 @@ namespace Code.Runtime.UI.Displays
         private void OnSkillChanged( TMP_Dropdown change )
         {
             var skillId = ( Enum.GetValues( typeof( SkillTypeId ) ) as SkillTypeId[] )!
+                .AsValueEnumerable()
                 .First( x => x.ToDescription() == change.options[change.value].text );
             
             GameState.Player.SetSkillIdAtSlotIndex( slot.index, skillId );
@@ -42,7 +43,7 @@ namespace Code.Runtime.UI.Displays
         {
             dropdown.ClearOptions();
             dropdown.options.Add( DataProvider.Instance.defaultOption );
-            dropdown.AddOptions( DataProvider.Instance.GetSkillDefinitions().Select( x =>
+            dropdown.AddOptions( DataProvider.Instance.GetSkillDefinitions().AsValueEnumerable().Select( x =>
                     new TMP_Dropdown.OptionData( x.type.ToDescription(), x.icon, Color.white ) ).ToList() );
         }
     }

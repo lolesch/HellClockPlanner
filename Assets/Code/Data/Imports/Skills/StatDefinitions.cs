@@ -1,5 +1,5 @@
 using System;
-using System.Linq;
+using ZLinq;
 using Code.Data.Enums;
 using Code.Utility.AttributeRef.Attributes;
 using Code.Utility.Extensions;
@@ -10,41 +10,30 @@ namespace Code.Data.Imports.Skills
     [Serializable]
     public class StatData
     {
-        public string name;
-        public int id;
-        public StatId type;
+        public StatId id;
         public LocalizedStringData[] localizedName;
         [PreviewIcon] public Sprite icon;
-        public ModType modType;
+        public StatValueType valueType;
         public float baseValue;
         public bool willClamp;
-        public Vector2 range;
+        public float minimumValue;
+        public float maximumValue;
 
         public StatData( StatDefinition definition )
         {
-            name = definition.name;
-            id = definition.id;
-            type = (StatId)definition.id;
+            id = (StatId)definition.id;
             localizedName = definition.localizedName;
             icon = Resources.Load<Sprite>( Const.GetIconPath( $"{definition.icon}" ) );
-            modType = TryGetModTypeFromString( definition.eStatFormat );
+            valueType = definition.eStatFormat.ToEnum<StatValueType>();
             baseValue = definition.baseValue;
             
             willClamp = definition.willClamp;
-            range = new Vector2( definition.minimumValue, definition.maximumValue );
+            minimumValue = definition.minimumValue; 
+            maximumValue = definition.maximumValue;
         }
         
-        public string GetLocaName(  ) => localizedName?.FirstOrDefault( x => x.langCode == Const.CurrentLocale.ToDescription() ).langTranslation;
-
-        private static ModType TryGetModTypeFromString( string eStatFormat )
-        {
-            return eStatFormat switch
-            {
-                "DEFAULT" => ModType.Flat,
-                "PERCENTAGE" => ModType.Percent,
-                _ => ModType.Flat, // Default to Flat if unknown
-            };
-        }
+        public string GetLocaName(  ) => localizedName?.AsValueEnumerable()
+            .FirstOrDefault( x => x.langCode == Const.CurrentLocale.ToDescription() ).langTranslation;
     }
     
     [Serializable]
@@ -56,7 +45,7 @@ namespace Code.Data.Imports.Skills
     [Serializable]
     public struct StatDefinition
     {
-        public string name;
+        //public string name;
         public int id;
         //public string type; // always "StatDefinition"
         public LocalizedStringData[] localizedName;

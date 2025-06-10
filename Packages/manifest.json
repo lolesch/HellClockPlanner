@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "com.annulusgames.lit-motion": "https://github.com/AnnulusGames/LitMotion.git?path=src/LitMotion/Assets/LitMotion",
+    "com.cysharp.zlinq": "https://github.com/Cysharp/ZLinq.git?path=src/ZLinq.Unity/Assets/ZLinq.Unity",
+    "com.github-glitchenzo.nugetforunity": "https://github.com/GlitchEnzo/NuGetForUnity.git?path=/src/NuGetForUnity",
     "com.kamgam.editor.gittool": "https://github.com/kamgam/UnityEditorGitTool.git",
     "com.norska-lib.spreadsheets": "https://github.com/NorskaGames/NorskaLib.Spreadsheets.git",
     "com.unity.feature.2d": "2.0.1",

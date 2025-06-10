@@ -1,7 +1,6 @@
 using Code.Data;
 using Code.Data.Enums;
 using Code.Runtime.Statistics;
-using Code.Utility.Extensions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -25,8 +24,8 @@ namespace Code.Runtime.UI.Displays
         private void Start()
         {
             _stat = GameState.Player.GetStat( statId );
-            
-            statName.text = statId.ToDescription();
+
+            statName.text = _stat.Config.GetLocaName();
             SetValueText();
 
             _stat.Value.OnTotalChanged += _ => SetValueText();
@@ -34,10 +33,19 @@ namespace Code.Runtime.UI.Displays
         
         private void SetValueText()
         {
-            var text = _stat.Value.ToString();
+            var text = _stat.ToString();
             if( statValue.text == text )
                 return;
             statValue.text = text;
+            statValue.DoPunch();
+        }
+        
+        private void SetValueDetailText()
+        {
+            var total = _stat.ToString();
+            if( statValue.text == total )
+                return;
+            statValue.text = total;
             statValue.DoPunch();
         }
     }
