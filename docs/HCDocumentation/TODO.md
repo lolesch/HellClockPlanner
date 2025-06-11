@@ -1,32 +1,29 @@
 
 ### FIX ME
-- [x] implement ZLinq! we use a lot of LINQ syntax
-- [x] replace old stats import with new one
-	- [ ] add stat displays for all stats and put them into chategories
-	- [ ] add a toggle to show CharacterSheet / AllStats
-	- [ ] improve stat displays 
-		- [x] support locaName
-		- [ ] details -> base + modifiers -> clamping range
-		- [ ] show/hide details onHover -> stay visible onClick
-- [ ] make "Attack" selectable (hotbar) but without dropdown (to see its stats)
+- [ ] proficiencies are broken, no proficiency to select from
+- [ ] skill level button throws error
 - [ ] add skillStats for 
 	- [ ] conviction gain
 	- [ ] conviction decay resistance
 - [ ] rank 0 is yellow
-- [ ] proficiencies are broken, no proficiency to select from
 - [ ] default physical damage tag from dataImport
 
 CONTINUE HERE:
 - [ ] exchange global buffs to new import and rethink who is the source
 - [ ] review statModifiersPerLevel and rethink who is the source
+- [ ] implement language selection and notify displays
+- [ ] relics
+- [ ] add a toggle to show CharacterSheet / AllStats / ModifiedOnly ...
+- [ ] improve stat displays 
+	- [ ] details -> base + modifiers -> clamping range
+	- [ ] show/hide details onHover -> stay visible onClick
+- [ ] add "Attack" default skill details
 - [ ] load icons once and store them 
 - [ ] act unlock lookup for skills, relics and gear tiers
 	- [x] Const.cs -> what act is unlocked in the builder version
-- [ ] implement language selection and apply locale change to displays
 - [x] welcome popup
 - [x] changelog
 	- [ ] automate this?
-- [ ] relics
 - [x] import data from submodule
 - [ ] Check For Trinket Upgrade ( see InventoryTetris currency for reference )
 - [x] skill details display

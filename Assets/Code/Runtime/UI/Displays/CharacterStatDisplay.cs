@@ -21,6 +21,14 @@ namespace Code.Runtime.UI.Displays
         public void OnPointerEnter( PointerEventData eventData ) => hoverImage.color = highlightedColor;
         public void OnPointerExit( PointerEventData eventData ) => hoverImage.color = Color.clear;
 
+        void OnValidate()
+        {
+            _stat = GameState.Player.GetStat( statId );
+            statName.text = _stat.Config.GetLocaName();
+            
+            SetValueText();
+        }
+        
         private void Start()
         {
             _stat = GameState.Player.GetStat( statId );
